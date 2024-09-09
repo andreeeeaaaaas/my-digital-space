@@ -6,8 +6,8 @@ A growing list of places I find myself starting new ideas (technical/musical/phi
 I hope you can find something inspiring too!
 ## People
 
-- [Suengmee Lee](https://www.seungmee-lee.com/)
-- [Steph Ango](https://stephango.com/)
+- [Suengmee Lee](https://www.seungmee-lee.com/)– an inspiring interaction designer
+- [Steph Ango](https://stephango.com/)– professional thinker on thought making software
 
 ## Sites
 
