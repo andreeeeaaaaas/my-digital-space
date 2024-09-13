@@ -6,7 +6,7 @@ permalink: /accessibility-conformance
 <p style="padding: 2em 1em; background: #f5f7ff; border-radius: 8px; font-size: .88em;">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility</p>
 <img src="assets/projects/acr-dashboard.jpg">
 <p class="caption">Recreation of the overview page of the dashboard</p>
-<p style="padding: 2em 1em; background: #EFF7FB; border-radius: 8px; font-size: .88em;">📍 Due to government privacy, the visuals shown here are basic recreations and the specific tools are not able to be mentioned</p>
+<p style="padding: 2em 1em; background: #EFF7FB; border-radius: 8px; font-size: .88em;">📍 Due to government privacy, the visuals shown here are only recreations and the specific tools are omitted</p>
 
 ## Challenge
 
@@ -43,7 +43,9 @@ The tool involved three main components:
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/design/pZUtUS8yBRc6dPViPtdYgs/Andreas-Thoma?node-id=17-17&embed-host=share" allowfullscreen></iframe>
 
 
-Prior to the this solution, it took product managers around 1 hours 1 hour of manual effort to complete the process for a single product. It would have also taken "over 2 weeks" in effort from the Head of Accessibility to collate data from all products. This solution skimmed this down to **1 minute of manual effort per product** with a fully automated script to collate and visualise the data.
+Prior to the this solution, it took product managers around 1 hour of manual effort to complete the process for a single product. It would have also taken "over 2 weeks" in effort from the Head of Accessibility to collate data from all products. 
+
+This solution skimmed this down to **1 minute of manual effort per product** with a fully automated script to collate and visualise the data.
 
 In terms of outcomes, the tool brought visibility to Service NSW product's accessibility in a way that hadn't existed before. Additionally, it saved valuable manual effort and pushed accessibility further into the product development lifecycle.
 
