@@ -11,6 +11,16 @@ permalink: /
   <flex class="align-baseline">
     <div style="min-width: 7em"><p>2023</p></div>
     <div>
+      [[Making accessibility conformance easier]]
+      <p style="margin-top: 0.5rem; font-size: 0.875em" class="muted">An internal tool to help embed accessibility into the product lifecycle at Service NSW.</p>
+    </div>
+    </flex>
+</div>
+
+<div class="bb">
+  <flex class="align-baseline">
+    <div style="min-width: 7em"><p>2023</p></div>
+    <div>
       [[Co-designing Consent]]
       <p style="margin-top: 0.5rem; font-size: 0.875em" class="muted">Consent education is grounded in the human rights of a child, so why is it's delivery fettered with complication?</p>
     </div>

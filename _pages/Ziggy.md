@@ -8,6 +8,3 @@ permalink: /ziggy
 The bestest boy in the whole world.
 
 If you would like more Ziggy, follow [@ziggyolaf](https://www.instagram.com/ziggyolaf/)
-
-
-I love you Ziggy 💛

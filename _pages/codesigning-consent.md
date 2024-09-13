@@ -6,14 +6,21 @@ permalink: /co-designing-consent
 <p class="callout">An honours thesis on how to best co-design consent education in Australian schools</p>
 
 <img src ="assets/co-designing-consent-popup.jpeg">
+<p class="caption">The interactive engagement stall on campus</p>
 > *How do you define the word consent?*<br>
 > *What ideas does the word connotate?*<br>
-> *Can you think of examples where consent is used?*<br>
+> *Can you think of examples where consent is used?*<br><br>
 ><strong>Now how would you define consent to a child?</strong>
 
-In the world of design, there is no bigger challenge than the many social problems that face the world today. My thesis sought to untangle some of the challenges and opportunities in an incredibly complex area – consent education in Australia. Specifically, I looked at how co-design might lend itself to solving some of these.
+## Challenge
+In the world of design, there is no bigger challenge than the many social problems that face the world today. My thesis sought to untangle some of the challenges and opportunities in an incredibly complex area – consent education in Australia. 
 
-## Methods
+Specifically, I looked at how co-design might lend itself to solving some of these.
+
+## Context
+I had been previously working for [Consent Labs](https://www.consentlabs.org.au/) and saw the challenges schools had in implementing successful consent education. While studying, I also led the educational program of a primary school out of hours care. These two experiences combined in me a desire to see if by combining community engagement with educational best practice, design could foster better outcomes in the area of consent education.
+
+## Process
 The qualitative-focussed research involved methods such as:
 
 - literature review – grounding the research in context
@@ -46,17 +53,15 @@ I took away many learnings from this project, growing not only as a researcher b
 
 Some of these learnings included:
 
-- Leading long format, semi-structured research interviews
-- Qualitative research synthesis
-- Planning and implementing a research plan
-- Thesis/academic writing
-- Sharing research with stakeholders to build commitment to the project
+- leading long format, semi-structured research interviews
+- qualitative research synthesis
+- planning and implementing a research plan
+- thesis/academic writing
+- sharing research with stakeholders to build commitment to the project
 
 ## Acknowledgements
 
 Supervision: [Dr Leigh-Anne Hepburn](https://www.sydney.edu.au/architecture/about/our-people/academic-staff/leigh-anne-hepburn.html)  
 Partnership: [Consent Labs](https://www.consentlabs.org.au/)
-
-## More
 
 To learn more about this project, please <a class= "internal-link" href= "/contact">reach out</a>.
