@@ -9,7 +9,7 @@ permalink: /
 <!-- <p>A collection of design, research, and work projects.</p> -->
 <div class="bb">
   <flex class="align-baseline">
-    <div style="min-width: 7em"><p>2023</p></div>
+    <div style="min-width: 7em"><p>2024</p></div>
     <div>
       [[Making accessibility conformance easier]]
       <p style="margin-top: 0.5rem; font-size: 0.875em" class="muted">An internal tool to help embed accessibility into the product lifecycle at Service NSW.</p>
