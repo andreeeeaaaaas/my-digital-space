@@ -3,10 +3,10 @@ layout: page
 title: Making accessibility conformance easier
 permalink: /accessibility-conformance
 ---
-<p style="padding: 2em 1em; background: #f5f7ff; border-radius: 8px; font-size: .88em;">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility</p>
+<p class="callout">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility</p>
 <img src="assets/projects/acr-dashboard.jpg">
 <p class="caption">Recreation of the overview page of the dashboard</p>
-<p style="padding: 2em 1em; background: #EFF7FB; border-radius: 8px; font-size: .88em;">📍 Due to government privacy, the visuals shown here are only recreations and the specific tools are omitted</p>
+<p class="callout callout-blue">📍 Due to government privacy, the visuals shown here are only recreations and the specific tools are omitted</p>
 
 ## Challenge
 
