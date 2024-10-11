@@ -3,7 +3,7 @@ layout: page
 title: Making accessibility conformance easier
 permalink: /accessibility-conformance
 ---
-<p class="callout">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility</p>
+<p class="callout">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility– nominated for a Department of Customer Service Excellence award 🏆</p>
 <img src="assets/projects/acr-dashboard.jpg">
 <p class="caption">Recreation of the overview page of the dashboard</p>
 <p class="callout callout-blue">📍 Due to government privacy, the visuals shown here are only recreations and the specific tools are omitted</p>
@@ -51,7 +51,7 @@ In terms of outcomes, the tool brought visibility to Service NSW product's acces
 
 Being the first time Service NSW had implemented accessibility reporting at this scale, I felt lucky to be able to contribute where I did.
 
-### Future iterations
+## Future iterations
 
 While my rotation has ended, future iterations of the tool could look at:
 

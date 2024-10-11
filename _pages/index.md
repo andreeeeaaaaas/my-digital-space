@@ -44,11 +44,21 @@ permalink: /
   <flex class="align-baseline">
     <div style="min-width: 7em"><p>2024</p></div>
     <div>
+      [[Cloud Moments]]
+      <p style="margin-top: 0.5rem; font-size: 0.875em" class="muted">A collection of MicroKorg pieces, inspired by the clouds that rolled past my bedroom window</p>
+    </div>
+    </flex>
+</div>
+<div class="bb">
+  <flex class="align-baseline">
+    <div style="min-width: 7em"><p>2024</p></div>
+    <div>
       [[Parao]]
       <p style="margin-top: 0.5rem; font-size: 0.875em" class="muted">A one hour ambient live performance for a night curated by Moral Laxa</p>
     </div>
     </flex>
 </div>
+
 
 <h1>Latest notes</h1>
 <ul style="list-style-type: none; padding-left: 0em;">
