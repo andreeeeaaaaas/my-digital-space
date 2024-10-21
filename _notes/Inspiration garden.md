@@ -14,6 +14,7 @@ I hope you can find something inspiring too!
 
  - [Posts.cv](https://posts.cv/)
  - [Cargo](https://cargo.site/In-Use)
+ - [Objects and Sounds](https://www.objectsandsounds.com/)
  - [Norns.community](https://norns.community/)
  - [llllllll (aka lines)](https://llllllll.co/)
  - [Music, Arts and Culture archive](https://archive.org/details/audio_music)
