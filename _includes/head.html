@@ -16,7 +16,6 @@
 
   <script src="{{ '/assets/js/prefetch.js' | relative_url }}" defer></script>
 
-
   {% if page.excerpt %}
   <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}" />
   {% else %}
