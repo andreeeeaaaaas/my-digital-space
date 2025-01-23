@@ -40,8 +40,14 @@
   </title>
 </head>
 <style>
+  :root {
+    --wrap-normal: 42rem;
+    --wrap-wide: 54rem; /* or however wide you want the images to be */
+    
+  }
+
   .wrapper {
-    max-width: 42em;
+    max-width: var(--wrap-normal);
     margin: auto;
   }
 </style>
@@ -49,82 +55,160 @@
 <body>
   <div class="wrapper">
     <nav><!-- This is a placeholder, until refactored to be nice -->
-<div style="display: flex" >
+<div style="display: flex">
     <!-- You need to fix how this displays -->
     <div style="width: 100%;">
-        <a class="nav-link" href="/">Andreas Thoma</a>
+        
+        <a class="nav-link" href="/">Andreas Thoma</a></span>
+        
     </div>
     <div style="width: 20%; text-align: right;">
         <a class="nav-link" href="/about">About</a>
     </div>
-</div>
-</nav>
-    <div class="wrapper">
-      <main><content>
+</div></nav>
+    <main><content>
   <html><body>
 <h1>Projects</h1>
-<!-- <p>A collection of design, research, and work projects.</p> -->
-<div class="bb">
+<!-- <div>
+
+  
+
+  
+
+  
+
+  
+
+  
+  <div class="pt">
   <flex class="align-baseline">
-    <div style="min-width: 7em"><p>2024</p></div>
+    <div class="label muted"><p>2024</p></div>
+    <div>
+      <a class="internal-link">Co-designing consent</a>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">An honours thesis on how to best co-design consent education in Australian schools The interactive engagement stall on campus Challenge...</p>
+    </div>
+    </flex>
+</div>
+  
+
+  
+
+  
+
+  
+  <div class="pt">
+  <flex class="align-baseline">
+    <div class="label muted"><p>2024</p></div>
+    <div>
+      <a class="internal-link">Eli</a>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">An integrated physical and digital engagement learning interface (aka eli), supporting young students Shortlisted for the University of Sydney Architecture,...</p>
+    </div>
+    </flex>
+</div>
+  
+
+  
+
+  
+  <div class="pt">
+  <flex class="align-baseline">
+    <div class="label muted"><p>2024</p></div>
+    <div>
+      <a class="internal-link">Making accessibility conformance easier</a>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility Nominated...</p>
+    </div>
+    </flex>
+</div>
+  
+
+  
+  <div class="pt">
+  <flex class="align-baseline">
+    <div class="label muted"><p>2024</p></div>
+    <div>
+      <a class="internal-link">This site!</a>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">A self-built and hosted website to hold the things I like to build, create, and share. After endlessly tweaking my...</p>
+    </div>
+    </flex>
+</div>
+  
+
+  
+
+  
+
+</div> -->
+<!-- <p>A collection of design, research, and work projects.</p> -->
+<div class="pt">
+  <flex class="align-baseline">
+    <div class="label muted"><p>Now</p></div>
+    <div>
+      <a class="internal-link" href="/my-digital-space">This site!</a>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">An open-source, extremely lightweight static site, built as an alternative to (expensive) low-code solutions.</p>
+    </div>
+    </flex>
+</div>
+<div class="pt">
+  <flex class="align-baseline">
+    <div class="label muted"><p>2024</p></div>
     <div>
       <a class="internal-link" href="/accessibility-conformance">Making accessibility conformance easier</a>
-      <p style="margin-top: 0.5rem; font-size: 0.875em" class="muted">An internal tool to help embed accessibility into the product lifecycle at Service NSW.</p>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">An internal tool to help embed accessibility into the product lifecycle at Service NSW.</p>
     </div>
     </flex>
 </div>
 
-<div class="bb">
+<div class="pt">
   <flex class="align-baseline">
-    <div style="min-width: 7em"><p>2023</p></div>
+    <div class="label muted"><p>2023</p></div>
     <div>
-      <a class="internal-link" href="/co-designing-consent">Co-designing Consent</a>
-      <p style="margin-top: 0.5rem; font-size: 0.875em" class="muted">Consent education is grounded in the human rights of a child, so why is it's delivery fettered with complication?</p>
+      <a class="internal-link" href="/co-designing-consent">Co-designing consent</a>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">Consent education is grounded in the human rights of a child, so why is it's delivery fettered with complication?</p>
     </div>
     </flex>
 </div>
 
-<div class="bb">
+<div class="pt">
   <flex class="align-baseline">
-  <div style="min-width: 7em"><p>2022</p></div>
+  <div class="label muted"><p>2022</p></div>
     <div>
       <a class="internal-link" href="/eli">Eli</a>
-      <p style="margin-top: 0.5rem; font-size: 0.875em" class="muted">An integrated physical and digital solution supporting students suffering from feelings of disconnectedness in remote learning environments.</p>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">An integrated physical and digital solution supporting students suffering from feelings of disconnectedness in remote learning environments.</p>
     </div>
     </flex>
 </div>
 
 <h1>Studio</h1>
 <!-- <p>An amalgamation of music, photos, visuals and more.</p> -->
-<div class="bb">
+<div class="pt">
   <flex class="align-baseline">
-    <div style="min-width: 7em"><p>2024</p></div>
+    <div class="label muted"><p>2024</p></div>
     <div>
       <a class="internal-link" href="/cloudmoments">Cloud Moments</a>
-      <p style="margin-top: 0.5rem; font-size: 0.875em" class="muted">A collection of MicroKorg pieces, inspired by the clouds that rolled past my bedroom window</p>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">A collection of MicroKorg pieces, inspired by the clouds that rolled past my bedroom window</p>
     </div>
     </flex>
 </div>
-<div class="bb">
+<div class="pt">
   <flex class="align-baseline">
-    <div style="min-width: 7em"><p>2024</p></div>
+    <div class="label muted"><p>2024</p></div>
     <div>
       <a class="internal-link" href="/parao">Parao</a>
-      <p style="margin-top: 0.5rem; font-size: 0.875em" class="muted">A one hour ambient live performance for a night curated by Moral Laxa</p>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">A one hour ambient live performance for a night curated by Moral Laxa</p>
     </div>
     </flex>
 </div>
 
 <h1>Latest notes</h1>
-<ul style="list-style-type: none; padding-left: 0em;">
+<ul style="list-style-type: none; padding-left: 0em;" class="pt">
   
   
     <li>
-      <span style="display: inline-block; min-width: 7em;">2024 · 11 — </span><a class="internal-link" href="/inspiration-garden">Inspiration garden</a>
+      <span style="display: inline-block" class="label muted">2024 · 12 </span><a class="internal-link" href="/what-s-a-digital-space">What's a digital space?</a>
     </li>
   
     <li>
-      <span style="display: inline-block; min-width: 7em;">2024 · 09 — </span><a class="internal-link" href="/your-first-seed">Your first seed</a>
+      <span style="display: inline-block" class="label muted">2024 · 11 </span><a class="internal-link" href="/inspiration-garden">Inspiration garden</a>
     </li>
   
 </ul>
@@ -133,7 +217,7 @@
 
 
 </main>
-      <footer><!-- <div style="width: fit-content">
+    <footer><!-- <div style="width: fit-content">
     <img src="assets/Favicon-headshot.png" alt="favicon">
 </div> -->
 <hr>
@@ -145,14 +229,15 @@ I've tried holding my output in many different iterations online; this one feels
 — Welcome to my digital space.<br><br>
 <a class="internal-link" href="/contact">Contact</a>
 </footer>
-    </div>
   </div>
 
   <!-- That file is not particularly elegant. This will need a refactor at some point. -->
 <style>
   content a.internal-link {
-    border-color: #8b88e6;
+    /* border-color: hsl(0, 0%, 85%); */
+    /* border-color: #8b88e6; */
     /* background-color: #efefff; */
+
   }
 
   #tooltip-wrapper {
@@ -165,21 +250,21 @@ I've tried holding my output in many different iterations online; this one feels
     width: 400px;
     height: 250px;
     font-size: 0.8em;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     opacity: 0;
     transition: opacity 100ms;
   }
 
   #tooltip-wrapper:after {
-		content: "";
-		position: absolute;
-		z-index: 1;
-		bottom: 0;
-		left: 0;
-		pointer-events: none;
-		background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 1) 90%);
-		width: 100%;
-		height: 75px;
+    content: "";
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 90%);
+    width: 100%;
+    height: 75px;
   }
 </style>
 
@@ -191,7 +276,7 @@ I've tried holding my output in many different iterations online; this one feels
 <iframe style="display: none; height: 0; width: 0;" id='link-preview-iframe' src="">
 </iframe>
 
-<script>
+<!-- <script>
   var opacityTimeout;
   var contentTimeout;
   var transitionDurationMs = 100;
@@ -203,9 +288,9 @@ I've tried holding my output in many different iterations online; this one feels
   var linkHistories = {};
 
   function hideTooltip() {
-    opacityTimeout = setTimeout(function() {
+    opacityTimeout = setTimeout(function () {
       tooltipWrapper.style.opacity = 0;
-      contentTimeout = setTimeout(function() {
+      contentTimeout = setTimeout(function () {
         tooltipContent.innerHTML = '';
         tooltipWrapper.style.display = 'none';
       }, transitionDurationMs + 1);
@@ -220,7 +305,7 @@ I've tried holding my output in many different iterations online; this one feels
     if (event.target.host === window.location.host) {
       if (!linkHistories[event.target.href]) {
         iframe.src = event.target.href
-        iframe.onload = function() {
+        iframe.onload = function () {
           tooltipContentHtml = ''
           tooltipContentHtml += '<div style="font-weight: bold;">' + iframe.contentWindow.document.querySelector('h1').innerHTML + '</div>'
           tooltipContentHtml += iframe.contentWindow.document.querySelector('content').innerHTML
@@ -229,14 +314,14 @@ I've tried holding my output in many different iterations online; this one feels
           linkHistories[event.target.href] = tooltipContentHtml
 
           tooltipWrapper.style.display = 'block';
-          setTimeout(function() {
+          setTimeout(function () {
             tooltipWrapper.style.opacity = 1;
           }, 1)
-        } 
+        }
       } else {
         tooltipContent.innerHTML = linkHistories[event.target.href]
         tooltipWrapper.style.display = 'block';
-        setTimeout(function() {
+        setTimeout(function () {
           tooltipWrapper.style.opacity = 1;
         }, 1)
       }
@@ -244,51 +329,50 @@ I've tried holding my output in many different iterations online; this one feels
 
       tooltipWrapper.style.left = elem_props.left - (tooltipWrapper.offsetWidth / 2) + (elem_props.width / 2) + "px";
       if ((window.innerHeight - elem_props.top) < (tooltipWrapper.offsetHeight)) {
-          tooltipWrapper.style.top = elem_props.top + top - tooltipWrapper.offsetHeight - 10 + "px";
+        tooltipWrapper.style.top = elem_props.top + top - tooltipWrapper.offsetHeight - 10 + "px";
       } else if ((window.innerHeight - elem_props.top) > (tooltipWrapper.offsetHeight)) {
-          tooltipWrapper.style.top = elem_props.top + top + 35 + "px";
+        tooltipWrapper.style.top = elem_props.top + top + 35 + "px";
       }
 
       if ((elem_props.left + (elem_props.width / 2)) < (tooltipWrapper.offsetWidth / 2)) {
-          tooltipWrapper.style.left = "10px";
+        tooltipWrapper.style.left = "10px";
       } else if ((document.body.clientWidth - elem_props.left - (elem_props.width / 2)) < (tooltipWrapper.offsetWidth / 2)) {
-          tooltipWrapper.style.left = document.body.clientWidth - tooltipWrapper.offsetWidth - 20 + "px";
+        tooltipWrapper.style.left = document.body.clientWidth - tooltipWrapper.offsetWidth - 20 + "px";
       }
     }
   }
 
   function setupListeners(linkElement) {
-    linkElement.addEventListener('mouseleave', function(_event) {
+    linkElement.addEventListener('mouseleave', function (_event) {
       hideTooltip();
     });
 
-    tooltipWrapper.addEventListener('mouseleave', function(_event) {
+    tooltipWrapper.addEventListener('mouseleave', function (_event) {
       hideTooltip();
     });
 
-    linkElement.addEventListener('touchend', function(_event) {
+    linkElement.addEventListener('touchend', function (_event) {
       hideTooltip();
     });
 
-    tooltipWrapper.addEventListener('touchend', function(_event) {
+    tooltipWrapper.addEventListener('touchend', function (_event) {
       hideTooltip();
     });
 
-    linkElement.addEventListener('mouseenter', function(event) {
+    linkElement.addEventListener('mouseenter', function (event) {
       clearTimeout(opacityTimeout);
       clearTimeout(contentTimeout);
       showTooltip(event);
     });
 
-    tooltipWrapper.addEventListener('mouseenter', function(event) {
+    tooltipWrapper.addEventListener('mouseenter', function (event) {
       clearTimeout(opacityTimeout);
       clearTimeout(contentTimeout);
     });
   }
 
   document.querySelectorAll('content a').forEach(setupListeners);
-</script>
-
+</script> -->
 </body>
 
 </html>

@@ -40,8 +40,14 @@
   </title>
 </head>
 <style>
+  :root {
+    --wrap-normal: 42rem;
+    --wrap-wide: 54rem; /* or however wide you want the images to be */
+    
+  }
+
   .wrapper {
-    max-width: 42em;
+    max-width: var(--wrap-normal);
     margin: auto;
   }
 </style>
@@ -49,18 +55,18 @@
 <body>
   <div class="wrapper">
     <nav><!-- This is a placeholder, until refactored to be nice -->
-<div style="display: flex" >
+<div style="display: flex">
     <!-- You need to fix how this displays -->
     <div style="width: 100%;">
-        <a class="nav-link" href="/">Andreas Thoma</a>
+        
+        <a class="nav-link" href="/">Andreas Thoma</a></span>
+        
     </div>
     <div style="width: 20%; text-align: right;">
         <a class="nav-link" href="/about">About</a>
     </div>
-</div>
-</nav>
-    <div class="wrapper">
-      <main><div>
+</div></nav>
+    <main><div>
   <h1>Contact me</h1>
 </div>
 <content>
@@ -69,11 +75,8 @@
 
 <p><a href="mailto:me@andreasthoma.com" target="_blank">me@andreasthoma.com</a></p>
 </body></html>
-</content>
-
-
-</main>
-      <footer><!-- <div style="width: fit-content">
+</content></main>
+    <footer><!-- <div style="width: fit-content">
     <img src="assets/Favicon-headshot.png" alt="favicon">
 </div> -->
 <hr>
@@ -85,14 +88,15 @@ I've tried holding my output in many different iterations online; this one feels
 — Welcome to my digital space.<br><br>
 <a class="internal-link" href="/contact">Contact</a>
 </footer>
-    </div>
   </div>
 
   <!-- That file is not particularly elegant. This will need a refactor at some point. -->
 <style>
   content a.internal-link {
-    border-color: #8b88e6;
+    /* border-color: hsl(0, 0%, 85%); */
+    /* border-color: #8b88e6; */
     /* background-color: #efefff; */
+
   }
 
   #tooltip-wrapper {
@@ -105,21 +109,21 @@ I've tried holding my output in many different iterations online; this one feels
     width: 400px;
     height: 250px;
     font-size: 0.8em;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     opacity: 0;
     transition: opacity 100ms;
   }
 
   #tooltip-wrapper:after {
-		content: "";
-		position: absolute;
-		z-index: 1;
-		bottom: 0;
-		left: 0;
-		pointer-events: none;
-		background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 1) 90%);
-		width: 100%;
-		height: 75px;
+    content: "";
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 90%);
+    width: 100%;
+    height: 75px;
   }
 </style>
 
@@ -131,7 +135,7 @@ I've tried holding my output in many different iterations online; this one feels
 <iframe style="display: none; height: 0; width: 0;" id='link-preview-iframe' src="">
 </iframe>
 
-<script>
+<!-- <script>
   var opacityTimeout;
   var contentTimeout;
   var transitionDurationMs = 100;
@@ -143,9 +147,9 @@ I've tried holding my output in many different iterations online; this one feels
   var linkHistories = {};
 
   function hideTooltip() {
-    opacityTimeout = setTimeout(function() {
+    opacityTimeout = setTimeout(function () {
       tooltipWrapper.style.opacity = 0;
-      contentTimeout = setTimeout(function() {
+      contentTimeout = setTimeout(function () {
         tooltipContent.innerHTML = '';
         tooltipWrapper.style.display = 'none';
       }, transitionDurationMs + 1);
@@ -160,7 +164,7 @@ I've tried holding my output in many different iterations online; this one feels
     if (event.target.host === window.location.host) {
       if (!linkHistories[event.target.href]) {
         iframe.src = event.target.href
-        iframe.onload = function() {
+        iframe.onload = function () {
           tooltipContentHtml = ''
           tooltipContentHtml += '<div style="font-weight: bold;">' + iframe.contentWindow.document.querySelector('h1').innerHTML + '</div>'
           tooltipContentHtml += iframe.contentWindow.document.querySelector('content').innerHTML
@@ -169,14 +173,14 @@ I've tried holding my output in many different iterations online; this one feels
           linkHistories[event.target.href] = tooltipContentHtml
 
           tooltipWrapper.style.display = 'block';
-          setTimeout(function() {
+          setTimeout(function () {
             tooltipWrapper.style.opacity = 1;
           }, 1)
-        } 
+        }
       } else {
         tooltipContent.innerHTML = linkHistories[event.target.href]
         tooltipWrapper.style.display = 'block';
-        setTimeout(function() {
+        setTimeout(function () {
           tooltipWrapper.style.opacity = 1;
         }, 1)
       }
@@ -184,51 +188,50 @@ I've tried holding my output in many different iterations online; this one feels
 
       tooltipWrapper.style.left = elem_props.left - (tooltipWrapper.offsetWidth / 2) + (elem_props.width / 2) + "px";
       if ((window.innerHeight - elem_props.top) < (tooltipWrapper.offsetHeight)) {
-          tooltipWrapper.style.top = elem_props.top + top - tooltipWrapper.offsetHeight - 10 + "px";
+        tooltipWrapper.style.top = elem_props.top + top - tooltipWrapper.offsetHeight - 10 + "px";
       } else if ((window.innerHeight - elem_props.top) > (tooltipWrapper.offsetHeight)) {
-          tooltipWrapper.style.top = elem_props.top + top + 35 + "px";
+        tooltipWrapper.style.top = elem_props.top + top + 35 + "px";
       }
 
       if ((elem_props.left + (elem_props.width / 2)) < (tooltipWrapper.offsetWidth / 2)) {
-          tooltipWrapper.style.left = "10px";
+        tooltipWrapper.style.left = "10px";
       } else if ((document.body.clientWidth - elem_props.left - (elem_props.width / 2)) < (tooltipWrapper.offsetWidth / 2)) {
-          tooltipWrapper.style.left = document.body.clientWidth - tooltipWrapper.offsetWidth - 20 + "px";
+        tooltipWrapper.style.left = document.body.clientWidth - tooltipWrapper.offsetWidth - 20 + "px";
       }
     }
   }
 
   function setupListeners(linkElement) {
-    linkElement.addEventListener('mouseleave', function(_event) {
+    linkElement.addEventListener('mouseleave', function (_event) {
       hideTooltip();
     });
 
-    tooltipWrapper.addEventListener('mouseleave', function(_event) {
+    tooltipWrapper.addEventListener('mouseleave', function (_event) {
       hideTooltip();
     });
 
-    linkElement.addEventListener('touchend', function(_event) {
+    linkElement.addEventListener('touchend', function (_event) {
       hideTooltip();
     });
 
-    tooltipWrapper.addEventListener('touchend', function(_event) {
+    tooltipWrapper.addEventListener('touchend', function (_event) {
       hideTooltip();
     });
 
-    linkElement.addEventListener('mouseenter', function(event) {
+    linkElement.addEventListener('mouseenter', function (event) {
       clearTimeout(opacityTimeout);
       clearTimeout(contentTimeout);
       showTooltip(event);
     });
 
-    tooltipWrapper.addEventListener('mouseenter', function(event) {
+    tooltipWrapper.addEventListener('mouseenter', function (event) {
       clearTimeout(opacityTimeout);
       clearTimeout(contentTimeout);
     });
   }
 
   document.querySelectorAll('content a').forEach(setupListeners);
-</script>
-
+</script> -->
 </body>
 
 </html>

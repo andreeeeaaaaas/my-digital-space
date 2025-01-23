@@ -1,8 +1,8 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8cfa8785-8df8-4aad-ad35-8f1c790b8baf/deploy-status)](https://app.netlify.com/sites/digital-garden-jekyll-template/deploys)
 
-# Digital garden Jekyll template
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0f28b862-8c6e-419c-8fad-147985a9ee85/deploy-status)](https://app.netlify.com/sites/andreasthoma/deploys)
 
-Use this template repository to get started with your own digital garden.
+
+Use this template repository to get started with your own digital space.
 
 **I wrote a tutorial explaining how to set it up: [Setting up your own digital garden with Jekyll](https://maximevaillancourt.com/blog/setting-up-your-own-digital-garden-with-jekyll)**
 
@@ -11,7 +11,7 @@ Preview the template here: https://digital-garden-jekyll-template.netlify.app/
 - Based on Jekyll, a static website generator
 - Supports Roam-style double bracket link syntax to other notes
 - Creates backlinks to other notes automatically
-- Features link previews on hover
+- Features link previews on hover using ({% include link-previews.html wrapperQuerySelector="content" %})
 - Includes graph visualization of the notes and their links
 - Features a simple and responsive design
 - Supports Markdown or HTML notes

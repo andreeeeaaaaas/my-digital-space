@@ -1,8 +1,16 @@
 <!-- This is a placeholder, until refactored to be nice -->
-<div style="display: flex" >
+<div style="display: flex">
     <!-- You need to fix how this displays -->
     <div style="width: 100%;">
-        <a class="nav-link" href="{{ site.baseurl }}/">{{ site.title }}</a>
+        {% if page.path contains "projects" %}
+        <a class="nav-link" href="{{ site.baseurl }}/">{{ site.title }}</a><span class="muted" style="font-size: calc(1em + 0.2vw);border-bottom: none;font-weight: 400;"> / Projects</span>
+        {% elsif page.path contains "studio" %}
+        <a class="nav-link" href="{{ site.baseurl }}/">{{ site.title }}</a><span class="muted" style="font-size: calc(1em + 0.2vw);border-bottom: none;font-weight: 400;"> / Studio</span>
+        {% elsif page.path contains "notes" %}
+        <a class="nav-link" href="{{ site.baseurl }}/">{{ site.title }}</a><span class="muted" style="font-size: calc(1em + 0.2vw);border-bottom: none;font-weight: 400;"> / Notes</span>
+        {% else %}
+        <a class="nav-link" href="{{ site.baseurl }}/">{{ site.title }}</a></span>
+        {% endif %}
     </div>
     <div style="width: 20%; text-align: right;">
         <a class="nav-link" href="{{ site.baseurl }}/about">About</a>

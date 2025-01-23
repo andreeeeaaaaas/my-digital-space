@@ -3,10 +3,13 @@ layout: page
 title: Making accessibility conformance easier
 permalink: /accessibility-conformance
 ---
-<p class="callout">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility– nominated for a Department of Customer Service Excellence award 🏆</p>
-<img src="assets/projects/acr-dashboard.jpg">
-<p class="caption">Recreation of the overview page of the dashboard</p>
-<p class="callout callout-blue">📍 Due to government privacy, the visuals shown here are only recreations and the specific tools are omitted</p>
+<p class="callout">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility</p>
+<p class="callout blue">Nominated for a Department of Customer Service Excellence award</p>
+<figure class="wide">
+	<img src="assets/projects/acr-dashboard.jpg">
+	<figcaption>The overview page of the dashboard</figcaption>
+</figure>
+<p class="callout callout">Due to government privacy, the visuals shown here are only recreations and the specific tools are omitted</p>
 
 ## Challenge
 
@@ -16,13 +19,13 @@ Product teams needed to share their accessibility results in a way that is visib
 
 While at Service NSW, I worked with the Head of Accessibility to solve a challenge product teams had in submitting and reporting their accessibility results. Lead by my fantastic PM, I wore both a design and technical hat while helping scope, design, engineer, and implement a solution for the 60+ product teams to use.
 
-The tool saved product teams valuable hours and effort in manually reporting, as well as the Head of Accessibility over 2 weeks in sifting through the data. More importantly, the tool brought visibility to product accessibility across portfolios and allowed directors and executives to lead from this data. 
+The tool saved product teams valuable hours and effort in manually reporting, as well as the Head of Accessibility over 2 weeks in sifting through the data. More importantly, the tool brought visibility to product accessibility across portfolios and allowed directors and executives to lead from this data.
 
 ## Process
 
 - one week research spike
-- mapping user and data journey 
-- writing user stories and acceptance criteria 
+- mapping user and data journey
+- writing user stories and acceptance criteria
 - design and development
 - 5 user testing sessions
 - deployment
@@ -32,18 +35,17 @@ The tool saved product teams valuable hours and effort in manually reporting, as
 The tool involved three main components:
 
 1. an upload screen for users to select their product details and attach their results
-2. an automated script that 
-	- converted the JSON data into Excel files
-	- moved filed into a folder structure
-	- ingested the data into a data visualisation tool
-	- created interactive and comparative visuals
-3.  an interactive visual dashboard that allowed users to filter results by their product, team, or portfolio
+2. an automated script that
+ - converted the JSON data into Excel files
+ - moved filed into a folder structure
+ - ingested the data into a data visualisation tool
+ - created interactive and comparative visuals
+3. an interactive visual dashboard that allowed users to filter results by their product, team, or portfolio
 
 <!-- <img src= "assets/projects/acr-flow.jpg"> -->
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/design/pZUtUS8yBRc6dPViPtdYgs/Andreas-Thoma?node-id=17-17&embed-host=share" allowfullscreen></iframe>
 
-
-Prior to the this solution, it took product managers around 1 hour of manual effort to complete the process for a single product. It would have also taken "over 2 weeks" in effort from the Head of Accessibility to collate data from all products. 
+Prior to the this solution, it took product managers around 1 hour of manual effort to complete the process for a single product. It would have also taken "over 2 weeks" in effort from the Head of Accessibility to collate data from all products.
 
 This solution skimmed this down to **1 minute of manual effort per product** with a fully automated script to collate and visualise the data.
 

@@ -75,8 +75,9 @@ class BidirectionalLinksGenerator < Jekyll::Generator
 
     # Identify note backlinks and add them to each note
     all_notes.each do |current_note|
+      
       # Nodes: Jekyll
-      notes_linking_to_current_note = all_notes.filter do |e|
+      notes_linking_to_current_note = all_docs.filter do |e|
         e.content.include?(current_note.url)
       end
 

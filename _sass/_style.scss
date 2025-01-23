@@ -5,30 +5,82 @@
 //Variables
 $color-primary: hsl(0, 0%, 10%);
 $color-text: hsl(0, 0%, 20%);
-$color-subtext: hsl(0, 0%, 30%);
-$color-muted: hsl(0, 0%, 60%);
-$color-border: hsl(0, 0%, 85%);
+$color-subtext: hsl(0, 0%, 40%);
+$color-muted: hsl(0, 0%, 65%);
+$color-border: 	hsl(242, 65%, 72%);;
 $color-box-background: mix($color-primary, white, 4%);
-$border-radius: 4px;
+$border-radius: 8px;
 $font-family: -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Helvetica,
   sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$font-size-base: calc(0.75rem + 0.25vw);
 
 /* Main */
 body {
   box-sizing: content-box;
   font-family: $font-family;
   margin: 0 auto;
-  line-height: 1.7;
   padding: 4vh 6vw;
-  overflow-x: hidden;
-  color: $color-text;
-  font-size: 1rem;
+  
+  /* Body padding */
   max-width: 63em;
+  overflow-x: hidden;
+  line-height: 1.7;
+  color: $color-text;
+  // font-size: 1em;
+  font-size: $font-size-base;
+}
 
-  @media (min-width: 820px) {
-    font-size: 1rem;
+content {
+  width: var(--wrap-normal);
+  max-width: var(--wrap-wide);
+  margin: 0 auto;
+
+  img {
+    margin-bottom: 0.5em;
+  }
+
+  figure {
+    margin: 0;
+    padding: 1em 0 1em 0;
+
+    &.wide {
+      max-width: min(100vw, var(--wrap-wide));
+      width: min(100vw, var(--wrap-wide));
+      margin-left: calc((min(100vw, var(--wrap-wide)) - 100%) / -2);
+      margin-top: 0;
+      /* Padding applies to all screen sizes */
+    }
   }
 }
+
+
+
+figcaption {
+  text-align: center;
+  font-size: 0.88em;
+  color: $color-muted;
+  padding-top: 1em;
+}
+
+@media (max-width: 60em) {
+  figure.wide {
+    position: relative;
+    max-width: 100vw;
+    width: 100vw;
+    // left: 50%;
+    // transform: translateX(-50%);
+    // margin: 0;
+  }
+
+  figure.wide img {
+    width: 100%;
+    /* Image fills full width of figure */
+    height: auto;
+    /* Maintain aspect ratio */
+    border-radius: 0;
+  }
+}
+
 
 strong {
   font-weight: 600;
@@ -75,6 +127,10 @@ hr {
   background: $color-border;
 }
 
+li {
+  margin-block-end: 0.5em;
+}
+
 /* Classes */
 .subtext {
   color: $color-subtext;
@@ -90,13 +146,26 @@ hr {
 }
 
 .callout {
-  padding: 2em 1em; 
-  background: #f5f7ff; 
-  border-radius: 8px;
+  padding: 1.5em;
+  margin: 0;
   font-size: 0.88em;
-}
-.callout-blue {
-  background: #EFF7FB;
+  background: $color-box-background;
+  border-radius: $border-radius;
+  color: $color-text;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+
+  p {
+    margin: 0;
+  }
+
+  &.blue {
+    background: #EFF7FB;
+  }
+
+  &.text-center {
+    text-align: center;
+  }
 }
 
 /* Headings */
@@ -111,38 +180,39 @@ h6 {
   padding-bottom: 0;
 }
 
-h1 { 
-  font-weight: 500;
-  font-size: 2em;
-  font-size: calc(1.25em + 0.55vw);
-  letter-spacing: -0.02em;
+h1 {
+  font-weight: 400;
+  // font-size: 2em;
+  font-size: calc(1rem + 0.55vw);
   line-height: 1.25;
   margin-top: 1.5em;
   margin-bottom: 0.25em;
 }
+
 h2 {
   font-weight: 500;
-  font-size: 1.4em;
-  font-size: calc(1em + 0.2vw);
-  letter-spacing: -0.015em;
+  font-size: calc(1rem + 0.2vw);
+  // letter-spacing: -0.015em;
   margin-top: 1em;
   margin-bottom: 0.5em;
   line-height: 1.3;
 }
-h3 { 
+
+h3 {
   font-weight: 500;
-  font-size: 1.2em;
-  font-size: 1em;
+  font-size: 1rem;
   line-height: 1.3;
   margin-top: 1em;
   margin-bottom: 0.5em;
 }
-h4 { 
+
+h4 {
   font-size: 1em;
   font-weight: 600;
-  line-height: 1.3; 
+  line-height: 1.3;
   margin-top: 1em;
 }
+
 h5 {
   font-weight: 700;
   line-height: 1.25;
@@ -156,10 +226,12 @@ content {
   h2 {
     margin-top: 2em;
   }
-  h1 + h2,
-  h2 + h3 {
+
+  h1+h2,
+  h2+h3 {
     margin-top: 1em;
   }
+
   h3 {
     margin-top: 1.5em;
   }
@@ -167,21 +239,24 @@ content {
 
 // This has potential to be tidied up, especially the nav-link
 a {
-  transition: background 300ms;
+  // transition: background 100ms;
+  transition: 150ms;
+  transition-timing-function: ease-in-out;
   padding: 0 0.1em;
   text-decoration: none;
-  border-bottom: 1px solid $color-border;
+  border-bottom: 1px solid white;
   color: $color-primary;
 
   &:hover {
     color: black !important;
     background: #efefff;
+    border-bottom: 1px solid $color-border;
   }
 
   &.nav-link {
-    font-size: 1em;
-    border-bottom: none;
-    font-weight: 500;
+    font-size: calc(1rem);
+    // border-bottom: none;
+    font-weight: 400;
   }
 
   &:after {
@@ -254,32 +329,75 @@ code {
 }
 
 /* flexbox */
-flex, .flex {
+flex,
+.flex {
   display: flex;
 }
+
 .align-center {
   align-items: center;
 }
+
 .align-baseline {
   align-items: baseline;
 }
+
+.label {
+  min-width: 8rem;
+}
+
+@media (max-width: 600px) {
+  .label {
+    min-width: 6rem;
+  }
+}
+
 .flex-grow {
   flex-grow: 1;
 }
+
 .flex-shrink {
   flex-shrink: 1;
 }
 
 /* Borders */
-.ba { border: 1px solid $color-border;}
-.bt { border-top: 1px solid $color-border;}
-.br { border-right: 1px solid $color-border;}
-.bb { border-bottom: 1px solid $color-border;}
-.bl { border-left: 1px solid $color-border;}
+.ba {
+  border: 1px solid $color-border;
+}
+
+.bt {
+  border-top: 1px solid $color-border;
+}
+
+.br {
+  border-right: 1px solid $color-border;
+}
+
+.bb {
+  border-bottom: 1px solid $color-border;
+}
+
+.bl {
+  border-left: 1px solid $color-border;
+}
 
 /* Padding */
-.pa { padding:1rem;}
-.pt { padding-top:1rem;}
-.pr { padding-right:1rem;}
-.pb { padding-bottom:1rem;}
-.pl { padding-left:1rem;}
+.pa {
+  padding: 1rem;
+}
+
+.pt {
+  padding-top: 1rem;
+}
+
+.pr {
+  padding-right: 1rem;
+}
+
+.pb {
+  padding-bottom: 1rem;
+}
+
+.pl {
+  padding-left: 1rem;
+}

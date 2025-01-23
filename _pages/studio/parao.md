@@ -4,9 +4,14 @@ title: Parao
 permalink: /parao
 ---
 <p class="callout">A one hour ambient live performance for a night curated by Moral Laxa</p>
+<figure class="wide">
 <img src="assets/studio/0R6A6864.jpeg">
-<p class="caption">In the zone, shot by Dad</p>
-
+<figcaption>In the zone, shot by Dad</figcaption>
+</figure>
+<p class="callout">
+    'Moral Laxa curates an immersive night of performance at Pact, with ambient and experimental electronics courtesy of live heavyweights Mara and Andreas.'
+    – Resident Advisor
+</p>
 
 I spent a lot of time thinking about how to approach making music for this live set.
 

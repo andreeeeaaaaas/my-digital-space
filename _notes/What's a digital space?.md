@@ -1,7 +1,6 @@
 ---
-title: Your first seed
+title: What's a digital space?
 ---
-## What on earth is a digital space?
 
 I like to think of this space as a reclamation of my own plot on the internet. 
 

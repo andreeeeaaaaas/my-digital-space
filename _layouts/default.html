@@ -2,8 +2,14 @@
 <html lang="en">
 {% include head.html %}
 <style>
+  :root {
+    --wrap-normal: 42rem;
+    --wrap-wide: 54rem; /* or however wide you want the images to be */
+    
+  }
+
   .wrapper {
-    max-width: 42em;
+    max-width: var(--wrap-normal);
     margin: auto;
   }
 </style>
@@ -11,10 +17,8 @@
 <body>
   <div class="wrapper">
     <nav>{% include nav.html %}</nav>
-    <div class="wrapper">
-      <main>{{ content }}</main>
-      <footer>{% include footer.html %}</footer>
-    </div>
+    <main>{{ content }}</main>
+    <footer>{% include footer.html %}</footer>
   </div>
 
   {% include link-previews.html wrapperQuerySelector="content" %}

@@ -1,9 +1,12 @@
 ---
-layout: page
+layout: page-no-title
 title: About me
 permalink: /about
 ---
-<img src="assets/me.jpeg"/>
+<figure>
+  <img src ="assets/me.png" alt="Me">
+  <figcaption>Me and a cat</figcaption>
+</figure>
 
 <p>I am a product designer with a passion for solving complex problems for users often left behind. </p>
 

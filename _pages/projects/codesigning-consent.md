@@ -1,18 +1,21 @@
 ---
 layout: page
-title: Co-designing Consent
+title: Co-designing consent
 permalink: /co-designing-consent
 ---
 <p class="callout">An honours thesis on how to best co-design consent education in Australian schools</p>
 
-<img src ="assets/co-designing-consent-popup.jpeg">
-<p class="caption">The interactive engagement stall on campus</p>
-> *How do you define the word consent?*<br>
-> *What ideas does the word connotate?*<br>
-> *Can you think of examples where consent is used?*<br><br>
-><strong>Now how would you define consent to a child?</strong>
+<figure class="wide">
+    <img src ="assets/co-designing-consent-popup.jpeg">
+    <figcaption>The interactive engagement stall on campus</figcaption>
+</figure>
 
 ## Challenge
+*How do you define the word consent?<br>*
+*What ideas does the word connotate?<br>*
+*Can you think of examples where consent is used?*<br>
+<strong>Now how would you define consent to a child?</strong>
+
 In the world of design, there is no bigger challenge than the many social problems that face the world today. My thesis sought to untangle some of the challenges and opportunities in an incredibly complex area – consent education in Australia. 
 
 Specifically, I looked at how co-design might lend itself to solving some of these.
@@ -29,8 +32,10 @@ The qualitative-focussed research involved methods such as:
 - an online ethnography – validating research and assumptions
 - a pop-up engagement stall – novel insight gathering
 
-<img src="assets/stakeholder-map.png">
-<p class="muted caption">Stakeholder Mapping</p>
+<figure>
+    <img src="assets/stakeholder-map.png">
+    <figcaption>Stakeholder Mapping</figcaption>
+</figure>
 
 ## Findings
 
