@@ -17,9 +17,10 @@ I spent a lot of time thinking about how to approach making music for this live 
 
 What I ended up with was a series of 13 songs that were created in the months and weeks leading up to the performance. These ranged from meanderings on the piano and guitar, to more thoughtful compositions arranged within the computer.
 
-
+<figure>
 <img src="assets/studio/parao-notebook.jpg">
-<p class="caption">Ideating a flow to the set</p>
+<figcaption>Ideating a flow to the set</figcaption>
+</figure>
 
 I am someone that doesn’t really like to make something without a strong concept behind it — music included. The event falling on my Mums birthday was too perfect not to incorporate. I prepared this new live set incorporating audio from old family videos, composing music to match those moments from her and my life.
 

@@ -7,7 +7,7 @@ $color-primary: hsl(0, 0%, 10%);
 $color-text: hsl(0, 0%, 20%);
 $color-subtext: hsl(0, 0%, 40%);
 $color-muted: hsl(0, 0%, 65%);
-$color-border: 	hsl(242, 65%, 72%);;
+$color-border: 	hsl(242, 65%, 72%);
 $color-box-background: mix($color-primary, white, 4%);
 $border-radius: 8px;
 $font-family: -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Helvetica,
@@ -22,7 +22,7 @@ body {
   padding: 4vh 6vw;
   
   /* Body padding */
-  max-width: 63em;
+  max-width: 70em;
   overflow-x: hidden;
   line-height: 1.7;
   color: $color-text;
@@ -244,7 +244,7 @@ a {
   transition-timing-function: ease-in-out;
   padding: 0 0.1em;
   text-decoration: none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgba(132, 111, 255,0);
   color: $color-primary;
 
   &:hover {
