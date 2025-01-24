@@ -14,7 +14,7 @@ permalink: /
     <div class="label muted"><p>{{page.last_modified_at | date:"%Y"}}</p></div>
     <div>
       <a class="internal-link">{{ page.title }}</a>
-      <p style="margin-top: 0; " class="subtext">{{  page.content | strip_html | truncatewords: 20  }}</p>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">{{  page.content | strip_html | truncatewords: 20  }}</p>
     </div>
     </flex>
 </div>
@@ -27,7 +27,7 @@ permalink: /
     <div class="label muted"><p>Now</p></div>
     <div>
       [[This site!]]
-      <p style="margin-top: 0;" class="subtext">An open-source, extremely lightweight static site, built as an alternative to (expensive) low-code solutions.</p>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">An open-source, extremely lightweight static site, built as an alternative to (expensive) low-code solutions.</p>
     </div>
     </flex>
 </div>
@@ -36,7 +36,7 @@ permalink: /
     <div class="label muted"><p>2024</p></div>
     <div>
       [[Making accessibility conformance easier]]
-      <p style="margin-top: 0; " class="subtext">An internal tool to help embed accessibility into the product lifecycle at Service NSW.</p>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">An internal tool to help embed accessibility into the product lifecycle at Service NSW.</p>
     </div>
     </flex>
 </div>
@@ -46,7 +46,7 @@ permalink: /
     <div class="label muted"><p>2023</p></div>
     <div>
       [[Co-designing consent]]
-      <p style="margin-top: 0; " class="subtext">Consent education is grounded in the human rights of a child, so why is it's delivery fettered with complication?</p>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">Consent education is grounded in the human rights of a child, so why is it's delivery fettered with complication?</p>
     </div>
     </flex>
 </div>
@@ -56,7 +56,7 @@ permalink: /
   <div class="label muted"><p>2022</p></div>
     <div>
       [[Eli]]
-      <p style="margin-top: 0; " class="subtext">An integrated physical and digital solution supporting students suffering from feelings of disconnectedness in remote learning environments.</p>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">An integrated physical and digital solution supporting students suffering from feelings of disconnectedness in remote learning environments.</p>
     </div>
     </flex>
 </div>
@@ -69,7 +69,7 @@ permalink: /
     <div class="label muted"><p>2024</p></div>
     <div>
       [[Cloud Moments]]
-      <p style="margin-top: 0; " class="subtext">A collection of MicroKorg pieces, inspired by the clouds that rolled past my bedroom window</p>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">A collection of MicroKorg pieces, inspired by the clouds that rolled past my bedroom window</p>
     </div>
     </flex>
 </div>
@@ -78,7 +78,7 @@ permalink: /
     <div class="label muted"><p>2024</p></div>
     <div>
       [[Parao]]
-      <p style="margin-top: 0; " class="subtext">A one hour ambient live performance for a night curated by Moral Laxa</p>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">A one hour ambient live performance for a night curated by Moral Laxa</p>
     </div>
     </flex>
 </div>
