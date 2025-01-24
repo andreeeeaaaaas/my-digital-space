@@ -5,7 +5,7 @@
 //Variables
 $color-primary: hsl(0, 0%, 10%);
 $color-text: hsl(0, 0%, 20%);
-$color-subtext: hsl(0, 0%, 40%);
+$color-subtext: hsl(0, 0%, 50%);
 $color-muted: hsl(0, 0%, 65%);
 $color-border: 	hsl(242, 65%, 72%);
 $color-box-background: mix($color-primary, white, 4%);
@@ -244,7 +244,7 @@ a {
   transition-timing-function: ease-in-out;
   padding: 0 0.1em;
   text-decoration: none;
-  border-bottom: 1px solid rgba(132, 111, 255,0);
+  border-bottom: 1px solid rgba(132, 111, 255, 0.4);
   color: $color-primary;
 
   &:hover {
@@ -255,7 +255,8 @@ a {
 
   &.nav-link {
     font-size: calc(1rem);
-    // border-bottom: none;
+    background: none;
+    // border-bottom: 1px solid rgba(132, 111, 255, 0.2);
     font-weight: 400;
   }
 
