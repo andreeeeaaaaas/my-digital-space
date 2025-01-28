@@ -64,6 +64,30 @@ permalink: /
 
 <h1>Studio</h1>
 <!-- <p>An amalgamation of music, photos, visuals and more.</p> -->
+<!-- <div>
+{% for page in site.pages %}
+  {% if page.path contains 'studio/' %}
+  <div class="pt">
+  <flex class="align-baseline">
+    <div class="label muted"><p>{{page.year}}</p></div>
+    <div>
+      <a class="internal-link">{{ page.title }}</a>
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">{{  page.content | strip_html | truncatewords: 20  }}</p>
+    </div>
+    </flex>
+</div>
+  {% endif %}
+{% endfor %}
+</div>-->
+<div class="pt">
+  <flex class="align-baseline">
+    <div class="label muted"><p>2025</p></div>
+    <div>
+      [[Patina]]
+      <p style="margin-top: 0; font-size: 0.875em" class="subtext">A one-hour long selection of tracks and accompanying interview, aired live on fbi radio on the 26th of January, 2025</p>
+    </div>
+    </flex>
+</div>
 <div class="pt">
   <flex class="align-baseline">
     <div class="label muted"><p>2024</p></div>
