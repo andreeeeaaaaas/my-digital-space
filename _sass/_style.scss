@@ -12,7 +12,7 @@ $color-box-background: mix($color-primary, white, 4%);
 $border-radius: 8px;
 $font-family: -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Helvetica,
   sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-$font-size-base: calc(12px + 0.25vw);
+$font-size-base: calc(14px + 0.25vw);
 
 /* Main */
 body {
@@ -22,7 +22,7 @@ body {
   padding: 4vh 6vw;
   
   /* Body padding */
-  max-width: 70em;
+  max-width: 60em;
   overflow-x: hidden;
   line-height: 1.7;
   color: $color-text;
@@ -62,7 +62,7 @@ figcaption {
   padding-top: 1em;
 }
 
-@media (max-width: 60em) {
+@media (max-width: 52em) {
   figure.wide {
     position: relative;
     max-width: 100vw;
@@ -181,9 +181,9 @@ h6 {
 }
 
 h1 {
-  font-weight: 400;
+  font-weight: 500;
   // font-size: 2em;
-  font-size: calc(1rem + 0.55vw);
+  font-size: calc(1rem + 0.6vw);
   line-height: 1.25;
   margin-top: 1.5em;
   margin-bottom: 0.25em;
@@ -191,7 +191,7 @@ h1 {
 
 h2 {
   font-weight: 500;
-  font-size: calc(1rem + 0.2vw);
+  font-size: calc(1rem + 0.4vw);
   // letter-spacing: -0.015em;
   margin-top: 1em;
   margin-bottom: 0.5em;
@@ -243,7 +243,7 @@ a {
   transition: 150ms;
   transition-timing-function: ease-in-out;
   padding: 0 0.1em;
-  text-decoration: none;
+  text-decoration: none ;
   border-bottom: 1px solid rgba(132, 111, 255, 0.4);
   color: $color-primary;
 

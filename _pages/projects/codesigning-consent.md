@@ -11,10 +11,10 @@ permalink: /co-designing-consent
 </figure>
 
 ## Challenge
-*How do you define the word consent?<br>*
-*What ideas does the word connotate?<br>*
-*Can you think of examples where consent is used?*<br>
-<strong>Now how would you define consent to a child?</strong>
+    How do you define the word consent?
+    What ideas does the word connotate?
+    Can you think of examples where consent is used?
+    Now how would you define consent to a child?
 
 In the world of design, there is no bigger challenge than the many social problems that face the world today. My thesis sought to untangle some of the challenges and opportunities in an incredibly complex area – consent education in Australia. 
 
