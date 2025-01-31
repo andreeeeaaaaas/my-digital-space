@@ -12,7 +12,7 @@ year: "2025"
 
 I tried to reflect these ideas in the context of love; the arguments, the joys, the tears, and ultimately the growing together that happens through it all. 
 
-Clear acoustic and vocal elements slowly dissipate and smudge into pastiches of themselves, blurred into ambient washes of emotion.
+Clear acoustic and vocal elements slowly dissipate and smudge into images of themselves, blurred into ambient wash.
 
 Coincidentally, there is a call response throughout the mix that I thought quite beautiful. The soulful pangs of Connie Converse and our mystery woman in [Nate Scheible’s Fairfax](https://daily.bandcamp.com/features/nate-scheible-fairfax-interview) talk of a love lost, or not yet delivered. 
 
