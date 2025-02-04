@@ -188,7 +188,7 @@ h6 {
 h1 {
   font-weight: 500;
   font-size: 2em;
-  font-size: calc(1rem + 0.6vw);
+  font-size: calc(1.2rem + 0.6vw);
   line-height: 1.25;
   margin-top: 1.5em;
   margin-bottom: 0.25em;
@@ -352,6 +352,7 @@ flex,
 
 .label {
   min-width: 8rem;
+  font-size: calc($font-size-base*0.9)
 }
 
 @media (max-width: 600px) {

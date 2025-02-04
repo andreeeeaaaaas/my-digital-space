@@ -6,7 +6,7 @@ permalink: /
 ---
 
 <h1>Projects</h1>
-<div class="pt">
+<div>
   <flex class="align-baseline">
     <div class="label muted"><p>Now</p></div>
     <div class="bb">
@@ -15,7 +15,7 @@ permalink: /
     </div>
     </flex>
 </div>
-<div class="pt">
+<div>
   <flex class="align-baseline">
     <div class="label muted"><p>2024</p></div>
     <div class="bb">
@@ -25,7 +25,7 @@ permalink: /
     </flex>
 </div>
 
-<div class="pt">
+<div>
   <flex class="align-baseline">
     <div class="label muted"><p>2023</p></div>
     <div class="bb">
@@ -35,7 +35,7 @@ permalink: /
     </flex>
 </div>
 
-<div class="pt">
+<div>
   <flex class="align-baseline">
   <div class="label muted"><p>2022</p></div>
     <div class="bb">
@@ -47,7 +47,7 @@ permalink: /
 
 
 <h1>Studio</h1>
-<div class="pt">
+<div>
   <flex class="align-baseline">
     <div class="label muted"><p>2025</p></div>
     <div class="bb">
@@ -56,7 +56,7 @@ permalink: /
     </div>
     </flex>
 </div>
-<div class="pt">
+<div>
   <flex class="align-baseline">
     <div class="label muted"><p>2024</p></div>
     <div class="bb">
@@ -65,7 +65,7 @@ permalink: /
     </div>
     </flex>
 </div>
-<div class="pt">
+<div>
   <flex class="align-baseline">
     <div class="label muted"><p>2024</p></div>
     <div class="bb">
@@ -77,7 +77,7 @@ permalink: /
 
 
 <h1>Latest notes</h1>
-<ul style="list-style-type: none; padding-left: 0em;" class="pt">
+<ul style="list-style-type: none; padding-left: 0em;">
   {% assign recent_notes = site.notes | sort: "last_modified_at_timestamp" | reverse %}
   {% for note in recent_notes limit: 5 %}
     <li>
