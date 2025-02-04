@@ -1,5 +1,5 @@
 ---
-
+title: Inspiration garden
 ---
 A growing list of places I find myself starting new ideas (technical/musical/philosophical), or thinking on existing ones.
 
