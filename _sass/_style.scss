@@ -7,7 +7,8 @@ $color-primary: hsl(0, 0%, 10%);
 $color-text: hsl(0, 0%, 20%);
 $color-subtext: hsl(0, 0%, 50%);
 $color-muted: hsl(0, 0%, 65%);
-$color-border: 	hsl(242, 65%, 72%);
+$color-border: 	hsl(0, 0%, 95%);
+$color-line: hsl(242, 65%, 72%);
 $color-box-background: mix($color-primary, white, 4%);
 $border-radius: 8px;
 $font-family: -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Helvetica,
@@ -15,6 +16,9 @@ $font-family: -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Helvetica,
 $font-size-base: calc(14px + 0.25vw);
 
 /* Main */
+html {
+  font-size: $font-size-base;
+}
 body {
   box-sizing: content-box;
   font-family: $font-family;
@@ -26,8 +30,9 @@ body {
   overflow-x: hidden;
   line-height: 1.7;
   color: $color-text;
-  // font-size: 1em;
-  font-size: $font-size-base;
+  font-size: 1rem;
+  // font-size: $font-size-base;
+  // font-size: clamp($font-size-base, 2.5vw, 1rem);
 }
 
 content {
@@ -124,7 +129,7 @@ hr {
   border: 0;
   height: 1px;
   margin: 1.5em 0;
-  background: $color-border;
+  background: $color-line;
 }
 
 li {
@@ -182,7 +187,7 @@ h6 {
 
 h1 {
   font-weight: 500;
-  // font-size: 2em;
+  font-size: 2em;
   font-size: calc(1rem + 0.6vw);
   line-height: 1.25;
   margin-top: 1.5em;
@@ -240,17 +245,19 @@ content {
 // This has potential to be tidied up, especially the nav-link
 a {
   // transition: background 100ms;
-  transition: 150ms;
   transition-timing-function: ease-in-out;
+  transition: 
+    background 150ms, 
+    border-bottom 150ms;
   padding: 0 0.1em;
   text-decoration: none ;
-  border-bottom: 1px solid rgba(132, 111, 255, 0.4);
+  border-bottom: 1px solid mix($color-line, white, 80%);
   color: $color-primary;
 
   &:hover {
     color: black !important;
     background: #efefff;
-    border-bottom: 1px solid $color-border;
+    border-bottom: 1px solid $color-line;
   }
 
   &.nav-link {
