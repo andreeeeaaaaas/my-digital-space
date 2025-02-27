@@ -2,6 +2,7 @@
 layout: page
 title: Eli
 permalink: /eli
+date: 2022
 ---
 <p class="callout">An integrated physical and digital engagement learning interface (aka eli), supporting young students</p>
 

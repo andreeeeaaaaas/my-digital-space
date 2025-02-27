@@ -2,6 +2,7 @@
 layout: page
 title: Making accessibility conformance easier
 permalink: /accessibility-conformance
+date: 2024
 ---
 <p class="callout">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility</p>
 <p class="callout blue">Nominated for a Department of Customer Service Excellence award</p>

@@ -2,23 +2,21 @@
 layout: page
 title: Co-designing consent
 permalink: /co-designing-consent
+date: 2023
 ---
 <p class="callout">An honours thesis on how to best co-design consent education in Australian schools</p>
 
-<figure class="wide">
-    <img src ="assets/co-designing-consent-popup.jpeg">
-    <figcaption>The interactive engagement stall on campus</figcaption>
-</figure>
+How do you define the word consent? What ideas does the word connotate? Can you think of examples where consent is used?
 
-## Challenge
-    How do you define the word consent?
-    What ideas does the word connotate?
-    Can you think of examples where consent is used?
-    Now how would you define consent to a child?
+With that in mind, how would you define consent to a child?
 
 In the world of design, there is no bigger challenge than the many social problems that face the world today. My thesis sought to untangle some of the challenges and opportunities in an incredibly complex area – consent education in Australia. 
 
 Specifically, I looked at how co-design might lend itself to solving some of these.
+<figure class="wide">
+    <img src ="assets/co-designing-consent-popup.jpeg">
+    <figcaption>The interactive engagement stall on campus</figcaption>
+</figure>
 
 ## Context
 I had been previously working for [Consent Labs](https://www.consentlabs.org.au/) and saw the challenges schools had in implementing successful consent education. While studying, I also led the educational program of a primary school out of hours care. These two experiences combined in me a desire to see if by combining community engagement with educational best practice, design could foster better outcomes in the area of consent education.
@@ -26,7 +24,7 @@ I had been previously working for [Consent Labs](https://www.consentlabs.org.au/
 ## Process
 The qualitative-focussed research involved methods such as:
 
-- literature review – grounding the research in context
+- a literature review – grounding the research in context
 - stakeholder mapping – identifying relevant parties
 - 10 semi-structured extended interviews – deep diving on experiences and understanding
 - an online ethnography – validating research and assumptions
@@ -54,7 +52,7 @@ Findings from this study contribute to discussions on the current state of conse
 
 ## Learnings
 
-I took away many learnings from this project, growing not only as a researcher but a designer as well. While a digital solution was out of scope, the research ultimately translated into design objectives and recommendations.
+In this project, I grew not only as a researcher but as a designer as well. While a digital solution was out of scope, the research ultimately translated into design objectives and recommendations.
 
 Some of these learnings included:
 

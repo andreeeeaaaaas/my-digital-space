@@ -2,7 +2,7 @@
 layout: page
 title: Patina
 permalink: /patinamix
-year: "2025"
+date: 2025
 ---
 <p class="callout">A one-hour long selection of tracks and accompanying interview, aired live on <a href="https://www.fbi.radio/programs/patina/episodes/patina-26th-january-2025/">fbi radio</a> on the 26th of January, 2025</p>
 
