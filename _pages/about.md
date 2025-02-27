@@ -10,7 +10,7 @@ permalink: /about
 
 <p>I am a product builder with a passion for solving complex problems for users often left behind. </p>
 
-In my spare time, I enjoy being in the ocean, various endeavours to become ~~bilingual~~ tri-lingual, playing with [[Ziggy]] and making strange music with [[An overly complicated systems|overly complicated systems]].
+In my spare time, I enjoy being in the ocean, various endeavours to become ~~bilingual~~ tri-lingual, playing with [[Ziggy]] and making strange music with [[An overly complicated system|overly complicated systems]].
 
 ## Experience
 Currently taking part in the NSW Government graduate program as a digital graduate, my learning has been wide-ranging and insightful.
