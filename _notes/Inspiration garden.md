@@ -1,5 +1,6 @@
 ---
 title: An inspiration garden
+published: 2024-11-10
 ---
 A growing list of places I find myself starting new ideas (technical, musical, philosophical), or thinking on existing ones. 
 

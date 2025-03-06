@@ -48,6 +48,7 @@ content {
   figure {
     margin: 0;
     padding: 1em 0 1em 0;
+    overflow: hidden;
 
     &.wide {
       max-width: min(100vw, var(--wrap-wide));
@@ -59,7 +60,22 @@ content {
   }
 }
 
+.animate-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.7s ease-in-out 0.4s forwards;
 
+  @keyframes fadeInUp {
+      from {
+          opacity: 0;
+          transform: translateY(20px);
+      }
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+}
 
 figcaption {
   text-align: center;
@@ -85,6 +101,9 @@ figcaption {
     /* Maintain aspect ratio */
     border-radius: 0;
   }
+  figure.wide iframe {
+    border-radius: 0;
+  }
 }
 
 
@@ -99,10 +118,11 @@ time {
 }
 
 footer {
-  margin: 2em 0;
+  margin: 0;
   font-size: 0.8em;
   color: mix($color-text, white, 80%);
-  padding-top: 1em;
+  padding-top: 0em;
+  padding-bottom: 1em;
 }
 
 img {
@@ -110,6 +130,10 @@ img {
   display: block;
   margin: 0 auto;
   max-height: 75vh;
+  border-radius: $border-radius;
+}
+
+iframe {
   border-radius: $border-radius;
 }
 
@@ -169,6 +193,18 @@ li {
   &.blue {
     background: #EFF7FB;
   }
+  
+  &.award {
+    position: relative;
+    padding-left: 1.5em;
+  
+    &:before {
+      content: "🏅";
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 0.5ch;
+    }
+  }
 
   &.text-center {
     text-align: center;
@@ -190,7 +226,7 @@ h6 {
 h1 {
   font-weight: 500;
   font-size: 2em;
-  font-size: calc(1.2rem + 0.6vw);
+  font-size: calc(1rem + 0.6vw);
   line-height: 1.25;
   margin-top: 1.5em;
   margin-bottom: 0.25em;

@@ -1,5 +1,6 @@
 ---
 title: Sayings I like
+published: 2025-02-24
 ---
 A growing list of sayings. Useful as both conversation starters, or maxims.
 

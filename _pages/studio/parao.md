@@ -4,7 +4,7 @@ title: Parao
 permalink: /parao
 date: 2024
 ---
-<p class="callout">A one hour ambient live performance for a night curated by Moral Laxa</p>
+<p class="callout">A one hour solo live performance for a night curated by Moral Laxa</p>
 <figure class="wide">
 <img src="assets/studio/0R6A6864.jpeg">
 <figcaption>In the zone, shot by Dad</figcaption>

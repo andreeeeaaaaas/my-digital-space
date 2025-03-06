@@ -1,16 +1,23 @@
 ---
-layout: page-no-title
+layout: page
 title: About me
 permalink: /about
 ---
-<figure class="wide">
+> Aspiring disciplinary polygot, one skill at a time
+
+I'm Andreas 👋 a **designer**, **thinker**, and **tinkerer**. I love solving complex problems with deeply-researched, strategic, and delightful solutions. 
+
+My spare time is filled with things like:
+- being in the ocean
+- endeavouring to become *~~bilingual~~* tri-lingual (¡Hola! or Υιασου!)
+- playing with [[Ziggy]]
+- making strange music with [[An overly complicated system|overly complicated systems]]
+- or trying some new thing that's taken my fancy
+
+<figure class="wide animate-up">
   <img src ="assets/me.png" alt="Me">
-  <figcaption>Me and a cat</figcaption>
+  <figcaption>A curious animal and a cat</figcaption>
 </figure>
-
-<p>I am a product builder with a passion for solving complex problems for users often left behind. </p>
-
-In my spare time, I enjoy being in the ocean, various endeavours to become ~~bilingual~~ tri-lingual, playing with [[Ziggy]] and making strange music with [[An overly complicated system|overly complicated systems]].
 
 ## Experience
 Currently taking part in the NSW Government graduate program as a digital graduate, my learning has been wide-ranging and insightful.
@@ -22,7 +29,7 @@ Prior to now, I have:
 - lead and co-directed an out of hours school care (*great fun, terribly exhausting*)
 
 ## More
-To get a more complete picture of me, follow one of the links below.
+To get a more complete picture of me, click on one of the links below.
 
 <ul>
     <li>LinkedIn– <a href="https://www.linkedin.com/in/andreas-thoma-7636a4136/">Andreas Thoma</a></li>
