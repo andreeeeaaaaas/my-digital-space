@@ -7,7 +7,7 @@ permalink: /about
 
 I'm Andreas 👋 – a designer and creator focused on thoughtful simplicity.
 
-My design work solves complex challenges through deep-research, strategic thinking, and considered experimentation; bringing creativity to the forefront. My process begins with understanding of each element within it's context and system, and results in work that feels intuitive and refined.
+My design work solves complex challenges through deep-research, strategic thinking, and considered experimentation; bringing creativity to the forefront. Beginning with understanding each element within it's context and system; resulting in work that feels intuitive and refined.
 
 As a creator, I aim to explore complex emotions and ideas through experiential mediums like music, film, and more. I want to investigate the human experience (both my that of others, and my own), creating space for reflection.
 
