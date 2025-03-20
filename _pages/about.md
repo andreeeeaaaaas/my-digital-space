@@ -21,7 +21,7 @@ My spare time is filled with things like:
 - being in the ocean
 - endeavouring to become *~~bilingual~~* tri-lingual (¡Hola! or Υιασου!)
 - playing with [[Ziggy]]
-- making strange music with [[An overly complicated system|overly complicated systems]]
+- making strange music with [[An overly complex system|overly complicated systems]]
 - or trying some new thing that's taken my fancy
 
 <figure class="wide">
