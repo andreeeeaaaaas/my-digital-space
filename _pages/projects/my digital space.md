@@ -6,7 +6,9 @@ date: Now
 ---
 <p class="callout">A self-built and published website to hold the things I like to build, create, and share</p>
 
-Portfolio websites go out of date almost immediately. Typically, they are updated sporadically; often when looking for another opportunity. The 'no-code', 'low-effort' platforms people tend to use however, charge consistently and expensively.
+Portfolio websites go out of date almost immediately. 
+
+They are updated sporadically; often when looking for another opportunity. The 'no-code', 'low-effort' platforms people tend to use however, charge consistently and expensively.
 
 This space serves as a **free**– other than the domain– **and open-sourced** method in which I can consistently and easily share what I want out there in the world. Like a good product or service, it can grow and flex with its primary user over time. 
 
@@ -20,8 +22,9 @@ Better yet, [[contact|shoot me an email and ask!]]
 
 ## Stack (and cost)
 
-- [Obsidian](https://obsidian.md/)[free]– writing pages and notes in Markdown
-- [Jekyll](https://jekyllrb.com/)[free]– turns Markdown into static webpages (HTML and CSS)
-- SCSS/CSS[free]–  custom classes and styling
-- [Netlify](https://www.netlify.com/)[free]– hosting and deployment
-- Google Domains [A$18 per year]– the andreasthoma.com domain
+
+- [$0] –[Obsidian](https://obsidian.md/)– writing pages and notes in Markdown
+- [$0] –[Jekyll](https://jekyllrb.com/)– turns Markdown into static webpages (HTML and CSS)
+- [$0] –SCSS/CSS –  custom classes and styling
+- [$0] –[Netlify](https://www.netlify.com/)– hosting and deployment
+- [$18 per year] –Google Domains– the andreasthoma.com domain

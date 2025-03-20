@@ -5,7 +5,7 @@ id: home
 permalink: /
 ---
 <div class="">
-  <flex class="align-center" style="">
+  <flex class="align-center" style="flex-direction: row">
     <div class="label" style="">
       <a class ="element-link" href="/about" style="border-radius: 999px; height: auto; margin: 0;">
         <img class ="rotate-once" src="assets/headshot-greybackground.png" style="border-radius: 999px; max-height: clamp(64px, 12vw, 6rem); margin: 0;">
@@ -28,13 +28,13 @@ permalink: /
   {% assign latest_projects = sorted_projects | where_exp: "page", "page.path contains 'projects/'" %}
 
   {% for page in latest_projects limit:5 %}
-    <div class="pb">
-      <flex class="align-baseline">
+    <div class="bb">
+      <flex class="align-baseline stack-mobile">
         <div class="label muted">
           <p>{{ page.date }}</p>
         </div>
         <div>
-          <h2 style ="margin-top: 1rem"><a class="internal-link" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
+          <h2 style =""><a class="internal-link" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
           <p style="margin-top: 0rem; color: #606060">
             {{ page.content | callout_excerpt | default: "No summary available." }}
           </p>
@@ -53,13 +53,13 @@ permalink: /
   {% assign latest_studio_projects = sorted_projects | where_exp: "page", "page.path contains 'studio/'" %}
 
   {% for page in latest_studio_projects limit:4 %}
-    <div class="pb">
-      <flex class="align-baseline">
+    <div class="bb">
+      <flex class="align-baseline stack-mobile">
         <div class="label muted">
           <p>{{ page.date }}</p>
         </div>
         <div class="">
-          <h2 style ="margin-top: 1rem"><a class="internal-link" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
+          <h2 style =""><a class="internal-link" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
           <p style="margin-top: 0rem; color: #606060">
             {{ page.content | callout_excerpt | default: "No summary available." }}
           </p>

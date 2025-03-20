@@ -13,7 +13,7 @@ The tool saved product teams valuable hours and effort in manually reporting, as
 
 Product teams needed to share their accessibility results in a way that is visible to both technical and non-technical folk.
 <figure class="wide">
-	<img src="/assets/projects/acr-dashboard.webp">
+	<img src="assets/projects/acr-dashboard-1600w.webp">
 	<figcaption>The overview page of the dashboard</figcaption>
 </figure>
 <p class="callout blue">Due to government privacy, the visuals shown here are only recreations and the specific tools are omitted</p>

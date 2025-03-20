@@ -13,7 +13,7 @@ $color-box-background: mix($color-primary, white, 4%); //245,245,245
 $border-radius: 8px;
 $font-family: -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Helvetica,
   sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-$font-size-base: calc(14px);
+$font-size-base: calc(14px + 0.05vw);
 
 /* Main */
 html {
@@ -31,7 +31,7 @@ body {
   /* Body padding */
   max-width: 60em;
   overflow-x: hidden;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 content {
@@ -157,7 +157,7 @@ iframe {
 blockquote {
   padding: 1.5em;
   margin: 0;
-  font-size: 0.88em;
+  font-size: calc($font-size-base - 1px);
   background: $color-box-background;
   border-radius: $border-radius;
   margin-block-start: 1em;
@@ -196,7 +196,7 @@ li {
 .callout {
   padding: 1.5rem;
   margin: 0;
-  font-size: $font-size-base - 1px;
+  font-size: calc($font-size-base - 1px);
   background: $color-box-background;
   border-radius: $border-radius;
   color: $color-text;
@@ -413,6 +413,24 @@ code {
 flex,
 .flex {
   display: flex;
+}
+
+flex h2 {
+  margin-top: 0rem;
+}
+
+@media (max-width: 480px) {
+  .stack-mobile {
+    flex-direction: column;
+    padding-left: 1rem;
+  }
+
+  .stack-mobile .label p {
+    margin-block-end: 0;
+  }
+  .stack-mobile h2 {
+    margin-top: 0.5rem;
+  }
 }
 
 .align-center {
