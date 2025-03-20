@@ -3,9 +3,19 @@ layout: page
 title: About me
 permalink: /about
 ---
-> Aspiring disciplinary polygot, one skill at a time
+> Aspiring creative polygot– one new skill at a time
 
-I'm Andreas 👋 a **designer**, **thinker**, and **tinkerer**. I love solving complex problems with deeply-researched, strategic, and delightful solutions. 
+I'm Andreas 👋 – a designer and creator focused on thoughtful simplicity.
+
+My design work solves complex challenges through deep-research, strategic thinking, and considered experimentation; bringing creativity to the forefront. My process begins with understanding of each element within it's context and system, and results in work that feels intuitive and refined.
+
+As a creator, I aim to explore complex emotions and ideas through experiential mediums like music, film, and more. I want to investigate the human experience (both my that of others, and my own), creating space for reflection.
+
+Whether it's a product or a service; a collection of music or a short film; I value commitment to thoughtful experimentation that guides towards a clear purpose. 
+
+The result– I hope– is work that communicates with immediacy while inviting deeper engagement.
+
+---
 
 My spare time is filled with things like:
 - being in the ocean
@@ -14,9 +24,9 @@ My spare time is filled with things like:
 - making strange music with [[An overly complicated system|overly complicated systems]]
 - or trying some new thing that's taken my fancy
 
-<figure class="wide animate-up">
-  <img src ="assets/me.png" alt="Me">
-  <figcaption>A curious animal and a cat</figcaption>
+<figure class="wide">
+  <img src ="assets/me-coffee.jpg" alt="A black and white photo of me and a coffee">
+  <figcaption>Coffee; powering me, and this website</figcaption>
 </figure>
 
 ## Experience

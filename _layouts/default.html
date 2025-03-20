@@ -3,8 +3,8 @@
 {% include head.html %}
 <style>
   :root {
-    --wrap-normal: 40em;
-    --wrap-wide: 52em; /* or however wide you want the images to be */
+    --wrap-normal: 37rem;
+    --wrap-wide: 60rem; /* or however wide you want the images to be */
   }
 
   .wrapper {
@@ -16,11 +16,12 @@
 <body>
   <div class="wrapper">
     <nav>{% include nav.html %}</nav>
-    <main>{{ content }}</main>
+    <main class="pb">{{ content }}</main>
     <footer class="bt">{% include footer.html %}</footer>
   </div>
-
+  {% comment %}
   {% include link-previews.html wrapperQuerySelector="content" %}
+  {% endcomment %}
 </body>
 
 </html>

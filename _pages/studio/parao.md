@@ -9,7 +9,7 @@ date: 2024
 <img src="assets/studio/0R6A6864.jpeg">
 <figcaption>In the zone, shot by Dad</figcaption>
 </figure>
-<p class="callout">
+<p class="callout blue">
     'Moral Laxa curates an immersive night of performance at Pact, with ambient and experimental electronics courtesy of live heavyweights Mara and Andreas.'
     – Resident Advisor
 </p>

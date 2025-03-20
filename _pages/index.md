@@ -4,8 +4,22 @@ title: Home
 id: home
 permalink: /
 ---
+<div class="">
+  <flex class="align-center" style="">
+    <div class="label" style="">
+      <a class ="element-link" href="/about" style="border-radius: 999px; height: auto; margin: 0;">
+        <img class ="rotate-once" src="assets/headshot-greybackground.png" style="border-radius: 999px; max-height: clamp(64px, 12vw, 6rem); margin: 0;">
+      </a>
+    </div>
+    <div class="callout">
+      <p>
+        I'm Andreas 👋 – a designer, thinker, and creator. I love solving complex problems with deeply-researched, strategic, and delightful solutions.
+      </p>
+    </div>
+  </flex>
+</div>
 
-<h1>Projects</h1>
+<h1 class="pt"><a href="/projects" class="nav-link">Projects</a></h1>
 <div>
   {% assign current_project = site.pages | where: "date", "Now" %}
   {% assign older_projects = site.pages | where_exp: "project", "project.date != 'Now'" | sort: "date" | reverse %}
@@ -14,37 +28,45 @@ permalink: /
   {% assign latest_projects = sorted_projects | where_exp: "page", "page.path contains 'projects/'" %}
 
   {% for page in latest_projects limit:5 %}
-    <div>
-      <flex class="align-baseline bb">
+    <div class="pb">
+      <flex class="align-baseline">
         <div class="label muted">
           <p>{{ page.date }}</p>
         </div>
-        <div class="">
-          <a class="internal-link" href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a>
-          <p style="margin-top: 0; font-size: 0.875em" class="subtext">
+        <div>
+          <h2 style ="margin-top: 1rem"><a class="internal-link" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
+          <p style="margin-top: 0rem; color: #606060">
             {{ page.content | callout_excerpt | default: "No summary available." }}
           </p>
+          {% assign img_tag = page.content | split:'<img ' | slice: 1 | first %}
+            {% if img_tag %}
+              <img style="margin-block-end: 1em" {{ img_tag | split:'>' | first }}>
+            {% endif %}
         </div>
       </flex>
     </div>
   {% endfor %}
 </div>
 
-<h1>Studio</h1>
+<h1 class="pt"><a href="/studio" class="nav-link">Studio</a></h1>
 <div>
   {% assign latest_studio_projects = sorted_projects | where_exp: "page", "page.path contains 'studio/'" %}
 
   {% for page in latest_studio_projects limit:4 %}
-    <div>
-      <flex class="align-baseline bb">
+    <div class="pb">
+      <flex class="align-baseline">
         <div class="label muted">
           <p>{{ page.date }}</p>
         </div>
         <div class="">
-          <a class="internal-link" href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a>
-          <p style="margin-top: 0; font-size: 0.875em" class="subtext">
+          <h2 style ="margin-top: 1rem"><a class="internal-link" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
+          <p style="margin-top: 0rem; color: #606060">
             {{ page.content | callout_excerpt | default: "No summary available." }}
           </p>
+          {% assign img_tag = page.content | split:'<img ' | slice: 1 | first %}
+            {% if img_tag %}
+              <img style="margin-block-end: 1em" {{ img_tag | split:'>' | first }}>
+            {% endif %}
         </div>
       </flex>
     </div>
@@ -52,21 +74,15 @@ permalink: /
 </div>
 
 
-<h1>Latest notes</h1>
-<!-- <ul style="list-style-type: none; padding-left: 0em;">
-  {% assign recent_notes = site.notes | sort: "last_modified_at_timestamp" | reverse %}
-  {% for note in recent_notes limit: 5 %}
-    <li>
-      <span style="display: inline-block" class ="label muted">{{ note.last_modified_at | date: "%b · %Y " }}</span><a class="internal-link" href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a>
-    </li>
-  {% endfor %}
-</ul> -->
-<ul style="list-style-type: none; padding-left: 0em; margin-bottom: 1.5em">
-  {% assign recent_notes = site.notes | sort: "published" | reverse %}
-  {% for note in recent_notes limit: 5 %}
-    <li>
-      <span style="display: inline-block" class ="label muted">{{ note.published | date: " %Y · %b" }}</span><a class="internal-link" href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+<h1 class="pt"><a href="/notes" class="nav-link">Latest notes</a></h1>
+<div class="">
+  <ul style="list-style-type: none; padding-left: 0em; margin-bottom: 1.5em">
+    {% assign recent_notes = site.notes | sort: "published" | reverse %}
+    {% for note in recent_notes limit: 5 %}
+      <li>
+        <span style="display: inline-block" class ="label muted">{{ note.published | date: " %Y · %b" }}</span><a class="internal-link" href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
 

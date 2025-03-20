@@ -12,3 +12,6 @@ Spanish for ‘don’t give papaya’. <br>Don’t give reason for misfortune.
 
 >**”The biggest problem with communication is the illusion that it has occurred”**  
 George Bernard-Shaw. <br>Communication doesn't imply understanding.
+
+> **“You can use an eraser in the drafting table, or a sledgehammer on the construction site”**  
+> Frank Lloyd Wright. <br>Build considered.
