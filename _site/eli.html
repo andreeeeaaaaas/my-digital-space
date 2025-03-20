@@ -45,8 +45,8 @@
 </head>
 <style>
   :root {
-    --wrap-normal: 40em;
-    --wrap-wide: 52em; /* or however wide you want the images to be */
+    --wrap-normal: 37rem;
+    --wrap-wide: 60rem; /* or however wide you want the images to be */
   }
 
   .wrapper {
@@ -62,14 +62,14 @@
     <!-- You need to fix how this displays -->
     <div style="width: 100%;">
         
-        <a class="nav-link" href="/">Andreas Thoma</a><span class="muted" style="font-size: 1rem;border-bottom: none;font-weight: 400;"> / Projects</span>
+        <a class="nav-link" href="/">Andreas Thoma</a><a href="/projects" class="element-link" style="color: #999; font-weight: 350; font-size: 16px; padding-top: 0;"> / Projects</a>
         
     </div>
     <div style="width: 20%; text-align: right;">
         <a class="nav-link" href="/about">About</a>
     </div>
 </div></nav>
-    <main><div>
+    <main class="pb"><div>
   <h1>Eli</h1>
 </div>
 <content>
@@ -100,6 +100,9 @@
 <br><br>
 Part of the <a href="https://www.sydney.edu.au/units/DECO3200" target="_blank">Interactive Product Design Studio</a> at the University of Sydney.</p>
 
+<h2 id="awards">Awards</h2>
+<p>Shortlisted for University of Sydney Architecture, Design and Planning Industry award</p>
+
 <h2 id="acknowledgements">Acknowledgements</h2>
 <h3 id="team">Team</h3>
 <p>Alex Pribula<br>
@@ -113,7 +116,6 @@ Lachlan Paull</p>
     <img src="assets/Favicon-headshot.png" alt="favicon">
 </div> -->
 <br>
-~ ~ ~ 
 <br>
 Hey there, I'm Andreas 👋 <br>
 
@@ -122,149 +124,7 @@ I've tried holding my output in many different iterations online; this one feels
 <a class="internal-link" href="/contact">Contact</a>
 </footer>
   </div>
-
-  <!-- That file is not particularly elegant. This will need a refactor at some point. -->
-<style>
-  content a.internal-link {
-    /* border-color: hsl(0, 0%, 85%); */
-    /* border-color: #8b88e6; */
-    /* background-color: #efefff; */
-
-  }
-
-  #tooltip-wrapper {
-    background: white;
-    padding: 1em;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    overflow: hidden;
-    position: absolute;
-    width: 400px;
-    height: 250px;
-    font-size: 0.8em;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transition: opacity 100ms;
-  }
-
-  #tooltip-wrapper:after {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    pointer-events: none;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 90%);
-    width: 100%;
-    height: 75px;
-  }
-</style>
-
-<div style="opacity: 0; display: none;" id='tooltip-wrapper'>
-  <div id='tooltip-content'>
-  </div>
-</div>
-
-<iframe style="display: none; height: 0; width: 0;" id='link-preview-iframe' src="">
-</iframe>
-
-<!-- <script>
-  var opacityTimeout;
-  var contentTimeout;
-  var transitionDurationMs = 100;
-
-  var iframe = document.getElementById('link-preview-iframe')
-  var tooltipWrapper = document.getElementById('tooltip-wrapper')
-  var tooltipContent = document.getElementById('tooltip-content')
-
-  var linkHistories = {};
-
-  function hideTooltip() {
-    opacityTimeout = setTimeout(function () {
-      tooltipWrapper.style.opacity = 0;
-      contentTimeout = setTimeout(function () {
-        tooltipContent.innerHTML = '';
-        tooltipWrapper.style.display = 'none';
-      }, transitionDurationMs + 1);
-    }, transitionDurationMs)
-  }
-
-  function showTooltip(event) {
-    var elem = event.target;
-    var elem_props = elem.getClientRects()[elem.getClientRects().length - 1];
-    var top = window.pageYOffset || document.documentElement.scrollTop
-
-    if (event.target.host === window.location.host) {
-      if (!linkHistories[event.target.href]) {
-        iframe.src = event.target.href
-        iframe.onload = function () {
-          tooltipContentHtml = ''
-          tooltipContentHtml += '<div style="font-weight: bold;">' + iframe.contentWindow.document.querySelector('h1').innerHTML + '</div>'
-          tooltipContentHtml += iframe.contentWindow.document.querySelector('content').innerHTML
-
-          tooltipContent.innerHTML = tooltipContentHtml
-          linkHistories[event.target.href] = tooltipContentHtml
-
-          tooltipWrapper.style.display = 'block';
-          setTimeout(function () {
-            tooltipWrapper.style.opacity = 1;
-          }, 1)
-        }
-      } else {
-        tooltipContent.innerHTML = linkHistories[event.target.href]
-        tooltipWrapper.style.display = 'block';
-        setTimeout(function () {
-          tooltipWrapper.style.opacity = 1;
-        }, 1)
-      }
-
-
-      tooltipWrapper.style.left = elem_props.left - (tooltipWrapper.offsetWidth / 2) + (elem_props.width / 2) + "px";
-      if ((window.innerHeight - elem_props.top) < (tooltipWrapper.offsetHeight)) {
-        tooltipWrapper.style.top = elem_props.top + top - tooltipWrapper.offsetHeight - 10 + "px";
-      } else if ((window.innerHeight - elem_props.top) > (tooltipWrapper.offsetHeight)) {
-        tooltipWrapper.style.top = elem_props.top + top + 35 + "px";
-      }
-
-      if ((elem_props.left + (elem_props.width / 2)) < (tooltipWrapper.offsetWidth / 2)) {
-        tooltipWrapper.style.left = "10px";
-      } else if ((document.body.clientWidth - elem_props.left - (elem_props.width / 2)) < (tooltipWrapper.offsetWidth / 2)) {
-        tooltipWrapper.style.left = document.body.clientWidth - tooltipWrapper.offsetWidth - 20 + "px";
-      }
-    }
-  }
-
-  function setupListeners(linkElement) {
-    linkElement.addEventListener('mouseleave', function (_event) {
-      hideTooltip();
-    });
-
-    tooltipWrapper.addEventListener('mouseleave', function (_event) {
-      hideTooltip();
-    });
-
-    linkElement.addEventListener('touchend', function (_event) {
-      hideTooltip();
-    });
-
-    tooltipWrapper.addEventListener('touchend', function (_event) {
-      hideTooltip();
-    });
-
-    linkElement.addEventListener('mouseenter', function (event) {
-      clearTimeout(opacityTimeout);
-      clearTimeout(contentTimeout);
-      showTooltip(event);
-    });
-
-    tooltipWrapper.addEventListener('mouseenter', function (event) {
-      clearTimeout(opacityTimeout);
-      clearTimeout(contentTimeout);
-    });
-  }
-
-  document.querySelectorAll('content a').forEach(setupListeners);
-</script> -->
+  
 </body>
 
 </html>
