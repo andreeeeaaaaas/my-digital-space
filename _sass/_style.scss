@@ -1,6 +1,5 @@
 //Coolors pallette
 // https://coolors.co/ffe8bc-f5f7ff-1a1a1a-8b88e6-eff7fb
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
 
 //Variables
 $color-primary: hsl(0, 0%, 0%);
@@ -11,7 +10,7 @@ $color-border: hsl(0, 0%, 90%);
 $color-line: hsl(242, 65%, 72%);
 $color-box-background: mix($color-primary, white, 4%); //245,245,245
 $border-radius: 8px;
-$font-family: -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Helvetica,
+$font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
   sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $font-size-base: calc(14px + 0.05vw);
 
@@ -422,7 +421,7 @@ flex h2 {
 @media (max-width: 480px) {
   .stack-mobile {
     flex-direction: column;
-    padding-left: 1rem;
+    // padding-left: 1rem;
   }
 
   .stack-mobile .label p {

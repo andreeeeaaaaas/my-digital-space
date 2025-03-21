@@ -13,7 +13,7 @@ permalink: /
     </div>
     <div class="callout" style="width: 100%">
       <p>
-       Hi, I’m Andreas 👋 – a designer and creator focused on thoughtful simplicity.
+       Hi, I’m Andreas 👋 – a designer, musician, and creator
       </p>
     </div>
   </flex>
@@ -28,12 +28,12 @@ permalink: /
   {% assign latest_projects = sorted_projects | where_exp: "page", "page.path contains 'projects/'" %}
 
   {% for page in latest_projects limit:5 %}
-    <div class="">
+    <div class="bb">
       <flex class="align-baseline stack-mobile">
         <div class="label muted">
           <p>{{ page.date }}</p>
         </div>
-        <div class="bb">
+        <div class="">
           <h2 style =""><a class="internal-link" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
           <p style="margin-top: 0rem; color: #606060">
             {{ page.content | callout_excerpt | default: "No summary available." }}
@@ -53,12 +53,12 @@ permalink: /
   {% assign latest_studio_projects = sorted_projects | where_exp: "page", "page.path contains 'studio/'" %}
 
   {% for page in latest_studio_projects limit:4 %}
-    <div class="">
+    <div class="bb">
       <flex class="align-baseline stack-mobile">
         <div class="label muted">
           <p>{{ page.date }}</p>
         </div>
-        <div class="bb">
+        <div class="">
           <h2 style =""><a class="internal-link" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
           <p style="margin-top: 0rem; color: #606060">
             {{ page.content | callout_excerpt | default: "No summary available." }}

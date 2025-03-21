@@ -14,19 +14,15 @@ permalink: /projects
 
   {% for page in latest_projects %}
     <div class="">
-      <flex class="align-baseline stack-mobile">
+      <flex class="align-baseline">
         <div class="label muted">
           <p>{{ page.date }}</p>
         </div>
-        <div class="bb">
+        <div class="">
           <h2 style ="margin-top: 1rem"><a class="internal-link" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
           <p style="margin-top: 0rem; color: #606060">
             {{ page.content | callout_excerpt | default: "No summary available." }}
           </p>
-          {% assign img_tag = page.content | split:'<img ' | slice: 1 | first %}
-            {% if img_tag %}
-              <img style="margin-block-end: 1em" {{ img_tag | split:'>' | first }}>
-            {% endif %}
         </div>
       </flex>
     </div>
