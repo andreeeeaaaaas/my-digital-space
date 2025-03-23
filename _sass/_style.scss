@@ -4,7 +4,7 @@
 //Variables
 $color-primary: hsl(0, 0%, 0%);
 $color-text: hsl(0, 0%, 15%);
-$color-subtext: hsl(0, 0%, 50%);
+$color-subtext: #606060;
 $color-muted: #999;
 $color-border: hsl(0, 0%, 90%);
 $color-line: hsl(242, 65%, 72%);
@@ -15,6 +15,16 @@ $font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
 $font-size-base: calc(14px + 0.05vw);
 
 /* Main */
+:root {
+  --wrap-normal: 39rem;
+  --wrap-wide: 60rem; /* or however wide you want the images to be */
+}
+
+.wrapper {
+  max-width: var(--wrap-normal);
+  margin: auto;
+}
+
 html {
   font-size: $font-size-base;
 }
@@ -101,7 +111,7 @@ figcaption {
   padding-top: 1em;
 }
 
-@media (max-width: 52rem) {
+@media (max-width: 54rem) {
   figure.wide {
     position: relative;
     max-width: 100vw;
@@ -198,7 +208,7 @@ li {
   font-size: calc($font-size-base - 1px);
   background: $color-box-background;
   border-radius: $border-radius;
-  color: $color-text;
+  color: $color-subtext;
   margin-block-start: 1em;
   margin-block-end: 1em;
 
@@ -208,6 +218,10 @@ li {
 
   &.blue {
     background: #EFF7FB;
+  }
+
+  &.yellow {
+    background: mix(#FFE8BC, white, 40%);
   }
   
   &.award {
@@ -430,6 +444,10 @@ flex h2 {
   .stack-mobile h2 {
     margin-top: 0.5rem;
   }
+}
+
+.m-0 {
+  margin: 0;
 }
 
 .align-center {

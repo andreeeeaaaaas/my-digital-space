@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 {% include head.html %}
-<style>
-  :root {
-    --wrap-normal: 37rem;
-    --wrap-wide: 60rem; /* or however wide you want the images to be */
-  }
-
-  .wrapper {
-    max-width: var(--wrap-normal);
-    margin: auto;
-  }
-</style>
 
 <body>
   <div class="wrapper">
     <nav>{% include nav.html %}</nav>
     <main class="pb">{{ content }}</main>
-    <footer class="bt">{% include footer.html %}</footer>
+    <footer class="">{% include footer.html %}</footer>
   </div>
   {% comment %}
   {% include link-previews.html wrapperQuerySelector="content" %}

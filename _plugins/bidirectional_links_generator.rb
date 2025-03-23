@@ -78,7 +78,7 @@ class BidirectionalLinksGenerator < Jekyll::Generator
       
       # Nodes: Jekyll
       notes_linking_to_current_note = all_docs.filter do |e|
-        e.content.include?(current_note.url)
+        e.content.include?(current_note.url) && File.basename(e.path) != "notes.md"
       end
 
       # Nodes: Graph

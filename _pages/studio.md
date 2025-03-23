@@ -15,7 +15,7 @@ permalink: /studio
   {% assign latest_studio_projects = sorted_projects | where_exp: "page", "page.path contains 'studio/'" %}
 
   {% for page in latest_studio_projects %}
-    <div class="">
+    <div class="bb">
       <flex class="align-baseline stack-mobile">
         <div class="label muted">
           <p>{{ page.date }}</p>

@@ -13,13 +13,13 @@ permalink: /
     </div>
     <div class="callout" style="width: 100%">
       <p>
-       Hi, I’m Andreas 👋 – a designer, musician, and creator
+       Hi, I’m Andreas 👋 – I make things for people to use, hear, and see
       </p>
     </div>
   </flex>
 </div>
 
-<h1 class="pt"><a href="/projects" class="nav-link">Projects</a></h1>
+<h1 class=""><a href="/projects" class="nav-link">Projects</a></h1>
 <div>
   {% assign current_project = site.pages | where: "date", "Now" %}
   {% assign older_projects = site.pages | where_exp: "project", "project.date != 'Now'" | sort: "date" | reverse %}
@@ -75,7 +75,7 @@ permalink: /
 
 
 <h1 class="pt"><a href="/notes" class="nav-link">Latest notes</a></h1>
-<div class="">
+<div class="bb">
   <ul style="list-style-type: none; padding-left: 0em; margin-bottom: 1.5em">
     {% assign recent_notes = site.notes | sort: "published" | reverse %}
     {% for note in recent_notes limit: 5 %}
