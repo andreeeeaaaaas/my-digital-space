@@ -4,7 +4,7 @@ title: Projects
 id: home
 permalink: /projects
 ---
-> A collection of outputs I've worked on in a professional or research capacity– spaning across product and service design, research, and more
+<div class="callout"> A collection of outputs I've worked on in a professional or research capacity– spaning across product and service design, research, and more</div>
 <div class="">
   {% assign current_project = site.pages | where: "date", "Now" %}
   {% assign older_projects = site.pages | where_exp: "project", "project.date != 'Now'" | sort: "date" | reverse %}

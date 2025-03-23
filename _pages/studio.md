@@ -4,7 +4,7 @@ title: Studio
 id: studio
 permalink: /studio
 ---
-> A showcase of the things I create or work on in my 'me-time'
+<div class="callout">A showcase of the things I create or work on in my 'me-time'</div>
 
 <div>
   {% assign current_project = site.pages | where: "date", "Now" %}
