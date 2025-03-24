@@ -4,15 +4,15 @@
 
 Use this template repository to get started with your own digital space.
 
-**I wrote a tutorial explaining how to set it up: [Setting up your own digital garden with Jekyll](https://maximevaillancourt.com/blog/setting-up-your-own-digital-garden-with-jekyll)**
+**There's a great tutorial here explaining how to set it up: [Setting up your own digital garden with Jekyll](https://maximevaillancourt.com/blog/setting-up-your-own-digital-garden-with-jekyll)**
 
-Preview the template here: https://digital-garden-jekyll-template.netlify.app/
+Preview the an alternate template here: https://digital-garden-jekyll-template.netlify.app/
 
 - Based on Jekyll, a static website generator
 - Supports Roam-style double bracket link syntax to other notes
 - Creates backlinks to other notes automatically
 - Features link previews on hover using ({% include link-previews.html wrapperQuerySelector="content" %})
-- Includes graph visualization of the notes and their links
+- Includes graph visualisation of the notes and their links
 - Features a simple and responsive design
 - Supports Markdown or HTML notes
 
