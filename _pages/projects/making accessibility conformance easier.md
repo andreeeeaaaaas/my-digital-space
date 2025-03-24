@@ -40,8 +40,8 @@ The tool involved three main components:
  - created interactive and comparative visuals
 3. an interactive visual dashboard that allowed users to filter results by their product, team, or portfolio
 
-<!-- <img src= "assets/projects/acr-flow.jpg"> -->
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/design/pZUtUS8yBRc6dPViPtdYgs/Andreas-Thoma?node-id=17-17&embed-host=share" allowfullscreen></iframe>
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="480px" src="https://embed.figma.com/design/ZSfd75NTUkxRmNaF1mswSF/Andreas-Thoma-(Copy)?node-id=17-17&embed-host=share" allowfullscreen></iframe>
 
 Prior to the this solution, it took product managers around 1 hour of manual effort to complete the process for a single product. It would have also taken "over 2 weeks" in effort from the Head of Accessibility to collate data from all products.
 
