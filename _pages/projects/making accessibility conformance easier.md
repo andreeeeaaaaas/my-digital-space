@@ -8,7 +8,7 @@ date: 2024
 
 While at Service NSW, I worked with the Head of Accessibility to solve a challenge product teams had in submitting and reporting their accessibility results. Lead by my fantastic PM, I wore both a design and technical hat while helping scope, design, engineer, and implement a solution for the 60+ product teams to use.
 
-The tool saved product teams valuable hours and effort in manually reporting, as well as the Head of Accessibility over 2 weeks in sifting through the data. More importantly, the tool brought visibility to product accessibility across portfolios and allowed directors and executives to lead from this data.
+The tool saved product teams valuable hours and effort in manually reporting, as well as the Head of Accessibility over 2 weeks in sifting through the data. More importantly, the tool brought visibility to product accessibility across portfolios and allowed directors and executives to lead from this data. 
 ## Challenge
 
 Product teams needed to share their accessibility results in a way that is visible to both technical and non-technical folk.

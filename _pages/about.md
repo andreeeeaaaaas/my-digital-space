@@ -11,11 +11,11 @@ As a creator, I aim to explore complex emotions and ideas through experiential m
 
 Whether it's a product or a service; a collection of music or a short film; I value commitment to thoughtful experimentation that guides towards a clear purpose. 
 
-The result– I hope– is work that communicates with immediacy while inviting deeper engagement.
+**The result– I hope– is work that communicates with immediacy while inviting deeper engagement.**
 
 <figure class="wide">
   <img src ="assets/me-coffee.jpg" alt="A black and white photo of me and a coffee">
-  <figcaption>Coffee; powering me, and this website</figcaption>
+  <figcaption>Coffee– powering me, and this website</figcaption>
 </figure>
 
 

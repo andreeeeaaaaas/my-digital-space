@@ -12,7 +12,7 @@ Preview the an alternate template here: https://digital-garden-jekyll-template.n
 - Supports Roam-style double bracket link syntax to other notes
 - Creates backlinks to other notes automatically
 - Features link previews on hover using ({% include link-previews.html wrapperQuerySelector="content" %})
-- Includes graph visualization of the notes and their links
+- Includes graph visualisation of the notes and their links
 - Features a simple and responsive design
 - Supports Markdown or HTML notes
 

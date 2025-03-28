@@ -8,15 +8,16 @@ $color-subtext: #606060;
 $color-muted: #999;
 $color-border: hsl(0, 0%, 90%);
 $color-line: hsl(242, 65%, 72%);
+$color-blue: rgb(0, 119, 255);
 $color-box-background: mix($color-primary, white, 4%); //245,245,245
 $border-radius: 8px;
 $font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
   sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-$font-size-base: calc(14px + 0.05vw);
+$font-size-base: calc(14px + 0.1vw);
 
 /* Main */
 :root {
-  --wrap-normal: 39rem;
+  --wrap-normal: 37rem;
   --wrap-wide: 60rem; /* or however wide you want the images to be */
 }
 
@@ -40,7 +41,7 @@ body {
   /* Body padding */
   max-width: 60em;
   overflow-x: hidden;
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
 content {
@@ -68,8 +69,10 @@ content {
 }
 
 *:focus {
-  background: #efefff !important;
-  color: black !important;
+  // background: #efefff !important;
+  // color: black !important;
+  text-decoration: underline solid $color-blue;
+
 }
 
 //Animations
@@ -205,7 +208,7 @@ li {
 .callout {
   padding: 1.5rem;
   margin: 0;
-  font-size: calc($font-size-base - 1px);
+  font-size: 0.88rem;
   background: $color-box-background;
   border-radius: $border-radius;
   margin-block-start: 1em;
@@ -314,35 +317,48 @@ content {
 //Links
 // This has potential to be tidied up, especially the nav-link
 a {
-  transition-timing-function: ease-in-out;
-  transition:
-    background 100ms,
-    border-bottom 100ms;
+  // transition-timing-function: ease-in-out;
+  // transition:
+  //   background 100ms,
+  //   border-bottom 100ms;
   padding: 0 0.1em;
   text-decoration: none;
-  border-bottom: 1px solid mix($color-line, white, 25%);
-  color: $color-text;
+  // border-bottom: 1px solid mix($color-blue, white, 25%);
+  color: $color-blue;
 
   &:hover {
-    color: black !important;
-    background: #efefff;
-    border-bottom: 1px solid $color-line;
-    // text-decoration: underline;
+    // color: black !important;
+    // background: #efefff;
+    // border-bottom: 1px solid $color-blue;
+    text-decoration: underline solid $color-blue;
   }
+
 
   &.nav-link {
     font-size: calc(1rem + 2px);
     color: $color-primary;
     background: none;
     border-bottom: none;
-    text-decoration: none;
+    // text-decoration: none;
     font-weight: 400;
     padding: 0;
   }
+
+  &.nav-link.text {
+    color: $color-text;
+  }
+
+  &.nav-link:hover {
+    text-decoration: none;
+  }
   
-  // &.nav-link:hover {
-  //   border-bottom: 1px solid $color-muted;
-  // }
+  &.nav-link.hover:hover {
+    text-decoration: underline solid $color-primary;
+  }
+
+  &.nav-link.hover:active {
+    text-decoration: none;
+  }
 
   &.element-link {
     border-bottom: none;

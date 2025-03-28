@@ -21,7 +21,7 @@ permalink: /studio
           <p>{{ page.date }}</p>
         </div>
         <div class="">
-          <h2 style =""><a class="internal-link" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
+          <h2 style =""><a class="nav-link hover" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
           <p style="margin-top: 0rem; color: #606060">
             {{ page.content | callout_excerpt | default: "No summary available." }}
           </p>

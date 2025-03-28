@@ -3,7 +3,7 @@ layout: page
 title: Ziggy
 permalink: /ziggy
 ---
-> My literal child; eater of bones; lover of pats; always there to brighten the day
+> My 4 year old, perpetually smiling, slightly overweight, Finnish-Lapphund son
 
 
 <img src="assets/ziggy.jpeg"/>
@@ -22,4 +22,4 @@ Some of his more challenging qualities include:
 - Will pester other dogs into chasing him
 - There's probably more, but I actually look past them all anyway...
 
-If you would like more Ziggy, follow [@ziggyolaf](https://www.instagram.com/ziggyolaf/)
+If you would like more Ziggy, follow [@ziggyolaf](https://www.instagram.com/ziggyolaf/)on Instagram.

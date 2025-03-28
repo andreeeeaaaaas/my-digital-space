@@ -19,7 +19,7 @@ permalink: /
   </flex>
 </div>
 
-<h1 class=""><a href="/projects" class="nav-link">Projects</a></h1>
+<h1 class=""><a href="/projects" class="nav-link hover">Projects</a></h1>
 <div>
   {% assign current_project = site.pages | where: "date", "Now" %}
   {% assign older_projects = site.pages | where_exp: "project", "project.date != 'Now'" | sort: "date" | reverse %}
@@ -34,7 +34,7 @@ permalink: /
           <p>{{ page.date }}</p>
         </div>
         <div class="">
-          <h2 style =""><a class="internal-link" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
+          <h2 style =""><a class="nav-link hover text" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
           <p style="margin-top: 0rem; color: #606060">
             {{ page.content | callout_excerpt | default: "No summary available." }}
           </p>
@@ -48,7 +48,7 @@ permalink: /
   {% endfor %}
 </div>
 
-<h1 class="pt"><a href="/studio" class="nav-link">Studio</a></h1>
+<h1 class="pt"><a href="/studio" class="nav-link hover text">Studio</a></h1>
 <div>
   {% assign latest_studio_projects = sorted_projects | where_exp: "page", "page.path contains 'studio/'" %}
 
@@ -59,7 +59,7 @@ permalink: /
           <p>{{ page.date }}</p>
         </div>
         <div class="">
-          <h2 style =""><a class="internal-link" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
+          <h2 style =""><a class="nav-link hover" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
           <p style="margin-top: 0rem; color: #606060">
             {{ page.content | callout_excerpt | default: "No summary available." }}
           </p>
@@ -74,13 +74,13 @@ permalink: /
 </div>
 
 
-<h1 class="pt"><a href="/notes" class="nav-link">Latest notes</a></h1>
+<h1 class="pt"><a href="/notes" class="nav-link hover text">Latest notes</a></h1>
 <div class="bb">
   <ul style="list-style-type: none; padding-left: 0em; margin-bottom: 1.5em">
     {% assign recent_notes = site.notes | sort: "published" | reverse %}
     {% for note in recent_notes limit: 5 %}
       <li>
-        <span style="display: inline-block" class ="label muted">{{ note.published | date: " %Y · %b" }}</span><a class="internal-link" href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a>
+        <span style="display: inline-block" class ="label muted">{{ note.published | date: " %Y · %b" }}</span><a class="nav-link hover" style="font-size: 1rem" href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a>
       </li>
     {% endfor %}
   </ul>

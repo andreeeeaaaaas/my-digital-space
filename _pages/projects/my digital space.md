@@ -8,11 +8,11 @@ date: Now
 
 Portfolio websites go out of date almost immediately. 
 
-They are updated sporadically; often when looking for another opportunity. The 'no-code', 'low-effort' platforms people tend to use however, charge consistently and expensively.
+They are updated sporadically; often only when looking for another opportunity. The 'no-code', 'low-effort' platforms people tend to use however, charge consistently and expensively.
 
-This space serves as a **free**– other than the domain– **and open-sourced** method in which I can consistently and easily share what I want out there in the world. Like a good product or service, it can grow and flex with its primary user over time. 
+This space serves as a **free and open-sourced** method in which I can consistently and easily share what I want out there in the world. Like a good product or service, it can grow and flex with its primary user over time. 
 
-That primary user being me.
+The primary user being me 😎
 
 ## Build
 
