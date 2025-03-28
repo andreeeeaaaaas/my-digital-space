@@ -36,7 +36,7 @@ body {
   font-weight: 400;
   color: $color-text;
   margin: 0 auto;
-  padding: 4vh 6vw;
+  padding: 2vh 6vw;
 
   /* Body padding */
   max-width: 60em;
@@ -224,18 +224,6 @@ li {
 
   &.yellow {
     background: mix(#FFE8BC, white, 40%);
-  }
-  
-  &.award {
-    position: relative;
-    padding-left: 1.5em;
-  
-    &:before {
-      content: "🏅";
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 0.5ch;
-    }
   }
 
   &.text-center {
