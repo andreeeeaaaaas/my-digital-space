@@ -198,6 +198,7 @@ li {
 
 .caption {
   font-size: 0.88em;
+  color: $color-muted;
   text-align: center;
 }
 
@@ -206,7 +207,7 @@ li {
 }
 
 .callout {
-  padding: 1.5rem;
+  padding: calc(1.25rem + 0.2vw);
   margin: 0;
   font-size: 0.88rem;
   background: $color-box-background;
@@ -250,7 +251,7 @@ h1 {
   // font-size: calc(1.2rem + 0.2vw);
   color: $color-primary;
   line-height: 1.25;
-  margin-top: 1.5em;
+  margin-top: 1em;
   margin-bottom: 0.5em;
 }
 
@@ -264,7 +265,7 @@ h2 {
 }
 
 h3 {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1rem;
   line-height: 1.3;
   margin-top: 1em;
@@ -273,7 +274,8 @@ h3 {
 
 h4 {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 400;
+  font-style: italic;
   line-height: 1.3;
   margin-top: 1em;
 }
@@ -378,7 +380,7 @@ a {
 }
 
 nav {
-  margin: 1em 0 3em;
+  margin: 1em 0 0em;
 }
 
 #notes-entry-container {

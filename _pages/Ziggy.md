@@ -10,7 +10,6 @@ permalink: /ziggy
 
 <p class= "caption">The bestest boy in the whole world.</p>
 Some of his best qualities include:
-- Catches balls and other things you throw towards him
 - Fetches
 - Perpetually smiling (may be sweating)
 - Loves playing with other dogs
@@ -18,7 +17,7 @@ Some of his best qualities include:
 
 Some of his more challenging qualities include:
 - Fetches (does not return)
-- Sand can become trapped in his fur, then slowly shed over time all over the floor
+- Sand gets trapped in his fur, then slowly sheds over time all over the floor
 - Will pester other dogs into chasing him
 - There's probably more, but I actually look past them all anyway...
 

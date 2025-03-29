@@ -10,8 +10,7 @@ date: 2024
 <figcaption>In the zone, shot by Dad</figcaption>
 </figure>
 <p class="callout blue">
-    'Moral Laxa curates an immersive night of performance at Pact, with ambient and experimental electronics courtesy of live heavyweights Mara and Andreas.'
-    – Resident Advisor
+    'Moral Laxa curates an immersive night of performance at Pact, with ambient and experimental electronics courtesy of live heavyweights Mara and Andreas.' <br>– Resident Advisor
 </p>
 
 I spent a lot of time thinking about how to approach making music for this live set.
@@ -37,7 +36,7 @@ For all the nice words I received after, hearing that I made Mum tear up tops th
 
 ## Acknowledgements
 
-### Moral Laxa  
+### Moral Laxa
 Natalie Lawrence  
 Agustin Martin  
 David Hosca  
