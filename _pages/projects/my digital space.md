@@ -4,7 +4,7 @@ title: My digital space
 permalink: /my-digital-space
 date: Now
 ---
-<p class="callout">A self-built and published website to hold the things I like to build, create, and share</p>
+<p class="callout">A self-built and published space to hold the things I like to build, create, and share</p>
 
 My digital space is inspired by similar spaces like [Andy Matuschak's working notes](https://notes.andymatuschak.org/About_these_notes), [Maggie Appleton's digital garden](https://maggieappleton.com/garden-history), and how I structure my thoughts in the tool I use everyday– [Obsidian](https://obsidian.md/). It extends that idea to my work and creative output, seeing them as building blocks to learn and iterate off in the next project, rather than standalone pieces.
 
