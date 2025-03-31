@@ -17,7 +17,7 @@ $font-size-base: calc(14px + 0.075vw);
 
 /* Main */
 :root {
-  --wrap-normal: 37rem;
+  --wrap-normal: 35rem;
   --wrap-wide: 60rem; /* or however wide you want the images to be */
 }
 
@@ -464,7 +464,7 @@ flex h2 {
 }
 
 .label {
-  min-width: 6rem;
+  min-width: 7rem;
 }
 
 .flex-grow {
