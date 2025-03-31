@@ -6,17 +6,16 @@ date: Now
 ---
 <p class="callout">A self-built and published website to hold the things I like to build, create, and share</p>
 
-Portfolio websites go out of date almost immediately. 
+My digital space is inspired by similar spaces like [Andy Matuschak's working notes](https://notes.andymatuschak.org/About_these_notes), [Maggie Appleton's digital garden](https://maggieappleton.com/garden-history), and how I structure my thoughts in the tool I use everyday– [Obsidian](https://obsidian.md/). It extends that idea to my work and creative output, seeing them as building blocks to learn and iterate off in the next project, rather than standalone pieces.
 
-They are updated sporadically; often only when looking for another opportunity. The 'no-code', 'low-effort' platforms people tend to use however, charge consistently and expensively.
+While it simplifies some of the connections I've built between them and doesn't it hold all the notes I jot down, it aims to get across how I link things together in order to come to the next 'thing'. It stands by the notion that [[Nothing is ever finished|nothing is ever finished]]. 
 
-This space serves as a **free and open-sourced** method in which I can consistently and easily share what I want out there in the world. Like a good product or service, it can grow and flex with its primary user over time. 
+The hope is–like a good product or service–it can grow and flex with its primary user over time: Me 😎
 
-The primary user being me 😎
-
+**It's also free and open sourced.**
 ## Build
 
-Creating this space has been a rewarding practice of basic front-end development. All the while keeping design principles at the core.
+Creating this space has been a rewarding practice of basic front-end development while keeping design principles at the core.
 
 I've built a few custom Ruby plug-ins that it utilises, but try keep things simplistic and future-proof. The aim of the site is longevity, and flexibility. I don't know what content will look like in 5 years, and I know much less about what I'll be interested in by then...
 
@@ -27,9 +26,9 @@ Better yet, [[contact|shoot me an email and ask!]]
 ## Stack (and cost)
 
 
-- [$0] –[Obsidian](https://obsidian.md/)– writing pages and notes in Markdown
-- [$0] –[Jekyll](https://jekyllrb.com/)– turns Markdown into static webpages (HTML and CSS)
-- [$0] –SCSS/CSS –  custom classes and styling
-- [$0] –Ruby –  custom plugins
-- [$0] –[Netlify](https://www.netlify.com/)– hosting and deployment
-- [$18 per year] –Google Domains– the andreasthoma.com domain
+- $0 – [Obsidian](https://obsidian.md/)– writing pages and notes in Markdown
+- $0 – [Jekyll](https://jekyllrb.com/)– turns Markdown into static webpages (HTML and CSS)
+- $0 – SCSS/CSS –  custom classes and styling
+- $0 – Ruby –  custom plugins
+- $0 – [Netlify](https://www.netlify.com/)– hosting and deployment
+- $18 per year – Google Domains – the andreasthoma.com domain

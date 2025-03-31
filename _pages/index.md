@@ -8,10 +8,10 @@ permalink: /
   <flex class="align-center" style="flex-direction: row">
     <div class="label" style="">
       <a class ="element-link" href="/about" style="border-radius: 999px; height: auto; margin: 0;">
-        <img class ="rotate-once" src="assets/headshot-greybackground.png" style="border-radius: 999px; max-height: clamp(64px, 12vw, 6rem); margin: 0;">
+        <img class ="rotate-once" src="assets/headshot-greybackground.png" style="border-radius: 999px; max-height: clamp(64px, 12vw, 5rem); margin: 0;">
       </a>
     </div>
-    <div class="callout" style="width: 100%">
+    <div class="callout" style="width: 100%; margin-bottom: 1rem">
       <p>
        Hi, I’m Andreas 👋 – I make things for people to use, hear, and see
       </p>
@@ -28,19 +28,19 @@ permalink: /
   {% assign latest_projects = sorted_projects | where_exp: "page", "page.path contains 'projects/'" %}
 
   {% for page in latest_projects limit:5 %}
-    <div class="bb">
+    <div class="pt pb">
       <flex class="align-baseline stack-mobile">
         <div class="label muted">
           <p>{{ page.date }}</p>
         </div>
         <div class="">
-          <h2 style =""><a class="nav-link hover text" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
-          <p style="margin-top: 0rem; color: #606060">
+          <h2 style =""><a class="nav-link hover inline" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
+          <p style="margin-top: 0rem;" class="subtext">
             {{ page.content | callout_excerpt | default: "No summary available." }}
           </p>
           {% assign img_tag = page.content | split:'<img ' | slice: 1 | first %}
             {% if img_tag %}
-              <img style="margin-block-end: 1em" {{ img_tag | split:'>' | first }}>
+              <a href="{{ site.baseurl }}{{ page.url }}" class="element-link hover"><img style="margin-block-end: 1em" {{ img_tag | split:'>' | first }}></a>
             {% endif %}
         </div>
       </flex>
@@ -53,19 +53,19 @@ permalink: /
   {% assign latest_studio_projects = sorted_projects | where_exp: "page", "page.path contains 'studio/'" %}
 
   {% for page in latest_studio_projects limit:4 %}
-    <div class="bb">
+    <div class="pt pb">
       <flex class="align-baseline stack-mobile">
         <div class="label muted">
           <p>{{ page.date }}</p>
         </div>
         <div class="">
-          <h2 style =""><a class="nav-link hover" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
-          <p style="margin-top: 0rem; color: #606060">
+          <h2 style =""><a class="nav-link hover inline" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
+          <p style="margin-top: 0rem" class="subtext">
             {{ page.content | callout_excerpt | default: "No summary available." }}
           </p>
           {% assign img_tag = page.content | split:'<img ' | slice: 1 | first %}
             {% if img_tag %}
-              <img style="margin-block-end: 1em" {{ img_tag | split:'>' | first }}>
+              <a href="{{ site.baseurl }}{{ page.url }}" class="element-link hover"><img style="margin-block-end: 1em" {{ img_tag | split:'>' | first }}></a>
             {% endif %}
         </div>
       </flex>
@@ -75,7 +75,7 @@ permalink: /
 
 
 <h1 class="pt"><a href="/notes" class="nav-link hover text">Latest notes</a></h1>
-<div class="bb">
+<div class="pb">
   <ul style="list-style-type: none; padding-left: 0em; margin-bottom: 1.5em">
     {% assign recent_notes = site.notes | sort: "published" | reverse %}
     {% for note in recent_notes limit: 5 %}

@@ -8,7 +8,7 @@ date: "2025"
 
 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2025576760&color=%23846fff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
 
-<p class ="callout blue">'The show draws influence from the oxidation of copper and bronze metals, and bridging the gap between the natural and industrial. We invite contributors to reflect on the passing of time and the interplay between decay and regeneration.'
+<p class ="callout blue">'The show draws influence from the oxidation of copper and bronze metals, and bridging the gap between the natural and industrial. We invite contributors to reflect on the passing of time and the interplay between decay and regeneration.'<br>
 – Galiba & Lenna</p>
 
 I tried to reflect these ideas in the context of love; the arguments, the joys, the tears, and ultimately the growing together that happens through it all. Clear acoustic and vocal elements slowly dissipate and smudge into images of themselves, blurred into ambient wash.

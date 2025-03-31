@@ -22,7 +22,7 @@ layout: default
             <a class="internal-link"
               href="{{ site.baseurl }}{{ backlink.url }}{%- if site.use_html_extension -%}.html{%- endif -%}">{{
               backlink.title }}</a><br>
-            <div style="font-size: 0.88rem" class="muted">{{ backlink.content | strip_html | truncatewords: 16 }}</div>
+            <div style="font-size: 0.88rem; padding-top: 0.5rem;" class="muted">{{ backlink.content | strip_html | truncatewords: 16 }}</div>
           </div>
           {% endfor %}
         </div>

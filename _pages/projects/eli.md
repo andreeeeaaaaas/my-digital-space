@@ -15,9 +15,7 @@ Challenged by the design brief 'designing smarter and more accessible engagement
 Eli is a physical device that promotes interactions within the online classroom by gamifying the experience. For our user– young students studying from home– eli lets them connect and interact a digital, non-disruptive way. 
 
 In combination with an online teacher portal with engagement metrics, Eli facilitates  support for students suffering from feelings of isolation and disconnectedness in remote learning environments.
-<figure>
-    <img src="assets/projects/eli-mockup.jpg" alt="eli-mockup">
-</figure>
+
 <figure class="wide">
   <img src ="assets/projects/eli-says-hi.jpg" alt="Eli and an open laptop">
   <figcaption>Eli on a students desk</figcaption>
@@ -26,6 +24,11 @@ In combination with an online teacher portal with engagement metrics, Eli facili
 Eli was created during the COVID lockdown in 2021, our group primarily working online and from home. 
 <br><br>
 Part of the [Interactive Product Design Studio](https://www.sydney.edu.au/units/DECO3200) at the University of Sydney.
+
+<figure>
+    <img src="assets/projects/eli-mockup.jpg" alt="eli-mockup">
+    <img src="assets/projects/eli-logo.jpg" alt="eli-logo">
+</figure>
 
 ## Awards
 Shortlisted for University of Sydney Architecture, Design and Planning Industry award

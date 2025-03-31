@@ -6,9 +6,15 @@ date: 2024
 ---
 <p class="callout">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility</p>
 
-While at Service NSW, I worked with the Head of Accessibility to solve a challenge product teams had in submitting and reporting their accessibility results. Lead by my fantastic PM, I wore both a design and technical hat while helping scope, design, engineer, and implement a solution for the 60+ product teams to use.
+While at Service NSW, I worked with the Head of Accessibility to solve a challenge product teams had in sharing their accessibility testing results. Lead by my fantastic PM, I wore both a design and technical hat while helping design, build, and implement a solution for 60+ product teams to use.
 
 The tool saved product teams valuable hours and effort in manually reporting, as well as the Head of Accessibility over 2 weeks in sifting through the data. More importantly, the tool brought visibility to product accessibility across portfolios and allowed directors and executives to lead from this data. 
+## Outcomes
+
+- 1 hr to report → 1 minute for 200+ products
+- Bottleneck on an individual → distributed to product teams
+- Invisible accessibility → transparent results. 
+
 ## Challenge
 
 Product teams needed to share their accessibility results in a way that is visible to both technical and non-technical folk.
@@ -43,11 +49,13 @@ The tool involved three main components:
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="480px" src="https://embed.figma.com/design/ZSfd75NTUkxRmNaF1mswSF/Andreas-Thoma-(Copy)?node-id=17-17&embed-host=share" allowfullscreen></iframe>
 
+## Impact
+
 Prior to the this solution, it took product managers around 1 hour of manual effort to complete the process for a single product. It would have also taken "over 2 weeks" in effort from the Head of Accessibility to collate data from all products.
 
 This solution skimmed this down to **1 minute of manual effort per product** with a fully automated script to collate and visualise the data.
 
-In terms of outcomes, the tool brought visibility to Service NSW product's accessibility in a way that hadn't existed before. Additionally, it saved valuable manual effort and pushed accessibility further into the product development lifecycle.
+The tool brought visibility to Service NSW product's accessibility in a way that hadn't existed before. Additionally, it saved valuable manual effort and pushed accessibility further into the product development lifecycle.
 
 Being the first time Service NSW had implemented accessibility reporting at this scale, I felt lucky to be able to contribute where I did.
 
@@ -55,7 +63,6 @@ Being the first time Service NSW had implemented accessibility reporting at this
 Nominated for a Department of Customer Service Excellence award
 
 ## Future iterations
-
 While my rotation has ended, future iterations of the tool could look at:
 
 - integration with team's planning and backlog tools,
