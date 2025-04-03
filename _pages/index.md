@@ -18,6 +18,8 @@ permalink: /
     </div>
   </flex>
 </div>
+  
+
 
 <h1 class=""><a href="/projects" class="nav-link hover">Projects</a></h1>
 <div>
@@ -28,13 +30,13 @@ permalink: /
   {% assign latest_projects = sorted_projects | where_exp: "page", "page.path contains 'projects/'" %}
 
   {% for page in latest_projects limit:5 %}
-    <div class="pt pb">
+    <div class=" pb">
       <flex class="align-baseline stack-mobile">
         <div class="label muted">
           <p>{{ page.date }}</p>
         </div>
         <div class="">
-          <h2 style =""><a class="nav-link hover inline" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
+          <h2 style ="margin-bottom: 0"><a class="nav-link hover inline" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
           <p style="margin-top: 0rem;" class="subtext">
             {{ page.content | callout_excerpt | default: "No summary available." }}
           </p>
@@ -53,13 +55,13 @@ permalink: /
   {% assign latest_studio_projects = sorted_projects | where_exp: "page", "page.path contains 'studio/'" %}
 
   {% for page in latest_studio_projects limit:4 %}
-    <div class="pt pb">
+    <div class=" pb">
       <flex class="align-baseline stack-mobile">
         <div class="label muted">
           <p>{{ page.date }}</p>
         </div>
         <div class="">
-          <h2 style =""><a class="nav-link hover inline" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
+          <h2 style ="margin-bottom: 0"><a class="nav-link hover inline" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
           <p style="margin-top: 0rem" class="subtext">
             {{ page.content | callout_excerpt | default: "No summary available." }}
           </p>

@@ -2,8 +2,8 @@
 // https://coolors.co/ffe8bc-f5f7ff-1a1a1a-8b88e6-eff7fb
 
 //Variables
-$color-primary: hsl(0, 0%, 0%);
-$color-text: hsl(0, 0%, 30%);
+$color-primary: hsl(0, 0%, 5%);
+$color-text: hsl(0, 0%, 10%);
 $color-subtext: #606060;
 $color-muted: #999;
 $color-border: hsl(0, 0%, 90%);
@@ -39,7 +39,7 @@ body {
   padding: 2vh 6vw;
 
   /* Body padding */
-  max-width: 60em;
+  max-width: var(--wrap-wide);
   overflow-x: hidden;
   line-height: 1.6;
 }
@@ -97,9 +97,9 @@ content {
 
 @keyframes slow-rotate {
   0% { transform: rotate(0deg); }
-  25% { transform: rotate(-6deg); }
-  50% { transform: rotate(6deg); }
-  75% { transform: rotate(-6deg); }
+  25% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+  75% { transform: rotate(-4deg); }
   100% { transform: rotate(0deg); }
 }
 
