@@ -11,8 +11,8 @@ While at Service NSW, I worked with the Head of Accessibility to solve a challen
 The tool saved product teams valuable hours and effort in manually reporting, as well as the Head of Accessibility over 2 weeks in sifting through the data. More importantly, the tool brought visibility to product accessibility across portfolios and allowed directors and executives to lead from this data. 
 ## Outcomes
 
-- 1 hr to report → 1 minute for 200+ products
-- Bottleneck on an individual → distributed to product teams
+- 1 hr → 1 minute for product teams to report their results, for 200+ products
+- Bottlenecked process, dependent on an individual → work evenly distributed to product teams
 - Invisible accessibility → transparent results. 
 
 ## Challenge
