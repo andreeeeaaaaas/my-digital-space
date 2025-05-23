@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 {% include head.html %}
-
 <body>
   <div class="wrapper">
     <nav>{% include nav.html %}</nav>
     <main class="pb">{{ content }}</main>
     <footer class="">{% include footer.html %}</footer>
   </div>
-  {% comment %}
-  {% include link-previews.html wrapperQuerySelector="content" %}
-  {% endcomment %}
 </body>
-
 </html>

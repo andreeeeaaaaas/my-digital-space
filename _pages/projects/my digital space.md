@@ -6,7 +6,7 @@ date: Now
 ---
 <p class="callout">A self-built and published space to hold the things I like to build, create, and share</p>
 
-My digital space is inspired by similar spaces like [Andy Matuschak's working notes](https://notes.andymatuschak.org/About_these_notes), [Maggie Appleton's digital garden](https://maggieappleton.com/garden-history), and how I structure my thoughts in the tool I use everyday– [Obsidian](https://obsidian.md/). It extends that idea to my work and creative output, seeing them as building blocks to learn and iterate off in the next project, rather than standalone pieces.
+My digital space is inspired by similar spaces like [Andy Matuschak's working notes](https://notes.andymatuschak.org/About_these_notes), [Maggie Appleton's digital garden](https://maggieappleton.com/garden-history), and how I structure my thoughts in the tool I use everyday [Obsidian](https://obsidian.md/). It extends that idea to my work and creative output, seeing them as building blocks to learn and iterate off in the next project, rather than standalone pieces.
 
 While it simplifies some of the connections I've built between them and doesn't it hold all the notes I jot down, it aims to get across how I link things together in order to come to the next 'thing'. It stands by the notion that nothing is ever finished.
 

@@ -5,10 +5,10 @@ id: home
 permalink: /
 ---
 <div class="pt">
-  <flex class="align-center" style="flex-direction: row">
-    <div class="label" style="">
+  <flex class="align-center" style="flex-direction: row; gap: 2rem">
+    <div class="pulse" style="">
       <a class ="element-link" href="/about" style="border-radius: 999px; height: auto; margin: 0;">
-        <img class ="rotate-once" src="assets/headshot-greybackground.png" style="border-radius: 999px; max-height: clamp(64px, 12vw, 5rem); margin: 0;">
+        <img class ="rotate-once" src="assets/headshot-greybackground.png" style="border-radius: 999px; max-height: clamp(48px, 6rem, 9rem); margin: 0;">
       </a>
     </div>
     <div class="callout" style="width: 100%; margin-bottom: 1rem">
