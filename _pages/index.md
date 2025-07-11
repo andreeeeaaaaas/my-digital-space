@@ -6,7 +6,7 @@ permalink: /
 ---
 <div class="pt">
   <flex class="align-center" style="flex-direction: row; gap: 2rem">
-    <div class="pulse" style="">
+    <div class="" style="">
       <a class ="element-link" href="/about" style="border-radius: 999px; height: auto; margin: 0;">
         <img class ="rotate-once" src="assets/headshot-greybackground.png" style="border-radius: 999px; max-height: clamp(48px, 6rem, 9rem); margin: 0;">
       </a>
