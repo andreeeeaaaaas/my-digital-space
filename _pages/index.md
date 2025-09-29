@@ -130,5 +130,7 @@ permalink: /
   </div>
   {% endfor %}
 </div>
+~~~
+<br>
 I've got lots more ideas and projects I'm working on. <br>
 If you would like to work on one together, please [[Contact|reach out]].

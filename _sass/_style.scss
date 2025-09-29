@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: "Batmip";
-  src: url(assets/fonts/BATMIP1.41-Roman.otf) format("opentype");
+  src: url(assets/fonts/BATMIP1.41-Roman.woff2) format(woff2);
   font-style: normal;
   font-display: swap;
 }
@@ -748,7 +748,6 @@ button.tag {
 }
 .project-grid.list-view .project {
   display: flex;
-  gap: 2rem;
   padding: $spacing-m-24 0;
   border-bottom: 1px solid #eee;
 
@@ -884,9 +883,6 @@ button.tag {
 }
 
 @media (max-width: 540px) {
-  :root {
-    --font-size-base: 14px;
-  }
 
   p,
   ul,
@@ -915,6 +911,10 @@ button.tag {
   .project-grid {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .project-image {
+    aspect-ratio: 3/2;
   }
 
   .header {
