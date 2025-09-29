@@ -1,18 +1,47 @@
-<!-- This is a placeholder, until refactored to be nice -->
-<div style="display: flex" class="pb">
-    <!-- You need to fix how this displays -->
-    <div style="flex-grow: 1;">
-        {% if page.path contains "projects" %}
-        <a class="nav-link " href="{{ site.baseurl }}/">{{ site.title }}</a><span class="muted"> / </span><a href="/projects" class="nav-link " style="color: #999; font-weight: 350; padding-top: 0;">Projects</a>
-        {% elsif page.path contains "studio" %}
-        <a class="nav-link " href="{{ site.baseurl }}/">{{ site.title }}</a><span class="muted"> / </span><a href="/studio" class="nav-link " style="color: #999; font-weight: 350; padding-top: 0">Studio</a>
-        {% elsif page.path contains "notes" %}
-        <a class="nav-link " href="{{ site.baseurl }}/">{{ site.title }}</a><span class="muted"> / </span><a href="/notes" class="nav-link " style="color: #999; font-weight: 350; padding-top: 0">Notes</a>
-        {% else %}
-        <a class="nav-link " href="{{ site.baseurl }}/">{{ site.title }}</a></span>
-        {% endif %}
-    </div>
-    <div style="text-align: right;" class="pl">
-        <a class="nav-link " href="{{ site.baseurl }}/about">About</a>
-    </div>
+<div class="nav-left">
+  <a href="/" class="nav-name">Andreas Thoma</a>
 </div>
+<!-- <button id="sound-toggle">Sound On</button> -->
+<div class="nav-right">
+  <div class="nav-info">
+    <a href="/about">Info</a>
+  </div>
+  <a class="contact-btn" href="/contact">Contact</a>
+</div>
+
+<!-- This is a placeholder, until refactored to be nice
+<div style="display: flex;" class="pb">
+    <!-- You need to fix how this displays -->
+<!-- <div class="flex align-center" style="flex-grow: 1; gap: 0.25rem; display: flex; align-items: center;">
+        {% if page.path contains "projects" %}
+            <a class="nav-link flex align-center" style="gap: 1rem;" href="{{ site.baseurl }}/">
+                <img class ="profile-pic" src="assets/headshot-greybackground.png">
+                {{ site.title }}
+            </a>
+            <span class="muted">/</span>
+            <a href="/projects" class="nav-link " style="color: #999; font-weight: 350; padding-top: 0;">Projects</a>
+        {% elsif page.path contains "studio" %}
+            <a class="nav-link flex align-center" style="gap: 1rem;" href="{{ site.baseurl }}/">
+                <img class ="profile-pic" src="assets/headshot-greybackground.png">
+                {{ site.title }}
+            </a>
+            <span class="muted">/</span>
+            <a href="/studio" class="nav-link " style="color: #999; font-weight: 350; padding-top: 0">Studio</a></span>
+        {% elsif page.path contains "notes" %}
+            <a class="nav-link flex align-center" style="gap: 1rem;" href="{{ site.baseurl }}/">
+                <img class ="profile-pic" src="assets/headshot-greybackground.png">
+                {{ site.title }}
+            </a>
+            <span class="muted">/</span>
+            <a href="/notes" class="nav-link " style="color: #999; font-weight: 350; padding-top: 0">Notes</a></span>
+        {% else %}
+            <a class="nav-link flex align-center" style="gap: 1rem;" href="{{ site.baseurl }}/">
+                <img class ="profile-pic" src="assets/headshot-greybackground.png">
+                {{ site.title }}
+            </a>
+        {% endif %}
+    </div> -->
+<!-- <div style="text-align: right;" class="">
+        <a class="nav-link " href="{{ site.baseurl }}/about">About</a>
+    </div> -->
+<!-- </div> -->

@@ -3,21 +3,19 @@ layout: page
 title: About me
 permalink: /about
 ---
-<div class="callout">I'm Andreas 👋 – I make things for people to use, hear, and see</div>
-
-My design work solves complex product and service challenges through deep-research, strategic thinking, and considered experimentation. Beginning with understanding each element in a context and system → resulting in work that feels intuitive and refined.
+<!-- My design work solves complex product and service challenges through deep-research, strategic thinking, and considered experimentation. Beginning with understanding each element in a context and system → resulting in work that feels intuitive and refined. -->
 
 <!-- As a creator, I aim to explore complex emotions and ideas through experiential mediums like music, film, and more. I want to investigate the human experience (both that of others, and my own), creating space for reflection. -->
 
-Whether it's a product or a service; a collection of music or a short film; I value commitment to thoughtful experimentation that guides towards a clear purpose. 
+<!-- Whether it's a product or a service; a collection of music or a short film; I value commitment to thoughtful experimentation that guides towards a clear purpose.  -->
 
-**The result– I hope– is work that communicates with immediacy while inviting deeper engagement.**
+<!-- **The result– I hope– is work that communicates with immediacy while inviting deeper engagement.** -->
 
 <figure class="wide">
   <img src ="assets/me-coffee.jpg" alt="A black and white photo of me and a coffee">
   <figcaption>Coffee– powering me, and this website</figcaption>
 </figure>
-
+I'm Andreas 👋 – I make things for people to use, hear, and see.
 
 My spare time is filled with things like:
 - being in the ocean

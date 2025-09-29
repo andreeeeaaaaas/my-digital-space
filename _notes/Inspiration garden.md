@@ -1,8 +1,10 @@
 ---
 title: An inspiration garden
 published: 2024-11-10
+tags:
+  - writing
 ---
-A growing list of places I find myself starting new ideas (technical, musical, philosophical), or thinking on existing ones. 
+<p class="callout">A growing list of places I find myself starting new ideas (technical, musical, philosophical), or thinking on existing ones. </p>
 
 I hope you can find something inspiring too 🌱
 
@@ -23,4 +25,6 @@ I hope you can find something inspiring too 🌱
  - [llllllll (aka lines)](https://llllllll.co/)– discussions of creativity
  - [Music, Arts and Culture archive](https://archive.org/details/audio_music)– a digital repository
 
- If you like these, you might like the [[Sayings I like|sayings I like]].
+ <figure>
+    <img src="assets/inspiration-garden.webp" style="height: 100%; width: 100%; aspect-ratio: 4/3; object-fit:cover" alt="an illustration of a person in space">
+</figure>

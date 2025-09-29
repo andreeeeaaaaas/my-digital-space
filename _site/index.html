@@ -1,293 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
+  <head>
+  <meta charset="UTF-8" />
 
-  <link rel="canonical" href="http://0.0.0.0:4000/" />
+  <link rel="canonical" href="http://localhost:4000/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="description"
-    content="Andreas Thoma">
+  <meta
+    name="description"
+    content="Andreas Thoma"
+  />
 
-  <meta property="og:site_name" content="Andreas Thoma">
+  <meta property="og:site_name" content="Andreas Thoma" />
 
-  <link rel="icon" type="image/png" href="assets/Favicon-headshot.png">
+  <link rel="icon" type="image/png" href="assets/Favicon-headshot.png" />
 
-  <!-- <link rel="preload" href="/styles.css" as="style"> -->
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css" />
 
   <script src="/assets/js/prefetch.js" defer></script>
+  <script src="/assets/js/view-toggle.js"></script>
+  <script src="/assets/js/hover-effect.js"></script>
+  <!-- <script src="/assets/js/sound.js"></script> -->
+  <script src="/assets/js/tag-filter.js"></script>
 
   
-  <meta property="og:description" content="Andreas Thoma" />
-  
+  <meta
+    property="og:description"
+    content="Andreas Thoma"
+  />
+   
+  <meta property="og:title" content="Home" />
+  <meta property="og:type" content="article" />
+   
 
-  
-  <meta property="og:title" content="Home">
-  <meta property="og:type" content="article">
-  
-
-  
-
-  <meta property="og:url" content="http://0.0.0.0:4000/" />
+  <meta property="og:url" content="http://localhost:4000/" />
 
   
 
   <title>
-    
-    Andreas Thoma
-    
+     Andreas Thoma 
   </title>
 </head>
-<body>
-  <div class="wrapper">
-    <nav><!-- This is a placeholder, until refactored to be nice -->
-<div style="display: flex" class="pb">
+
+  <body>
+    <nav class="nav"><div class="nav-left">
+  <a href="/" class="nav-name">Andreas Thoma</a>
+</div>
+<!-- <button id="sound-toggle">Sound On</button> -->
+<div class="nav-right">
+  <div class="nav-info">
+    <a href="/about">Info</a>
+  </div>
+  <a class="contact-btn" href="/contact">Contact</a>
+</div>
+
+<!-- This is a placeholder, until refactored to be nice
+<div style="display: flex;" class="pb">
     <!-- You need to fix how this displays -->
-    <div style="flex-grow: 1;">
+<!-- <div class="flex align-center" style="flex-grow: 1; gap: 0.25rem; display: flex; align-items: center;">
         
-        <a class="nav-link " href="/">Andreas Thoma</a></span>
+            <a class="nav-link flex align-center" style="gap: 1rem;" href="/">
+                <img class ="profile-pic" src="assets/headshot-greybackground.png">
+                Andreas Thoma
+            </a>
         
-    </div>
-    <div style="text-align: right;" class="pl">
-        <a class="nav-link " href="/about">About</a>
-    </div>
-</div></nav>
-    <main class="pb"><content>
-  <html><body>
-<div class="pt">
-  <flex class="" style="flex-direction: row; gap: 2rem">
-    <!-- <div class="" style="">
-      <a class ="element-link" href="/about" style="border-radius: 999px; height: auto; margin: 0;">
-        <img class ="rotate-once" src="assets/headshot-greybackground.png" style="border-radius: 999px; max-height: clamp(48px, 6rem, 9rem); margin: 0;">
-      </a>
     </div> -->
-    <div class="" style="width: 100%; margin: 0rem">
-      <p style="text-align: left"><span style="font-size:2rem; font-weight: 500; line-height: 3rem;"> Hi, I’m Andreas 👋 – I make things for people to use, hear, and see</span>
+<!-- <div style="text-align: right;" class="">
+        <a class="nav-link " href="/about">About</a>
+    </div> -->
+<!-- </div> -->
+</nav>
+    <main class="main pt pb">    <!-- <div id="sound-gate" class="overlay">
+  <div class="overlay-content">
+    <p style="margin-top:0">Would you like to enable sound?</p>
+    <div style="display: flex; flex-direction: row;gap: 16px; padding-top: 16p;">
+      <button  id="sound-yes">Yes</button>
+      <p>/</p>
+      <button href="#" id="sound-no">No</button>
+    </div>
+  </div>
+</div> --><!-- Header --><html><body>
+<section class="header">
+  <div class="intro-text">
+    <p>
+      <span style="opacity: 0%">Andreas Thoma</span>is a
+      <span class="design" data-filter="design">designer</span>,
+      <span class="music" data-filter="music">musician</span>, and
+      <span class="visual" data-filter="visual">creative</span>.
+    </p>
+    <br>
+    <p>
+      Currently designing software and services that serve millions of people,
+      he thrives tackling challenges when empathy combines with smart
+      business strategy to drive decisions.
+    </p>
+  </div>
+
+  <!-- <div class="experiences">
+    <div class="experience-section">
+      <div class="section-label">NOW</div>
+      <div class="experience-item">
+        <div class="company">
+          <a class ="external"
+            href="https://www.service.nsw.gov.au/about-us/digital-capabilities"
+            >Service NSW</a
+          >
+        </div>
+        <div class="role">Product Design</div>
+      </div>
+    </div>
+    <div class="experience-section">
+      <div class="section-label">PREVIOUSLY</div>
+      <div class="experience-item">
+        <div class="company">
+          <a class ="external" href="https://www.icare.nsw.gov.au/about-us">icare</a>
+        </div>
+        <div class="role">Intelligent Automation</div>
+      </div>
+      <div class="experience-item">
+        <div class="company">
+          <a class ="external"
+            href="https://www.sydney.edu.au/courses/courses/uc/bachelor-of-design-interaction-design.html"
+            >University of Sydney</a
+          >
+        </div>
+        <div class="role">Academic Tutor</div>
+      </div>
+    </div>
+  </div> -->
+</section>
+
+<!-- Toolbar -->
+<div class="toolbar">
+  <div class="tags">
+    <button type="button" class="tag active">All</button><span>,</span>
+    <button type="button" class="tag inactive" data-filter="design">
+      Design</button><span>,</span>
+    <!-- <button type="button" class="tag" data-filter="research">Research</button> -->
+    <button type="button" class="tag inactive" data-filter="music">
+      Music</button>
+      <span>,</span>
+    <!-- <button type="button" class="tag inactive" data-filter="visual">
+      Visual</button>
+      <span>,</span> -->
+    <button type="button" class="tag inactive" data-filter="writing">
+      Writing
+    </button>
+  </div>
+
+  <div class="view-controls">
+    <span class="view-label">View</span>
+    <button type="button" class="grid-icon active" title="Grid view">
+      <div class="grid-square"></div>
+      <div class="grid-square"></div>
+      <div class="grid-square"></div>
+      <div class="grid-square"></div>
+    </button>
+    <button type="button" class="list-icon" title="List view">
+      <div class="list-bar"></div>
+      <div class="list-bar"></div>
+    </button>
+  </div>
+</div>
+
+<!-- Project Grid -->
+<div class="project-grid">
+  
+  <div class="project" data-tags="writing">
+    <a href="/what-s-a-digital-space" class="internal-link project-link">
+       
+      <div class="project-image">
+        <img style="aspect-ratio: 3/2" src="assets/digital-space.jpg">
+      </div>
+      
+        <h3 class="project-title">What's a digital space?</h3>
+    </a>
+      <p class="project-description">
+        I like to think of this space as my own plot on the internet
       </p>
-    </div>
-  </flex>
-</div>
-
-<h1 class=""><a href="/projects" class="nav-link hover text">Projects Potato</a></h1>
-
-<div class="projects-container pb bb">
-    <div class="sticky-year">
-      <p class="muted" style="margin-top: 0rem;">2024</p>
-    </div>
-    <div class="projects-list">
-      
-      
-        <div class="">
-          <a href="/my-digital-space" class="card no-arrow-link" style="text-decoration: none; color: inherit;">
-            
-            
-              <div class="image-container">
-                <img style="height: 100%; width: 100%; object-fit:cover" src="assets/projects/my-digital-space.png" alt="an illustration of a person in space">
-              </div>
-            
-            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; align-self: stretch;">
-              <h2 style="margin: 0">
-                <span class="nav-link hover inline" style="font-size: 1rem">My digital space</span>
-              </h2>
-              <p style="margin: 0rem;" class="subtext">
-                A self-built and published space to hold the things I like to build, create, and share
-              </p>
-            </div>
-          </a>
-        </div>
-      
-        <div class="">
-          <a href="/accessibility-conformance" class="card no-arrow-link" style="text-decoration: none; color: inherit;">
-            
-            
-              <div class="image-container">
-                <img style="margin-block-end: 1em" src="assets/projects/acr-dashboard-1600w.webp">
-              </div>
-            
-            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; align-self: stretch;">
-              <h2 style="margin: 0">
-                <span class="nav-link hover inline" style="font-size: 1rem">Making accessibility conformance easier</span>
-              </h2>
-              <p style="margin: 0rem;" class="subtext">
-                The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility
-              </p>
-            </div>
-          </a>
-        </div>
-      
-    </div>
   </div>
-
-<div class="projects-container pb bb">
-    <div class="sticky-year">
-      <p class="muted" style="margin-top: 0rem;">2023</p>
-    </div>
-    <div class="projects-list">
+  
+  <div class="project" data-tags="writing">
+    <a href="/inspiration-garden" class="internal-link project-link">
+       
+      <div class="project-image">
+        <img style="height: 100%; width: 100%; aspect-ratio: 4/3; object-fit:cover" src="assets/inspiration-garden.webp" alt="an illustration of a person in space">
+      </div>
       
-      
-        <div class="">
-          <a href="/co-designing-consent" class="card no-arrow-link" style="text-decoration: none; color: inherit;">
-            
-            
-              <div class="image-container">
-                <img style="margin-block-end: 1em" src="assets/co-designing-consent-popup.jpeg">
-              </div>
-            
-            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; align-self: stretch;">
-              <h2 style="margin: 0">
-                <span class="nav-link hover inline" style="font-size: 1rem">Co-designing consent</span>
-              </h2>
-              <p style="margin: 0rem;" class="subtext">
-                An honours thesis on how to best co-design consent education in Australian schools
-              </p>
-            </div>
-          </a>
-        </div>
-      
-    </div>
+        <h3 class="project-title">An inspiration garden</h3>
+    </a>
+      <p class="project-description">
+        A growing list of places I find myself starting new ideas (technical, mu...
+      </p>
   </div>
-
-<div class="projects-container pb bb">
-    <div class="sticky-year">
-      <p class="muted" style="margin-top: 0rem;">2022</p>
-    </div>
-    <div class="projects-list">
+  
+  <div class="project" data-tags="music">
+    <a href="/patinamix" class="internal-link project-link">
+       
+      <div class="project-image">
+        <img style="margin-block-end: 0em" src="assets/studio/patina.webp">
+      </div>
       
-      
-        <div class="">
-          <a href="/eli" class="card no-arrow-link" style="text-decoration: none; color: inherit;">
-            
-            
-              <div class="image-container">
-                <img style="margin-block-end: 1em" src="assets/projects/eli-says-hi.jpg" alt="Eli and an open laptop">
-              </div>
-            
-            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; align-self: stretch;">
-              <h2 style="margin: 0">
-                <span class="nav-link hover inline" style="font-size: 1rem">Eli</span>
-              </h2>
-              <p style="margin: 0rem;" class="subtext">
-                An integrated physical and digital engagement learning interface (aka eli), supporting young students
-              </p>
-            </div>
-          </a>
-        </div>
-      
-    </div>
+        <h3 class="project-title">Patina</h3>
+    </a>
+      <p class="project-description">
+        Live mix and accompanying interview, aired on fbi radio
+      </p>
   </div>
-
-<h1 class="pt"><a href="/studio" class="nav-link hover text">Studio</a></h1>
-<div>
   
-
+  <div class="project" data-tags="design">
+    <a href="/my-digital-space" class="internal-link project-link">
+       
+      <div class="project-image">
+        <img style="height: 100%; width: 100%; aspect-ratio: 4/3; object-fit:cover" src="assets/projects/my-digital-space.png" alt="an illustration of a person in space">
+      </div>
+      
+        <h3 class="project-title">My digital space</h3>
+    </a>
+      <p class="project-description">
+        A space I made for the things I like to build, create, and share.
+      </p>
+  </div>
   
-    <div class=" pb">
-      <flex class="align-baseline stack-mobile">
-        <div class="label muted">
-          <p>2025</p>
-        </div>
-        <div class="">
-          <h2 style="margin-bottom: 0"><a class="nav-link hover inline" href="/patinamix" style="font-size: 1rem">Patina</a></h2>
-          <p style="margin-top: 0rem" class="subtext">
-            A one-hour long selection of tracks and accompanying interview, aired live on fbi radio on the 26th of Jan, 2025
-          </p>
-          
-            
-        </div>
-      </flex>
-    </div>
+  <div class="project" data-tags="music">
+    <a href="/parao" class="internal-link project-link">
+       
+      <div class="project-image">
+        <img style="margin-block-end: 0em" src="assets/studio/0R6A6864.jpeg">
+      </div>
+      
+        <h3 class="project-title">Parao</h3>
+    </a>
+      <p class="project-description">
+        A one hour solo live performance for a night curated by Moral Laxa
+      </p>
+  </div>
   
-    <div class=" pb">
-      <flex class="align-baseline stack-mobile">
-        <div class="label muted">
-          <p>2024</p>
-        </div>
-        <div class="">
-          <h2 style="margin-bottom: 0"><a class="nav-link hover inline" href="/parao" style="font-size: 1rem">Parao</a></h2>
-          <p style="margin-top: 0rem" class="subtext">
-            A one hour solo live performance for a night curated by Moral Laxa
-          </p>
-          
-            
-              <a href="/parao" class="element-link hover"><img style="margin-block-end: 1em" src="assets/studio/0R6A6864.jpeg"></a>
-            
-        </div>
-      </flex>
-    </div>
+  <div class="project" data-tags="design">
+    <a href="/accessibility-conformance" class="internal-link project-link">
+       
+      <div class="project-image">
+        <img style="margin-block-end: 0em" src="assets/projects/acr-dashboard-1600w.webp">
+      </div>
+      
+        <h3 class="project-title">Making accessibility reporting effortless</h3>
+    </a>
+      <p class="project-description">
+        The end-to-end design and build of an internal tool to help product team...
+      </p>
+  </div>
   
-    <div class=" pb">
-      <flex class="align-baseline stack-mobile">
-        <div class="label muted">
-          <p>2021</p>
-        </div>
-        <div class="">
-          <h2 style="margin-bottom: 0"><a class="nav-link hover inline" href="/dune" style="font-size: 1rem">Dune</a></h2>
-          <p style="margin-top: 0rem" class="subtext">
-            A functional 4-track digital release on Sydney based label Nightime Drama
-          </p>
-          
-            
-        </div>
-      </flex>
-    </div>
+  <div class="project" data-tags="design, writing">
+    <a href="/co-designing-consent" class="internal-link project-link">
+       
+      <div class="project-image">
+        <img style="margin-block-end: 0em" src="assets/co-designing-consent-popup.jpeg">
+      </div>
+      
+        <h3 class="project-title">Co-designing consent</h3>
+    </a>
+      <p class="project-description">
+        An honours thesis on how to best co-design consent education in Australi...
+      </p>
+  </div>
   
-    <div class=" pb">
-      <flex class="align-baseline stack-mobile">
-        <div class="label muted">
-          <p>2016</p>
-        </div>
-        <div class="">
-          <h2 style="margin-bottom: 0"><a class="nav-link hover inline" href="/cloudmoments" style="font-size: 1rem">Cloud Moments</a></h2>
-          <p style="margin-top: 0rem" class="subtext">
-            A collection of MicroKorg pieces, inspired by the clouds that rolled past my bedroom window
-          </p>
-          
-            
-        </div>
-      </flex>
-    </div>
+  <div class="project" data-tags="design">
+    <a href="/eli" class="internal-link project-link">
+       
+      <div class="project-image">
+        <img style="margin-block-end: 0em" src="assets/projects/eli-says-hi.jpg" alt="Eli and an open laptop">
+      </div>
+      
+        <h3 class="project-title">Eli</h3>
+    </a>
+      <p class="project-description">
+        An integrated physical and digital engagement learning interface (aka el...
+      </p>
+  </div>
+  
+  <div class="project" data-tags="music">
+    <a href="/dune" class="internal-link project-link">
+       
+      <div class="project-image">
+        <img style="margin-block-end: 0em" src="assets/studio/ulladulla.webp">
+      </div>
+      
+        <h3 class="project-title">Dune</h3>
+    </a>
+      <p class="project-description">
+        A functional 4-track digital release on Sydney based label Nightime Drama
+      </p>
+  </div>
+  
+  <div class="project" data-tags="music">
+    <a href="/cloudmoments" class="internal-link project-link">
+       
+      <div class="project-image">
+        <img style="margin-block-end: 0em" src="/assets/studio/clouds.webp">
+      </div>
+      
+        <h3 class="project-title">Cloud Moments</h3>
+    </a>
+      <p class="project-description">
+        A collection of MicroKorg pieces, inspired by the clouds that rolled pas...
+      </p>
+  </div>
   
 </div>
-
-<h1 class="pt"><a href="/notes" class="nav-link hover text">Latest notes</a></h1>
-<div class="pb">
-  <ul style="list-style-type: none; padding-left: 0em; margin-bottom: 1.5em">
-    
-    
-      <li>
-        <span style="display: inline-block" class="label muted"> 2025 · Feb</span><a class="nav-link hover" style="font-size: 1rem" href="/sayings-i-like">Sayings I like</a>
-      </li>
-    
-      <li>
-        <span style="display: inline-block" class="label muted"> 2025 · Jan</span><a class="nav-link hover" style="font-size: 1rem" href="/what-s-a-digital-space">What's a digital space?</a>
-      </li>
-    
-      <li>
-        <span style="display: inline-block" class="label muted"> 2024 · Nov</span><a class="nav-link hover" style="font-size: 1rem" href="/inspiration-garden">An inspiration garden</a>
-      </li>
-    
-  </ul>
-</div>
-
+<p>I’ve got lots more ideas and projects I’m working on. <br>
+If you would like to work on one together, please <a class="internal-link" href="/contact">reach out</a>.</p>
 </body></html>
-</content>
-
-
 </main>
-    <footer class=""><!-- <div style="width: fit-content">
-    <img src="assets/Favicon-headshot.png" alt="favicon">
-</div> -->
-~ ~ ~ ~ ~ ~
+    <footer class="footer"><div class="contact-details">
+  <div class="contact-label">Let's talk –</div>
+  <div class="contact-email"><a class="" href="mailto:me@andreasthoma.com?subject=Hey%20Andreas!">me@andreasthoma.com</a></div>
+</div>
+<div class="footer-year">
+  <div class="section-label">Last updated Sep 29, 2025</div>
+  <div class="section-label">Thanks for visiting 👋</div>
+</div>
+<!-- ~ ~ ~ ~ ~ ~
 <br>
 <br>
 Hey there, I'm Andreas 👋 <br>
 
 I've tried holding my output in many different iterations online; this one feels the best. <br><br>
 — Welcome to my digital space.<br><br>
-<a class="internal-link" href="/contact">Contact me 📧</a>
+<a class="internal-link" href="/contact">Contact me 📧</a> -->
 </footer>
-  </div>
-</body>
+  </body>
 </html>

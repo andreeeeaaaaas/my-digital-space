@@ -1,8 +1,11 @@
 ---
-layout: page
+layout: project
 title: Co-designing consent
 permalink: /co-designing-consent
 date: 2023
+tags:
+  - design
+  - writing
 ---
 <p class="callout">An honours thesis on how to best co-design consent education in Australian schools</p>
 
@@ -66,5 +69,3 @@ Some of these learnings included:
 
 Supervision: [Dr Leigh-Anne Hepburn](https://www.sydney.edu.au/architecture/about/our-people/academic-staff/leigh-anne-hepburn.html)  
 Partnership: [Consent Labs](https://www.consentlabs.org.au/)
-
-To learn more about this project, please <a class= "internal-link" href= "/contact">reach out</a>.

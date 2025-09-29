@@ -1,67 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
+  <head>
+  <meta charset="UTF-8" />
 
-  <link rel="canonical" href="http://0.0.0.0:4000/parao" />
+  <link rel="canonical" href="http://localhost:4000/parao" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="description"
-    content="Andreas Thoma">
+  <meta
+    name="description"
+    content="Andreas Thoma"
+  />
 
-  <meta property="og:site_name" content="Andreas Thoma">
+  <meta property="og:site_name" content="Andreas Thoma" />
 
-  <link rel="icon" type="image/png" href="assets/Favicon-headshot.png">
+  <link rel="icon" type="image/png" href="assets/Favicon-headshot.png" />
 
-  <!-- <link rel="preload" href="/styles.css" as="style"> -->
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css" />
 
   <script src="/assets/js/prefetch.js" defer></script>
+  <script src="/assets/js/view-toggle.js"></script>
+  <script src="/assets/js/hover-effect.js"></script>
+  <!-- <script src="/assets/js/sound.js"></script> -->
+  <script src="/assets/js/tag-filter.js"></script>
 
   
-  <meta property="og:description" content="Andreas Thoma" />
+  <meta
+    property="og:description"
+    content="Andreas Thoma"
+  />
+   
+  <meta property="og:title" content="Parao" />
+  <meta property="og:type" content="article" />
+   
+  <meta
+    property="article:published_time"
+    content="1970-01-01T10:33:44+10:00"
+  />
+  <meta property="article:author" content="http://localhost:4000/" />
   
 
-  
-  <meta property="og:title" content="Parao">
-  <meta property="og:type" content="article">
-  
-
-  
-  <meta property="article:published_time" content="1970-01-01T10:33:44+10:00">
-  <meta property="article:author" content="http://0.0.0.0:4000/">
-  
-
-  <meta property="og:url" content="http://0.0.0.0:4000/parao" />
+  <meta property="og:url" content="http://localhost:4000/parao" />
 
   
 
   <title>
-    
-    Parao &mdash; Andreas Thoma
-    
+     Parao
+    &mdash; Andreas Thoma 
   </title>
 </head>
-<body>
-  <div class="wrapper">
-    <nav><!-- This is a placeholder, until refactored to be nice -->
-<div style="display: flex" class="pb">
+
+  <body>
+    <nav class="nav"><div class="nav-left">
+  <a href="/" class="nav-name">Andreas Thoma</a>
+</div>
+<!-- <button id="sound-toggle">Sound On</button> -->
+<div class="nav-right">
+  <div class="nav-info">
+    <a href="/about">Info</a>
+  </div>
+  <a class="contact-btn" href="/contact">Contact</a>
+</div>
+
+<!-- This is a placeholder, until refactored to be nice
+<div style="display: flex;" class="pb">
     <!-- You need to fix how this displays -->
-    <div style="flex-grow: 1;">
+<!-- <div class="flex align-center" style="flex-grow: 1; gap: 0.25rem; display: flex; align-items: center;">
         
-        <a class="nav-link " href="/">Andreas Thoma</a><span class="muted"> / </span><a href="/studio" class="nav-link " style="color: #999; font-weight: 350; padding-top: 0">Studio</a>
+            <a class="nav-link flex align-center" style="gap: 1rem;" href="/">
+                <img class ="profile-pic" src="assets/headshot-greybackground.png">
+                Andreas Thoma
+            </a>
+            <span class="muted">/</span>
+            <a href="/studio" class="nav-link " style="color: #999; font-weight: 350; padding-top: 0">Studio</a></span>
         
-    </div>
-    <div style="text-align: right;" class="pl">
+    </div> -->
+<!-- <div style="text-align: right;" class="">
         <a class="nav-link " href="/about">About</a>
-    </div>
-</div></nav>
-    <main class="pb"><div>
+    </div> -->
+<!-- </div> -->
+</nav>
+    <main class="main pt pb"><div>
   <h1>Parao</h1>
 </div>
-<content class="">
-  <html><body>
+<content>
+  <article class="">
+    <html><body>
 <p class="callout">A one hour solo live performance for a night curated by Moral Laxa</p>
 <figure class="wide">
 <img src="assets/studio/0R6A6864.jpeg">
@@ -107,19 +131,25 @@ Benji Schmidt</p>
 
 <h3 id="mum-️">Mum ❤️</h3>
 </body></html>
+    ~~~
+  </article>
 </content></main>
-    <footer class=""><!-- <div style="width: fit-content">
-    <img src="assets/Favicon-headshot.png" alt="favicon">
-</div> -->
-~ ~ ~ ~ ~ ~
+    <footer class="footer"><div class="contact-details">
+  <div class="contact-label">Let's talk –</div>
+  <div class="contact-email"><a class="" href="mailto:me@andreasthoma.com?subject=Hey%20Andreas!">me@andreasthoma.com</a></div>
+</div>
+<div class="footer-year">
+  <div class="section-label">Last updated Sep 29, 2025</div>
+  <div class="section-label">Thanks for visiting 👋</div>
+</div>
+<!-- ~ ~ ~ ~ ~ ~
 <br>
 <br>
 Hey there, I'm Andreas 👋 <br>
 
 I've tried holding my output in many different iterations online; this one feels the best. <br><br>
 — Welcome to my digital space.<br><br>
-<a class="internal-link" href="/contact">Contact me 📧</a>
+<a class="internal-link" href="/contact">Contact me 📧</a> -->
 </footer>
-  </div>
-</body>
+  </body>
 </html>

@@ -1,8 +1,10 @@
 ---
-layout: page
-title: Making accessibility conformance easier
+layout: project
+title: Making accessibility reporting effortless
 permalink: /accessibility-conformance
 date: 2024
+tags:
+  - design
 ---
 <p class="callout">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility</p>
 
@@ -22,7 +24,7 @@ Product teams needed to share their accessibility results in a way that is visib
 	<img src="assets/projects/acr-dashboard-1600w.webp">
 	<figcaption>The overview page of the dashboard</figcaption>
 </figure>
-<p class="callout blue">Due to government privacy, the visuals shown here are only recreations and the specific tools are omitted</p>
+>Due to government privacy, the visuals shown here are only recreations and the specific tools are omitted
 
 
 ## Process
@@ -47,8 +49,6 @@ The tool involved three main components:
 3. an interactive visual dashboard that allowed users to filter results by their product, team, or portfolio
 
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="480px" src="https://embed.figma.com/design/ZSfd75NTUkxRmNaF1mswSF/Andreas-Thoma-(Copy)?node-id=17-17&embed-host=share" allowfullscreen></iframe>
-
 ## Impact
 
 Prior to the this solution, it took product managers around 1 hour of manual effort to complete the process for a single product. It would have also taken "over 2 weeks" in effort from the Head of Accessibility to collate data from all products.
@@ -68,5 +68,3 @@ While my rotation has ended, future iterations of the tool could look at:
 - integration with team's planning and backlog tools,
 - support for mobile testing tools
 - dashboard visualising prior results
-
-If you want to learn more about this process, please [[contact|reach out]].

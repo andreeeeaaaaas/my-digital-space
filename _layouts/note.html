@@ -3,38 +3,41 @@ layout: default
 ---
 
 <content>
+  <div>
+    <h1>{{ page.title }}</h1>
+  </div>
   <article>
-    <div>
-      <h1>{{ page.title }}</h1>
-      <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% if page.type != 'pages' %}
-        Last updated on {{ page.last_modified_at | date: "%B %-d, %Y" }}
-        {% endif %}
-      </time>
-    </div>
+    <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">
+      {% if page.type != 'pages' %} Last updated on {{ page.last_modified_at |
+      date: "%B %-d, %Y" }} {% endif %}
+    </time>
     {{ content }}
-    <div id="notes-entry-container">
-      <side style="font-size: 0.9em">
+    ~~~
+    <div class="pt" id="notes-entry-container">
+      <div style="font-size: 0.9em">
         <h3 style="margin-bottom: 1em">Notes that mention this note</h3>
         {% if page.backlinks.size > 0 %}
         <div style="display: grid; grid-template-columns: repeat(1fr);">
           {% for backlink in page.backlinks %}
           <div class="callout">
-            <a class="internal-link"
-              href="{{ site.baseurl }}{{ backlink.url }}{%- if site.use_html_extension -%}.html{%- endif -%}">{{
-              backlink.title }}</a><br>
-            <div style="font-size: 0.88rem; padding-top: 0.5rem;" class="muted">{{ backlink.content | strip_html | truncatewords: 16 }}</div>
+            <a
+              class="internal-link"
+              href="{{ site.baseurl }}{{ backlink.url }}{%- if site.use_html_extension -%}.html{%- endif -%}"
+              >{{ backlink.title }}</a
+            ><br />
+            <div style="font-size: 0.88rem; padding-top: 0.5rem" class="muted">
+              {{ backlink.content | strip_html | truncatewords: 10 }}
+            </div>
           </div>
           {% endfor %}
         </div>
         {% else %}
 
         <div>
-          <p>
-            There are no notes linking to this note.
-          </p>
+          <p>There are no notes linking to this note.</p>
         </div>
         {% endif %}
-      </side>
+      </div>
     </div>
   </article>
 </content>

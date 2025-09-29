@@ -3,10 +3,12 @@ layout: page
 title: Patina
 permalink: /patinamix
 date: "2025"
+tags:
+  - music
 ---
-<p class="callout">A one-hour long selection of tracks and accompanying interview, aired live on <a href="https://www.fbi.radio/programs/patina/episodes/patina-26th-january-2025/">fbi radio</a> on the 26th of Jan, 2025</p>
-
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2025576760&color=%23846fff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+<p class="callout">Live mix and accompanying interview, aired on <a class ="external" href="https://www.fbi.radio/programs/patina/episodes/patina-26th-january-2025/">fbi radio</a></p>
+<img src="assets/studio/patina.webp">
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2025576760&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
 
 <p class ="callout blue">'The show draws influence from the oxidation of copper and bronze metals, and bridging the gap between the natural and industrial. We invite contributors to reflect on the passing of time and the interplay between decay and regeneration.' – Galiba & Lenna</p>
 

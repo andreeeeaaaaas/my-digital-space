@@ -8,7 +8,8 @@ permalink: /ziggy
 
 <img src="assets/ziggy.jpeg"/>
 
-<p class= "caption">The bestest boy in the whole world.</p>
+<p class="figcaption">The bestest boy in the whole world.</p>
+
 Some of his best qualities include:
 - Fetches
 - Perpetually smiling (may be sweating)
@@ -21,4 +22,4 @@ Some of his more challenging qualities include:
 - Will pester other dogs into chasing him
 - There's probably more, but I actually look past them all anyway...
 
-If you would like more Ziggy, follow [@ziggyolaf](https://www.instagram.com/ziggyolaf/)on Instagram.
+If you would like more Ziggy, follow [@ziggyolaf](https://www.instagram.com/ziggyolaf/) on Instagram.

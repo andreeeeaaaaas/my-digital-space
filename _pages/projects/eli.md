@@ -1,8 +1,10 @@
 ---
-layout: page
+layout: project
 title: Eli
 permalink: /eli
 date: 2022
+tags:
+  - design
 ---
 <p class="callout">An integrated physical and digital engagement learning interface (aka eli), supporting young students</p>
 

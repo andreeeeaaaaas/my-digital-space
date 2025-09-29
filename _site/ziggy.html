@@ -1,71 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
+  <head>
+  <meta charset="UTF-8" />
 
-  <link rel="canonical" href="http://0.0.0.0:4000/ziggy" />
+  <link rel="canonical" href="http://localhost:4000/ziggy" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="description"
-    content="Andreas Thoma">
+  <meta
+    name="description"
+    content="Andreas Thoma"
+  />
 
-  <meta property="og:site_name" content="Andreas Thoma">
+  <meta property="og:site_name" content="Andreas Thoma" />
 
-  <link rel="icon" type="image/png" href="assets/Favicon-headshot.png">
+  <link rel="icon" type="image/png" href="assets/Favicon-headshot.png" />
 
-  <!-- <link rel="preload" href="/styles.css" as="style"> -->
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css" />
 
   <script src="/assets/js/prefetch.js" defer></script>
+  <script src="/assets/js/view-toggle.js"></script>
+  <script src="/assets/js/hover-effect.js"></script>
+  <!-- <script src="/assets/js/sound.js"></script> -->
+  <script src="/assets/js/tag-filter.js"></script>
 
   
-  <meta property="og:description" content="Andreas Thoma" />
-  
+  <meta
+    property="og:description"
+    content="Andreas Thoma"
+  />
+   
+  <meta property="og:title" content="Ziggy" />
+  <meta property="og:type" content="article" />
+   
 
-  
-  <meta property="og:title" content="Ziggy">
-  <meta property="og:type" content="article">
-  
-
-  
-
-  <meta property="og:url" content="http://0.0.0.0:4000/ziggy" />
+  <meta property="og:url" content="http://localhost:4000/ziggy" />
 
   
 
   <title>
-    
-    Ziggy &mdash; Andreas Thoma
-    
+     Ziggy
+    &mdash; Andreas Thoma 
   </title>
 </head>
-<body>
-  <div class="wrapper">
-    <nav><!-- This is a placeholder, until refactored to be nice -->
-<div style="display: flex" class="pb">
+
+  <body>
+    <nav class="nav"><div class="nav-left">
+  <a href="/" class="nav-name">Andreas Thoma</a>
+</div>
+<!-- <button id="sound-toggle">Sound On</button> -->
+<div class="nav-right">
+  <div class="nav-info">
+    <a href="/about">Info</a>
+  </div>
+  <a class="contact-btn" href="/contact">Contact</a>
+</div>
+
+<!-- This is a placeholder, until refactored to be nice
+<div style="display: flex;" class="pb">
     <!-- You need to fix how this displays -->
-    <div style="flex-grow: 1;">
+<!-- <div class="flex align-center" style="flex-grow: 1; gap: 0.25rem; display: flex; align-items: center;">
         
-        <a class="nav-link " href="/">Andreas Thoma</a></span>
+            <a class="nav-link flex align-center" style="gap: 1rem;" href="/">
+                <img class ="profile-pic" src="assets/headshot-greybackground.png">
+                Andreas Thoma
+            </a>
         
-    </div>
-    <div style="text-align: right;" class="pl">
+    </div> -->
+<!-- <div style="text-align: right;" class="">
         <a class="nav-link " href="/about">About</a>
-    </div>
-</div></nav>
-    <main class="pb"><div>
+    </div> -->
+<!-- </div> -->
+</nav>
+    <main class="main pt pb"><div>
   <h1>Ziggy</h1>
 </div>
-<content class="">
-  <html><body>
+<content>
+  <article class="">
+    <html><body>
 <blockquote>
   <p>My 4 year old, perpetually smiling, slightly overweight, Finnish-Lapphund son</p>
 </blockquote>
 
 <p><img src="assets/ziggy.jpeg"></p>
 
-<p class="caption">The bestest boy in the whole world.</p>
+<p class="figcaption">The bestest boy in the whole world.</p>
+
 <p>Some of his best qualities include:</p>
 <ul>
   <li>Fetches</li>
@@ -82,21 +102,27 @@
   <li>There’s probably more, but I actually look past them all anyway…</li>
 </ul>
 
-<p>If you would like more Ziggy, follow <a href="https://www.instagram.com/ziggyolaf/" target="_blank">@ziggyolaf</a>on Instagram.</p>
+<p>If you would like more Ziggy, follow <a href="https://www.instagram.com/ziggyolaf/" target="_blank">@ziggyolaf</a> on Instagram.</p>
 </body></html>
+    ~~~
+  </article>
 </content></main>
-    <footer class=""><!-- <div style="width: fit-content">
-    <img src="assets/Favicon-headshot.png" alt="favicon">
-</div> -->
-~ ~ ~ ~ ~ ~
+    <footer class="footer"><div class="contact-details">
+  <div class="contact-label">Let's talk –</div>
+  <div class="contact-email"><a class="" href="mailto:me@andreasthoma.com?subject=Hey%20Andreas!">me@andreasthoma.com</a></div>
+</div>
+<div class="footer-year">
+  <div class="section-label">Last updated Sep 29, 2025</div>
+  <div class="section-label">Thanks for visiting 👋</div>
+</div>
+<!-- ~ ~ ~ ~ ~ ~
 <br>
 <br>
 Hey there, I'm Andreas 👋 <br>
 
 I've tried holding my output in many different iterations online; this one feels the best. <br><br>
 — Welcome to my digital space.<br><br>
-<a class="internal-link" href="/contact">Contact me 📧</a>
+<a class="internal-link" href="/contact">Contact me 📧</a> -->
 </footer>
-  </div>
-</body>
+  </body>
 </html>

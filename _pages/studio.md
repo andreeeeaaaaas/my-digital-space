@@ -4,6 +4,12 @@ title: Studio
 id: studio
 permalink: /studio
 ---
+<style>
+  /* Only for studio.md */
+  .iframe-container iframe {
+    background: #fff;
+  }
+</style>
 <div class="callout">A showcase of the things I create or work on in my 'me-time'</div>
 
 <div>
@@ -14,21 +20,32 @@ permalink: /studio
   {% assign latest_projects = sorted_projects | where_exp: "page", "page.path contains 'projects/'" %}
   {% assign latest_studio_projects = sorted_projects | where_exp: "page", "page.path contains 'studio/'" %}
 
+  <div class="projects-list">
   {% for page in latest_studio_projects %}
-    <div class="bb">
-      <flex class="align-baseline stack-mobile">
-        <div class="label muted">
-          <p>{{ page.date }}</p>
-        </div>
-        <div class="">
-          <h2 style ="margin-bottom: 0"><a class="nav-link hover" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
-          <p style="margin-top: 0rem; color: #606060">
+    <div>
+      <a href="{{ site.baseurl }}{{ page.url }}" class="card no-arrow-link" style="text-decoration: none; color: inherit;">
+        {% assign img_tag = page.content | split:'<img ' | slice: 1 | first %}
+        {% if img_tag %}
+          <div class="">
+            <img style="" {{ img_tag | split:'>' | first }}>
+          </div>
+        {% endif %}
+        {% assign iframe_tag = page.content | split:'<iframe ' | slice: 1 | first %}
+        {% if iframe_tag %}
+          <div class="iframe-container" style="width: 100%;">
+            <iframe style="width: 100%; display: block; min-height: 100px; border-radius: 0.25rem;" {{ iframe_tag | split:'>' | first }}></iframe>
+          </div>
+        {% endif %}
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; align-self: stretch;">
+          <h2 style="margin: 0">
+            <span class="nav-link hover inline" style="font-size: 1rem">{{ page.title }}</span>
+          </h2>
+          <p style="margin: 0rem;" class="subtext">
             {{ page.content | callout_excerpt | default: "No summary available." }}
           </p>
         </div>
-      </flex>
+      </a>
     </div>
   {% endfor %}
+  </div>
 </div>
-
-
