@@ -20,15 +20,15 @@ permalink: /
 <section class="header">
   <div class="intro-text">
     <p>
-      <span style="opacity: 0%">Andreas Thoma</span>is a
-      <span class="design" data-filter="design">designer</span>,
+      <!-- <span style="opacity: 0%">Andreas Thoma</span>is a -->
+      <span class="design" data-filter="design">Designer</span>,
       <span class="music" data-filter="music">musician</span>, and
       <span class="visual" data-filter="visual">creative</span>.
     </p>
     <br />
     <p>
       Currently designing software and services that serve millions of people,
-      he thrives tackling challenges when empathy combines with smart
+      I thrive tackling challenges when user empathy combines with smart
       business strategy to drive decisions.
     </p>
   </div>

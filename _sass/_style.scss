@@ -736,6 +736,7 @@ button.tag {
 
   &.inactive {
     opacity: 0;
+    display: none;
     pointer-events: none;
   }
 }
@@ -842,7 +843,7 @@ button.tag {
   }
 
   .main {
-    padding: $spacing-m-24 $spacing-m-24 $spacing-m-24;
+    padding: 0 $spacing-m-24 $spacing-m-24;
     width: 100%;
   }
 
@@ -904,7 +905,7 @@ button.tag {
   }
 
   .main {
-    padding: $spacing-lg-32 $spacing-s-16 0 $spacing-s-16;
+    padding: 0 $spacing-s-16 0 $spacing-s-16;
     width: 100%;
   }
 

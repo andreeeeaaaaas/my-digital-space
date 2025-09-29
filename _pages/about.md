@@ -25,7 +25,7 @@ My spare time is filled with things like:
 - or trying some new thing that's taken my fancy
 
 ## Experience
-I'm currently working for [Service NSW](https://www.service.nsw.gov.au/about-us/digital-capabilities) designing software for the 250,000 workers in the Community Services Industry.
+I'm currently working for [Service NSW](https://www.service.nsw.gov.au/about-us/digital-capabilities), designing software for the 250,000 workers in the Community Services Industry.
 
 Prior to now, I have:
 
@@ -82,8 +82,6 @@ Prior to now, I have:
 </div>-->
 
 ## More
-To get a more complete picture of me, click on one of the links below.
-
 <ul>
     <li>LinkedIn– <a href="https://www.linkedin.com/in/andreas-thoma-7636a4136/">Andreas Thoma</a></li>
     <li>Bandcamp– <a href="https://andreeeeaaaaas.bandcamp.com/">andreeeeaaaaas</a></li>
