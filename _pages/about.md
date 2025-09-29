@@ -25,7 +25,7 @@ My spare time is filled with things like:
 - or trying some new thing that's taken my fancy
 
 ## Experience
-Currently taking part in the NSW Government graduate program as a digital graduate, my learning has been wide-ranging and insightful.
+I'm currently working for [Service NSW](https://www.service.nsw.gov.au/about-us/digital-capabilities) designing software for the 250,000 workers in the Community Services Industry.
 
 Prior to now, I have:
 
@@ -86,8 +86,6 @@ To get a more complete picture of me, click on one of the links below.
 
 <ul>
     <li>LinkedIn– <a href="https://www.linkedin.com/in/andreas-thoma-7636a4136/">Andreas Thoma</a></li>
-    <li>Read.cv– <a href="https://read.cv/andreasthoma">@andreasthoma</a></li>
     <li>Bandcamp– <a href="https://andreeeeaaaaas.bandcamp.com/">andreeeeaaaaas</a></li>
     <li>Soundcloud– <a href="https://soundcloud.com/andreeeeaaaaas">andreeeeaaaaas</a></li>
 </ul>
-<hr>

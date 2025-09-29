@@ -515,7 +515,7 @@ code {
   font-size: calc(var(--font-size-base) - 1px);
   // line-height: 24px;
   font-weight: 400;
-  color: $color-light;
+  color: $color-muted;
   // padding-bottom: $spacing-s-16
 }
 
@@ -748,8 +748,8 @@ button.tag {
 }
 .project-grid.list-view .project {
   display: flex;
-  padding: $spacing-m-24 0;
-  border-bottom: 1px solid #eee;
+  padding: $spacing-s-16 0;
+  border-bottom: 1px solid $color-light-gray;
 
   &.inactive {
     display: none;
@@ -772,6 +772,8 @@ button.tag {
   align-items: flex-start;
   gap: $spacing-s-16;
   max-width: 1440px;
+  color: $color-muted;
+
   padding: $spacing-xxl-128 $spacing-m-24 $spacing-lg-32;
   // margin-top: $spacing-xxl-128;
 }
@@ -787,7 +789,6 @@ button.tag {
   white-space: nowrap;
 
   .contact-label {
-    color: $color-light;
     font-family: $font-family-mono;
   }
 
