@@ -883,6 +883,9 @@ button.tag {
 }
 
 @media (max-width: 540px) {
+  :root {
+    --font-size-base: 15px;
+  }
 
   p,
   ul,
