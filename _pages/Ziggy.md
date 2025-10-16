@@ -3,8 +3,7 @@ layout: page
 title: Ziggy
 permalink: /ziggy
 ---
-> My 4 year old, perpetually smiling, slightly overweight, Finnish-Lapphund son
-
+<p class="intro">My 4 year old, perpetually smiling, slightly overweight, Finnish-Lapphund son</p>
 
 <img src="assets/ziggy.jpeg"/>
 

@@ -155,7 +155,7 @@ content {
 }
 
 a {
-  text-decoration: underline $color-gray;
+  text-decoration: underline $color-light;
   color: $color-primary;
 
   // &.external:after {
@@ -238,6 +238,7 @@ iframe {
   font-family: $font-family-mono;
   color: $color-primary;
   text-align: center;
+  padding: 0 $spacing-lg-32;
 }
 
 blockquote,
@@ -910,7 +911,7 @@ button.tag {
 
   .intro {
     font-size: calc(var(--font-size-base) + 2px);
-    text-align: left;
+    // text-align: center;
   }
 
   .project.inactive {

@@ -1,5 +1,5 @@
 // Global error logging
-window.addEventListener("error", (event) => {
+document.addEventListener("error", (event) => {
   console.error("Sound.js global error caught:", event.error);
 });
 
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Track active sources for cleanup
   const activeSources = new Set();
-  const MAX_CONCURRENT_SOUNDS = 10; // Limit simultaneous sounds
+  const MAX_CONCURRENT_SOUNDS = 5; // Limit simultaneous sounds
 
   // Unlock function
   const unlock = () => {
@@ -26,22 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const noBtn = document.getElementById("sound-no");
   const soundToggle = document.getElementById("sound-toggle");
 
-  // === State ===
-  let isSoundOn = false; // Current session setting
-
-  // === On first load ===
-  const savedPref = sessionStorage.getItem("soundEnabled");
-
-  if (savedPref === null) {
-    // First visit → show modal
-    overlay.classList.remove("hidden");
-  } else {
-    // Already chosen before
-    overlay.classList.add("hidden");
-    isSoundOn = savedPref === "true";
-    updateToggleUI();
-  }
-
   // Update toggle button UI to match current sound state
   function updateToggleUI() {
     if (isSoundOn) {
@@ -51,6 +35,27 @@ document.addEventListener("DOMContentLoaded", () => {
       soundToggle.classList.add("muted");
       soundToggle.setAttribute("aria-label", "Unmute sound");
     }
+  }
+
+  // === State ===
+  let isSoundOn = false; // Current session setting
+
+  // === On first load ===
+  const savedPref = sessionStorage.getItem("soundEnabled");
+
+  try {
+    if (savedPref === null) {
+      // First visit → show modal
+      overlay.classList.remove("hidden");
+    } else {
+      // Already chosen before
+      overlay.classList.add("hidden");
+      isSoundOn = savedPref === "true";
+      updateToggleUI();
+      unlock();
+    }
+  } catch (error) {
+    console.error("Error handling sound preferences:", error);
   }
 
   // Yes button - enable sound
@@ -75,14 +80,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === Toggle button (updates both session storage and UI) ===
   soundToggle.addEventListener("click", () => {
+    console.log("Toggle button pressed");
     isSoundOn = !isSoundOn;
     sessionStorage.setItem("soundEnabled", isSoundOn.toString());
     updateToggleUI();
     console.log(isSoundOn ? "Sound unmuted" : "Sound muted");
-    
+    unlock();
+
     // Stop all active sounds when muting
     if (!isSoundOn) {
-      activeSources.forEach(source => {
+      activeSources.forEach((source) => {
         try {
           source.stop();
           source.disconnect();
@@ -145,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function playBuffer(src) {
     if (!isSoundOn) return;
     if (audioCtx.state !== "running") return;
-    
+
     // Limit concurrent sounds
     if (activeSources.size >= MAX_CONCURRENT_SOUNDS) {
       const oldestSource = activeSources.values().next().value;
@@ -166,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
       srcNode.buffer = buf;
       srcNode.connect(masterGain);
       activeSources.add(srcNode);
-      
+
       // Cleanup when finished
       const cleanup = () => {
         activeSources.delete(srcNode);
@@ -176,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Already disconnected
         }
       };
-      
+
       srcNode.onended = cleanup;
       srcNode.start(0);
     } catch (err) {
@@ -188,11 +195,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function throttle(func, delay) {
     let timeoutId;
     let lastExecTime = 0;
-    
-    return function(...args) {
+
+    return function (...args) {
       const currentTime = Date.now();
       const timeSinceLastExec = currentTime - lastExecTime;
-      
+
       if (timeSinceLastExec >= delay) {
         func.apply(this, args);
         lastExecTime = currentTime;
@@ -207,16 +214,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const sound = getNextTagSound();
       playBuffer(sound);
     }, 100); // Minimum 100ms between sounds per tag
-    
+
     tag.addEventListener("mouseenter", playTagSound);
   });
-  
+
   document.querySelectorAll(".project").forEach((project) => {
     const playProjectSound = throttle(() => {
       const sound = getNextProjectSound();
       playBuffer(sound);
     }, 100); // Minimum 100ms between sounds per project
-    
+
     project.addEventListener("mouseenter", playProjectSound);
   });
 });
