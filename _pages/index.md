@@ -5,7 +5,7 @@ id: home
 permalink: /
 ---
 
-<!-- <div id="sound-gate" class="overlay">
+<div id="sound-gate" class="overlay">
   <div class="overlay-content">
     <p style="margin-top:0">Would you like to enable sound?</p>
     <div style="display: flex; flex-direction: row;gap: 16px; padding-top: 16p;">
@@ -14,22 +14,19 @@ permalink: /
       <button href="#" id="sound-no">No</button>
     </div>
   </div>
-</div> -->
+</div>
 
 <!-- Header -->
 <section class="header">
   <div class="intro-text">
-    <p>
-      <!-- <span style="opacity: 0%">Andreas Thoma</span>is a -->
-      <span class="design" data-filter="design">Designer</span>,
+    <p>I'm Andreas – a
+      <span class="design" data-filter="design">designer</span>,
       <span class="music" data-filter="music">musician</span>, and
-      <span class="visual" data-filter="visual">creative</span>.
+      <span class="writing" data-filter="writing">creative</span>.
     </p>
     <br />
     <p>
-      Currently designing software and services that serve millions of people,
-      I thrive tackling challenges when user empathy combines with smart
-      business strategy to drive decisions.
+      I help organisations see the value design can bring to processes, products, and people. I thrive tackling challenges when user empathy combines with smart business strategy to drive decisions.
     </p>
   </div>
 
@@ -104,33 +101,29 @@ permalink: /
 {% assign projects = site.pages | where_exp: "page", "page.path contains 'projects/'" %}
 {% assign studio = site.pages | where_exp: "page", "page.path contains 'studio/'" %}
 {% assign notes = site.notes | where_exp: "page", "page.path contains 'notes/'" %}
-{% assign project_pages = projects | concat: studio | concat: notes | sort: "date" | reverse %}
-
-{% assign years = project_pages | map: "date" | uniq  %}
-
-{% assign projects_in_year = project_pages | where: "date", year %}
+{% assign all_pages = projects | concat: studio | sort: "date" | reverse | concat: notes %}
 
 <!-- Project Grid -->
 <div class="project-grid">
-  {% for page in project_pages %}
+  {% for page in all_pages %}
   <div class="project" data-tags="{{ page.tags | join: ', ' }}">
-    <a href="{{ site.baseurl }}{{ page.url }}" class="internal-link project-link">
+    <a href="{{ site.baseurl }}{{ page.url }}" class="internal-link no-underline">
       {% assign img_tag = page.content | split:'<img ' | slice: 1 | first %} {%
       if img_tag %}
       <div class="project-image">
         <img style="margin-block-end: 0em" {{ img_tag | split:'>' | first }}>
       </div>
       {% endif %}
-        <h3 class="project-title">{{ page.title }}</h3>
-    </a>
+        <h2 class="project-title">{{ page.title }}</h2>
       <p class="project-description">
-        {{ page.content | callout_excerpt | truncate: 75, "..." | default: "No
+        {{ page.content | callout_excerpt | truncate: 60, "..." | default: "No
         summary available." }}
       </p>
+    </a>
   </div>
   {% endfor %}
 </div>
-~~~
+<hr>
 <br>
 <br>
 I've got lots more ideas and projects I'm working on. <br>

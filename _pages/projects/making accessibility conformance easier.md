@@ -6,7 +6,7 @@ date: 2024
 tags:
   - design
 ---
-<p class="callout">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility</p>
+<p class="intro">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility</p>
 
 While at Service NSW, I worked with the Head of Accessibility to solve a challenge product teams had in sharing their accessibility testing results. Lead by my fantastic PM, I wore both a design and technical hat while helping design, build, and implement a solution for 60+ product teams to use.
 

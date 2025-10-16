@@ -10,7 +10,7 @@ module Jekyll
       doc = Nokogiri::HTML.fragment(input)
 
       # Find the first div with class "callout"
-      callout = doc.at_css('.callout')
+      callout = doc.at_css('.intro')
 
       # Return the text content, stripping extra whitespace
       callout ? callout.text.strip : ''

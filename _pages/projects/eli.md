@@ -6,7 +6,7 @@ date: 2022
 tags:
   - design
 ---
-<p class="callout">An integrated physical and digital engagement learning interface (aka eli), supporting young students</p>
+<p class="intro">An integrated physical and digital engagement learning interface (aka eli), supporting young students</p>
 
 Challenged by the design brief 'designing smarter and more accessible engagement,' we asked ourselves– how might we design digital tools that give underrepresented community members a meaningful voice in their own decision making?
 

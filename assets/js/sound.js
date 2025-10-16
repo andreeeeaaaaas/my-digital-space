@@ -1,3 +1,8 @@
+// Global error logging
+window.addEventListener("error", (event) => {
+  console.error("Sound.js global error caught:", event.error);
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   // Web Audio setup
   const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -20,10 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // let userChoice;
 
    // === State ===
-  // let isSoundOn = false; // Current session setting
+  let isSoundOn = false; // Current session setting
 
   // === On first load ===
-  // const savedPref = sessionStorage.getItem("soundEnabled");
+  const savedPref = sessionStorage.getItem("soundEnabled");
 
   // if (savedPref === null) {
   //   // First visit → show modal
@@ -32,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //   // Already chosen before
   //   overlay.classList.add("hidden");
   //   isSoundOn = savedPref === "true";
-  //   updateToggleUI();
+  //   // updateToggleUI();
   // }
 
   // // Check if user already made a choice
@@ -134,15 +139,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (tag.classList.contains("active")) return;
       if (sessionStorage.getItem("soundEnabled") === "false") return;
       const sound = getNextTagSound();
-      playBuffer(sound).catch(console.error);
+      playBuffer(sound);
     });
   });
-  document.querySelectorAll(".project-image").forEach((img) => {
+  document.querySelectorAll(".project").forEach((project) => {
     // if (userChoice === "false") return;
-    img.addEventListener("mouseenter", () => {
+    project.addEventListener("mouseenter", () => {
       const sound = getNextProjectSound();
       if (sessionStorage.getItem("soundEnabled") === "false") return;
-      playBuffer(sound).catch(console.error);
+      playBuffer(sound);
     });
   });
 });

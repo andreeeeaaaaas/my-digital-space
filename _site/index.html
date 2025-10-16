@@ -3,7 +3,7 @@
   <head>
   <meta charset="UTF-8" />
 
-  <link rel="canonical" href="http://localhost:4000/" />
+  <link rel="canonical" href="http://0.0.0.0:4000/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -19,10 +19,10 @@
   <link rel="stylesheet" href="/styles.css" />
   <link rel="preload" href="/assets/fonts/BATMIP1.41-Roman.woff2" as="font" type="font/woff2" crossorigin>
 
-  <script src="/assets/js/prefetch.js" defer></script>
+  <!-- <script src="/assets/js/prefetch.js" defer></script> -->
   <script src="/assets/js/view-toggle.js"></script>
-  <script src="/assets/js/hover-effect.js"></script>
-  <!-- <script src="/assets/js/sound.js"></script> -->
+  <!-- <script src="/assets/js/hover-effect.js"></script> -->
+  <script src="/assets/js/sound.js"></script>
   <script src="/assets/js/tag-filter.js"></script>
 
   
@@ -35,7 +35,7 @@
   <meta property="og:type" content="article" />
    
 
-  <meta property="og:url" content="http://localhost:4000/" />
+  <meta property="og:url" content="http://0.0.0.0:4000/" />
 
   
 
@@ -50,10 +50,8 @@
 </div>
 <!-- <button id="sound-toggle">Sound On</button> -->
 <div class="nav-right">
-  <div class="nav-info">
-    <a href="/about">Info</a>
-  </div>
-  <a class="contact-btn" href="/contact">Contact</a>
+  <a href="/about">Info</a>
+  <a href="/contact">Contact</a>
 </div>
 
 <!-- This is a placeholder, until refactored to be nice
@@ -72,29 +70,29 @@
     </div> -->
 <!-- </div> -->
 </nav>
-    <main class="main pb">    <!-- <div id="sound-gate" class="overlay">
+    <main class="main pb">    <html><body>
+<div id="sound-gate" class="overlay">
   <div class="overlay-content">
     <p style="margin-top:0">Would you like to enable sound?</p>
     <div style="display: flex; flex-direction: row;gap: 16px; padding-top: 16p;">
-      <button  id="sound-yes">Yes</button>
+      <button id="sound-yes">Yes</button>
       <p>/</p>
       <button href="#" id="sound-no">No</button>
     </div>
   </div>
-</div> --><!-- Header --><html><body>
+</div>
+
+<!-- Header -->
 <section class="header">
   <div class="intro-text">
-    <p>
-      <!-- <span style="opacity: 0%">Andreas Thoma</span>is a -->
-      <span class="design" data-filter="design">Designer</span>,
+    <p>I'm Andreas – a
+      <span class="design" data-filter="design">designer</span>,
       <span class="music" data-filter="music">musician</span>, and
-      <span class="visual" data-filter="visual">creative</span>.
+      <span class="writing" data-filter="writing">creative</span>.
     </p>
     <br>
     <p>
-      Currently designing software and services that serve millions of people,
-      I thrive tackling challenges when user empathy combines with smart
-      business strategy to drive decisions.
+      I help organisations see the value design can bring to processes, products, and people. I thrive tackling challenges when user empathy combines with smart business strategy to drive decisions.
     </p>
   </div>
 
@@ -168,149 +166,150 @@
 <!-- Project Grid -->
 <div class="project-grid">
   
-  <div class="project" data-tags="writing">
-    <a href="/what-s-a-digital-space" class="internal-link project-link">
-       
-      <div class="project-image">
-        <img style="aspect-ratio: 3/2" src="assets/digital-space.jpg">
-      </div>
-      
-        <h3 class="project-title">What's a digital space?</h3>
-    </a>
-      <p class="project-description">
-        I like to think of this space as my own plot on the internet
-      </p>
-  </div>
-  
-  <div class="project" data-tags="writing">
-    <a href="/inspiration-garden" class="internal-link project-link">
-       
-      <div class="project-image">
-        <img style="height: 100%; width: 100%; aspect-ratio: 4/3; object-fit:cover" src="assets/inspiration-garden.webp" alt="an illustration of a person in space">
-      </div>
-      
-        <h3 class="project-title">An inspiration garden</h3>
-    </a>
-      <p class="project-description">
-        A growing list of places I find myself starting new ideas (technical, mu...
-      </p>
-  </div>
-  
   <div class="project" data-tags="music">
-    <a href="/patinamix" class="internal-link project-link">
+    <a href="/patinamix" class="internal-link no-underline">
        
       <div class="project-image">
         <img style="margin-block-end: 0em" src="assets/studio/patina.webp">
       </div>
       
-        <h3 class="project-title">Patina</h3>
-    </a>
+        <h2 class="project-title">Patina</h2>
       <p class="project-description">
         Live mix and accompanying interview, aired on fbi radio
       </p>
+    </a>
   </div>
   
   <div class="project" data-tags="design">
-    <a href="/my-digital-space" class="internal-link project-link">
+    <a href="/my-digital-space" class="internal-link no-underline">
        
       <div class="project-image">
         <img style="height: 100%; width: 100%; aspect-ratio: 4/3; object-fit:cover" src="assets/projects/my-digital-space.png" alt="an illustration of a person in space">
       </div>
       
-        <h3 class="project-title">My digital space</h3>
-    </a>
+        <h2 class="project-title">My digital space</h2>
       <p class="project-description">
-        A space I made for the things I like to build, create, and share
+        A space I made for the things I like to build, create, an...
       </p>
+    </a>
   </div>
   
   <div class="project" data-tags="music">
-    <a href="/parao" class="internal-link project-link">
+    <a href="/parao" class="internal-link no-underline">
        
       <div class="project-image">
         <img style="margin-block-end: 0em" src="assets/studio/0R6A6864.jpeg">
       </div>
       
-        <h3 class="project-title">Parao</h3>
-    </a>
+        <h2 class="project-title">Parao</h2>
       <p class="project-description">
-        A one hour solo live performance for a night curated by Moral Laxa
+        A one hour solo live performance for a night curated by M...
       </p>
+    </a>
   </div>
   
   <div class="project" data-tags="design">
-    <a href="/accessibility-conformance" class="internal-link project-link">
+    <a href="/accessibility-conformance" class="internal-link no-underline">
        
       <div class="project-image">
         <img style="margin-block-end: 0em" src="assets/projects/acr-dashboard-1600w.webp">
       </div>
       
-        <h3 class="project-title">Making accessibility reporting effortless</h3>
-    </a>
+        <h2 class="project-title">Making accessibility reporting effortless</h2>
       <p class="project-description">
-        The end-to-end design and build of an internal tool to help product team...
+        The end-to-end design and build of an internal tool to he...
       </p>
+    </a>
   </div>
   
   <div class="project" data-tags="design, writing">
-    <a href="/co-designing-consent" class="internal-link project-link">
+    <a href="/co-designing-consent" class="internal-link no-underline">
        
       <div class="project-image">
         <img style="margin-block-end: 0em" src="assets/co-designing-consent-popup.jpeg">
       </div>
       
-        <h3 class="project-title">Co-designing consent</h3>
-    </a>
+        <h2 class="project-title">Co-designing consent</h2>
       <p class="project-description">
-        An honours thesis on how to best co-design consent education in Australi...
+        An honours thesis on how to best co-design consent educat...
       </p>
+    </a>
   </div>
   
   <div class="project" data-tags="design">
-    <a href="/eli" class="internal-link project-link">
+    <a href="/eli" class="internal-link no-underline">
        
       <div class="project-image">
         <img style="margin-block-end: 0em" src="assets/projects/eli-says-hi.jpg" alt="Eli and an open laptop">
       </div>
       
-        <h3 class="project-title">Eli</h3>
-    </a>
+        <h2 class="project-title">Eli</h2>
       <p class="project-description">
-        An integrated physical and digital engagement learning interface (aka el...
+        An integrated physical and digital engagement learning in...
       </p>
+    </a>
   </div>
   
   <div class="project" data-tags="music">
-    <a href="/dune" class="internal-link project-link">
+    <a href="/dune" class="internal-link no-underline">
        
       <div class="project-image">
         <img style="margin-block-end: 0em" src="assets/studio/ulladulla.webp">
       </div>
       
-        <h3 class="project-title">Dune</h3>
-    </a>
+        <h2 class="project-title">Dune</h2>
       <p class="project-description">
-        A functional 4-track digital release on Sydney based label Nightime Drama
+        A functional 4-track digital release on Sydney based labe...
       </p>
+    </a>
   </div>
   
   <div class="project" data-tags="music">
-    <a href="/cloudmoments" class="internal-link project-link">
+    <a href="/cloudmoments" class="internal-link no-underline">
        
       <div class="project-image">
         <img style="margin-block-end: 0em" src="/assets/studio/clouds.webp">
       </div>
       
-        <h3 class="project-title">Cloud Moments</h3>
-    </a>
+        <h2 class="project-title">Cloud Moments</h2>
       <p class="project-description">
-        A collection of MicroKorg pieces, inspired by the clouds that rolled pas...
+        A collection of MicroKorg pieces, inspired by the clouds ...
       </p>
+    </a>
+  </div>
+  
+  <div class="project" data-tags="writing">
+    <a href="/inspiration-garden" class="internal-link no-underline">
+       
+      <div class="project-image">
+        <img style="height: 100%; width: 100%; aspect-ratio: 4/3; object-fit:cover" src="assets/inspiration-garden.webp" alt="an illustration of a person in space">
+      </div>
+      
+        <h2 class="project-title">An inspiration garden</h2>
+      <p class="project-description">
+        A growing list of places I find myself starting new ideas...
+      </p>
+    </a>
+  </div>
+  
+  <div class="project" data-tags="writing">
+    <a href="/what-s-a-digital-space" class="internal-link no-underline">
+       
+      <div class="project-image">
+        <img style="aspect-ratio: 3/2" src="assets/digital-space.jpg">
+      </div>
+      
+        <h2 class="project-title">What's a digital space?</h2>
+      <p class="project-description">
+        How is a digital space different from a website?
+      </p>
+    </a>
   </div>
   
 </div>
-<p>~~~
-<br>
+<hr>
+
+<p><br>
 <br>
 I’ve got lots more ideas and projects I’m working on. <br>
 If you would like to work on one together, please <a class="internal-link" href="/contact">reach out</a>.</p>
@@ -321,7 +320,7 @@ If you would like to work on one together, please <a class="internal-link" href=
   <div class="contact-email"><a class="" href="mailto:me@andreasthoma.com?subject=Hey%20Andreas!">me@andreasthoma.com</a></div>
 </div>
 <div class="footer-year">
-  <div class="section-label">Last updated Sep 29, 2025</div>
+  <div class="section-label">Last updated Oct 16, 2025</div>
   <div class="section-label">Thanks for visiting 👋</div>
 </div>
 <!-- ~ ~ ~ ~ ~ ~

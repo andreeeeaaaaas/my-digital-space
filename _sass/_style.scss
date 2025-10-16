@@ -1,18 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200;400;500&family=IBM+Plex+Sans:wght@400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap");
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-std.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 
 @font-face {
   font-family: "Geist";
-  src: url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Pretendard Std";
-  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-std.min.css");
+  src: url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
   font-style: normal;
   font-display: swap;
 }
@@ -25,10 +16,9 @@
 }
 
 // Variables
-$font-family-primary: "Geist", -apple-system, BlinkMacSystemFont,
-  "Pretendard Std Variable", "Pretendard Std", Pretendard, Roboto, "Segoe UI",
+$font-family-primary: "Geist", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI",
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-$font-family-text: "Pretendard Std", "Geist", "SF Pro Text", sans-serif;
+$font-family-text: "Geist", "SF Pro Text", sans-serif;
 $font-family-mono: "IBM Plex Mono", monospace;
 $font-family-title: "Batmip", "Pretendard Std";
 
@@ -141,7 +131,7 @@ body {
   font-family: $font-family-primary;
   background-color: $color-white;
   color: $color-primary;
-  line-height: 1.75;
+  line-height: 1.6;
   width: 100vw;
   max-width: 1440px;
   min-height: 100vh;
@@ -164,20 +154,27 @@ content {
 }
 
 a {
-  text-decoration: solid $color-gray underline;
+  text-decoration: underline $color-gray;
   color: $color-primary;
-  &.external:after {
-    position: relative;
-    top: -0.3em;
-    font-size: 0.7em;
-    content: "↗";
-    color: $color-light;
-  }
+
+  // &.external:after {
+  //   position: relative;
+  //   top: -0.3em;
+  //   font-size: 0.7em;
+  //   content: "↗";
+  //   color: $color-light;
+  // }
+
   &:visited {
     color: $color-primary;
   }
+
   &:hover {
     text-decoration: underline;
+  }
+
+  &.no-underline {
+    text-decoration: none;
   }
 }
 
@@ -187,8 +184,8 @@ strong {
 
 time {
   display: block;
-  color: $color-muted;
-  margin: 0;
+  color: $color-gray-400;
+  margin-bottom: $spacing-lg-32;
   font-family: $font-family-mono;
   text-align: center;
 }
@@ -216,7 +213,6 @@ img {
   max-width: 100%;
   display: block;
   margin: 0 auto;
-  border-radius: $border-radius-sm;
   object-fit: cover;
 }
 
@@ -237,8 +233,10 @@ iframe {
 .intro {
   font-size: calc(var(--font-size-base) + 4px);
   line-height: 1.5;
+  margin-top: 0;
   font-family: $font-family-mono;
-  color: $color-muted;
+  color: $color-primary;
+  text-align: center;
 }
 
 blockquote,
@@ -260,9 +258,9 @@ blockquote,
 hr {
   width: 100%;
   border: 0;
-  height: 1px;
-  margin: 1.5em 0;
-  background: $color-light;
+  height: 2px;
+  margin: $spacing-lg-32 0 0 0;
+  background: $color-light-gray;
 }
 
 ol,
@@ -286,11 +284,11 @@ h6 {
 }
 
 h1 {
-  font-family: $font-family-title;
+  font-family: $font-family-mono;
   font-weight: 400;
-  font-size: calc($font-size-base + 4rem);
+  font-size: calc($font-size-base + 5rem);
   // line-height: 1;
-  margin-top: 0;
+  margin-top: $spacing-xs-8;
   margin-bottom: $spacing-m-24;
   text-align: center;
 }
@@ -332,6 +330,7 @@ h5 {
 content {
   h2 {
     margin-top: 2em;
+    margin-bottom: 0.5em;
   }
 
   h1 + h2,
@@ -346,6 +345,7 @@ content {
 
 code {
   background: #f5f5f5;
+  color: $color-secondary;
   padding: 0.1em 0.2em;
   border-radius: $border-radius-sm;
 }
@@ -397,7 +397,7 @@ code {
 // Navigation
 .nav {
   @include flex-between;
-  padding: $spacing-lg-32 $spacing-lg-32 $spacing-lg-32;
+  padding: $spacing-xl-64 $spacing-lg-32 $spacing-lg-32;
   // height: $spacing-xxl-128;
   width: 100%;
 
@@ -416,7 +416,7 @@ code {
   &-name {
     font-family: $font-family-primary;
     // text-transform: uppercase;
-    // font-weight: 400;
+    font-weight: 450;
     font-size: var(--font-size-base);
     // line-height: 24px;
     color: $color-primary;
@@ -425,16 +425,6 @@ code {
   &-right {
     @include flex-center;
     gap: $spacing-m-24;
-  }
-
-  &-info {
-    font-family: $font-family-primary;
-    // font-weight: 400;
-    font-size: var(--font-size-base);
-    // line-height: 24px;
-    color: $color-primary;
-    width: 40px;
-    text-align: center;
   }
 }
 
@@ -470,7 +460,7 @@ code {
 // Header Section
 .header {
   @include grid-4;
-  margin: 0 0 $spacing-xxl-128;
+  margin: $spacing-xl-64 0 $spacing-xxl-128;
 }
 
 .intro-text {
@@ -493,6 +483,10 @@ code {
 
     &.visual {
       color: $color-green;
+    }
+
+    &.writing {
+      color: $color-yellow;
     }
   }
 }
@@ -694,15 +688,16 @@ button.tag {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  transition: transform 1s ease-out;
+  transition: padding 0.075s ease-out;
+
 
   &-image {
     aspect-ratio: 1/1;
-    border-radius: $border-radius-sm;
     background-color: $color-light-gray;
     overflow: hidden;
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-
     img {
       width: 100%;
       height: 100%;
@@ -721,17 +716,18 @@ button.tag {
     font-family: $font-family-primary;
     font-weight: 500;
     font-size: var(--font-size-base);
-    line-height: 24px;
+    line-height: 1.4;
     margin-top: $spacing-xs-8;
     color: $color-primary;
     // white-space: nowrap;
   }
 
   &-description {
-    font-family: $font-family-text;
+    font-family: $font-family-mono;
     font-size: $font-size-base - 2px;
-    line-height: 24px;
-    color: $color-gray-400;
+    line-height: 1.5;
+    color: #878580;
+    font-weight: 400;
   }
 
   &.inactive {
@@ -739,6 +735,18 @@ button.tag {
     display: none;
     pointer-events: none;
   }
+
+  &:hover {
+    padding: $spacing-xs-8;
+    border: 1px dashed $color-border;
+  }
+
+  // a {
+  //   transition: transform 0.2s ease-in-out;
+  // }
+  // a:hover {
+  //   transform: scale(0.95);
+  // }
 }
 
 .project-grid.list-view {
@@ -750,15 +758,18 @@ button.tag {
 .project-grid.list-view .project {
   display: flex;
   padding: $spacing-s-16 0;
-  border-bottom: 1px solid $color-light-gray;
+  border-top: 1px solid $color-light-gray;
 
   &.inactive {
     display: none;
   }
 
-  // &:hover {
-  //   background-color: $color-light-gray;
-  // }
+  &:hover {
+    background-color: $color-light-gray;
+    padding-left: $spacing-xs-8;
+    border-left: none;
+    border-right: none;
+  }
 }
 .project-grid.list-view .project-image {
   display: none;
@@ -832,7 +843,7 @@ button.tag {
   }
 
   .nav {
-    padding: $spacing-s-16 $spacing-m-24;
+    padding: $spacing-lg-32 $spacing-m-24;
     height: auto;
   }
 
@@ -851,16 +862,23 @@ button.tag {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     height: auto;
-    margin-bottom: $spacing-xl-64;
+    margin: $spacing-xl-64 0;
   }
 
   h1 {
-    font-size: calc($font-size-base + 2rem);
+    font-size: calc($font-size-base + 3rem);
   }
 
   time {
     font-size: $font-size-base - 2px;
+    margin-bottom: $spacing-m-24;
+    text-align: left;
   }
+
+  .intro {
+  font-size: calc(var(--font-size-base) + 2px);
+  text-align: left;
+}
 
   .project.inactive {
     display: none;
@@ -896,21 +914,23 @@ button.tag {
   }
 
   h1 {
-    font-size: calc($font-size-base + 1.5rem);
+    font-size: calc($font-size-base + 2rem);
+  }
+
+  img {
+    border-radius: 0;
   }
 
   .nav {
-    padding: $spacing-s-16;
     height: auto;
+    padding-top: $spacing-xl-64;
+    padding-left: $spacing-s-16;
+    padding-right: $spacing-s-16;
   }
 
   .main {
     padding: 0 $spacing-s-16 0 $spacing-s-16;
     width: 100%;
-  }
-
-  .nav-right {
-    gap: $spacing-s-16;
   }
 
   .project-grid {
@@ -920,6 +940,11 @@ button.tag {
 
   .project-image {
     aspect-ratio: 3/2;
+    border-radius: 0;
+  }
+
+  .project-description {
+    font-size: calc(var(--font-size-base) - 1px);
   }
 
   .header {

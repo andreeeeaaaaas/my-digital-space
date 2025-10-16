@@ -7,7 +7,7 @@ tags:
   - design
   - writing
 ---
-<p class="callout">An honours thesis on how to best co-design consent education in Australian schools</p>
+<p class="intro">An honours thesis on how to best co-design consent education in Australian schools</p>
 
 How do you define the word consent? What ideas does the word connotate? Can you think of examples where consent is used?
 

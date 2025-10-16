@@ -4,12 +4,12 @@ published: 2025-01-10
 tags:
   - writing
 ---
-<p class="callout">I like to think of this space as my own plot on the internet</p>
+<p class="intro">How is a digital space different from a website?</p>
 <figure>
   <img src="assets/digital-space.jpg" style="aspect-ratio: 3/2">
 </figure>
 
-The idea draws from the popular notion of a [digital garden](https://maggieappleton.com/garden-history)– an expanding web of personal thoughts intertwined with related bits of information. Notes and projects are created, then updated and tended as they grow. 
+The idea behind this space draws from the popular notion of a [digital garden](https://maggieappleton.com/garden-history)– an expanding web of personal thoughts intertwined with related bits of information. Notes and projects are created, then updated and tended as they grow. 
 
 A good example is [[An inspiration garden|my inspiration garden]].
 

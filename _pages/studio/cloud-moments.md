@@ -6,7 +6,7 @@ date: 2016
 tags:
   - music
 ---
-<p class="callout">A collection of MicroKorg pieces, inspired by the clouds that rolled past my bedroom window</p>
+<p class="intro">A collection of MicroKorg pieces, inspired by the clouds that rolled past my bedroom window</p>
 
 <img src="/assets/studio/clouds.webp">
 

@@ -4,7 +4,7 @@ title: Projects
 id: home
 permalink: /projects
 ---
-<div class="callout"> A collection of projects output from a work, academic, or research capacity</div>
+<div class="intro"> A collection of projects output from a work, academic, or research capacity</div>
 <div class="">
   {% assign current_project = site.pages | where: "date", "Now" %}
   {% assign older_projects = site.pages | where_exp: "project", "project.date != 'Now'" | sort: "date" | reverse %}
@@ -21,7 +21,7 @@ permalink: /projects
         <div class="">
           <h2 style ="margin-top: 1rem; margin-bottom: 0"><a class="nav-link hover" href="{{ site.baseurl }}{{ page.url }}" style="font-size: 1rem">{{ page.title }}</a></h2>
           <p style="margin-top: 0rem; color: #606060">
-            {{ page.content | callout_excerpt | default: "No summary available." }}
+            {{ page.content | intro_excerpt | default: "No summary available." }}
           </p>
         </div>
       </flex>

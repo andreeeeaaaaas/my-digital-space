@@ -4,7 +4,7 @@ published: 2024-11-10
 tags:
   - writing
 ---
-<p class="callout">A growing list of places I find myself starting new ideas (technical, musical, philosophical), or thinking on existing ones. </p>
+<p class ="intro">A growing list of places I find myself starting new ideas (technical, musical, philosophical), or thinking on existing ones.</p> 
 
 I hope you can find something inspiring too 🌱
 
