@@ -11,7 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
   masterGain.gain.value = 0.4; // volume
   masterGain.connect(audioCtx.destination);
 
-  // // Unlock function
+  // Track active sources for cleanup
+  const activeSources = new Set();
+  const MAX_CONCURRENT_SOUNDS = 10; // Limit simultaneous sounds
+
+  // Unlock function
   const unlock = () => {
     if (audioCtx.state !== "running") audioCtx.resume();
   };
@@ -20,61 +24,75 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("sound-gate");
   const yesBtn = document.getElementById("sound-yes");
   const noBtn = document.getElementById("sound-no");
-  // const toggleBtn = document.getElementById("sound-toggle");
-  // Creating userChoice variable
-  // let userChoice;
+  const soundToggle = document.getElementById("sound-toggle");
 
-   // === State ===
+  // === State ===
   let isSoundOn = false; // Current session setting
 
   // === On first load ===
   const savedPref = sessionStorage.getItem("soundEnabled");
 
-  // if (savedPref === null) {
-  //   // First visit → show modal
-  //   overlay.classList.remove("hidden");
-  // } else {
-  //   // Already chosen before
-  //   overlay.classList.add("hidden");
-  //   isSoundOn = savedPref === "true";
-  //   // updateToggleUI();
-  // }
+  if (savedPref === null) {
+    // First visit → show modal
+    overlay.classList.remove("hidden");
+  } else {
+    // Already chosen before
+    overlay.classList.add("hidden");
+    isSoundOn = savedPref === "true";
+    updateToggleUI();
+  }
 
-  // // Check if user already made a choice
-  // console.log("Is sound enabled? " + sessionStorage.getItem("soundEnabled"));
-  // if (sessionStorage.getItem("soundEnabled") == "true") {
-  //   overlay.classList.add("hidden");
-  //   return;
-  // }
+  // Update toggle button UI to match current sound state
+  function updateToggleUI() {
+    if (isSoundOn) {
+      soundToggle.classList.remove("muted");
+      soundToggle.setAttribute("aria-label", "Mute sound");
+    } else {
+      soundToggle.classList.add("muted");
+      soundToggle.setAttribute("aria-label", "Unmute sound");
+    }
+  }
 
-  // function updateToggleUI() {
-  //   toggleBtn.textContent = isSoundOn ? "Sound: On" : "Sound: Off";
-  // }
-
+  // Yes button - enable sound
   yesBtn.addEventListener("click", () => {
     sessionStorage.setItem("soundEnabled", "true");
+    isSoundOn = true;
     unlock();
     console.log("Is sound enabled? " + sessionStorage.getItem("soundEnabled"));
     overlay.classList.add("hidden");
-    // userChoice = sessionStorage.getItem("soundEnabled");
-    // updateToggleUI();
+    updateToggleUI();
   });
 
+  // No button - disable sound
   noBtn.addEventListener("click", () => {
     sessionStorage.setItem("soundEnabled", "false");
+    isSoundOn = false;
     unlock();
     console.log("Is sound enabled? " + sessionStorage.getItem("soundEnabled"));
     overlay.classList.add("hidden");
-    // userChoice = sessionStorage.getItem("soundEnabled");
-    // console.log(userChoice);
-    // updateToggleUI();
+    updateToggleUI();
   });
 
-  // === Toggle button (does NOT save to localStorage) ===
-  // toggleBtn.addEventListener("click", () => {
-  //   isSoundOn = !isSoundOn;
-  //   updateToggleUI();
-  // });
+  // === Toggle button (updates both session storage and UI) ===
+  soundToggle.addEventListener("click", () => {
+    isSoundOn = !isSoundOn;
+    sessionStorage.setItem("soundEnabled", isSoundOn.toString());
+    updateToggleUI();
+    console.log(isSoundOn ? "Sound unmuted" : "Sound muted");
+    
+    // Stop all active sounds when muting
+    if (!isSoundOn) {
+      activeSources.forEach(source => {
+        try {
+          source.stop();
+          source.disconnect();
+        } catch (e) {
+          // Already stopped/disconnected
+        }
+      });
+      activeSources.clear();
+    }
+  });
 
   const tagSoundFiles = [
     "/assets/sounds/1.mp3",
@@ -98,10 +116,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const bufferCache = new Map();
   Promise.all(
     allSoundFiles.map(async (src) => {
-      const resp = await fetch(src, { cache: "force-cache" });
-      const arrayBuf = await resp.arrayBuffer();
-      const audioBuf = await audioCtx.decodeAudioData(arrayBuf);
-      bufferCache.set(src, audioBuf);
+      try {
+        const resp = await fetch(src, { cache: "force-cache" });
+        const arrayBuf = await resp.arrayBuffer();
+        const audioBuf = await audioCtx.decodeAudioData(arrayBuf);
+        bufferCache.set(src, audioBuf);
+      } catch (err) {
+        console.error(`Failed to load sound: ${src}`, err);
+      }
     })
   ).catch(console.error);
 
@@ -119,35 +141,82 @@ document.addEventListener("DOMContentLoaded", () => {
     return projectQueue.pop();
   }
 
-  // Play helper: creates a source per play so overlaps work
+  // Play helper with proper resource management
   function playBuffer(src) {
-    if (audioCtx.state !== "running") return; // Prevent play if not unlocked
+    if (!isSoundOn) return;
+    if (audioCtx.state !== "running") return;
+    
+    // Limit concurrent sounds
+    if (activeSources.size >= MAX_CONCURRENT_SOUNDS) {
+      const oldestSource = activeSources.values().next().value;
+      try {
+        oldestSource.stop();
+        oldestSource.disconnect();
+      } catch (e) {
+        // Already stopped
+      }
+      activeSources.delete(oldestSource);
+    }
+
     const buf = bufferCache.get(src);
-    if (!buf) return; // not ready yet
-    const srcNode = audioCtx.createBufferSource();
-    srcNode.buffer = buf;
-    srcNode.connect(masterGain);
-    srcNode.start(0);
-    // Auto GC when finished
-    srcNode.addEventListener("ended", () => srcNode.disconnect());
+    if (!buf) return;
+
+    try {
+      const srcNode = audioCtx.createBufferSource();
+      srcNode.buffer = buf;
+      srcNode.connect(masterGain);
+      activeSources.add(srcNode);
+      
+      // Cleanup when finished
+      const cleanup = () => {
+        activeSources.delete(srcNode);
+        try {
+          srcNode.disconnect();
+        } catch (e) {
+          // Already disconnected
+        }
+      };
+      
+      srcNode.onended = cleanup;
+      srcNode.start(0);
+    } catch (err) {
+      console.error("Error playing sound:", err);
+    }
   }
 
-  // Hook up hover
+  // Throttle helper to prevent rapid-fire sounds
+  function throttle(func, delay) {
+    let timeoutId;
+    let lastExecTime = 0;
+    
+    return function(...args) {
+      const currentTime = Date.now();
+      const timeSinceLastExec = currentTime - lastExecTime;
+      
+      if (timeSinceLastExec >= delay) {
+        func.apply(this, args);
+        lastExecTime = currentTime;
+      }
+    };
+  }
+
+  // Hook up hover with throttling
   document.querySelectorAll(".tag").forEach((tag) => {
-    // if (userChoice === "false") return;
-    tag.addEventListener("mouseenter", () => {
+    const playTagSound = throttle(() => {
       if (tag.classList.contains("active")) return;
-      if (sessionStorage.getItem("soundEnabled") === "false") return;
       const sound = getNextTagSound();
       playBuffer(sound);
-    });
+    }, 100); // Minimum 100ms between sounds per tag
+    
+    tag.addEventListener("mouseenter", playTagSound);
   });
+  
   document.querySelectorAll(".project").forEach((project) => {
-    // if (userChoice === "false") return;
-    project.addEventListener("mouseenter", () => {
+    const playProjectSound = throttle(() => {
       const sound = getNextProjectSound();
-      if (sessionStorage.getItem("soundEnabled") === "false") return;
       playBuffer(sound);
-    });
+    }, 100); // Minimum 100ms between sounds per project
+    
+    project.addEventListener("mouseenter", playProjectSound);
   });
 });
