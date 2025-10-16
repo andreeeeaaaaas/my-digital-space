@@ -23,11 +23,7 @@ permalink: /
       <span class="design" data-filter="design">designer</span>,
       <span class="music" data-filter="music">musician</span>, and
       <span class="writing" data-filter="writing">creative</span>.
-    </p>
-    <br />
-    <p>
-      I help organisations see the value design can bring to processes, products, and people. I thrive tackling challenges when user empathy combines with smart business strategy to drive decisions.
-    </p>
+    I help organisations see the value design can bring to processes, products, and people.</p>
   </div>
 
   <!-- <div class="experiences">
