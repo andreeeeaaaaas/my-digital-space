@@ -3,11 +3,10 @@ title: An inspiration garden
 published: 2024-11-10
 tags:
   - writing
+  - design
+  - music
+description: A growing list of places I find myself starting new ideas or thinking on existing ones
 ---
-<p class ="intro">A growing list of places I find myself starting new ideas (technical, musical, philosophical), or thinking on existing ones.</p> 
-
-I hope you can find something inspiring too 🌱
-
 ## People
 
 - [Suengmee Lee](https://www.seungmee-lee.com/)– an inspiring interaction designer

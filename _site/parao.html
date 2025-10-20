@@ -17,13 +17,14 @@
   <link rel="icon" type="image/png" href="assets/Favicon-headshot.png" />
 
   <link rel="stylesheet" href="/styles.css" />
-  <link rel="preload" href="/assets/fonts/BATMIP1.41-Roman.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- <script src="/assets/js/prefetch.js" defer></script> -->
+  <script src="/assets/js/sound.js"></script>
   <script src="/assets/js/view-toggle.js"></script>
   <!-- <script src="/assets/js/hover-effect.js"></script> -->
-  <script src="/assets/js/sound.js"></script>
   <script src="/assets/js/tag-filter.js"></script>
+  <script src="/assets/js/emoji-hover.js" defer></script>
+
 
   
   <meta
@@ -53,46 +54,10 @@
 
   <body>
     <nav class="nav"><div class="nav-left">
-  <a href="/">ANDREAS THOMA</a>
+  <a href="/">Andreas Thoma</a>
 </div>
 <div class="nav-right">
-  <button id="sound-toggle" aria-label="Toggle sound">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-    >
-      <!-- Speaker cone (always visible) -->
-      <path
-        class="speaker-cone"
-        d="M11 5L6 9H2V15H6L11 19V5Z"
-        stroke="#100F0F"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <!-- Sound waves (hidden when muted) -->
-      <path
-        class="sound-waves"
-        d="M19.07 4.93018C20.9447 6.80545 21.9979 9.34853 21.9979 12.0002C21.9979 14.6518 20.9447 17.1949 19.07 19.0702M15.54 8.46018C16.4774 9.39781 17.004 10.6694 17.004 11.9952C17.004 13.321 16.4774 14.5925 15.54 15.5302"
-        stroke="#100F0F"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <!-- Mute X (visible when muted) -->
-      <path
-        class="mute-x"
-        d="M23 9L17 15M17 9L23 15"
-        stroke="#ff4444"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-  </button>
+  
   <a href="/about">Info</a>
   <a href="/contact">Contact</a>
 </div>
@@ -120,8 +85,12 @@
 </div>
 <content>
   <article class="">
+    <div class="pb">
+      
+      <p class="intro">A one hour solo live performance for a night curated by Moral Laxa</p>
+      
+    </div>
     <html><body>
-<p class="intro">A one hour solo live performance for a night curated by Moral Laxa</p>
 <figure class="wide">
 <img src="assets/studio/0R6A6864.jpeg">
 <figcaption>In the zone, shot by Dad</figcaption>
@@ -166,16 +135,17 @@ Benji Schmidt</p>
 
 <h3 id="mum-️">Mum ❤️</h3>
 </body></html>
-    <hr>
+    <hr />
   </article>
-</content></main>
+</content>
+</main>
     <footer class="footer"><div class="contact-details">
-  <div class="contact-label">Let's talk –</div>
-  <div class="contact-email"><a class="" href="mailto:me@andreasthoma.com?subject=Hey%20Andreas!">me@andreasthoma.com</a></div>
+  <div class="label">Let's talk –</div>
+  <div class="detail"><a class="emoji-hover" data-emoji="💌" href="mailto:me@andreasthoma.com?subject=Hey%20Andreas!">me@andreasthoma.com</a></div>
 </div>
 <div class="footer-year">
-  <div class="section-label">Last updated Oct 16, 2025</div>
-  <div class="section-label">Thanks for visiting 👋</div>
+  <div class="label">Thanks for visiting 👋</div>
+  <div class="detail">Last updated Oct 21, 2025</div>
 </div>
 <!-- ~ ~ ~ ~ ~ ~
 <br>

@@ -3,8 +3,8 @@ title: What's a digital space?
 published: 2025-01-10
 tags:
   - writing
+description: How is a digital space different from a website?
 ---
-<p class="intro">How is a digital space different from a website?</p>
 <figure>
   <img src="assets/digital-space.jpg" style="aspect-ratio: 3/2">
 </figure>

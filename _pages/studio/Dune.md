@@ -5,8 +5,8 @@ permalink: /dune
 date: 2021
 tags:
   - music
+description: A functional 4-track digital release on Sydney based label Nightime Drama
 ---
-<p class="intro">A functional 4-track digital release on Sydney based label Nightime Drama</p>
 <img src ="assets/studio/ulladulla.webp">
 <iframe width="100%" height="400" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1252509118&cauto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 

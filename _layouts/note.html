@@ -7,6 +7,9 @@ layout: default
     <h1>{{ page.title }}</h1>
   </div>
   <article>
+    {% if page.description %}
+    <p class="intro">{{ page.description }}</p>
+    {% endif %}
     <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">
       {% if page.type != 'pages' %} Last updated on {{ page.last_modified_at |
       date: "%B %-d, %Y" }} {% endif %}

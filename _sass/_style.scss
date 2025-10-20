@@ -1,60 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200;400;500&family=IBM+Plex+Sans:wght@400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+@use "variables" as *;
 
-@font-face {
-  font-family: "Geist";
-  src: url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Batmip";
-  src: url(assets/fonts/BATMIP1.41-Roman.woff2) format(woff2);
-  font-style: normal;
-  font-display: swap;
-}
-
-// Variables
-$font-family-primary: "Geist", -apple-system, BlinkMacSystemFont, Roboto,
-  "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-  sans-serif;
-$font-family-text: "Geist", "SF Pro Text", sans-serif;
-$font-family-mono: "IBM Plex Mono", monospace;
-$font-family-title: "Batmip", "Pretendard Std";
-
-$color-primary: #100f0f;
-$color-secondary: #505050;
-$color-gray-400: #606060;
-$color-muted: #707070;
-$color-light: #bababa;
-$color-white: #ffffff;
-$color-border: #333333;
-
-$color-blue: #2176ff;
-$color-red: #e80000;
-$color-green: #00a878;
-$color-yellow: #F59E0B;
-$color-gray: #e5e5e5;
-$color-light-gray: #f0f0f0;
-
-$spacing-xs-8: 8px;
-$spacing-s-16: 16px;
-$spacing-m-24: 24px;
-$spacing-lg-32: 32px;
-$spacing-xl-64: 64px;
-$spacing-xxl-128: 128px;
-
-$border-radius-sm: 4px;
-$border-radius-md: 8px;
-$border-radius-lg: 48px;
-
-$transition-default: all 0.2s ease;
-
-$font-size-base: 16px;
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap");
 
 :root {
   --font-size-base: #{$font-size-base};
+}
+
+#bubbleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1000;
 }
 
 // Mixins
@@ -186,7 +143,7 @@ strong {
 time {
   display: block;
   color: $color-gray-400;
-  margin-bottom: $spacing-lg-32;
+  // margin-bottom: $spacing-lg-32;
   font-family: $font-family-mono;
   text-align: center;
 }
@@ -206,7 +163,7 @@ time {
 // }
 
 figure {
-  margin: 2rem 0 2rem 0;
+  margin: 2rem 0 3rem 0;
   overflow: hidden;
 }
 
@@ -239,6 +196,7 @@ iframe {
   color: $color-primary;
   text-align: center;
   padding: 0 $spacing-lg-32;
+  margin-bottom: $spacing-xs-8;
 }
 
 blockquote,
@@ -270,6 +228,9 @@ ul {
   margin-block-end: 0.5em;
   padding-left: 1.5rem;
 }
+li {
+  margin-block-end: 0.25rem;
+}
 
 //Headings
 /* Headings */
@@ -286,12 +247,12 @@ h6 {
 }
 
 h1 {
-  font-family: $font-family-mono;
-  font-weight: 400;
+  font-family: $font-family-text;
+  font-weight: 500;
   font-size: calc($font-size-base + 5rem);
   // line-height: 1;
   margin-top: $spacing-xs-8;
-  margin-bottom: $spacing-m-24;
+  margin-bottom: $spacing-s-16;
   text-align: center;
 }
 
@@ -365,17 +326,29 @@ code {
 }
 
 // Overlay
+// Prevent body scroll when overlay is visible
+body:has(.overlay:not(.hidden)) {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+// Overlay
 .overlay {
   position: fixed;
+  height: 100vh;
+  height: 100dvh; // Better mobile support
   inset: 0;
   background: $color-white;
   display: flex;
   align-items: center;
   justify-content: left;
   z-index: 9999;
-  // transition:
-  //   opacity 5s ease,
-  //   color 4s ease;
+  overflow: hidden;
+  transition: opacity 0.3s ease; // Smooth fade out
 }
 
 .overlay-content {
@@ -402,7 +375,8 @@ code {
   padding: $spacing-xl-64 $spacing-lg-32 $spacing-lg-32;
   // height: $spacing-xxl-128;
   width: 100%;
-  font-family: $font-family-mono;
+  font-family: $font-family-primary;
+  color: black;
 
   a {
     text-decoration: none;
@@ -531,16 +505,10 @@ code {
 .toolbar {
   @include flex-between;
   align-items: flex-start;
-  margin-bottom: $spacing-m-24;
+  margin-bottom: $spacing-lg-32;
   font-family: $font-family-mono;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  // gap: $spacing-s-16;
   font-size: var(--font-size-base);
-  // line-height: 24px;
+  color: $color-muted;
 }
 
 button {
@@ -557,7 +525,7 @@ button {
   // border-radius: 12px;
   // padding: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: $transition-default;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -591,14 +559,16 @@ button {
 
 button.tag {
   background: none;
-  padding: 0 0 0 $spacing-xs-8;
+  padding: 4px 12px;
   margin: 0;
   color: $color-muted;
+  background-color: #f4f4f5;
   font: inherit;
   cursor: pointer;
   // outline: none;
   box-shadow: none;
   text-decoration: none;
+  height: 32px;
 }
 
 // img {
@@ -607,49 +577,147 @@ button.tag {
 //   display: block;
 // }
 
-.tags .tag:first-of-type {
-  padding-left: 0;
+.tags {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  overflow-x: auto; // Enable horizontal scrolling
+  overflow-y: hidden;
+  flex: 1; // Allow tags to take available space
+  padding-right: 1rem; // Padding so content doesn't touch scroll area
+
+  // Optional: Hide scrollbar for cleaner look
+  // Remove these if you want the scrollbar visible
+  scrollbar-width: thin; // For Firefox
+
+  &::-webkit-scrollbar {
+    height: 2px; // Thin scrollbar for Chrome/Safari
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .tag:first-of-type {
+    padding-left: 0;
+  }
 }
 
 .tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; // Space between square and text
   color: $color-gray;
   white-space: nowrap;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem; // Add some padding for clickability
 
-  .inactive {
-    color: $color-gray;
+  // Set default colors for each tag's square
+  &[data-filter="design"] .tag-square {
+    background: #93c5fd;
+  }
+
+  &[data-filter="music"] .tag-square {
+    background: #fca5a5;
+  }
+
+  &[data-filter="visual"] .tag-square {
+    background: $color-green;
+  }
+
+  &[data-filter="writing"] .tag-square {
+    background: #fcd34d;
+  }
+
+  &.inactive {
+    color: $color-muted;
   }
 
   &:hover,
   &.active {
     color: $color-primary;
-    font-style: italic;
+    // font-style: italic;
     text-decoration: none;
 
     &[data-filter="design"] {
       color: $color-blue;
+      background-color: #eff6ff;
+
+      .tag-square {
+        background: $color-blue;
+      }
     }
 
     &[data-filter="music"] {
       color: $color-red;
+      background-color: #fef2f2;
+      .tag-square {
+        background: $color-red;
+      }
     }
 
     &[data-filter="visual"] {
       color: $color-green;
+
+      .tag-square {
+        background: $color-green;
+      }
     }
 
     &[data-filter="writing"] {
       color: $color-yellow;
+      background-color: #FFFBEB;
+
+      .tag-square {
+        background: $color-yellow;
+      }
     }
   }
+
   &.active {
     color: $color-primary;
-    font-style: italic;
+    // font-style: italic;
+  }
+
+  .tag-square {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0; // Prevents square from shrinking
   }
 }
 
 .view-controls {
   @include flex-center;
-  gap: 10px;
+  gap: 8px;
+  flex-shrink: 0; // Prevents controls from shrinking
+  position: sticky; // Keeps it pinned to the right
+  right: 0;
+  padding-left: $spacing-xs-8; // Creates separation from scrolling tags
+  z-index: 10; // Ensures it stays on top
+  
+  // Optional: Add a gradient fade effect on the left edge
+  &::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: linear-gradient(to right, rgba(white, 0), white);
+    pointer-events: none;
+  }
 
   .view-label {
     font-size: var(--font-size-base);
@@ -659,11 +727,15 @@ button.tag {
 
   .grid-icon,
   .list-icon {
-    width: 32px;
-    height: 24px;
+    width: 40px;
+    height: 32px;
     display: grid;
     place-items: center;
-    transition: background-color 0.2s;
+
+    &:active {
+      transform: scale(0.95);
+    }
+    transition: $transition-default;
     background-color: transparent; // Inactive by default
     // Optional: add outline for accessibility
   }
@@ -723,15 +795,15 @@ button.tag {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  transition: transform 1s ease-out;
-  transition: padding 0.075s ease-out;
+
+  a {
+    transition: all $transition-default;
+  }
 
   &-image {
     aspect-ratio: 1/1;
     background-color: $color-light-gray;
     overflow: hidden;
-    box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
     img {
       width: 100%;
       height: 100%;
@@ -757,10 +829,10 @@ button.tag {
   }
 
   &-description {
-    font-family: $font-family-mono;
-    font-size: $font-size-base - 2px;
+    font-family: $font-family-primary;
+    font-size: $font-size-base - 1px;
     line-height: 1.5;
-    color: #878580;
+    color: $color-muted;
     font-weight: 400;
   }
 
@@ -771,8 +843,10 @@ button.tag {
   }
 
   &:hover {
-    padding: $spacing-xs-8;
-    border: 1px dashed $color-border;
+    outline: 1px dashed $color-border;
+    a {
+      transform: scale(0.95);
+    }
   }
 
   // a {
@@ -781,6 +855,44 @@ button.tag {
   // a:hover {
   //   transform: scale(0.95);
   // }
+}
+
+.project-image {
+  position: relative;
+}
+.project-tags {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  display: flex;
+}
+
+.project-tags-list {
+  display: none;
+  gap: 6px;
+  margin-top: $spacing-xs-8;
+}
+
+.tag-dot {
+  width: 10px;
+  height: 10px;
+}
+.tag-dot.design {
+  background: $color-blue;
+}
+.tag-dot.music {
+  background: $color-red;
+}
+.tag-dot.visual {
+  background: $color-green;
+}
+.tag-dot.writing {
+  background: $color-yellow;
+}
+.tag-dot {
+  &.unknown {
+    background: $color-gray;
+  }
 }
 
 .project-grid.list-view {
@@ -793,6 +905,11 @@ button.tag {
   display: flex;
   padding: $spacing-s-16 0;
   border-top: 1px solid $color-light-gray;
+  transition: padding $transition-default;
+
+  .project-tags-list {
+    display: flex;
+  }
 
   &.inactive {
     display: none;
@@ -800,9 +917,14 @@ button.tag {
 
   &:hover {
     background-color: #fafafa;
-    padding-left: $spacing-xs-8;
-    border-left: none;
-    border-right: none;
+    padding-left: $spacing-s-16;
+    outline: none;
+    a {
+      transform: scale(1);
+    }
+  }
+  &:last-child {
+    border-bottom: 1px solid $color-light-gray;
   }
 }
 .project-grid.list-view .project-image {
@@ -815,48 +937,27 @@ button.tag {
 // Footer
 .footer {
   @include flex-between;
+  font-family: $font-family-primary;
+  font-size: var(--font-size-base);
   align-items: flex-start;
   gap: $spacing-s-16;
   max-width: 1440px;
-  color: $color-muted;
-
   padding: $spacing-xxl-128 $spacing-m-24 $spacing-lg-32;
   // margin-top: $spacing-xxl-128;
-}
 
-.contact-details {
-  display: flex;
-  flex-direction: column;
-  // gap: $spacing-xs-8;
-  font-family: $font-family-primary;
-  font-size: var(--font-size-base);
-  // line-height: 24px;
-  // text-align: center;
-  white-space: nowrap;
-
-  .contact-label {
-    font-family: $font-family-mono;
+  .label {
+    display: flex;
+    flex-direction: column;
+    color: $color-light;
+    white-space: nowrap;
   }
 
-  .contact-email {
-    color: $color-primary;
-    font-family: $font-family-mono;
-
-    // font-weight: 500;
+  .detail {
+    display: flex;
+    flex-direction: column;
+    color: $color-secondary;
+    white-space: nowrap;
   }
-}
-
-.footer-year {
-  display: flex;
-  flex-direction: column;
-  // gap: $spacing-xs-8;
-  font-family: $font-family-primary;
-  // font-weight: 500;
-  font-size: var(--font-size-base);
-  // line-height: 24px;
-  color: $color-light;
-  text-align: right;
-  white-space: nowrap;
 }
 
 // Responsive Design
@@ -877,7 +978,7 @@ button.tag {
   }
 
   .nav {
-    padding: $spacing-lg-32 $spacing-m-24;
+    padding: $spacing-xl-64 $spacing-m-24 $spacing-lg-32;
     height: auto;
   }
 
@@ -896,7 +997,7 @@ button.tag {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     height: auto;
-    margin: $spacing-xl-64 0;
+    // margin: $spacing-xl-64 0;
   }
 
   h1 {
@@ -905,13 +1006,14 @@ button.tag {
 
   time {
     font-size: $font-size-base - 2px;
-    margin-bottom: $spacing-m-24;
+    // margin-bottom: $spacing-m-24;
     text-align: left;
   }
 
   .intro {
-    font-size: calc(var(--font-size-base) + 2px);
-    // text-align: center;
+    font-size: calc(var(--font-size-base));
+    padding: 0;
+    text-align: left;
   }
 
   .project.inactive {
@@ -932,7 +1034,7 @@ button.tag {
   }
 
   .footer {
-    padding: $spacing-lg-32 $spacing-m-24;
+    padding: $spacing-lg-32 $spacing-m-24 $spacing-xl-64;
   }
 }
 
@@ -948,7 +1050,9 @@ button.tag {
   }
 
   h1 {
-    font-size: calc($font-size-base + 2rem);
+    font-size: calc($font-size-base + 1.5rem);
+    // font-weight: 400;
+    text-align: left;
   }
 
   img {
@@ -956,10 +1060,16 @@ button.tag {
   }
 
   .nav {
+    font-size: var(--font-size-base);
     height: auto;
-    padding-top: $spacing-xl-64;
+    padding-top: $spacing-lg-32;
     padding-left: $spacing-s-16;
     padding-right: $spacing-s-16;
+    padding-bottom: $spacing-lg-32;
+
+    &-right {
+      gap: $spacing-m-24;
+    }
   }
 
   .main {
@@ -985,6 +1095,7 @@ button.tag {
     grid-template-columns: 1fr;
     gap: $spacing-lg-32;
     height: auto;
+    margin-bottom: $spacing-xl-64;
   }
 
   .intro-text {
@@ -1011,7 +1122,9 @@ button.tag {
 
   .footer {
     flex-direction: column;
-    padding: $spacing-lg-32 $spacing-s-16 $spacing-s-16;
+    padding-left: $spacing-s-16;
+    padding-right: $spacing-s-16;
+    padding-bottom: $spacing-xl-64;
     .footer-year {
       text-align: left;
     }

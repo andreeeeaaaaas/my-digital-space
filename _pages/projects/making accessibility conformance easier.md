@@ -5,10 +5,17 @@ permalink: /accessibility-conformance
 date: 2024
 tags:
   - design
+description: The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility
 ---
-<p class="intro">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility</p>
+<!-- <p class="intro">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility</p> -->
 
 While at Service NSW, I worked with the Head of Accessibility to solve a challenge product teams had in sharing their accessibility testing results. Lead by my fantastic PM, I wore both a design and technical hat while helping design, build, and implement a solution for 60+ product teams to use.
+
+<figure class="wide">
+	<img src="assets/projects/Frame 6.png">
+	<figcaption>The overview page of the dashboard</figcaption>
+</figure>
+> Due to government privacy, the visuals shown here are only recreations and the specific tools are omitted
 
 The tool saved product teams valuable hours and effort in manually reporting, as well as the Head of Accessibility over 2 weeks in sifting through the data. More importantly, the tool brought visibility to product accessibility across portfolios and allowed directors and executives to lead from this data. 
 ## Outcomes
@@ -20,11 +27,6 @@ The tool saved product teams valuable hours and effort in manually reporting, as
 ## Challenge
 
 Product teams needed to share their accessibility results in a way that is visible to both technical and non-technical folk.
-<figure class="wide">
-	<img src="assets/projects/Frame 6.png">
-	<figcaption>The overview page of the dashboard</figcaption>
-</figure>
->Due to government privacy, the visuals shown here are only recreations and the specific tools are omitted
 
 
 ## Process

@@ -2,9 +2,8 @@
 layout: page
 title: Ziggy
 permalink: /ziggy
+description: My 4 year old, perpetually smiling, slightly overweight, Finnish-Lapphund son
 ---
-<p class="intro">My 4 year old, perpetually smiling, slightly overweight, Finnish-Lapphund son</p>
-
 <img src="assets/ziggy.jpeg"/>
 
 <p class="figcaption">The bestest boy in the whole world.</p>

@@ -10,10 +10,15 @@ document.addEventListener("DOMContentLoaded", function () {
       tags.forEach((t) => t.classList.remove("active"));
       this.classList.add("active");
 
-      const filter = this.textContent.trim().toLowerCase();
+      // Get filter from data-filter attribute, or use "all" if not present
+      const filter = this.dataset.filter ? this.dataset.filter.toLowerCase() : "all";
 
       projects.forEach((project) => {
-        const projectTags = project.dataset.tags.toLowerCase().split(",");
+        // Split tags and trim whitespace from each tag
+        const projectTags = project.dataset.tags
+          .toLowerCase()
+          .split(",")
+          .map(tag => tag.trim());
 
         if (filter === "all" || projectTags.includes(filter)) {
           project.classList.remove("inactive");
@@ -23,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
+  
   // Clickable spans
   const introSpans = document.querySelectorAll(".intro-text span");
 

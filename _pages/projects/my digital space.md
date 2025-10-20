@@ -5,8 +5,9 @@ permalink: /my-digital-space
 date: 2025
 tags:
   - design
+description: A space I made for the things I like to build, create, and share
 ---
-<p class="intro">A space I made for the things I like to build, create, and share</p>
+<!-- <p class="intro">A space I made for the things I like to build, create, and share</p> -->
 
 <figure>
     <img src="assets/projects/my-digital-space.png" style="height: 100%; width: 100%; aspect-ratio: 4/3; object-fit:cover" alt="an illustration of a person in space">

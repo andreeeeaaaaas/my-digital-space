@@ -1,12 +1,18 @@
 ---
 layout: default
 ---
+
 <div>
   <h1>{{ page.title }}</h1>
 </div>
 <content>
   <article class="">
+    <div class="pb">
+      {% if page.description %}
+      <p class="intro">{{ page.description }}</p>
+      {% endif %}
+    </div>
     {{ content }}
-    <hr>
+    <hr />
   </article>
 </content>

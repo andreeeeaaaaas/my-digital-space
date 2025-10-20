@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
       soundToggle.setAttribute("aria-label", "Unmute sound");
     }
   }
-
   // === State ===
   let isSoundOn = false; // Current session setting
 

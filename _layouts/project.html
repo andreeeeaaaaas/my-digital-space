@@ -1,17 +1,24 @@
 ---
 layout: default
 ---
+
 <div>
   <h1>{{ page.title }}</h1>
 </div>
 <content>
   <article class="">
-    <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">
-      {% if page.type != 'pages' %} Last updated on {{ page.last_modified_at |
-      date: "%B %-d, %Y" }} {% endif %}
-    </time>
+    <div class="pb">
+      {% if page.description %}
+      <p class="intro">{{ page.description }}</p>
+      {% endif %}
+      <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">
+        {% if page.type != 'pages' %} Last updated on {{ page.last_modified_at |
+        date: "%B %-d, %Y" }} {% endif %}
+      </time>
+    </div>
     {{ content }}
-    <br>
-    To learn more about this project, please <a class= "internal-link" href= "/contact">reach out</a>.
+    <br />
+    To learn more about this project, please
+    <a class="internal-link" href="/contact">reach out</a>.
   </article>
 </content>

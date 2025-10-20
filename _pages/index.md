@@ -1,8 +1,9 @@
 ---
-layout: page-no-title
+layout: index
 title: Home
 id: home
 permalink: /
+sound: true
 ---
 
 <div id="sound-gate" class="overlay">
@@ -15,7 +16,6 @@ permalink: /
     </div>
   </div>
 </div>
-
 <!-- Header -->
 <section class="header">
   <div class="intro-text">
@@ -23,7 +23,9 @@ permalink: /
       <span class="design" data-filter="design">designer</span>,
       <span class="music" data-filter="music">musician</span>, and
       <span class="writing" data-filter="writing">creative</span>.
-    I help organisations see the value design can bring to processes, products, and people.</p>
+    </p>
+    <br>
+    I help organisations bring value to processes, products, and people, through design.
   </div>
 
   <!-- <div class="experiences">
@@ -54,7 +56,7 @@ permalink: /
             >University of Sydney</a
           >
         </div>
-        <div class="role">Academic Tutor</div>
+        <div class="role">Design Tutor</div>
       </div>
     </div>
   </div> -->
@@ -63,19 +65,21 @@ permalink: /
 <!-- Toolbar -->
 <div class="toolbar">
   <div class="tags">
-    <button type="button" class="tag active">All</button><span>,</span>
+    <button type="button" class="tag active">
+      <span class="tag-squares-all">
+      </span>
+      All
+    </button>
     <button type="button" class="tag inactive" data-filter="design">
-      Design</button
-    ><span>,</span>
+      <span class="tag-square"></span>Design
+    </button>
     <!-- <button type="button" class="tag" data-filter="research">Research</button> -->
     <button type="button" class="tag inactive" data-filter="music">
-      Music</button>
-      <span>,</span>
-    <!-- <button type="button" class="tag inactive" data-filter="visual">
-      Visual</button>
-      <span>,</span> -->
+      <span class="tag-square"></span>Music
+    </button>
+    <!-- <button type="button" class="tag inactive" data-filter="visual">Visual</button><span>,</span> -->
     <button type="button" class="tag inactive" data-filter="writing">
-      Writing
+      <span class="tag-square"></span>Writing
     </button>
   </div>
 
@@ -103,24 +107,32 @@ permalink: /
 <div class="project-grid">
   {% for page in all_pages %}
   <div class="project" data-tags="{{ page.tags | join: ', ' }}">
-    <a href="{{ site.baseurl }}{{ page.url }}" class="internal-link no-underline">
-      {% assign img_tag = page.content | split:'<img ' | slice: 1 | first %} {%
-      if img_tag %}
-      <div class="project-image">
-        <img style="margin-block-end: 0em" {{ img_tag | split:'>' | first }}>
-      </div>
-      {% endif %}
-        <h2 class="project-title">{{ page.title }}</h2>
-      <p class="project-description">
-        {{ page.content | callout_excerpt | truncate: 60, "..." | default: "No
-        summary available." }}
-      </p>
-    </a>
+      <a href="{{ site.baseurl }}{{ page.url }}" class="internal-link no-underline">
+        {% assign img_tag = page.content | split:'<img ' | slice: 1 | first %} 
+        {% if img_tag %}
+        <div class="project-image">
+          <img style="margin-block-end: 0em" {{ img_tag | split:'>' | first }}>
+          <div class="project-tags" aria-label="Tags: {{ page.tags | join: ', ' }}">
+            {% for tag in page.tags %}
+              <span class="tag-dot {{ tag | downcase }}" aria-hidden="true"></span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+          <h2 class="project-title">{{ page.title }}</h2>
+        <p class="project-description">
+          {{ page.description | strip_html | default: "No summary available." }}</p>
+        <div class="project-tags-list" aria-label="Tags: {{ page.tags | join: ', ' }}">
+            {% for tag in page.tags %}
+              <span class="tag-dot {{ tag | downcase }}" aria-hidden="true"></span>
+            {% endfor %}
+          </div>
+      </a>
   </div>
   {% endfor %}
 </div>
 <hr>
 <br>
 <br>
-I've got lots more ideas and projects I'm working on. <br>
+I've got lots more ideas and projects I'm working on. <br><br>
 If you would like to work on one together, please [[Contact|reach out]].

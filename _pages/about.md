@@ -15,14 +15,8 @@ permalink: /about
   <img src ="assets/me-coffee.jpg" alt="A black and white photo of me and a coffee">
   <figcaption>Coffee– powering me, and this website</figcaption>
 </figure>
-I'm Andreas 👋 – I make things for people to use, hear, and see.
 
-My spare time is filled with things like:
-- being in the ocean
-- endeavouring to become *~~bilingual~~* tri-lingual (¡Hola! or Υιασου!)
-- playing with [[Ziggy]]
-- making strange music with [[An overly complex system|overly complicated systems]]
-- or trying some new thing that's taken my fancy
+I'm Andreas 👋 – I make things for people to use, hear, and see.
 
 ## Experience
 I'm currently working for [Service NSW](https://www.service.nsw.gov.au/about-us/digital-capabilities), designing software for the 250,000 workers in the Community Services Industry.
@@ -80,6 +74,13 @@ Prior to now, I have:
       </flex>
     </div>
 </div>-->
+
+## Me
+My spare time is filled with things like:
+- being in the ocean
+- endeavouring to become *~~bilingual~~* tri-lingual (¡Hola! or Υιασου!)
+- playing with [[Ziggy]]
+- making strange music with [[An overly complex system|overly complicated systems]]
 
 ## More
 <ul>
