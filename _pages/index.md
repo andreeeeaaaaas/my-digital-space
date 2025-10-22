@@ -119,14 +119,17 @@ sound: true
           </div>
         </div>
         {% endif %}
+        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
           <h2 class="project-title">{{ page.title }}</h2>
-        <p class="project-description">
-          {{ page.description | strip_html | default: "No summary available." }}</p>
-        <div class="project-tags-list" aria-label="Tags: {{ page.tags | join: ', ' }}">
+          <div class="project-tags-list" aria-label="Tags: {{ page.tags | join: ', ' }}">
             {% for tag in page.tags %}
               <span class="tag-dot {{ tag | downcase }}" aria-hidden="true"></span>
             {% endfor %}
           </div>
+        </div>
+        <p class="project-description">
+          {{ page.description | strip_html | default: "No summary available." }}</p>
+        
       </a>
   </div>
   {% endfor %}

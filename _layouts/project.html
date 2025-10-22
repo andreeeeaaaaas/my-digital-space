@@ -2,7 +2,14 @@
 layout: default
 ---
 
-<div>
+<div class="title">
+  <div class="project-tags" aria-label="Tags: {{ page.tags | join: ', ' }}">
+    {% for tag in page.tags %}
+    <div class="tag active" data-filter="{{ tag }}">
+      <span class="tag-square"></span>{{ tag | capitalize }}
+    </div>
+    {% endfor %}
+  </div>
   <h1>{{ page.title }}</h1>
 </div>
 <content>
@@ -17,8 +24,7 @@ layout: default
       </time>
     </div>
     {{ content }}
-    <br />
-    To learn more about this project, please
-    <a class="internal-link" href="/contact">reach out</a>.
+    <br>
+    To learn more about this project, please <a class="internal-link" href="/contact">reach out</a>.
   </article>
 </content>

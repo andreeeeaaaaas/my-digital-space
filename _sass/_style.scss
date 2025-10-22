@@ -189,7 +189,7 @@ iframe {
 }
 
 .intro {
-  font-size: calc(var(--font-size-base) + 4px);
+  font-size: calc(var(--font-size-base) + 2px);
   line-height: 1.5;
   margin-top: 0;
   font-family: $font-family-mono;
@@ -375,10 +375,11 @@ body:has(.overlay:not(.hidden)) {
   padding: $spacing-xl-64 $spacing-lg-32 $spacing-lg-32;
   // height: $spacing-xxl-128;
   width: 100%;
-  font-family: $font-family-primary;
-  color: black;
+  font-family: $font-family-mono;
+  // font-weight: 450;
 
   a {
+    color: black;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
@@ -442,19 +443,19 @@ body:has(.overlay:not(.hidden)) {
   span {
     cursor: pointer;
     &.design {
-      color: $color-blue;
+      color: $color-blue-600;
     }
 
     &.music {
-      color: $color-red;
+      color: $color-red-600;
     }
 
     &.visual {
-      color: $color-green;
+      color: $color-green-600;
     }
 
     &.writing {
-      color: $color-yellow;
+      color: $color-amber-600;
     }
   }
 }
@@ -504,7 +505,7 @@ body:has(.overlay:not(.hidden)) {
 // Toolbar
 .toolbar {
   @include flex-between;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: $spacing-lg-32;
   font-family: $font-family-mono;
   font-size: var(--font-size-base);
@@ -621,24 +622,25 @@ button.tag {
   white-space: nowrap;
   background: none;
   border: none;
-  cursor: pointer;
+  font-size: var(--font-size-base);
   padding: 0.5rem; // Add some padding for clickability
+  height: 32px;
 
   // Set default colors for each tag's square
   &[data-filter="design"] .tag-square {
-    background: #93c5fd;
+    background: $color-blue-300;
   }
 
   &[data-filter="music"] .tag-square {
-    background: #fca5a5;
+    background: $color-red-300;
   }
 
   &[data-filter="visual"] .tag-square {
-    background: $color-green;
+    background: $color-green-300;
   }
 
   &[data-filter="writing"] .tag-square {
-    background: #fcd34d;
+    background: $color-amber-300;
   }
 
   &.inactive {
@@ -653,35 +655,35 @@ button.tag {
 
     &[data-filter="design"] {
       color: $color-blue;
-      background-color: #eff6ff;
+      background-color: $color-blue-50;
 
       .tag-square {
-        background: $color-blue;
+        background: $color-blue-600;
       }
     }
 
     &[data-filter="music"] {
       color: $color-red;
-      background-color: #fef2f2;
+      background-color: $color-red-50;
       .tag-square {
-        background: $color-red;
+        background: $color-red-600;
       }
     }
 
     &[data-filter="visual"] {
-      color: $color-green;
+      color: $color-green-50;
 
       .tag-square {
-        background: $color-green;
+        background: $color-green-600;
       }
     }
 
     &[data-filter="writing"] {
-      color: $color-yellow;
-      background-color: #FFFBEB;
+      color: $color-amber-600;
+      background-color: $color-amber-50;
 
       .tag-square {
-        background: $color-yellow;
+        background: $color-amber-600;
       }
     }
   }
@@ -704,18 +706,22 @@ button.tag {
   flex-shrink: 0; // Prevents controls from shrinking
   position: sticky; // Keeps it pinned to the right
   right: 0;
-  padding-left: $spacing-xs-8; // Creates separation from scrolling tags
+  padding-left: 0px; // Creates separation from scrolling tags
   z-index: 10; // Ensures it stays on top
-  
+
   // Optional: Add a gradient fade effect on the left edge
   &::before {
-    content: '';
+    content: "";
     position: absolute;
-    left: -20px;
+    left: -40px;
     top: 0;
     bottom: 0;
-    width: 20px;
-    background: linear-gradient(to right, rgba(white, 0), white);
+    width: 40px;
+    background: linear-gradient(
+      to right,
+      rgba(rgba(255, 255, 255, 0), 0),
+      rgb(255, 255, 255)
+    );
     pointer-events: none;
   }
 
@@ -728,9 +734,9 @@ button.tag {
   .grid-icon,
   .list-icon {
     width: 40px;
-    height: 32px;
     display: grid;
     place-items: center;
+    gap: 2px;
 
     &:active {
       transform: scale(0.95);
@@ -741,6 +747,8 @@ button.tag {
   }
 
   .grid-icon {
+    height: 28px;
+    width: 36px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 2px;
@@ -754,6 +762,8 @@ button.tag {
   }
 
   .list-icon {
+    height: 28px;
+    width: 40px;
     grid-template-rows: repeat(2, 1fr);
     gap: 2px;
 
@@ -862,9 +872,20 @@ button.tag {
 }
 .project-tags {
   position: absolute;
-  top: 4px;
-  left: 4px;
+  top: 0px;
+  left: 0px;
   display: flex;
+}
+
+.title .project-tags {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: $spacing-s-16;
+  gap: $spacing-xs-8;
+  .tag {
+    font-size: calc($font-size-base - 2px);
+  }
 }
 
 .project-tags-list {
@@ -874,24 +895,24 @@ button.tag {
 }
 
 .tag-dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
 }
 .tag-dot.design {
-  background: $color-blue;
+  background: $color-blue-300;
 }
 .tag-dot.music {
-  background: $color-red;
+  background: $color-red-300;
 }
 .tag-dot.visual {
-  background: $color-green;
+  background: $color-green-300;
 }
 .tag-dot.writing {
-  background: $color-yellow;
+  background: $color-amber-300;
 }
 .tag-dot {
   &.unknown {
-    background: $color-gray;
+    background: $color-gray-300;
   }
 }
 
@@ -900,6 +921,10 @@ button.tag {
   display: flex;
   flex-direction: column;
   gap: 0;
+  .tag-dot {
+    width: 10px;
+    height: 10px;
+  }
 }
 .project-grid.list-view .project {
   display: flex;
@@ -937,7 +962,7 @@ button.tag {
 // Footer
 .footer {
   @include flex-between;
-  font-family: $font-family-primary;
+  font-family: $font-family-mono;
   font-size: var(--font-size-base);
   align-items: flex-start;
   gap: $spacing-s-16;
@@ -1070,6 +1095,9 @@ button.tag {
     &-right {
       gap: $spacing-m-24;
     }
+    #sound-toggle {
+      display: none;
+    }
   }
 
   .main {
@@ -1095,7 +1123,7 @@ button.tag {
     grid-template-columns: 1fr;
     gap: $spacing-lg-32;
     height: auto;
-    margin-bottom: $spacing-xl-64;
+    margin-bottom: $spacing-xxl-128;
   }
 
   .intro-text {
@@ -1113,6 +1141,10 @@ button.tag {
 
   .view-controls .grid-icon {
     display: flex;
+    height: 32px;
+  }
+  .view-controls .list-icon {
+    height: 32px;
   }
   .grid-icon .grid-square:nth-child(2),
   .grid-icon .grid-square:nth-child(3),
@@ -1128,6 +1160,10 @@ button.tag {
     .footer-year {
       text-align: left;
     }
+  }
+  .title .project-tags {
+    justify-content: left;
+    margin-bottom: $spacing-xs-8;
   }
 }
 

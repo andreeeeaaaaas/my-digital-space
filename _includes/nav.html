@@ -1,5 +1,7 @@
 <div class="nav-left">
-  <a href="/">Andreas Thoma</a>
+  {% if page.url != "/" %}
+    <a href="/">Andreas Thoma</a>
+  {% endif %}
 </div>
 <div class="nav-right">
   {% if page.sound %}
