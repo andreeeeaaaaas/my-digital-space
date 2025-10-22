@@ -5,6 +5,7 @@ tags:
   - writing
   - design
   - music
+  - visual
 description: A growing list of places I find myself starting new ideas or thinking on existing ones
 ---
 ## People

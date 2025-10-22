@@ -4,6 +4,8 @@
 
 :root {
   --font-size-base: #{$font-size-base};
+  --wrap-normal: 42rem;
+  --wrap-wide: 60rem;
 }
 
 #bubbleCanvas {
@@ -99,15 +101,29 @@ body {
 article,
 content {
   margin: auto;
-  max-width: 42rem;
+  width: var(--wrap-normal);
+  max-width: var(--wrap-wide);
   p {
     margin-block-start: 1em;
     margin-block-end: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--wrap-normal);
   }
   ul,
   ol {
     margin-block-start: 0.5em;
     margin-block-end: 0.25em;
+    max-width: var(--wrap-normal);
+  }
+  .wide {
+    max-width: Min(100vw, var(--wrap-wide));
+    width: Min(100vw, var(--wrap-wide));
+    margin-left: calc((Min(100vw, var(--wrap-wide)) - 100%) / -2);
+  }
+  img {
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
   }
 }
 
@@ -451,7 +467,7 @@ body:has(.overlay:not(.hidden)) {
     }
 
     &.visual {
-      color: $color-green-600;
+      color: $color-emerald-600;
     }
 
     &.writing {
@@ -608,10 +624,6 @@ button.tag {
       background: rgba(0, 0, 0, 0.3);
     }
   }
-
-  .tag:first-of-type {
-    padding-left: 0;
-  }
 }
 
 .tag {
@@ -636,7 +648,7 @@ button.tag {
   }
 
   &[data-filter="visual"] .tag-square {
-    background: $color-green-300;
+    background: $color-emerald-300;
   }
 
   &[data-filter="writing"] .tag-square {
@@ -647,7 +659,41 @@ button.tag {
     color: $color-muted;
   }
 
-  &:hover,
+  &:hover {
+    color: $color-primary;
+    // font-style: italic;
+    text-decoration: none;
+
+    &[data-filter="design"] {
+      color: $color-blue;
+
+      .tag-square {
+        background: $color-blue-600;
+      }
+    }
+
+    &[data-filter="music"] {
+      color: $color-red-600;
+      .tag-square {
+        background: $color-red-600;
+      }
+    }
+
+    &[data-filter="visual"] {
+      color: $color-emerald-600;
+
+      .tag-square {
+        background: $color-emerald-600;
+      }
+    }
+
+    &[data-filter="writing"] {
+      color: $color-amber-600;
+      .tag-square {
+        background: $color-amber-600;
+      }
+    }
+  }
   &.active {
     color: $color-primary;
     // font-style: italic;
@@ -671,10 +717,11 @@ button.tag {
     }
 
     &[data-filter="visual"] {
-      color: $color-green-50;
+      color: $color-emerald-600;
+      background-color: $color-emerald-50;
 
       .tag-square {
-        background: $color-green-600;
+        background: $color-emerald-600;
       }
     }
 
@@ -905,7 +952,7 @@ button.tag {
   background: $color-red-300;
 }
 .tag-dot.visual {
-  background: $color-green-300;
+  background: $color-emerald-300;
 }
 .tag-dot.writing {
   background: $color-amber-300;
@@ -996,6 +1043,10 @@ button.tag {
 }
 
 @media (max-width: 900px) {
+  :root {
+    --wrap-normal: 88vw;
+    --wrap-wide: 100vw;
+  }
   .project-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1066,6 +1117,8 @@ button.tag {
 @media (max-width: 540px) {
   :root {
     --font-size-base: 15px;
+    --wrap-normal: 100%;
+    --wrap-wide: 100vw;
   }
 
   p,

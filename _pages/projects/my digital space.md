@@ -5,6 +5,7 @@ permalink: /my-digital-space
 date: 2025
 tags:
   - design
+  - visual
 description: A space I made for the things I like to build, create, and share
 ---
 <!-- <p class="intro">A space I made for the things I like to build, create, and share</p> -->

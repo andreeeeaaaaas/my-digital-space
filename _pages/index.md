@@ -65,11 +65,6 @@ sound: true
 <!-- Toolbar -->
 <div class="toolbar">
   <div class="tags">
-    <button type="button" class="tag active">
-      <span class="tag-squares-all">
-      </span>
-      All
-    </button>
     <button type="button" class="tag inactive" data-filter="design">
       <span class="tag-square"></span>Design
     </button>
@@ -77,7 +72,7 @@ sound: true
     <button type="button" class="tag inactive" data-filter="music">
       <span class="tag-square"></span>Music
     </button>
-    <!-- <button type="button" class="tag inactive" data-filter="visual">Visual</button><span>,</span> -->
+    <button type="button" class="tag inactive" data-filter="visual"><span class="tag-square"></span>Visual</button>
     <button type="button" class="tag inactive" data-filter="writing">
       <span class="tag-square"></span>Writing
     </button>
