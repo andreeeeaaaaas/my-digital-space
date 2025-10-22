@@ -6,7 +6,7 @@ permalink: /
 sound: true
 ---
 
-<div id="sound-gate" class="overlay">
+<!-- <div id="sound-gate" class="overlay">
   <div class="overlay-content">
     <p style="margin-top:0">Would you like to enable sound?</p>
     <div style="display: flex; flex-direction: row;gap: 16px; padding-top: 16p;">
@@ -15,7 +15,7 @@ sound: true
       <button href="#" id="sound-no">No</button>
     </div>
   </div>
-</div>
+</div> -->
 <!-- Header -->
 <section class="header">
   <div class="intro-text">

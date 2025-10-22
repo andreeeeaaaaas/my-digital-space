@@ -8,6 +8,64 @@
   --wrap-wide: 60rem;
 }
 
+:root {
+  // Light mode colors (default)
+  --color-bg-primary: #{$color-white};
+  --color-bg-secondary: #{$color-stone-100};
+  --color-text-nav: #{$color-black};
+  --color-text-primary: #{$color-stone-900};
+  --color-text-secondary: #{$color-stone-600};
+  --color-muted: #{$color-stone-500};
+  --color-border: #{$color-stone-200};
+  --color-transparent: rgba(255, 255, 255, 0);
+  --color-amber-soft: #{$color-amber-300};
+  --color-amber-medium: #{$color-amber-500};
+  --color-amber-hard: #{$color-amber-600};
+  --color-amber-bg: #{$color-amber-50};
+  --color-blue-soft: #{$color-blue-300};
+  --color-blue-medium: #{$color-blue-500};
+  --color-blue-hard: #{$color-blue-600};
+  --color-blue-bg: #{$color-blue-50};
+  --color-emerald-soft: #{$color-emerald-300};
+  --color-emerald-medium: #{$color-emerald-500};
+  --color-emerald-hard: #{$color-emerald-600};
+  --color-emerald-bg: #{$color-emerald-50};
+  --color-red-soft: #{$color-red-300};
+  --color-red-medium: #{$color-red-500};
+  --color-red-hard: #{$color-red-600};
+  --color-red-bg: #{$color-red-50};
+}
+
+// Dark mode colors
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-primary: #{$color-stone-900};
+    --color-bg-secondary: #{$color-stone-800};
+    --color-text-nav: #{$color-white};
+    --color-text-primary: #{$color-stone-200};
+    --color-text-secondary: #{$color-stone-300};
+    --color-muted: #{$color-stone-400};
+    --color-border: #{$color-stone-800};
+    --color-transparent: rgba(0, 0, 0, 0);
+    --color-amber-soft: #{$color-amber-300};
+    --color-amber-medium: #{$color-amber-500};
+    --color-amber-hard: #{$color-amber-700};
+    --color-amber-bg: #{$color-amber-100};
+    --color-blue-soft: #{$color-blue-300};
+    --color-blue-medium: #{$color-blue-500};
+    --color-blue-hard: #{$color-blue-700};
+    --color-blue-bg: #{$color-blue-100};
+    --color-emerald-soft: #{$color-emerald-300};
+    --color-emerald-medium: #{$color-emerald-500};
+    --color-emerald-hard: #{$color-emerald-700};
+    --color-emerald-bg: #{$color-emerald-100};
+    --color-red-soft: #{$color-red-300};
+    --color-red-medium: #{$color-red-500};
+    --color-red-hard: #{$color-red-700};
+    --color-red-bg: #{$color-red-100};
+  }
+}
+
 #bubbleCanvas {
   position: fixed;
   top: 0;
@@ -36,23 +94,23 @@
 
 /* Borders */
 .ba {
-  border: 1px solid $color-light;
+  border: 1px solid var(--color-border);
 }
 
 .bt {
-  border-top: 1px solid $color-light;
+  border-top: 1px solid var(--color-border);
 }
 
 .br {
-  border-right: 1px solid $color-light;
+  border-right: 1px solid var(--color-border);
 }
 
 .bb {
-  border-bottom: 1px solid $color-light;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .bl {
-  border-left: 1px solid $color-light;
+  border-left: 1px solid var(--color-border);
 }
 
 /* Padding */
@@ -89,8 +147,9 @@ body {
   display: flex;
   flex-direction: column;
   font-family: $font-family-primary;
-  background-color: $color-white;
-  color: $color-primary;
+  font-size: var(--font-size-base);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
   line-height: 1.6;
   width: 100vw;
   max-width: 1440px;
@@ -125,22 +184,28 @@ content {
     margin-block-start: 1rem;
     margin-block-end: 1rem;
   }
+  figure {
+    img {
+      margin-block-start: 0;
+      margin-block-end: 0;
+    }
+  }
 }
 
 a {
-  text-decoration: underline $color-light;
-  color: $color-primary;
+  text-decoration: underline var(--color-muted);
+  color: var(--color-text-primary);
 
   // &.external:after {
   //   position: relative;
   //   top: -0.3em;
   //   font-size: 0.7em;
   //   content: "↗";
-  //   color: $color-light;
+  //   color: var(--color-border);
   // }
 
   &:visited {
-    color: $color-primary;
+    color: var(--color-text-primary);
   }
 
   &:hover {
@@ -158,25 +223,11 @@ strong {
 
 time {
   display: block;
-  color: $color-gray-400;
+  color: var(--color-text-secondary);
   // margin-bottom: $spacing-lg-32;
   font-family: $font-family-mono;
   text-align: center;
 }
-
-// footer {
-//   margin: 0;
-//   font-size: 0.88rem;
-//   color: $color-subtext;
-//   padding-top: 0em;
-//   padding-bottom: 1em;
-// }
-
-// .wide {
-//   max-width: min(100vw, var(--wrap-wide));
-//   width: min(100vw, var(--wrap-wide));
-//   margin-left: calc((min(100vw, var(--wrap-wide)) - 100%) / -2);
-// }
 
 figure {
   margin: 2rem 0 3rem 0;
@@ -193,10 +244,10 @@ img {
 figcaption {
   text-align: center;
   font-size: $font-size-base - 2px;
-  color: $color-muted;
+  color: var(--color-muted);
   padding: 1em 0 0 0;
   a {
-    color: $color-muted;
+    color: var(--color-muted);
   }
 }
 
@@ -209,19 +260,22 @@ iframe {
   line-height: 1.5;
   margin-top: 0;
   font-family: $font-family-mono;
-  color: $color-primary;
+  color: var(--color-text-primary);
   text-align: center;
   padding: 0 $spacing-lg-32;
   margin-bottom: $spacing-xs-8;
 }
 
 blockquote,
-.callout {
+.callout,
+code {
   padding: 1.5em;
   margin: 0;
-  font-size: calc($font-size-base - 2px);
-  background: $color-light-gray;
-  color: $color-secondary;
+  font-size: 1rem;
+  font-size: 0.75rem;
+  font-family: monospace;
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
   border-radius: $border-radius-sm;
   margin-block-start: 1em;
   margin-block-end: 1em;
@@ -236,7 +290,7 @@ hr {
   border: 0;
   height: 2px;
   margin: $spacing-lg-32 0 0 0;
-  background: $color-light-gray;
+  background: var(--color-border);
 }
 
 ol,
@@ -259,7 +313,7 @@ h6 {
   line-height: 1.3;
   margin-bottom: 0;
   padding-bottom: 0;
-  color: $color-primary;
+  color: var(--color-text-primary);
 }
 
 h1 {
@@ -322,11 +376,8 @@ content {
   }
 }
 
-code {
-  background: #f5f5f5;
-  color: $color-secondary;
-  padding: 0.1em 0.2em;
-  border-radius: $border-radius-sm;
+div.highlight {
+  background: var(--color-bg-secondary);
 }
 
 .invalid-link {
@@ -358,7 +409,7 @@ body:has(.overlay:not(.hidden)) {
   height: 100vh;
   height: 100dvh; // Better mobile support
   inset: 0;
-  background: $color-white;
+  background: var(--color-bg-primary);
   display: flex;
   align-items: center;
   justify-content: left;
@@ -370,7 +421,7 @@ body:has(.overlay:not(.hidden)) {
 .overlay-content {
   padding: 2rem;
   button {
-    background-color: $color-white;
+    background-color: var(--color-bg-primary);
     &:hover {
       text-decoration: underline;
     }
@@ -381,7 +432,7 @@ body:has(.overlay:not(.hidden)) {
   opacity: 0;
   pointer-events: none;
   * {
-    color: $color-white;
+    color: var(--color-bg-primary);
   }
 }
 
@@ -395,7 +446,7 @@ body:has(.overlay:not(.hidden)) {
   // font-weight: 450;
 
   a {
-    color: black;
+    color: var(--color-text-nav);
     text-decoration: none;
     &:hover {
       text-decoration: underline;
@@ -410,28 +461,6 @@ body:has(.overlay:not(.hidden)) {
   &-right {
     @include flex-center;
     gap: $spacing-lg-32;
-  }
-}
-
-.contact-btn {
-  @include flex-center;
-  gap: 6px;
-  padding: $spacing-m-24 $spacing-lg-32;
-  border: 1px solid $color-border;
-  border-radius: $border-radius-lg;
-  background: transparent;
-  font-family: $font-family-primary;
-  // font-weight: 500;
-  font-size: var(--font-size-base);
-  // line-height: 24px;
-  color: $color-border;
-  cursor: pointer;
-  text-decoration: none;
-  transition: $transition-default;
-
-  &:hover {
-    background-color: $color-border;
-    color: $color-white;
   }
 }
 
@@ -454,24 +483,24 @@ body:has(.overlay:not(.hidden)) {
   font-family: $font-family-text;
   font-size: var(--font-size-base);
   // line-height: 24px;
-  color: $color-primary;
+  color: var(--color-text-primary);
 
   span {
     cursor: pointer;
     &.design {
-      color: $color-blue-600;
+      color: var(--color-blue-medium);
     }
 
     &.music {
-      color: $color-red-600;
+      color: var(--color-red-medium);
     }
 
     &.visual {
-      color: $color-emerald-600;
+      color: var(--color-emerald-medium);
     }
 
     &.writing {
-      color: $color-amber-600;
+      color: var(--color-amber-medium);
     }
   }
 }
@@ -494,7 +523,7 @@ body:has(.overlay:not(.hidden)) {
   font-size: calc(var(--font-size-base) - 1px);
   // line-height: 24px;
   font-weight: 400;
-  color: $color-muted;
+  color: var(--color-muted);
   // padding-bottom: $spacing-s-16
 }
 
@@ -514,7 +543,7 @@ body:has(.overlay:not(.hidden)) {
 
   .role {
     flex: 1;
-    color: $color-muted;
+    color: var(--color-muted);
   }
 }
 
@@ -525,13 +554,12 @@ body:has(.overlay:not(.hidden)) {
   margin-bottom: $spacing-lg-32;
   font-family: $font-family-mono;
   font-size: var(--font-size-base);
-  color: $color-muted;
+  color: var(--color-muted);
 }
 
 button {
   border: none;
   cursor: pointer;
-  color: $color-primary;
   background: none;
   font-size: var(--font-size-base);
 }
@@ -546,6 +574,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  stroke: var(--color-text-primary);
 }
 
 #sound-toggle:hover {
@@ -571,21 +600,7 @@ button {
 
 #sound-toggle.muted .mute-x {
   opacity: 1;
-  color: $color-red;
-}
-
-button.tag {
-  background: none;
-  padding: 4px 12px;
-  margin: 0;
-  color: $color-muted;
-  background-color: #f4f4f5;
-  font: inherit;
-  cursor: pointer;
-  // outline: none;
-  box-shadow: none;
-  text-decoration: none;
-  height: 32px;
+  stroke: var(--color-red-hard);
 }
 
 // img {
@@ -630,9 +645,8 @@ button.tag {
   display: flex;
   align-items: center;
   gap: 0.5rem; // Space between square and text
-  color: $color-gray;
+  color: var(--color-muted);
   white-space: nowrap;
-  background: none;
   border: none;
   font-size: var(--font-size-base);
   padding: 0.5rem; // Add some padding for clickability
@@ -640,27 +654,27 @@ button.tag {
 
   // Set default colors for each tag's square
   &[data-filter="design"] .tag-square {
-    background: $color-blue-300;
+    background: var(--color-blue-soft);
   }
 
   &[data-filter="music"] .tag-square {
-    background: $color-red-300;
+    background: var(--color-red-soft);
   }
 
   &[data-filter="visual"] .tag-square {
-    background: $color-emerald-300;
+    background: var(--color-emerald-soft);
   }
 
   &[data-filter="writing"] .tag-square {
-    background: $color-amber-300;
+    background: var(--color-amber-soft);
   }
 
   &.inactive {
-    color: $color-muted;
+    color: var(--color-text-secondary);
   }
 
   &:hover {
-    color: $color-primary;
+    color: var(--color-text-primary);
     // font-style: italic;
     text-decoration: none;
 
@@ -668,75 +682,75 @@ button.tag {
       color: $color-blue;
 
       .tag-square {
-        background: $color-blue-600;
+        background: var(--color-blue-hard);
       }
     }
 
     &[data-filter="music"] {
-      color: $color-red-600;
+      color: var(--color-red-hard);
       .tag-square {
-        background: $color-red-600;
+        background: var(--color-red-hard);
       }
     }
 
     &[data-filter="visual"] {
-      color: $color-emerald-600;
+      color: var(--color-emerald-hard);
 
       .tag-square {
-        background: $color-emerald-600;
+        background: var(--color-emerald-hard);
       }
     }
 
     &[data-filter="writing"] {
-      color: $color-amber-600;
+      color: var(--color-amber-hard);
       .tag-square {
-        background: $color-amber-600;
+        background: var(--color-amber-hard);
       }
     }
   }
   &.active {
-    color: $color-primary;
+    color: var(--color-text-primary);
     // font-style: italic;
     text-decoration: none;
 
     &[data-filter="design"] {
       color: $color-blue;
-      background-color: $color-blue-50;
+      background-color: var(--color-blue-bg);
 
       .tag-square {
-        background: $color-blue-600;
+        background: var(--color-blue-hard);
       }
     }
 
     &[data-filter="music"] {
       color: $color-red;
-      background-color: $color-red-50;
+      background-color: var(--color-red-bg);
       .tag-square {
-        background: $color-red-600;
+        background: var(--color-red-hard);
       }
     }
 
     &[data-filter="visual"] {
-      color: $color-emerald-600;
-      background-color: $color-emerald-50;
+      color: var(--color-emerald-hard);
+      background-color: var(--color-emerald-bg);
 
       .tag-square {
-        background: $color-emerald-600;
+        background: var(--color-emerald-hard);
       }
     }
 
     &[data-filter="writing"] {
-      color: $color-amber-600;
-      background-color: $color-amber-50;
+      color: var(--color-amber-hard);
+      background-color: var(--color-amber-bg);
 
       .tag-square {
-        background: $color-amber-600;
+        background: var(--color-amber-hard);
       }
     }
   }
 
   &.active {
-    color: $color-primary;
+    color: var(--color-text-primary);
     // font-style: italic;
   }
 
@@ -747,8 +761,23 @@ button.tag {
   }
 }
 
+button.tag {
+  background: none;
+  padding: 4px 12px;
+  margin: 0;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
+  font: inherit;
+  cursor: pointer;
+  // outline: none;
+  box-shadow: none;
+  text-decoration: none;
+  height: 32px;
+}
+
 .view-controls {
   @include flex-center;
+  height: 32px;
   gap: 8px;
   flex-shrink: 0; // Prevents controls from shrinking
   position: sticky; // Keeps it pinned to the right
@@ -766,15 +795,15 @@ button.tag {
     width: 40px;
     background: linear-gradient(
       to right,
-      rgba(rgba(255, 255, 255, 0), 0),
-      rgb(255, 255, 255)
+      var(--color-transparent),
+      var(--color-bg-primary)
     );
     pointer-events: none;
   }
 
   .view-label {
     font-size: var(--font-size-base);
-    color: $color-muted;
+    color: var(--color-muted);
     white-space: nowrap;
   }
 
@@ -804,7 +833,6 @@ button.tag {
     .grid-square {
       width: 100%;
       height: 100%;
-      background: $color-gray; // Inactive by default
     }
   }
 
@@ -818,17 +846,16 @@ button.tag {
     .list-bar {
       width: 100%;
       height: 100%;
-      background: $color-gray;
     }
   }
   .grid-icon .grid-square,
   .list-icon .list-bar {
-    background: $color-gray;
+    background: var(--color-bg-secondary);
   }
 
   .grid-icon.active .grid-square,
   .list-icon.active .list-bar {
-    background: $color-light;
+    background: var(--color-muted);
   }
 }
 
@@ -859,7 +886,7 @@ button.tag {
 
   &-image {
     aspect-ratio: 1/1;
-    background-color: $color-light-gray;
+    background-color: var(--color-border)-gray;
     overflow: hidden;
     img {
       width: 100%;
@@ -881,7 +908,7 @@ button.tag {
     font-size: var(--font-size-base);
     line-height: 1.4;
     margin-top: $spacing-xs-8;
-    color: $color-primary;
+    color: var(--color-text-primary);
     // white-space: nowrap;
   }
 
@@ -889,7 +916,7 @@ button.tag {
     font-family: $font-family-primary;
     font-size: $font-size-base - 1px;
     line-height: 1.5;
-    color: $color-muted;
+    color: var(--color-muted);
     font-weight: 400;
   }
 
@@ -900,7 +927,7 @@ button.tag {
   }
 
   &:hover {
-    outline: 1px dashed $color-border;
+    outline: 1px dashed var(--color-border);
     a {
       transform: scale(0.95);
     }
@@ -946,16 +973,16 @@ button.tag {
   height: 12px;
 }
 .tag-dot.design {
-  background: $color-blue-300;
+  background: var(--color-blue-soft);
 }
 .tag-dot.music {
-  background: $color-red-300;
+  background: var(--color-red-soft);
 }
 .tag-dot.visual {
-  background: $color-emerald-300;
+  background: var(--color-emerald-soft);
 }
 .tag-dot.writing {
-  background: $color-amber-300;
+  background: var(--color-amber-soft);
 }
 .tag-dot {
   &.unknown {
@@ -976,7 +1003,7 @@ button.tag {
 .project-grid.list-view .project {
   display: flex;
   padding: $spacing-s-16 0;
-  border-top: 1px solid $color-light-gray;
+  border-top: 1px solid var(--color-border);
   transition: padding $transition-default;
 
   .project-tags-list {
@@ -988,7 +1015,7 @@ button.tag {
   }
 
   &:hover {
-    background-color: #fafafa;
+    background-color: var(--color-bg-secondary);
     padding-left: $spacing-s-16;
     outline: none;
     a {
@@ -996,7 +1023,7 @@ button.tag {
     }
   }
   &:last-child {
-    border-bottom: 1px solid $color-light-gray;
+    border-bottom: 1px solid var(--color-border);
   }
 }
 .project-grid.list-view .project-image {
@@ -1010,7 +1037,6 @@ button.tag {
 .footer {
   @include flex-between;
   font-family: $font-family-mono;
-  font-size: var(--font-size-base);
   align-items: flex-start;
   gap: $spacing-s-16;
   max-width: 1440px;
@@ -1020,14 +1046,14 @@ button.tag {
   .label {
     display: flex;
     flex-direction: column;
-    color: $color-light;
+    color: var(--color-text-nav);
     white-space: nowrap;
   }
 
   .detail {
     display: flex;
     flex-direction: column;
-    color: $color-secondary;
+    color: var(--color-muted);
     white-space: nowrap;
   }
 }
@@ -1186,6 +1212,10 @@ button.tag {
 
   .experiences {
     grid-column: 1;
+  }
+
+  .toolbar {
+    margin-bottom: $spacing-s-16;
   }
 
   .view-label {

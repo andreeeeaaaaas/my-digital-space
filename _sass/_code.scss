@@ -1,11 +1,10 @@
 .highlight  {
-  background: #f8f8f8;
   padding: 1px 1em;
   border-radius: 8px;
-  font-size: 1em;
-  font-size: 0.9em;
+  font-size: 1rem;
+  font-size: 0.75rem;
   overflow: auto;
-  margin: 1em -1em;
+  margin: 1em 0;
   
   code{
     padding: 0;
@@ -14,6 +13,7 @@
 
 div.highlight {
   display: grid;
+  padding: 1px 0.5em;
 }
 
 .highlight .c { color: #999988; font-style: italic } /* Comment */

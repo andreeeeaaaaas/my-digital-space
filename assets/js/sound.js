@@ -1,8 +1,3 @@
-// Global error logging
-document.addEventListener("error", (event) => {
-  console.error("Sound.js global error caught:", event.error);
-});
-
 document.addEventListener("DOMContentLoaded", () => {
   // Web Audio setup
   const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -20,10 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (audioCtx.state !== "running") audioCtx.resume();
   };
 
+
   // Sound picker
-  const overlay = document.getElementById("sound-gate");
-  const yesBtn = document.getElementById("sound-yes");
-  const noBtn = document.getElementById("sound-no");
+  // const overlay = document.getElementById("sound-gate");
+  // const yesBtn = document.getElementById("sound-yes");
+  // const noBtn = document.getElementById("sound-no");
   const soundToggle = document.getElementById("sound-toggle");
 
   // Update toggle button UI to match current sound state
@@ -45,10 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
   try {
     if (savedPref === null) {
       // First visit → show modal
-      overlay.classList.remove("hidden");
+      // overlay.classList.remove("hidden");
+      updateToggleUI();
     } else {
       // Already chosen before
-      overlay.classList.add("hidden");
+      // overlay.classList.add("hidden");
       isSoundOn = savedPref === "true";
       updateToggleUI();
       unlock();
@@ -57,25 +54,25 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("Error handling sound preferences:", error);
   }
 
-  // Yes button - enable sound
-  yesBtn.addEventListener("click", () => {
-    sessionStorage.setItem("soundEnabled", "true");
-    isSoundOn = true;
-    unlock();
-    console.log("Is sound enabled? " + sessionStorage.getItem("soundEnabled"));
-    overlay.classList.add("hidden");
-    updateToggleUI();
-  });
+  // // Yes button - enable sound
+  // yesBtn.addEventListener("click", () => {
+  //   sessionStorage.setItem("soundEnabled", "true");
+  //   isSoundOn = true;
+  //   unlock();
+  //   console.log("Is sound enabled? " + sessionStorage.getItem("soundEnabled"));
+  //   overlay.classList.add("hidden");
+  //   updateToggleUI();
+  // });
 
-  // No button - disable sound
-  noBtn.addEventListener("click", () => {
-    sessionStorage.setItem("soundEnabled", "false");
-    isSoundOn = false;
-    unlock();
-    console.log("Is sound enabled? " + sessionStorage.getItem("soundEnabled"));
-    overlay.classList.add("hidden");
-    updateToggleUI();
-  });
+  // // No button - disable sound
+  // noBtn.addEventListener("click", () => {
+  //   sessionStorage.setItem("soundEnabled", "false");
+  //   isSoundOn = false;
+  //   unlock();
+  //   console.log("Is sound enabled? " + sessionStorage.getItem("soundEnabled"));
+  //   overlay.classList.add("hidden");
+  //   updateToggleUI();
+  // });
 
   // === Toggle button (updates both session storage and UI) ===
   soundToggle.addEventListener("click", () => {

@@ -7,4 +7,5 @@ tags:
   - visual
 description: A short film of my Papou in his garden
 ---
-<img src="assets/studio/papousgarden.webp" class="wide">
+<figure class=""><img src="assets/studio/papousgarden.webp"><figcaption>My Papous garden</figcaption></figure>
+Coming soon...

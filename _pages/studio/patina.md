@@ -7,7 +7,7 @@ tags:
   - music
 description: Live mix and accompanying interview, aired on <a target="_blank" href="https://www.fbi.radio/programs/patina/episodes/patina-26th-january-2025/">fbi radio</a>
 ---
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2025576760&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2025576760&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" target="_blank"></iframe>
 
 While overseas travelling, I was asked to prepare a mix that would air live on the Patina show, on FBI radio. 
 
