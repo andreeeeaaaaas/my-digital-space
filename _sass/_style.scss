@@ -47,21 +47,21 @@
     --color-muted: #{$color-stone-400};
     --color-border: #{$color-stone-800};
     --color-transparent: rgba(0, 0, 0, 0);
-    --color-amber-soft: #{$color-amber-300};
+    --color-amber-soft: #{$color-amber-400};
     --color-amber-medium: #{$color-amber-500};
-    --color-amber-hard: #{$color-amber-700};
+    --color-amber-hard: #{$color-amber-800};
     --color-amber-bg: #{$color-amber-100};
-    --color-blue-soft: #{$color-blue-300};
+    --color-blue-soft: #{$color-blue-400};
     --color-blue-medium: #{$color-blue-500};
-    --color-blue-hard: #{$color-blue-700};
+    --color-blue-hard: #{$color-blue-800};
     --color-blue-bg: #{$color-blue-100};
-    --color-emerald-soft: #{$color-emerald-300};
+    --color-emerald-soft: #{$color-emerald-400};
     --color-emerald-medium: #{$color-emerald-500};
-    --color-emerald-hard: #{$color-emerald-700};
+    --color-emerald-hard: #{$color-emerald-800};
     --color-emerald-bg: #{$color-emerald-100};
-    --color-red-soft: #{$color-red-300};
+    --color-red-soft: #{$color-red-400};
     --color-red-medium: #{$color-red-500};
-    --color-red-hard: #{$color-red-700};
+    --color-red-hard: #{$color-red-800};
     --color-red-bg: #{$color-red-100};
   }
 }
@@ -223,7 +223,7 @@ strong {
 
 time {
   display: block;
-  color: var(--color-text-secondary);
+  color: var(--color-muted);
   // margin-bottom: $spacing-lg-32;
   font-family: $font-family-mono;
   text-align: center;
@@ -260,7 +260,7 @@ iframe {
   line-height: 1.5;
   margin-top: 0;
   font-family: $font-family-mono;
-  color: var(--color-text-primary);
+  color: var(--color-text-secondary);
   text-align: center;
   padding: 0 $spacing-lg-32;
   margin-bottom: $spacing-xs-8;
@@ -679,32 +679,32 @@ button {
     text-decoration: none;
 
     &[data-filter="design"] {
-      color: $color-blue;
+      color: var(--color-blue-medium);
 
       .tag-square {
-        background: var(--color-blue-hard);
+        background: var(--color-blue-medium);
       }
     }
 
     &[data-filter="music"] {
-      color: var(--color-red-hard);
+      color: var(--color-red-medium);
       .tag-square {
-        background: var(--color-red-hard);
+        background: var(--color-red-medium);
       }
     }
 
     &[data-filter="visual"] {
-      color: var(--color-emerald-hard);
+      color: var(--color-emerald-medium);
 
       .tag-square {
-        background: var(--color-emerald-hard);
+        background: var(--color-emerald-medium);
       }
     }
 
     &[data-filter="writing"] {
-      color: var(--color-amber-hard);
+      color: var(--color-amber-medium);
       .tag-square {
-        background: var(--color-amber-hard);
+        background: var(--color-amber-medium);
       }
     }
   }
@@ -714,7 +714,7 @@ button {
     text-decoration: none;
 
     &[data-filter="design"] {
-      color: $color-blue;
+      color: var(--color-blue-hard);
       background-color: var(--color-blue-bg);
 
       .tag-square {
@@ -927,7 +927,7 @@ button.tag {
   }
 
   &:hover {
-    outline: 1px dashed var(--color-border);
+    outline: 1px dashed var(--color-muted);
     a {
       transform: scale(0.95);
     }
@@ -952,6 +952,7 @@ button.tag {
 }
 
 .title .project-tags {
+  font-family: $font-family-mono;
   position: relative;
   display: flex;
   justify-content: center;
@@ -973,16 +974,16 @@ button.tag {
   height: 12px;
 }
 .tag-dot.design {
-  background: var(--color-blue-soft);
+  background: var(--color-blue-medium);
 }
 .tag-dot.music {
-  background: var(--color-red-soft);
+  background: var(--color-red-medium);
 }
 .tag-dot.visual {
-  background: var(--color-emerald-soft);
+  background: var(--color-emerald-medium);
 }
 .tag-dot.writing {
-  background: var(--color-amber-soft);
+  background: var(--color-amber-medium);
 }
 .tag-dot {
   &.unknown {
