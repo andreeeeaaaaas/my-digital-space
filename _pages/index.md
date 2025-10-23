@@ -19,10 +19,10 @@ sound: true
 <!-- Header -->
 <section class="header">
   <div class="intro-text">
-    <p>I'm Andreas – a
+    <p>I'm Andreas–
       <span class="design" data-filter="design">designer</span>,
       <span class="music" data-filter="music">musician</span>, and
-      <span class="writing" data-filter="writing">creative</span>.
+      <span class="visual" data-filter="visual">creative</span> (and sometimes <span class="writing" data-filter="writing">writer</span>).
     </p>
     <br>
     I help organisations bring value to processes, products, and people, through design.
@@ -63,35 +63,72 @@ sound: true
 </section>
 
 <!-- Toolbar -->
-<div class="toolbar">
-  <div class="tags">
-    <button type="button" class="tag inactive" data-filter="design">
-      <span class="tag-square"></span>Design
-    </button>
-    <!-- <button type="button" class="tag" data-filter="research">Research</button> -->
-    <button type="button" class="tag inactive" data-filter="music">
-      <span class="tag-square"></span>Music
-    </button>
-    <button type="button" class="tag inactive" data-filter="visual"><span class="tag-square"></span>Visual</button>
-    <button type="button" class="tag inactive" data-filter="writing">
-      <span class="tag-square"></span>Writing
+<div>
+  <div class="toolbar mobile-controls">
+    <div class="" style="display:flex; gap: 6px">
+      <button type="button" class="tag inactive filter" id="filter-toggle">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill=""><path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M6 5.71429L3.59961 5.71387V12H2.40039V5.71387L0 5.71429V0H6V5.71429ZM1.2002 4.57129H4.7998V1.14258H1.2002V4.57129Z" fill="#"/><path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M12 6.28571L9.59961 6.28613V0H8.40039V6.28613L6 6.28571V12H12V6.28571ZM7.2002 7.42871H10.7998V10.8574H7.2002V7.42871Z" fill="#"/></svg>
+        Filters
+      </button>
+      <button type="button" class="tag inactive" data-filter="design" style="display:none" >
+          <span class="tag-square"></span>
+        </button>
+        <!-- <button type="button" class="tag" data-filter="research">Research</button> -->
+        <button type="button" class="tag inactive" data-filter="music" style="display:none;" >
+          <span class="tag-square"></span>
+        </button>
+        <button type="button" class="tag inactive" data-filter="visual" style="display:none;" ><span class="tag-square"></span></button>
+        <button type="button" class="tag inactive" data-filter="writing" style="display:none;" >
+          <span class="tag-square"></span>
+        </button>
+    </div>
+    <button type="button" class="tag inactive view">
+      <div class="" style="display: flex; width: 14px; height: 12px; flex-direction: column; align-items: flex-start; gap: 10px; border-style: solid; border-width: 2px; border-color: #100F0F);"></div>
+      Grid
     </button>
   </div>
-
-  <div class="view-controls">
-    <span class="view-label">View</span>
-    <button type="button" class="grid-icon active" title="Grid view">
-      <div class="grid-square"></div>
-      <div class="grid-square"></div>
-      <div class="grid-square"></div>
-      <div class="grid-square"></div>
-    </button>
-    <button type="button" class="list-icon" title="List view">
-      <div class="list-bar"></div>
-      <div class="list-bar"></div>
-    </button>
+  <div class ="toolbar">
+    <div class="tags">
+      <button type="button" class="tag inactive" data-filter="design">
+        <span class="tag-square"></span>Design
+      </button>
+      <!-- <button type="button" class="tag" data-filter="research">Research</button> -->
+      <button type="button" class="tag inactive" data-filter="music">
+        <span class="tag-square"></span>Music
+      </button>
+      <button type="button" class="tag inactive" data-filter="visual"><span class="tag-square"></span>Visual</button>
+      <button type="button" class="tag inactive" data-filter="writing">
+        <span class="tag-square"></span>Writing
+      </button>
+    </div>
+    <div class="view-controls">
+      <span class="view-label">View</span>
+      <button type="button" class="tag view-control active" id="grid-button">
+        <div class="grid-icon"></div>
+        Grid
+      </button>
+      <button type="button" class="tag view-control" id="list-button">
+        <div class="list-icon" style="">
+          <div class="list-bar" style=""></div>
+          <div class="list-bar" style=""></div>
+        </div>
+        List
+      </button>
+    </div>
   </div>
 </div>
+
 
 {% assign projects = site.pages | where_exp: "page", "page.path contains 'projects/'" %}
 {% assign studio = site.pages | where_exp: "page", "page.path contains 'studio/'" %}

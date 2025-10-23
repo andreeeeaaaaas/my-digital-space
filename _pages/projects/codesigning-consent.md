@@ -17,7 +17,7 @@ With that in mind, how would you define consent to a child?
 In the world of design, there is no bigger challenge than the many social problems that face the world today. My thesis sought to untangle some of the challenges and opportunities in an incredibly complex area – consent education in Australia. 
 
 Specifically, I looked at how co-design might lend itself to solving some of these.
-<figure class="wide">
+<figure class="">
     <img src ="assets/co-designing-consent-popup.jpeg">
     <figcaption>The interactive engagement stall on campus</figcaption>
 </figure>

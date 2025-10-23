@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About me
-permalink: /about
+title: Info
+permalink: /info
 ---
 <!-- My design work solves complex product and service challenges through deep-research, strategic thinking, and considered experimentation. Beginning with understanding each element in a context and system → resulting in work that feels intuitive and refined. -->
 
@@ -11,7 +11,7 @@ permalink: /about
 
 <!-- **The result– I hope– is work that communicates with immediacy while inviting deeper engagement.** -->
 
-<figure class="wide">
+<figure class="">
   <img src ="assets/me-coffee.jpg" alt="A black and white photo of me and a coffee">
   <figcaption>Coffee– powering me, and this website</figcaption>
 </figure>

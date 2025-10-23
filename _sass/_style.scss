@@ -16,22 +16,27 @@
   --color-text-primary: #{$color-stone-900};
   --color-text-secondary: #{$color-stone-600};
   --color-muted: #{$color-stone-500};
+  --color-muted-soft: #{$color-stone-300};
   --color-border: #{$color-stone-200};
   --color-transparent: rgba(255, 255, 255, 0);
   --color-amber-soft: #{$color-amber-300};
   --color-amber-medium: #{$color-amber-500};
-  --color-amber-hard: #{$color-amber-600};
+  --color-amber-semi: #{$color-amber-700};
+  --color-amber-hard: #{$color-amber-900};
   --color-amber-bg: #{$color-amber-50};
   --color-blue-soft: #{$color-blue-300};
   --color-blue-medium: #{$color-blue-500};
+  --color-blue-semi: #{$color-blue-700};
   --color-blue-hard: #{$color-blue-600};
   --color-blue-bg: #{$color-blue-50};
   --color-emerald-soft: #{$color-emerald-300};
   --color-emerald-medium: #{$color-emerald-500};
+  --color-emerald-semi: #{$color-emerald-700};
   --color-emerald-hard: #{$color-emerald-600};
   --color-emerald-bg: #{$color-emerald-50};
   --color-red-soft: #{$color-red-300};
   --color-red-medium: #{$color-red-500};
+  --color-red-semi: #{$color-red-700};
   --color-red-hard: #{$color-red-600};
   --color-red-bg: #{$color-red-50};
 }
@@ -45,24 +50,29 @@
     --color-text-primary: #{$color-stone-200};
     --color-text-secondary: #{$color-stone-300};
     --color-muted: #{$color-stone-400};
+    --color-muted-soft: #{$color-stone-600};
     --color-border: #{$color-stone-800};
     --color-transparent: rgba(0, 0, 0, 0);
     --color-amber-soft: #{$color-amber-400};
     --color-amber-medium: #{$color-amber-500};
+    --color-amber-semi: #{$color-amber-600};
     --color-amber-hard: #{$color-amber-800};
-    --color-amber-bg: #{$color-amber-100};
+    --color-amber-bg: #{$color-amber-950};
     --color-blue-soft: #{$color-blue-400};
     --color-blue-medium: #{$color-blue-500};
+    --color-blue-semi: #{$color-blue-600};
     --color-blue-hard: #{$color-blue-800};
-    --color-blue-bg: #{$color-blue-100};
+    --color-blue-bg: #{$color-blue-950};
     --color-emerald-soft: #{$color-emerald-400};
     --color-emerald-medium: #{$color-emerald-500};
+    --color-emerald-semi: #{$color-emerald-600};
     --color-emerald-hard: #{$color-emerald-800};
-    --color-emerald-bg: #{$color-emerald-100};
+    --color-emerald-bg: #{$color-emerald-950};
     --color-red-soft: #{$color-red-400};
     --color-red-medium: #{$color-red-500};
+    --color-red-semi: #{$color-red-600};
     --color-red-hard: #{$color-red-800};
-    --color-red-bg: #{$color-red-100};
+    --color-red-bg: #{$color-red-950};
   }
 }
 
@@ -192,8 +202,12 @@ content {
   }
 }
 
+.header-information {
+  margin: $spacing-xs-8 0 $spacing-s-16;
+}
+
 a {
-  text-decoration: underline var(--color-muted);
+  text-decoration: underline var(--color-muted-soft);
   color: var(--color-text-primary);
 
   // &.external:after {
@@ -224,13 +238,13 @@ strong {
 time {
   display: block;
   color: var(--color-muted);
-  // margin-bottom: $spacing-lg-32;
+  margin-top: 4px;
   font-family: $font-family-mono;
   text-align: center;
 }
 
 figure {
-  margin: 2rem 0 3rem 0;
+  margin: 1rem 0 2rem 0;
   overflow: hidden;
 }
 
@@ -258,12 +272,11 @@ iframe {
 .intro {
   font-size: calc(var(--font-size-base) + 2px);
   line-height: 1.5;
-  margin-top: 0;
+  margin: 0;
   font-family: $font-family-mono;
   color: var(--color-text-secondary);
   text-align: center;
   padding: 0 $spacing-lg-32;
-  margin-bottom: $spacing-xs-8;
 }
 
 blockquote,
@@ -322,7 +335,7 @@ h1 {
   font-size: calc($font-size-base + 5rem);
   // line-height: 1;
   margin-top: $spacing-xs-8;
-  margin-bottom: $spacing-s-16;
+  // margin-bottom: 0;
   text-align: center;
 }
 
@@ -439,7 +452,7 @@ body:has(.overlay:not(.hidden)) {
 // Navigation
 .nav {
   @include flex-between;
-  padding: $spacing-xl-64 $spacing-lg-32 $spacing-lg-32;
+  padding: $spacing-lg-32 $spacing-lg-32 $spacing-lg-32;
   // height: $spacing-xxl-128;
   width: 100%;
   font-family: $font-family-mono;
@@ -564,6 +577,38 @@ button {
   font-size: var(--font-size-base);
 }
 
+.mobile-controls {
+  display: none;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  flex: 1; // Allow tags to take available space
+  margin-bottom: $spacing-xs-8;
+  padding-bottom: $spacing-xs-8;
+  border-bottom: 1px solid var(--color-border);
+
+  #filter-toggle,
+  .view {
+    fill: var(--color-text-secondary);
+
+    &.active {
+      background-color: var(--color-muted-soft);
+      color: var(--color-text-nav);
+      fill: var(--color-text-nav);
+    }
+  }
+  .x-overlay {
+    position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    display: none;
+  }
+}
+
 #sound-toggle {
   // background: white;
   // border: 2px solid #e0e0e0;
@@ -600,7 +645,7 @@ button {
 
 #sound-toggle.muted .mute-x {
   opacity: 1;
-  stroke: var(--color-red-hard);
+  stroke: var(--color-red-medium);
 }
 
 // img {
@@ -619,25 +664,11 @@ button {
   flex: 1; // Allow tags to take available space
   padding-right: 1rem; // Padding so content doesn't touch scroll area
 
-  // Optional: Hide scrollbar for cleaner look
-  // Remove these if you want the scrollbar visible
-  scrollbar-width: thin; // For Firefox
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
   &::-webkit-scrollbar {
-    height: 2px; // Thin scrollbar for Chrome/Safari
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.3);
-    }
+    display: none;
   }
 }
 
@@ -672,9 +703,49 @@ button {
   &.inactive {
     color: var(--color-text-secondary);
   }
+  &.active {
+    color: var(--color-text-primary);
+    // font-style: italic;
+    text-decoration: none;
 
+    &[data-filter="design"] {
+      color: var(--color-blue-semi);
+      background-color: var(--color-blue-bg);
+
+      .tag-square {
+        background: var(--color-blue-semi);
+      }
+    }
+
+    &[data-filter="music"] {
+      color: var(--color-red-semi);
+      background-color: var(--color-red-bg);
+      .tag-square {
+        background: var(--color-red-semi);
+      }
+    }
+
+    &[data-filter="visual"] {
+      color: var(--color-emerald-semi);
+      background-color: var(--color-emerald-bg);
+
+      .tag-square {
+        background: var(--color-emerald-semi);
+      }
+    }
+
+    &[data-filter="writing"] {
+      color: var(--color-amber-semi);
+      background-color: var(--color-amber-bg);
+
+      .tag-square {
+        background: var(--color-amber-semi);
+      }
+    }
+  }
   &:hover {
     color: var(--color-text-primary);
+    background-color: var(--color-muted-soft);
     // font-style: italic;
     text-decoration: none;
 
@@ -708,49 +779,10 @@ button {
       }
     }
   }
-  &.active {
-    color: var(--color-text-primary);
-    // font-style: italic;
-    text-decoration: none;
-
-    &[data-filter="design"] {
-      color: var(--color-blue-hard);
-      background-color: var(--color-blue-bg);
-
-      .tag-square {
-        background: var(--color-blue-hard);
-      }
-    }
-
-    &[data-filter="music"] {
-      color: $color-red;
-      background-color: var(--color-red-bg);
-      .tag-square {
-        background: var(--color-red-hard);
-      }
-    }
-
-    &[data-filter="visual"] {
-      color: var(--color-emerald-hard);
-      background-color: var(--color-emerald-bg);
-
-      .tag-square {
-        background: var(--color-emerald-hard);
-      }
-    }
-
-    &[data-filter="writing"] {
-      color: var(--color-amber-hard);
-      background-color: var(--color-amber-bg);
-
-      .tag-square {
-        background: var(--color-amber-hard);
-      }
-    }
-  }
 
   &.active {
     color: var(--color-text-primary);
+    background-color: var(--color-muted-soft);
     // font-style: italic;
   }
 
@@ -764,8 +796,9 @@ button {
 button.tag {
   background: none;
   padding: 4px 12px;
+  justify-content: center;
   margin: 0;
-  color: var(--color-text-primary);
+  color: var(--color-muted);
   background-color: var(--color-bg-secondary);
   font: inherit;
   cursor: pointer;
@@ -779,6 +812,7 @@ button.tag {
   @include flex-center;
   height: 32px;
   gap: 8px;
+  right: 0px;
   flex-shrink: 0; // Prevents controls from shrinking
   position: sticky; // Keeps it pinned to the right
   right: 0;
@@ -807,56 +841,93 @@ button.tag {
     white-space: nowrap;
   }
 
+  .grid-icon {
+    display: flex;
+    width: 14px;
+    height: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: var(--color-muted);
+  }
+  .list-icon {
+    display: flex;
+    width: 14px;
+    height: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
   .grid-icon,
   .list-icon {
-    width: 40px;
-    display: grid;
-    place-items: center;
-    gap: 2px;
-
     &:active {
-      transform: scale(0.95);
+      background-color: var(--color-border);
     }
     transition: $transition-default;
-    background-color: transparent; // Inactive by default
+    // background-color: transparent; // Inactive by default
     // Optional: add outline for accessibility
-  }
-
-  .grid-icon {
-    height: 28px;
-    width: 36px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 2px;
-
-    // Example grid squares
-    .grid-square {
-      width: 100%;
-      height: 100%;
+    .active {
+      background-color: var(--color-border);
+      border-color: var(--color-text-secondary);
+      ;
     }
   }
 
-  .list-icon {
-    height: 28px;
-    width: 40px;
-    grid-template-rows: repeat(2, 1fr);
-    gap: 2px;
-
-    // Example list bars
-    .list-bar {
-      width: 100%;
-      height: 100%;
+  #grid-button,
+  #list-button {
+    &:hover {
+      background-color: var(--color-muted-soft);
     }
   }
-  .grid-icon .grid-square,
-  .list-icon .list-bar {
-    background: var(--color-bg-secondary);
-  }
 
-  .grid-icon.active .grid-square,
-  .list-icon.active .list-bar {
-    background: var(--color-muted);
+  // .grid-icon {
+  //   // height: 28px;
+  //   // width: 36px;
+  //   // grid-template-columns: repeat(2, 1fr);
+  //   // grid-template-rows: repeat(2, 1fr);
+  //   // gap: 2px;
+
+  //   // Example grid squares
+  //   .grid-square {
+  //     width: 100%;
+  //     height: 100%;
+  //   }
+  // }
+
+  // .list-icon {
+  //   // height: 28px;
+  //   // width: 40px;
+  //   // grid-template-rows: repeat(2, 1fr);
+  //   // gap: 2px;
+
+  // Example list bars
+  .list-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: var(--color-muted);
+    fill: none;
+
+    &.active {
+      border-color: var(--color-red-hard);
+    }
   }
+}
+
+.grid-icon .active,
+.list-icon .active {
+  background-color: var(--color-border);
+}
+
+.active .grid-icon, .active .list-bar {
+  border-color: var(--color-text-primary);
 }
 
 // Project Grid
@@ -879,10 +950,6 @@ button.tag {
   display: flex;
   flex-direction: column;
   gap: 4px;
-
-  a {
-    transition: all $transition-default;
-  }
 
   &-image {
     aspect-ratio: 1/1;
@@ -1047,8 +1114,12 @@ button.tag {
   .label {
     display: flex;
     flex-direction: column;
-    color: var(--color-text-nav);
+    color: var(--color-muted);
     white-space: nowrap;
+  }
+
+  #visit-label {
+    text-align: right;
   }
 
   .detail {
@@ -1078,10 +1149,15 @@ button.tag {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding-bottom: $spacing-lg-32;
+    padding-top: $spacing-xs-8;
+
+    &.list-view {
+      padding-top: 0;
+    }
   }
 
   .nav {
-    padding: $spacing-xl-64 $spacing-m-24 $spacing-lg-32;
+    padding: $spacing-lg-32 $spacing-m-24;
     height: auto;
   }
 
@@ -1134,6 +1210,43 @@ button.tag {
     display: grid;
     grid-column: 1 / span 2;
     grid-row: 2 / span 1;
+  }
+
+  .toolbar {
+    margin-bottom: 0;
+  }
+
+  .mobile-controls {
+    display: flex;
+  }
+
+  .tags,
+  .view-controls,
+  .view-label {
+    display: none;
+  }
+
+  // Add visibility toggle for mobile controls
+  .tags.visible,
+  .view-controls.visible {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    border-bottom: solid 1px var(--color-border);
+    padding: $spacing-xs-8 0;
+  }
+  .tags.visible {
+    justify-content: flex-start;
+  }
+  .project-grid.list-view .project:first-child {
+    border-top: 0;
+  }
+
+  .view-controls .grid-icon {
+    display: flex;
+  }
+  .view-controls {
+    height: 100%;
   }
 
   .footer {
@@ -1215,33 +1328,15 @@ button.tag {
     grid-column: 1;
   }
 
-  .toolbar {
-    margin-bottom: $spacing-s-16;
-  }
-
-  .view-label {
-    display: none;
-  }
-
-  .view-controls .grid-icon {
-    display: flex;
-    height: 32px;
-  }
-  .view-controls .list-icon {
-    height: 32px;
-  }
-  .grid-icon .grid-square:nth-child(2),
-  .grid-icon .grid-square:nth-child(3),
-  .grid-icon .grid-square:nth-child(4) {
-    display: none;
-  }
-
   .footer {
     flex-direction: column;
     padding-left: $spacing-s-16;
     padding-right: $spacing-s-16;
-    padding-bottom: $spacing-xl-64;
+    padding-bottom: $spacing-lg-32;
     .footer-year {
+      text-align: left;
+    }
+    #visit-label {
       text-align: left;
     }
   }
