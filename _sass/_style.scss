@@ -207,7 +207,9 @@ content {
 }
 
 a {
-  text-decoration: underline var(--color-muted-soft);
+  text-decoration: underline $color-stone-500;
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-muted-soft);
   color: var(--color-text-primary);
 
   // &.external:after {
@@ -244,7 +246,7 @@ time {
 }
 
 figure {
-  margin: 1rem 0 2rem 0;
+  margin: 2rem 0 2rem 0;
   overflow: hidden;
 }
 
@@ -1346,7 +1348,12 @@ button.tag {
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 420px) {
+  .nav {
+    &-right {
+      gap: 12px;
+    }
+  }
   .experiences {
     gap: $spacing-m-24;
     .experience-item {

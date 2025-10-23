@@ -81,15 +81,15 @@ sound: true
           d="M12 6.28571L9.59961 6.28613V0H8.40039V6.28613L6 6.28571V12H12V6.28571ZM7.2002 7.42871H10.7998V10.8574H7.2002V7.42871Z" fill="#"/></svg>
         Filters
       </button>
-      <button type="button" class="tag inactive" data-filter="design" style="display:none" >
+      <button type="button" class="tag inactive" data-filter="design" title="Design" style="display:none" >
           <span class="tag-square"></span>
         </button>
         <!-- <button type="button" class="tag" data-filter="research">Research</button> -->
-        <button type="button" class="tag inactive" data-filter="music" style="display:none;" >
+        <button type="button" class="tag inactive" data-filter="music" title="Music" style="display:none;" >
           <span class="tag-square"></span>
         </button>
-        <button type="button" class="tag inactive" data-filter="visual" style="display:none;" ><span class="tag-square"></span></button>
-        <button type="button" class="tag inactive" data-filter="writing" style="display:none;" >
+        <button type="button" class="tag inactive" data-filter="visual" title="Visual" style="display:none;" ><span class="tag-square"></span></button>
+        <button type="button" class="tag inactive" data-filter="writing" title="Writing" style="display:none;" >
           <span class="tag-square"></span>
         </button>
     </div>
