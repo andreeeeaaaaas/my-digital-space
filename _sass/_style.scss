@@ -13,10 +13,11 @@
   --color-bg-primary: #{$color-white};
   --color-bg-secondary: #{$color-stone-100};
   --color-text-nav: #{$color-black};
-  --color-text-primary: #{$color-stone-900};
-  --color-text-secondary: #{$color-stone-600};
-  --color-muted: #{$color-stone-300};
-  --color-muted-soft: #{$color-stone-100};
+  --color-text-primary: #{$color-stone-950};
+  --color-text-secondary: #{$color-stone-800};
+  --color-muted: #{$color-stone-600};
+  --color-muted-medium: #{$color-stone-400};
+  --color-muted-soft: #{$color-stone-300};
   --color-border: #{$color-stone-200};
   --color-transparent: rgba(255, 255, 255, 0);
   --color-amber-soft: #{$color-amber-300};
@@ -50,8 +51,9 @@
     --color-text-primary: #{$color-stone-200};
     --color-text-secondary: #{$color-stone-300};
     --color-muted: #{$color-stone-400};
+    --color-muted-medium: #{$color-stone-500};
     --color-muted-soft: #{$color-stone-600};
-    --color-border: #{$color-stone-800};
+    --color-border: #{$color-stone-700};
     --color-transparent: rgba(0, 0, 0, 0);
     --color-amber-soft: #{$color-amber-400};
     --color-amber-medium: #{$color-amber-500};
@@ -178,6 +180,7 @@ content {
     margin-left: auto;
     margin-right: auto;
     max-width: var(--wrap-normal);
+    color: var(--color-text-secondary);
   }
   ul,
   ol {
@@ -213,7 +216,7 @@ content {
 a {
   text-decoration: underline $color-stone-500;
   text-decoration-line: underline;
-  text-decoration-color: var(--color-muted);
+  text-decoration-color: var(--color-muted-soft);
   color: var(--color-text-primary);
 
   // &.external:after {
@@ -259,6 +262,7 @@ img {
   display: block;
   margin: 0 auto;
   object-fit: cover;
+  background-color: var(--color-bg-secondary);
 }
 
 figcaption {
@@ -291,7 +295,7 @@ code {
   padding: 1.5em;
   margin: 0;
   font-size: 1rem;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-family: monospace;
   background: var(--color-bg-secondary);
   color: var(--color-text-secondary);
@@ -301,6 +305,7 @@ code {
 
   p {
     margin: 0;
+    font-size: 0.75rem;
   }
 }
 .callout {
@@ -509,7 +514,6 @@ body:has(.overlay:not(.hidden)) {
   font-size: var(--font-size-base);
   // line-height: 24px;
   color: var(--color-text-primary);
-  min-height: 10rem;
 
   span {
     &.design,
@@ -518,6 +522,9 @@ body:has(.overlay:not(.hidden)) {
     &.visual,
     &.music {
       cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
     }
     &.design {
       color: var(--color-blue-medium);
@@ -533,6 +540,9 @@ body:has(.overlay:not(.hidden)) {
 
     &.writing {
       color: var(--color-amber-medium);
+    }
+    &#variable {
+      height: calc((var(--font-size-base) * 1.7) *  6);
     }
   }
 }
@@ -555,7 +565,7 @@ body:has(.overlay:not(.hidden)) {
   font-size: calc(var(--font-size-base) - 1px);
   // line-height: 24px;
   font-weight: 400;
-  color: var(--color-muted);
+  color: var(--color-muted-medium);
   // padding-bottom: $spacing-s-16
 }
 
@@ -565,7 +575,7 @@ body:has(.overlay:not(.hidden)) {
   font-family: $font-family-text;
   font-size: var(--font-size-base);
   // line-height: 24px;
-  color: $color-secondary;
+  color: var(--color-text-secondary);
 
   .company {
     // min-width: 20ch;
@@ -611,7 +621,7 @@ button {
     fill: var(--color-text-secondary);
 
     &.active {
-      background-color: var(--color-muted);
+      background-color: var(--color-muted-soft);
       color: var(--color-text-nav);
       fill: var(--color-text-nav);
     }
@@ -666,12 +676,6 @@ button {
   opacity: 1;
   stroke: var(--color-red-medium);
 }
-
-// img {
-//   width: 100%;
-//   height: 100%;
-//   display: block;
-// }
 
 .tags {
   display: flex;
@@ -801,7 +805,7 @@ button {
 
   &.active {
     color: var(--color-text-primary);
-    background-color: var(--color-muted-soft);
+    background-color: var(--color-border);
     // font-style: italic;
   }
 
@@ -972,13 +976,19 @@ button.tag {
 
   &-image {
     aspect-ratio: 1/1;
-    background-color: var(--color-border)-gray;
+    background-color: var(--color-border);
     overflow: hidden;
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+
+      &.contain {
+        object-fit: contain;
+        border: 1px solid var(--color-border);
+      }
+
     }
   }
 
@@ -1205,13 +1215,13 @@ button.tag {
   time {
     font-size: $font-size-base - 2px;
     // margin-bottom: $spacing-m-24;
-    text-align: left;
+    text-align: center;
   }
 
   .intro {
     font-size: calc(var(--font-size-base));
     padding: 0;
-    text-align: left;
+    text-align: center;
   }
 
   .project.inactive {
@@ -1336,6 +1346,10 @@ button.tag {
     gap: $spacing-lg-32;
     height: auto;
     margin-bottom: $spacing-xxl-128;
+  }
+
+  time, .intro {
+    text-align: left;
   }
 
   .intro-text {

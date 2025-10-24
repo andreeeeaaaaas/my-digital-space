@@ -19,7 +19,7 @@ sound: true
 <!-- Header -->
 <section class="header">
   <div class="intro-text">
-    <p>I'm Andreas 👋 –
+    <p>I'm Andreas –
       <span class="design" data-filter="design">designer</span>,
       <span class="music" data-filter="music">musician</span>, and
       <span class="visual" data-filter="visual">creative</span> (and sometimes <span class="writing" data-filter="writing">writer</span>)<br><br>
@@ -59,9 +59,6 @@ sound: true
     </div>
   </div> -->
 </section>
-
-<h2 style="font-family: 'Geist Mono'; padding-bottom: 1rem">Projects</h2>
-
 <!-- Toolbar -->
 <div>
   <div class="toolbar mobile-controls">
