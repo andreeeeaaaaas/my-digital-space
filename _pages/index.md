@@ -19,15 +19,13 @@ sound: true
 <!-- Header -->
 <section class="header">
   <div class="intro-text">
-    <p>I'm Andreas–
+    <p>I'm Andreas 👋 –
       <span class="design" data-filter="design">designer</span>,
       <span class="music" data-filter="music">musician</span>, and
-      <span class="visual" data-filter="visual">creative</span> (and sometimes <span class="writing" data-filter="writing">writer</span>).
+      <span class="visual" data-filter="visual">creative</span> (and sometimes <span class="writing" data-filter="writing">writer</span>)<br><br>
+      <span id="variable"> I help organisations bring value to processes, products, and people through design.</span>
     </p>
-    <br>
-    I help organisations bring value to processes, products, and people, through design.
   </div>
-
   <!-- <div class="experiences">
     <div class="experience-section">
       <div class="section-label">NOW</div>
@@ -61,6 +59,8 @@ sound: true
     </div>
   </div> -->
 </section>
+
+<h2 style="font-family: 'Geist Mono'; padding-bottom: 1rem">Projects</h2>
 
 <!-- Toolbar -->
 <div>
@@ -128,7 +128,6 @@ sound: true
     </div>
   </div>
 </div>
-
 
 {% assign projects = site.pages | where_exp: "page", "page.path contains 'projects/'" %}
 {% assign studio = site.pages | where_exp: "page", "page.path contains 'studio/'" %}

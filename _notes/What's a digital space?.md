@@ -11,7 +11,7 @@ description: How is a digital space different from a website?
 
 The idea behind this space draws from the popular notion of a [digital garden](https://maggieappleton.com/garden-history)– an expanding web of personal thoughts intertwined with related bits of information. Notes and projects are created, then updated and tended as they grow. 
 
-A good example is [[An inspiration garden|my inspiration garden]].
+A good example is [[Inspiration garden|my inspiration garden]].
 
 Notes can also link to other notes. At the bottom of each note there is a list of notes that link to the currently open note.
 

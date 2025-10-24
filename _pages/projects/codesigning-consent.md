@@ -6,9 +6,14 @@ date: 2023
 tags:
   - design
   - writing
-description: An honours thesis on how to best co-design consent education in Australian schools
+description: An honours thesis on how to best co-design primary school consent education
 ---
 <!-- <p class="intro">An honours thesis on how to best co-design consent education in Australian schools</p> -->
+
+<figure class="">
+    <img src ="assets/co-designing-consent-popup.jpeg">
+    <figcaption>The interactive engagement stall on campus</figcaption>
+</figure>
 
 How do you define the word consent? What ideas does the word connotate? Can you think of examples where consent is used?
 
@@ -17,10 +22,6 @@ With that in mind, how would you define consent to a child?
 In the world of design, there is no bigger challenge than the many social problems that face the world today. My thesis sought to untangle some of the challenges and opportunities in an incredibly complex area – consent education in Australia. 
 
 Specifically, I looked at how co-design might lend itself to solving some of these.
-<figure class="">
-    <img src ="assets/co-designing-consent-popup.jpeg">
-    <figcaption>The interactive engagement stall on campus</figcaption>
-</figure>
 
 ## Context
 I had been previously working for [Consent Labs](https://www.consentlabs.org.au/) and saw the challenges schools had in implementing successful consent education. While studying, I also led the educational program of a primary school out of hours care. These two experiences combined in me a desire to see if by combining community engagement with educational best practice, design could foster better outcomes in the area of consent education.

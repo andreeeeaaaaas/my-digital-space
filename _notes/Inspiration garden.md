@@ -1,5 +1,5 @@
 ---
-title: An inspiration garden
+title: Inspiration garden
 published: 2024-11-10
 tags:
   - writing

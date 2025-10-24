@@ -74,12 +74,28 @@ class BidirectionalLinksGenerator < Jekyll::Generator
     end
 
     # Identify note backlinks and add them to each note
-    all_notes.each do |current_note|
-      
-      # Nodes: Jekyll
-      notes_linking_to_current_note = all_docs.filter do |e|
-        e.content.include?(current_note.url) && File.basename(e.path) != "notes.md"
-      end
+all_notes.each do |current_note|
+  
+  # Debug: Print current note info
+  puts "Processing note: #{current_note.data['title']} (#{current_note.url})"
+  
+  # Nodes: Jekyll
+  notes_linking_to_current_note = all_docs.filter do |e|
+    has_url = e.content.include?(current_note.url)
+    not_notes_md = File.basename(e.path) != "notes.md"
+    not_self = e != current_note
+    
+    if has_url && not_notes_md && !not_self
+      puts "  SELF-REFERENCE DETECTED in: #{e.data['title']}"
+      puts "  URL being searched for: #{current_note.url}"
+      puts "  Content snippet around URL: #{e.content.match(/.{0,50}#{Regexp.escape(current_note.url)}.{0,50}/)}"
+    end
+    
+    has_url && not_notes_md && not_self
+  end
+
+  puts "  Backlinks: #{notes_linking_to_current_note.map { |n| n.data['title'] || File.basename(n.path) }}"
+  puts "---"
 
       # Nodes: Graph
       graph_nodes << {

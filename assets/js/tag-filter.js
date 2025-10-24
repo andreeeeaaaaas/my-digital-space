@@ -6,52 +6,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Create X overlay for tag squares
   function createXOverlay() {
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.classList.add('x-overlay');
-    svg.setAttribute('viewBox', '0 0 20 20');
-    svg.setAttribute('width', '20');
-    svg.setAttribute('height', '20');
-    
-    const line1 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line1.setAttribute('x1', '3');
-    line1.setAttribute('y1', '3');
-    line1.setAttribute('x2', '17');
-    line1.setAttribute('y2', '17');
-    line1.setAttribute('stroke', '#ff6b6b');
-    line1.setAttribute('stroke-width', '4');
-    line1.setAttribute('stroke-linecap', 'round');
-    
-    const line2 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line2.setAttribute('x1', '17');
-    line2.setAttribute('y1', '3');
-    line2.setAttribute('x2', '3');
-    line2.setAttribute('y2', '17');
-    line2.setAttribute('stroke', '#ff6b6b');
-    line2.setAttribute('stroke-width', '4');
-    line2.setAttribute('stroke-linecap', 'round');
-    
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.classList.add("x-overlay");
+    svg.setAttribute("viewBox", "0 0 20 20");
+    svg.setAttribute("width", "20");
+    svg.setAttribute("height", "20");
+
+    const line1 = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "line"
+    );
+    line1.setAttribute("x1", "3");
+    line1.setAttribute("y1", "3");
+    line1.setAttribute("x2", "17");
+    line1.setAttribute("y2", "17");
+    line1.setAttribute("stroke", "#ff6b6b");
+    line1.setAttribute("stroke-width", "4");
+    line1.setAttribute("stroke-linecap", "round");
+
+    const line2 = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "line"
+    );
+    line2.setAttribute("x1", "17");
+    line2.setAttribute("y1", "3");
+    line2.setAttribute("x2", "3");
+    line2.setAttribute("y2", "17");
+    line2.setAttribute("stroke", "#ff6b6b");
+    line2.setAttribute("stroke-width", "4");
+    line2.setAttribute("stroke-linecap", "round");
+
     svg.appendChild(line1);
     svg.appendChild(line2);
-    
+
     return svg;
   }
 
   // Add X overlay to each tag square
-  tagSquare.forEach(square => {
+  tagSquare.forEach((square) => {
     const xOverlay = createXOverlay();
     square.appendChild(xOverlay);
-    
+
     // Add hover event listeners
-    square.addEventListener('mouseenter', () => {
-      xOverlay.style.display = 'block';
+    square.addEventListener("mouseenter", () => {
+      xOverlay.style.display = "block";
     });
-    
-    square.addEventListener('mouseleave', () => {
-      const centerSquare = square.querySelector('.center-square');
-      if (centerSquare) centerSquare.style.display = 'block';
-      xOverlay.style.display = 'none';
+
+    square.addEventListener("mouseleave", () => {
+      const centerSquare = square.querySelector(".center-square");
+      if (centerSquare) centerSquare.style.display = "block";
+      xOverlay.style.display = "none";
     });
   });
+
+  // Define additional texts for each filter (move this outside the intro spans section)
+  const additionalTexts = {
+    music: " I also make music using some eclectic electronic instruments.",
+    visual: " I love making films and taking pictures.",
+    writing: " Every now and then I also write things down that interest me.",
+  };
 
   tags.forEach((tag) => {
     tag.addEventListener("click", function (e) {
@@ -63,6 +76,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Update mobile tag squares visibility
       updateMobileTagSquares();
+
+      // Handle text appending for intro text
+      const filter = this.dataset.filter ? this.dataset.filter.toLowerCase() : null;
+      const variableSpan = document.getElementById("variable");
+      
+      if (filter && variableSpan && additionalTexts[filter]) {
+        const additionalText = additionalTexts[filter];
+        
+        // Check if the additional text is already appended
+        if (variableSpan.textContent.includes(additionalText)) {
+          // Remove the additional text
+          variableSpan.textContent = variableSpan.textContent.replace(additionalText, '');
+        } else {
+          // Append the additional text
+          variableSpan.textContent += additionalText;
+        }
+      }
 
       // Get all currently active tags
       const activeTags = Array.from(tags)
@@ -92,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
-  
+
   // Add click functionality to mobile tag squares
   tagSquares.forEach((square) => {
     square.addEventListener("click", function (e) {
@@ -146,14 +176,11 @@ document.addEventListener("DOMContentLoaded", function () {
   introSpans.forEach((span) => {
     span.addEventListener("click", function () {
       const filter = span.className.trim().toLowerCase(); // e.g. 'designer'
-
-      // Find the tag button with matching filter
+      // Find the tag button with matching filter and click it
+      // The tag click handler will handle both text manipulation and filtering
       tags.forEach((tag) => {
         if (tag.dataset.filter && tag.dataset.filter.toLowerCase() === filter) {
-          tag.click(); // Simulate click on the tag button
-        }
-        if (tag.dataset.filter && tag.dataset.filter.toLowerCase() != filter) {
-          return;
+          tag.click(); // This will handle both text and filtering
         }
       });
     });

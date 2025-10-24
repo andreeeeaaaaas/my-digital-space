@@ -15,8 +15,8 @@
   --color-text-nav: #{$color-black};
   --color-text-primary: #{$color-stone-900};
   --color-text-secondary: #{$color-stone-600};
-  --color-muted: #{$color-stone-500};
-  --color-muted-soft: #{$color-stone-300};
+  --color-muted: #{$color-stone-300};
+  --color-muted-soft: #{$color-stone-100};
   --color-border: #{$color-stone-200};
   --color-transparent: rgba(255, 255, 255, 0);
   --color-amber-soft: #{$color-amber-300};
@@ -60,7 +60,7 @@
     --color-amber-bg: #{$color-amber-950};
     --color-blue-soft: #{$color-blue-400};
     --color-blue-medium: #{$color-blue-500};
-    --color-blue-semi: #{$color-blue-600};
+    --color-blue-semi: #{$color-blue-500};
     --color-blue-hard: #{$color-blue-800};
     --color-blue-bg: #{$color-blue-950};
     --color-emerald-soft: #{$color-emerald-400};
@@ -202,6 +202,10 @@ content {
   }
 }
 
+.muted {
+  color: var(--color-muted);
+}
+
 .header-information {
   margin: $spacing-xs-8 0 $spacing-s-16;
 }
@@ -297,6 +301,12 @@ code {
 
   p {
     margin: 0;
+  }
+}
+.callout {
+  &.note {
+    font-family: $font-family-text;
+    font-size: 0.9rem;
   }
 }
 
@@ -396,14 +406,14 @@ div.highlight {
 }
 
 .invalid-link {
-  color: #444444;
+  color: var(--color-text-secondary);
   cursor: help;
-  background: #fafafa;
+  background: var(--color-muted-soft);
   padding: 0 0.1em;
 }
 
 .invalid-link-brackets {
-  color: #ccc;
+  color: var(--color-text-secondary);
   cursor: help;
 }
 
@@ -454,7 +464,7 @@ body:has(.overlay:not(.hidden)) {
 // Navigation
 .nav {
   @include flex-between;
-  padding: $spacing-lg-32 $spacing-lg-32 $spacing-lg-32;
+  padding: $spacing-xl-64 $spacing-lg-32 $spacing-lg-32;
   // height: $spacing-xxl-128;
   width: 100%;
   font-family: $font-family-mono;
@@ -499,9 +509,16 @@ body:has(.overlay:not(.hidden)) {
   font-size: var(--font-size-base);
   // line-height: 24px;
   color: var(--color-text-primary);
+  min-height: 10rem;
 
   span {
-    cursor: pointer;
+    &.design,
+    &.visual,
+    &.writing,
+    &.visual,
+    &.music {
+      cursor: pointer;
+    }
     &.design {
       color: var(--color-blue-medium);
     }
@@ -594,7 +611,7 @@ button {
     fill: var(--color-text-secondary);
 
     &.active {
-      background-color: var(--color-muted-soft);
+      background-color: var(--color-muted);
       color: var(--color-text-nav);
       fill: var(--color-text-nav);
     }
@@ -873,7 +890,6 @@ button.tag {
     .active {
       background-color: var(--color-border);
       border-color: var(--color-text-secondary);
-      ;
     }
   }
 
@@ -914,7 +930,7 @@ button.tag {
     align-self: stretch;
     border-style: solid;
     border-width: 1.5px;
-    border-color: var(--color-muted);
+    border-color: var(--color-text-secondary);
     fill: none;
 
     &.active {
@@ -928,7 +944,8 @@ button.tag {
   background-color: var(--color-border);
 }
 
-.active .grid-icon, .active .list-bar {
+.active .grid-icon,
+.active .list-bar {
   border-color: var(--color-text-primary);
 }
 
@@ -1110,7 +1127,7 @@ button.tag {
   align-items: flex-start;
   gap: $spacing-s-16;
   max-width: 1440px;
-  padding: $spacing-xxl-128 $spacing-m-24 $spacing-lg-32;
+  padding: $spacing-xxl-128 $spacing-m-24 $spacing-xl-64;
   // margin-top: $spacing-xxl-128;
 
   .label {
@@ -1334,7 +1351,7 @@ button.tag {
     flex-direction: column;
     padding-left: $spacing-s-16;
     padding-right: $spacing-s-16;
-    padding-bottom: $spacing-lg-32;
+    padding-bottom: $spacing-xl-64;
     .footer-year {
       text-align: left;
     }
@@ -1344,7 +1361,8 @@ button.tag {
   }
   .title .project-tags {
     justify-content: left;
-    margin-bottom: $spacing-xs-8;
+    margin-top: $spacing-s-16;
+    margin-bottom: $spacing-s-16;
   }
 }
 
