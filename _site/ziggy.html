@@ -3,7 +3,7 @@
   <head>
   <meta charset="UTF-8" />
 
-  <link rel="canonical" href="http://localhost:4000/ziggy" />
+  <link rel="canonical" href="http://0.0.0.0:4000/ziggy" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -23,10 +23,7 @@
   <script src="/assets/js/view-toggle.js"></script>
   <!-- <script src="/assets/js/hover-effect.js"></script> -->
   <script src="/assets/js/tag-filter.js"></script>
-  <script src="/assets/js/emoji-hover.js" defer></script>
-  <script src="/assets/js/sound-toggle-intro.js"></script>
-  <script src="/assets/js/sound-tooltip.js"></script>
-
+  <script src="/assets/js/emoji-hover-once.js" defer></script>
 
   
   <meta
@@ -38,7 +35,7 @@
   <meta property="og:type" content="article" />
    
 
-  <meta property="og:url" content="http://localhost:4000/ziggy" />
+  <meta property="og:url" content="http://0.0.0.0:4000/ziggy" />
 
   
 
@@ -54,7 +51,44 @@
 </div>
 <div class="nav-right">
   
+  <button id="sound-toggle" aria-label="Toggle sound">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <!-- Speaker cone (always visible) -->
+      <path
+        class="speaker-cone"
+        d="M11 5L6 9H2V15H6L11 19V5Z"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <!-- Sound waves (hidden when muted) -->
+      <path
+        class="sound-waves"
+        d="M19.07 4.93018C20.9447 6.80545 21.9979 9.34853 21.9979 12.0002C21.9979 14.6518 20.9447 17.1949 19.07 19.0702M15.54 8.46018C16.4774 9.39781 17.004 10.6694 17.004 11.9952C17.004 13.321 16.4774 14.5925 15.54 15.5302"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <!-- Mute X (visible when muted) -->
+      <path
+        class="mute-x"
+        d="M23 9L17 15M17 9L23 15"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg></button
+  >
+  
+  
   <a href="/info">Info</a>
+  <span class="muted">▪︎</span>
   <a href="/contact">Contact</a>
 </div>
 
@@ -121,7 +155,7 @@
 </div>
 <div class="footer-year">
   <div class="label" id="visit-label">Thanks for visiting 👋</div>
-  <div class="label">Last updated Oct 24, 2025</div>
+  <div class="label">Last updated Oct 25, 2025</div>
 </div>
 <!-- ~ ~ ~ ~ ~ ~
 <br>

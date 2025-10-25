@@ -59,13 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Define additional texts for each filter (move this outside the intro spans section)
-  const additionalTexts = {
-    music: " I also make music using some eclectic electronic instruments.",
-    visual: " I love making films and taking pictures.",
-    writing: " Every now and then I also write things down that interest me.",
-  };
-
   tags.forEach((tag) => {
     tag.addEventListener("click", function (e) {
       e.preventDefault();
@@ -76,23 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Update mobile tag squares visibility
       updateMobileTagSquares();
-
-      // Handle text appending for intro text
-      const filter = this.dataset.filter ? this.dataset.filter.toLowerCase() : null;
-      const variableSpan = document.getElementById("variable");
-      
-      if (filter && variableSpan && additionalTexts[filter]) {
-        const additionalText = additionalTexts[filter];
-        
-        // Check if the additional text is already appended
-        if (variableSpan.textContent.includes(additionalText)) {
-          // Remove the additional text
-          variableSpan.textContent = variableSpan.textContent.replace(additionalText, '');
-        } else {
-          // Append the additional text
-          variableSpan.textContent += additionalText;
-        }
-      }
 
       // Get all currently active tags
       const activeTags = Array.from(tags)
@@ -173,14 +149,43 @@ document.addEventListener("DOMContentLoaded", function () {
   // Clickable spans
   const introSpans = document.querySelectorAll(".intro-text span");
 
+  // Define additional texts for each filter
+  const additionalTexts = {
+    music: " I also make music using some eclectic electronic instruments.",
+    visual: " I love making films and taking pictures.",
+    writing: " Every now and then I write things down that interest me.",
+  };
+
   introSpans.forEach((span) => {
     span.addEventListener("click", function () {
       const filter = span.className.trim().toLowerCase(); // e.g. 'designer'
-      // Find the tag button with matching filter and click it
-      // The tag click handler will handle both text manipulation and filtering
+
+      // Get the variable span
+      const variableSpan = document.getElementById("variable");
+
+      if (variableSpan && additionalTexts[filter]) {
+        const additionalText = additionalTexts[filter];
+
+        // Check if the additional text is already appended
+        if (variableSpan.textContent.includes(additionalText)) {
+          // Remove the additional text
+          variableSpan.textContent = variableSpan.textContent.replace(
+            additionalText,
+            ""
+          );
+        } else {
+          // Append the additional text
+          variableSpan.textContent += additionalText;
+        }
+      }
+
+      // Find the tag button with matching filter
       tags.forEach((tag) => {
         if (tag.dataset.filter && tag.dataset.filter.toLowerCase() === filter) {
-          tag.click(); // This will handle both text and filtering
+          tag.click(); // Simulate click on the tag button
+        }
+        if (tag.dataset.filter && tag.dataset.filter.toLowerCase() != filter) {
+          return;
         }
       });
     });

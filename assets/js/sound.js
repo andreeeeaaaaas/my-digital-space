@@ -8,12 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Track active sources for cleanup
   const activeSources = new Set();
-  const MAX_CONCURRENT_SOUNDS = 5; // Limit simultaneous sounds
+  const MAX_CONCURRENT_SOUNDS = 6; // Limit simultaneous sounds
 
   // Unlock function
   const unlock = () => {
-    if (audioCtx.state !== "running") audioCtx.resume();
-    
+    if (audioCtx.state === "suspended") {
+      return audioCtx.resume().catch(console.error);
+    }
   };
 
 
@@ -37,24 +38,23 @@ document.addEventListener("DOMContentLoaded", () => {
   let isSoundOn = false; // Current session setting
 
   // === On first load ===
-  // const savedPref = sessionStorage.getItem("soundEnabled");
+  const savedPref = sessionStorage.getItem("soundEnabled");
 
-  // try {
-  //   if (savedPref === null) {
-  //     // First visit → show modal
-  //     // overlay.classList.remove("hidden");
-  //     updateToggleUI();
-  //   } else {
-  //     // Already chosen before
-  //     // overlay.classList.add("hidden");
-  //     isSoundOn = savedPref === "true";
-  //     updateToggleUI();
-  //     unlock();
-  //   }
-  // } catch (error) {
-  //   console.error("Error handling sound preferences:", error);
-  // }
-  updateToggleUI();
+  try {
+    if (savedPref === null) {
+      // First visit → show modal
+      // overlay.classList.remove("hidden");
+      updateToggleUI();
+    } else {
+      // Already chosen before
+      // overlay.classList.add("hidden");
+      isSoundOn = savedPref === "true";
+      updateToggleUI();
+      // Don't unlock automatically - wait for user interaction
+    }
+  } catch (error) {
+    console.error("Error handling sound preferences:", error);
+  }
 
   // // Yes button - enable sound
   // yesBtn.addEventListener("click", () => {
@@ -189,6 +189,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Play two random project sounds simultaneously
+  function playDualSound() {
+    // Create a shuffled copy of project sound files
+    const shuffledSounds = tagSoundFiles.slice().sort(() => Math.random() - 0.5);
+    
+    // Play the first two sounds from the shuffled array
+    const sound1 = shuffledSounds[0];
+    const sound2 = shuffledSounds[1];
+    const sound3 = shuffledSounds[2];
+    
+    // Play both sounds simultaneously
+    playBuffer(sound1);
+    playBuffer(sound2);
+    playBuffer(sound3);
+  }
+
   // Throttle helper to prevent rapid-fire sounds
   function throttle(func, delay) {
     let timeoutId;
@@ -224,4 +240,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     project.addEventListener("mouseenter", playProjectSound);
   });
+
+  // Hook up emoji hover with dual sound playback
+  function initEmojiHoverSounds() {
+    document.querySelectorAll(".emoji-hover").forEach((element) => {
+      const playDualHoverSound = throttle(() => {
+        playDualSound();
+      }, 100); // Minimum 100ms between sounds per emoji hover element
+
+      element.addEventListener("mouseenter", playDualHoverSound);
+    });
+  }
+
+  // Initialize emoji hover sounds immediately and also when DOM is ready
+  initEmojiHoverSounds();
+  
+  // Also initialize when DOM is fully loaded (in case elements are added later)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initEmojiHoverSounds);
+  }
 });

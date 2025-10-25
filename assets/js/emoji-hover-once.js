@@ -1,4 +1,7 @@
 (function() {
+  // ===== ONE-TIME EMOJI HOVER EFFECT =====
+  // This version spawns emojis only once when hovering starts
+  
   const canvas = document.createElement('canvas');
   canvas.id = 'emojiHoverCanvas';
   canvas.style.cssText = 'position:fixed;top:0;left:0;pointer-events:none;z-index:1000;';
@@ -8,7 +11,7 @@
   let bubbles = [];
   let animationId = null;
   let activeLink = null;
-  let spawnTimer = 0;
+  let hasSpawned = false; // Track if emojis have been spawned for current hover
   
   function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -70,21 +73,20 @@
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    if (activeLink) {
-      spawnTimer++;
-      if (spawnTimer >= 15) {
-        const rect = activeLink.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const emoji = activeLink.dataset.emoji || '💌';
-        
-        const numBubbles = 2 + Math.floor(Math.random() * 2);
-        for (let i = 0; i < numBubbles; i++) {
-          const angle = Math.random() * Math.PI * 2;
-          bubbles.push(new Bubble(centerX, centerY, emoji, angle));
-        }
-        spawnTimer = 0;
+    // ONE-TIME SPAWNING: Only spawn emojis once when hovering starts
+    if (activeLink && !hasSpawned) {
+      const rect = activeLink.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const emoji = activeLink.dataset.emoji || '💌';
+      
+      // Spawn more bubbles for a more dramatic one-time effect
+      const numBubbles = 3 + Math.floor(Math.random() * 4); // Choose how many bubbles, with some randomisation
+      for (let i = 0; i < numBubbles; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        bubbles.push(new Bubble(centerX, centerY, emoji, angle));
       }
+      hasSpawned = true; // Mark as spawned to prevent more spawning
     }
     
     bubbles = bubbles.filter(b => {
@@ -93,7 +95,8 @@
       return alive;
     });
     
-    if (bubbles.length > 0 || activeLink) {
+    // Continue animation as long as there are bubbles to animate
+    if (bubbles.length > 0) {
       animationId = requestAnimationFrame(animate);
     } else {
       animationId = null;
@@ -105,18 +108,18 @@
     links.forEach(link => {
       link.addEventListener('mouseenter', e => {
         activeLink = e.target;
-        spawnTimer = 15;
+        hasSpawned = false; // Reset spawn flag for new hover
         if (!animationId) animate();
       });
       
       link.addEventListener('mouseleave', () => {
         activeLink = null;
-        spawnTimer = 0;
+        hasSpawned = false; // Reset spawn flag
+        // Note: Don't stop animation here - let existing bubbles finish their animation
       });
     });
   }
   
-  // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initEmojiHover);
   } else {

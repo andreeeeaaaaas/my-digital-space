@@ -10,7 +10,7 @@ permalink: /contact
 
 ## Email
 
-<a class="external" href="mailto:me@andreasthoma.com">me@andreasthoma.com</a>
+<a class="external emoji-hover" href="mailto:me@andreasthoma.com">me@andreasthoma.com</a>
 
 ## Other
 
