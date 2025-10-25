@@ -12,9 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Unlock function
   const unlock = () => {
+    if (audioCtx.state !== "running") audioCtx.resume().catch(console.error);
     if (audioCtx.state === "suspended") {
       return audioCtx.resume().catch(console.error);
     }
+
   };
 
 
@@ -37,24 +39,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // === State ===
   let isSoundOn = false; // Current session setting
 
-  // === On first load ===
-  const savedPref = sessionStorage.getItem("soundEnabled");
+  // // === On first load ===
+  // const savedPref = sessionStorage.getItem("soundEnabled");
 
-  try {
-    if (savedPref === null) {
-      // First visit → show modal
-      // overlay.classList.remove("hidden");
-      updateToggleUI();
-    } else {
-      // Already chosen before
-      // overlay.classList.add("hidden");
-      isSoundOn = savedPref === "true";
-      updateToggleUI();
-      // Don't unlock automatically - wait for user interaction
-    }
-  } catch (error) {
-    console.error("Error handling sound preferences:", error);
-  }
+  // try {
+  //   if (savedPref === null) {
+  //     // First visit → show modal
+  //     // overlay.classList.remove("hidden");
+  //     updateToggleUI();
+  //   } else {
+  //     // Already chosen before
+  //     // overlay.classList.add("hidden");
+  //     isSoundOn = savedPref === "true";
+  //     updateToggleUI();
+  //     unlock();
+  //   }
+  // } catch (error) {
+  //   console.error("Error handling sound preferences:", error);
+  // }
+  updateToggleUI();
 
   // // Yes button - enable sound
   // yesBtn.addEventListener("click", () => {
