@@ -2,8 +2,9 @@
 <html lang="en">
   {% include head.html %}
   <body>
-    <nav class="nav">{% include nav.html %}</nav>
-    <main class="main pb">{{ content }}</main>
-    <footer class="footer">{% include footer.html %}</footer>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav class="nav" role="navigation" aria-label="Main navigation">{% include nav.html %}</nav>
+    <main id="main-content" class="main pb" role="main">{{ content }}</main>
+    <footer class="footer" role="contentinfo">{% include footer.html %}</footer>
   </body>
 </html>

@@ -11,19 +11,19 @@
 :root {
   // Light mode colors (default)
   --color-bg-primary: #{$color-white};
-  --color-bg-secondary: #{$color-stone-100};
+  --color-bg-secondary: #{$color-stone-50};
   --color-text-nav: #{$color-black};
   --color-text-primary: #{$color-stone-950};
   --color-text-secondary: #{$color-stone-800};
   --color-muted: #{$color-stone-600};
   --color-muted-medium: #{$color-stone-400};
-  --color-muted-soft: #{$color-stone-300};
+  --color-muted-soft: #{$color-stone-100};
   --color-border: #{$color-stone-200};
   --color-transparent: rgba(255, 255, 255, 0);
   --color-amber-soft: #{$color-amber-300};
   --color-amber-medium: #{$color-amber-500};
   --color-amber-semi: #{$color-amber-700};
-  --color-amber-hard: #{$color-amber-900};
+  --color-amber-hard: #{$color-amber-600};
   --color-amber-bg: #{$color-amber-50};
   --color-blue-soft: #{$color-blue-300};
   --color-blue-medium: #{$color-blue-500};
@@ -152,6 +152,33 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.skip-link {
+  position: absolute;
+  left: -10000px; /* Hide the link off-screen */
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 1000; /* Ensure it's on top of other content */
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary); /* Example styling */
+  padding: 10px;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  z-index: 1000;
+  background-color: var(--color-blue-medium); /* Example styling */
+  color: #fff;
+  text-decoration: underline;
+}
+
 
 // Base styles
 html,
@@ -734,7 +761,7 @@ button {
   &.inactive {
     color: var(--color-text-secondary);
   }
-  &.active {
+  &.active, &:active {
     color: var(--color-text-primary);
     // font-style: italic;
     text-decoration: none;

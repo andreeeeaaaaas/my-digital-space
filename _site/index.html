@@ -20,10 +20,13 @@
 
   <!-- <script src="/assets/js/prefetch.js" defer></script> -->
   <script src="/assets/js/sound.js"></script>
-  <script src="/assets/js/view-toggle.js"></script>
-  <!-- <script src="/assets/js/hover-effect.js"></script> -->
-  <script src="/assets/js/tag-filter.js"></script>
   <script src="/assets/js/emoji-hover-once.js" defer></script>
+  
+  
+  <script src="/assets/js/view-toggle.js"></script>
+  <script src="/assets/js/tag-filter.js"></script>
+   
+  <!-- <script src="/assets/js/hover-effect.js"></script> -->
 
   
   <meta
@@ -45,12 +48,13 @@
 </head>
 
   <body>
-    <nav class="nav"><div class="nav-left">
-    <a href="/">Andreas Thoma</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-left">
+    <a href="/" aria-label="Andreas Thoma - Home">Andreas Thoma</a>
 </div>
 <div class="nav-right">
   
-  <button id="sound-toggle" aria-label="Toggle sound">
+  <button id="sound-toggle" aria-label="Toggle sound" aria-pressed="false">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -86,9 +90,9 @@
   >
   
   
-  <a href="/info">Info</a>
-  <span class="muted">▪︎</span>
-  <a href="/contact">Contact</a>
+  <a href="/info" aria-label="View information about Andreas Thome">Info</a>
+  <span class="muted" aria-hidden="true">▫︎</span>
+  <a href="/contact" aria-label="Contact Andreas">Contact</a>
 </div>
 
 <!-- This is a placeholder, until refactored to be nice
@@ -107,7 +111,7 @@
     </div> -->
 <!-- </div> -->
 </nav>
-    <main class="main pb">    <!-- <div id="sound-gate" class="overlay">
+    <main id="main-content" class="main pb" role="main">    <!-- <div id="sound-gate" class="overlay">
   <div class="overlay-content">
     <p style="margin-top:0">Would you like to enable sound?</p>
     <div style="display: flex; flex-direction: row;gap: 16px; padding-top: 16p;">
@@ -544,13 +548,13 @@ I’ve got lots more ideas and projects I’m working on. <br><br>
 If you would like to work on one together, please <a class="internal-link" href="/contact">reach out</a>.</p>
 </body></html>
 </main>
-    <footer class="footer"><div class="contact-details">
+    <footer class="footer" role="contentinfo"><div class="contact-details">
   <div class="label">Let's talk –</div>
   <div class="detail"><a class="emoji-hover" data-emoji="💌" href="mailto:me@andreasthoma.com?subject=Hey%20Andreas!">me@andreasthoma.com</a></div>
 </div>
 <div class="footer-year">
   <div class="label" id="visit-label">Thanks for visiting 👋</div>
-  <div class="label">Last updated Oct 25, 2025</div>
+  <div class="label">Last updated Oct 26, 2025</div>
 </div>
 <!-- ~ ~ ~ ~ ~ ~
 <br>
