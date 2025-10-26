@@ -26,5 +26,5 @@ description: A growing list of places I find myself starting new ideas or thinki
  - [Music, Arts and Culture archive](https://archive.org/details/audio_music)– a digital repository
 
  <figure>
-    <img src="assets/inspiration-garden.webp" style="height: 100%; width: 100%; aspect-ratio: 4/3; object-fit:cover" alt="an illustration of a person in space">
+    <img src="assets/inspiration-garden.webp" class="contain" style="height: 100%; width: 100%; aspect-ratio: 4/3;" alt="an 8 bit image of a seedling">
 </figure>

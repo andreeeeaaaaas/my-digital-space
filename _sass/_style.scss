@@ -15,6 +15,7 @@
   --color-text-nav: #{$color-black};
   --color-text-primary: #{$color-stone-950};
   --color-text-secondary: #{$color-stone-800};
+  --color-text-link: #{$color-stone-500};
   --color-muted: #{$color-stone-600};
   --color-muted-medium: #{$color-stone-400};
   --color-muted-soft: #{$color-stone-100};
@@ -48,11 +49,12 @@
 // Dark mode colors
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg-primary: #{$color-stone-900};
+    --color-bg-primary: #{$color-stone-950};
     --color-bg-secondary: #{$color-stone-800};
     --color-text-nav: #{$color-white};
     --color-text-primary: #{$color-stone-200};
     --color-text-secondary: #{$color-stone-300};
+    --color-text-link: #{$color-stone-300};
     --color-muted: #{$color-stone-400};
     --color-muted-medium: #{$color-stone-500};
     --color-muted-soft: #{$color-stone-600};
@@ -255,7 +257,7 @@ a {
   text-decoration: underline $color-stone-500;
   text-decoration-line: underline;
   text-decoration-color: var(--color-border);
-  color: var(--color-text-primary);
+  color: var(--color-text-link);
 
   // &.external:after {
   //   position: relative;
@@ -266,11 +268,12 @@ a {
   // }
 
   &:visited {
-    color: var(--color-text-primary);
+    color: var(--color-text-link);
   }
 
   &:hover {
     text-decoration-color: var(--color-muted);
+    color: var(--color-text-primary);
   }
 
   &.no-underline {
@@ -295,12 +298,44 @@ figure {
   overflow: hidden;
 }
 
+table {
+  border-collapse: collapse;
+  margin: $spacing-lg-32 0;
+  tr {
+    border-top: 1px solid var(--color-border);
+  }
+  thead {
+    th {
+      font-weight: 475;
+    }
+    tr {
+      border-top: none;
+      border-bottom: 1px solid var(--color-muted-medium);
+    }
+  }
+  td,
+  th {
+    padding: 6px $spacing-s-16 0 $spacing-xs-8;
+    align-content: start;
+    text-align: left;
+    border-right: 1px solid var(--color-border);
+    text-wrap: wrap;
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
 img {
   max-width: 100%;
   display: block;
   margin: 0 auto;
   object-fit: cover;
   background-color: var(--color-bg-secondary);
+  &.contain {
+    object-fit: contain;
+    border: 1px solid var(--color-muted-soft);
+  }
 }
 
 figcaption {
@@ -347,16 +382,22 @@ code {
   }
 }
 blockquote {
-    border-left: 4px solid var(--color-border);
-    // padding-left: $spacing-s-16;
-    // background: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  border-left: 4px solid var(--color-border);
+  // padding-left: $spacing-s-16;
+  // background: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 .callout {
   &.note {
     font-family: $font-family-text;
     font-size: 0.9rem;
+    a {
+      color: var(--color-text-secondary);
+      &:hover {
+        color: var(--color-text-primary)
+      }
+    }
   }
 }
 
@@ -1032,10 +1073,9 @@ button.tag {
       height: 100%;
       object-fit: cover;
       display: block;
-
       &.contain {
         object-fit: contain;
-        border: 1px solid var(--color-border);
+        border: none;
       }
     }
   }

@@ -81,12 +81,12 @@
       const emoji = activeLink.dataset.emoji || '💌';
       
       // Spawn more bubbles for a more dramatic one-time effect
-      const numBubbles = 3 + Math.floor(Math.random() * 4); // Choose how many bubbles, with some randomisation
+      const numBubbles = 3 + Math.floor(Math.random() * 1); // Choose how many bubbles, with some randomisation
       for (let i = 0; i < numBubbles; i++) {
         const angle = Math.random() * Math.PI * 2;
         bubbles.push(new Bubble(centerX, centerY, emoji, angle));
       }
-      hasSpawned = true; // Mark as spawned to prevent more spawning
+      hasSpawned = true; // mark as spawned to prevent more spawning
     }
     
     bubbles = bubbles.filter(b => {

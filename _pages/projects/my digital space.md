@@ -29,18 +29,20 @@ The hope is–like a good product or service–it can grow and flex with its pri
 
 Creating this space has been a rewarding practice of basic front-end development while keeping design principles at the core.
 
-I've built a few custom Ruby plug-ins that it utilises, but try keep things simplistic and future-proof. The aim of the site is longevity, and flexibility. I don't know what content will look like in 5 years, and I know much less about what I'll be interested in by then...
+I've built a few custom plug-ins and scripts that it utilises, but try keep things simplistic and future-proof. The aim of the site is longevity, and flexibility; I don't know what content will look like in 5 years, and I know much less about what might interest me by then.
 
 If you're interested in replicating something like this, you can learn [[What's a digital space?|what a digital space  is]], or dive into the tech stack below. You can also view the open-sourced code repository on Github [here](https://github.com/andreeeeaaaaas/my-digital-space).
 
-Better yet, [[contact|shoot me an email and ask!]]
-
-## Stack (and cost)
+## Cost
 
 
-- $0 – [Obsidian](https://obsidian.md/)– writing pages and notes in Markdown
-- $0 – [Jekyll](https://jekyllrb.com/)– turns Markdown into static webpages (HTML and CSS)
-- $0 – SCSS/CSS –  custom classes and styling
-- $0 – Ruby –  custom plugins
-- $0 – [Netlify](https://www.netlify.com/)– hosting and deployment
-- $18 per year – Google Domains – the andreasthoma.com domain
+| Stack                               | Cost/year | Description                               |
+| ----------------------------------- | --------- | ----------------------------------------- |
+| [Obsidian](https://obsidian.md/)    | $0        | Writing pages and notes in Markdown       |
+| [Jekyll](https://jekyllrb.com/)     | $0        | Turns Markdown files into static webpages |
+| SCSS/CSS                            | $0        | Styles the static webpages                |
+| Ruby/Javascript                     | $0        | Adds plugins and custom scripts           |
+| [Netlify](https://www.netlify.com/) | $0        | Hosts and deploys                         |
+| Google Domains                      | $18       | The andreasthoma.com domain               |
+
+Coming to a grand total of $18 per year. Not bad!

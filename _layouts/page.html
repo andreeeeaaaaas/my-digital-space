@@ -17,10 +17,13 @@ layout: default
     <div class="header-information">
       {% if page.description %}
       <p class="intro">{{ page.description }}</p>
+      <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">
+        {% if page.type != 'pages' %} {{ page.date }} {% endif %}
+      </time>
       {% endif %}
     </div>
     {{ content }}
-    To learn more, please <a class="internal-link" href="/contact">reach out</a>.
+    To learn more, please <a href="/contact" class="internal link emoji-hover" data-emoji="📞">reach out</a>.
     <hr />
   </article>
 </content>
