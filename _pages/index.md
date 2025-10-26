@@ -21,7 +21,7 @@ sound: true
   <div class="intro-text">
     <p>I'm Andreas –
       <span class="design" data-filter="design">designer</span>,
-      <span class="music" data-filter="music">musician</span>, and
+      <span class="music" data-filter="music">musician</span>, 
       <span class="visual" data-filter="visual">creative</span> (and sometimes <span class="writing" data-filter="writing">writer</span>)<br><br>
       <span id="variable"> I help organisations bring value to processes, products, and people through design.</span>
     </p>

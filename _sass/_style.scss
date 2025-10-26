@@ -18,7 +18,7 @@
   --color-muted: #{$color-stone-600};
   --color-muted-medium: #{$color-stone-400};
   --color-muted-soft: #{$color-stone-100};
-  --color-border: #{$color-stone-200};
+  --color-border: #{$color-stone-300};
   --color-transparent: rgba(255, 255, 255, 0);
   --color-amber-soft: #{$color-amber-300};
   --color-amber-medium: #{$color-amber-500};
@@ -40,6 +40,9 @@
   --color-red-semi: #{$color-red-700};
   --color-red-hard: #{$color-red-600};
   --color-red-bg: #{$color-red-50};
+}
+::selection {
+  background: var(--color-border);
 }
 
 // Dark mode colors
@@ -75,6 +78,9 @@
     --color-red-semi: #{$color-red-600};
     --color-red-hard: #{$color-red-800};
     --color-red-bg: #{$color-red-950};
+  }
+  ::selection {
+    background: var(--color-border);
   }
 }
 
@@ -179,7 +185,6 @@
   text-decoration: underline;
 }
 
-
 // Base styles
 html,
 body {
@@ -249,7 +254,7 @@ content {
 a {
   text-decoration: underline $color-stone-500;
   text-decoration-line: underline;
-  text-decoration-color: var(--color-muted-soft);
+  text-decoration-color: var(--color-border);
   color: var(--color-text-primary);
 
   // &.external:after {
@@ -265,7 +270,8 @@ a {
   }
 
   &:hover {
-    text-decoration-color: var(--color-muted);  }
+    text-decoration-color: var(--color-muted);
+  }
 
   &.no-underline {
     text-decoration: none;
@@ -328,7 +334,7 @@ code {
   margin: 0;
   font-size: 1rem;
   font-size: 0.8rem;
-  font-family: monospace;
+  font-family: $font-family-mono;
   background: var(--color-bg-secondary);
   color: var(--color-text-secondary);
   border-radius: $border-radius-sm;
@@ -339,6 +345,13 @@ code {
     margin: 0;
     font-size: 0.8rem;
   }
+}
+blockquote {
+    border-left: 4px solid var(--color-border);
+    // padding-left: $spacing-s-16;
+    // background: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 .callout {
   &.note {
@@ -761,7 +774,8 @@ button {
   &.inactive {
     color: var(--color-text-secondary);
   }
-  &.active, &:active {
+  &.active,
+  &:active {
     color: var(--color-text-primary);
     // font-style: italic;
     text-decoration: none;
