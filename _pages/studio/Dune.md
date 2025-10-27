@@ -2,7 +2,7 @@
 layout: page
 title: Dune
 permalink: /dune
-date: 2021
+date: 2021-01-01
 tags:
   - music
 description: A functional 4-track digital release on Sydney based label Nightime Drama

@@ -2,7 +2,7 @@
 layout: project
 title: My digital space
 permalink: /my-digital-space
-date: 2025
+date: 2025-03-10
 tags:
   - design
   - visual

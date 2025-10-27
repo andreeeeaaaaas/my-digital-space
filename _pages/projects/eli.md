@@ -2,7 +2,7 @@
 layout: project
 title: Eli
 permalink: /eli
-date: 2022
+date: 2022-01-01
 tags:
   - design
 description: An integrated physical and digital product to support young students learning online

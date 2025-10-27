@@ -2,7 +2,7 @@
 layout: page
 title: Cloud Moments
 permalink: /cloudmoments
-date: 2016
+date: 2016-01-01
 tags:
   - music
 description: A collection of MicroKorg pieces, inspired by the clouds that rolled past my bedroom window

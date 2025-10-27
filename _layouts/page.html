@@ -18,7 +18,7 @@ layout: default
       {% if page.description %}
       <p class="intro">{{ page.description }}</p>
       <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">
-        {% if page.type != 'pages' %} {{ page.date }} {% endif %}
+        {% if page.type != 'pages' %} {{ page.date | date: "%Y" }} {% endif %}
       </time>
       {% endif %}
     </div>

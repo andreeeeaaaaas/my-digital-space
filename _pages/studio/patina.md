@@ -2,7 +2,7 @@
 layout: page
 title: Patina
 permalink: /patinamix
-date: "2025"
+date: 2025-02-01
 tags:
   - music
 description: Live mix and accompanying interview, aired on <a target="_blank" href="https://www.fbi.radio/programs/patina/episodes/patina-26th-january-2025/">fbi radio</a>

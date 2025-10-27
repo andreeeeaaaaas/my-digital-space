@@ -2,7 +2,7 @@
 layout: project
 title: Co-designing consent
 permalink: /co-designing-consent
-date: 2023
+date: 2023-01-01
 tags:
   - design
   - writing

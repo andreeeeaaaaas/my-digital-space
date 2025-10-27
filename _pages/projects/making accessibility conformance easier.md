@@ -2,7 +2,7 @@
 layout: project
 title: Making accessibility reporting effortless
 permalink: /accessibility-conformance
-date: 2024
+date: 2024-10-10
 tags:
   - design
 description: The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility

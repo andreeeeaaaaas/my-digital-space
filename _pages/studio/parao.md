@@ -2,7 +2,7 @@
 layout: page
 title: Parao
 permalink: /parao
-date: 2024
+date: 2024-05-25
 tags:
   - music
 description: A one hour solo live performance for a night curated by Moral Laxa
