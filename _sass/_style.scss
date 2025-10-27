@@ -1247,6 +1247,10 @@ button.tag {
   }
 }
 
+.show-mobile-only {
+  display: none;
+}
+
 // Responsive Design
 @media (max-width: 1200px) {
   .intro-text {
@@ -1466,6 +1470,12 @@ button.tag {
     justify-content: left;
     margin-top: $spacing-s-16;
     margin-bottom: $spacing-s-16;
+  }
+  .hide-mobile {
+    display: none;
+  }
+  .show-mobile-only {
+    display: flex;
   }
 }
 

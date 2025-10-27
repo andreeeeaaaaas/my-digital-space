@@ -97,6 +97,7 @@ sound: true
   </div>
   <div class ="toolbar">
     <div class="tags">
+      <span class="view-label">Filters</span>
       <button type="button" class="tag inactive" data-filter="design">
         <span class="tag-square"></span>Design
       </button>
