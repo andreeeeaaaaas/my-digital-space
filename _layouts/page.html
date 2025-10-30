@@ -22,8 +22,11 @@ layout: default
       </time>
       {% endif %}
     </div>
-    {{ content }}
-    To learn more, please <a href="/contact" class="internal link emoji-hover" data-emoji="📞">reach out</a>.
+    {{ content }} 
+    {% if page.title != "Error 404" %} 
+    <p>To learn more, please <a href="/contact" class="internal link emoji-hover" data-emoji="📞">reach out</a>.</p>
+    {% endif %}
+
     <hr />
   </article>
 </content>

@@ -30,6 +30,9 @@ For all the nice words I received after, hearing that I made Mum tear up tops th
 
 ## Tools used
 
+<figure><img src="assets/studio/parao-gear.webp">
+</figure>
+
 - Eurorack Modular system
 - Elektron Octatrack MKII
 - Monome Norns (fates)

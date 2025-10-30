@@ -151,8 +151,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Define additional texts for each filter
   const additionalTexts = {
-    music: " I also make music using some eclectic electronic instruments.",
-    visual: " I love making films and taking pictures.",
+    design: "I help organisations bring value to processes, products, and people through design.",
+    music: " I make music using some eclectic electronic instruments.",
+    visual: " I make films and take pictures of life happening around me.",
     writing: " Every now and then I write things down that interest me.",
   };
 
@@ -166,26 +167,14 @@ document.addEventListener("DOMContentLoaded", function () {
       if (variableSpan && additionalTexts[filter]) {
         const additionalText = additionalTexts[filter];
 
-        // Check if the additional text is already appended
-        if (variableSpan.textContent.includes(additionalText)) {
-          // Remove the additional text
-          variableSpan.textContent = variableSpan.textContent.replace(
-            additionalText,
-            ""
-          );
-        } else {
-          // Append the additional text
-          variableSpan.textContent += additionalText;
-        }
+        // Replace the text content
+        variableSpan.textContent = additionalText;
       }
 
       // Find the tag button with matching filter
       tags.forEach((tag) => {
         if (tag.dataset.filter && tag.dataset.filter.toLowerCase() === filter) {
           tag.click(); // Simulate click on the tag button
-        }
-        if (tag.dataset.filter && tag.dataset.filter.toLowerCase() != filter) {
-          return;
         }
       });
     });

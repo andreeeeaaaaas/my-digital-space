@@ -6,16 +6,16 @@ permalink: /
 sound: true
 ---
 
-<!-- <div id="sound-gate" class="overlay">
+<div id="sound-gate" class="overlay">
   <div class="overlay-content">
     <p style="margin-top:0">Would you like to enable sound?</p>
-    <div style="display: flex; flex-direction: row;gap: 16px; padding-top: 16p;">
-      <button  id="sound-yes">Yes</button>
+    <div style="display: flex; flex-direction: row;gap: 8px; padding-top: 16px;">
+      <button  class="emoji-hover" data-emoji="🎉" id="sound-yes">Yes</button>
       <p>/</p>
-      <button href="#" id="sound-no">No</button>
+      <button href="#" class="emoji-hover" data-emoji="💔" id="sound-no">No</button>
     </div>
   </div>
-</div> -->
+</div>
 <!-- Header -->
 <section class="header">
   <div class="intro-text">
@@ -23,7 +23,7 @@ sound: true
       <span class="design" data-filter="design">designer</span>,
       <span class="music" data-filter="music">musician</span>, 
       <span class="visual" data-filter="visual">creative</span> (and sometimes <span class="writing" data-filter="writing">writer</span>)<br><br>
-      <span id="variable"> I help organisations bring value to processes, products, and people through design.</span>
+      <span id="variable">I help organisations bring value to processes, products, and people through design.</span>
     </p>
   </div>
   <!-- <div class="experiences">

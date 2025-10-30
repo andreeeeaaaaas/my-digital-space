@@ -300,9 +300,11 @@ figure {
 
 table {
   border-collapse: collapse;
-  margin: $spacing-lg-32 0;
+  margin: $spacing-m-24 0 $spacing-lg-32;
+  width: 100%;
   tr {
     border-top: 1px solid var(--color-border);
+    width: 100%;
   }
   thead {
     th {
@@ -529,21 +531,37 @@ body:has(.overlay:not(.hidden)) {
   display: flex;
   align-items: center;
   justify-content: left;
-  z-index: 9999;
+  z-index: 999;
   overflow: hidden;
-  transition: opacity 0.3s ease; // Smooth fade out
+  color: var(--color-text-primary);
+  transition: opacity 200ms ease-out; // Smooth fade out
 }
 
-.overlay-content {
+/* NEW: keep background present but hide the content by default.
+   The content will animate in only when .show-content is added. */
+.overlay .overlay-content {
   padding: 2rem;
+  opacity: 0;
+  transform: translateY(8px);
+  visibility: hidden;
+  transition: opacity 260ms ease, transform 260ms ease, visibility 0ms linear 260ms;
   button {
-    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
     &:hover {
       text-decoration: underline;
     }
   }
 }
 
+/* When we want the overlay to appear, add .show-content to animate text in */
+.overlay.show-content .overlay-content {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition-delay: 40ms;
+}
+
+/* keep existing hidden state behaviour (used to remove overlay) */
 .overlay.hidden {
   opacity: 0;
   pointer-events: none;
@@ -602,6 +620,7 @@ body:has(.overlay:not(.hidden)) {
   font-size: var(--font-size-base);
   // line-height: 24px;
   color: var(--color-text-primary);
+  min-height: 11rem;
 
   span {
     &.design,
@@ -1225,7 +1244,7 @@ button.tag {
   align-items: flex-start;
   gap: $spacing-s-16;
   max-width: 1440px;
-  padding: $spacing-xxl-128 $spacing-m-24 $spacing-xl-64;
+  padding: $spacing-xxl-128 $spacing-m-24 $spacing-lg-32;
   // margin-top: $spacing-xxl-128;
 
   .label {
@@ -1377,9 +1396,12 @@ button.tag {
 
 @media (max-width: 540px) {
   :root {
-    --font-size-base: 15px;
+    --font-size-base: 16px;
     --wrap-normal: 100%;
     --wrap-wide: 100vw;
+  }
+  .overlay  {
+    display: none;
   }
 
   p,
@@ -1396,6 +1418,20 @@ button.tag {
 
   img {
     border-radius: 0;
+  }
+  table {
+    border-collapse: collapse;
+    margin: $spacing-lg-32 0;
+    width: 100%;
+    table-layout: fixed;
+    // font-size: calc(var(--font-size-base) - 2px);
+    td,
+    th {
+      padding: 4px $spacing-xs-8 0 6px;
+      border-right: 1px solid var(--color-border);
+      text-wrap: wrap;
+      // word-wrap: break-word;
+    }
   }
 
   .nav {

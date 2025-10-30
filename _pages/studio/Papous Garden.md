@@ -7,5 +7,5 @@ tags:
   - visual
 description: A short film of my grandfather in his garden
 ---
-<figure class=""><img src="assets/studio/papousgarden.webp"><figcaption>My Papous garden</figcaption></figure>
+<figure class="wide"><img src="assets/studio/papousgarden.webp"><figcaption>My Papous garden</figcaption></figure>
 Coming soon...

@@ -16,91 +16,119 @@ document.addEventListener("DOMContentLoaded", () => {
     if (audioCtx.state === "suspended") {
       return audioCtx.resume().catch(console.error);
     }
-
   };
 
-
   // Sound picker
-  // const overlay = document.getElementById("sound-gate");
-  // const yesBtn = document.getElementById("sound-yes");
-  // const noBtn = document.getElementById("sound-no");
+  const overlay = document.getElementById("sound-gate");
+  const yesBtn = document.getElementById("sound-yes");
+  const noBtn = document.getElementById("sound-no");
   const soundToggle = document.getElementById("sound-toggle");
 
   // Update toggle button UI to match current sound state
   function updateToggleUI() {
-    if (isSoundOn) {
-      soundToggle.classList.remove("muted");
-      soundToggle.setAttribute("aria-label", "Mute sound");
-    } else {
-      soundToggle.classList.add("muted");
-      soundToggle.setAttribute("aria-label", "Unmute sound");
+    // Guard in case #sound-toggle is not present in DOM
+    if (soundToggle) {
+      if (isSoundOn) {
+        soundToggle.classList.remove("muted");
+        soundToggle.setAttribute("aria-label", "Mute sound");
+      } else {
+        soundToggle.classList.add("muted");
+        soundToggle.setAttribute("aria-label", "Unmute sound");
+      }
     }
   }
+
   // === State ===
   let isSoundOn = false; // Current session setting
 
   // // === On first load ===
-  // const savedPref = sessionStorage.getItem("soundEnabled");
+  const savedPref = sessionStorage.getItem("soundEnabled");
 
-  // try {
-  //   if (savedPref === null) {
-  //     // First visit → show modal
-  //     // overlay.classList.remove("hidden");
-  //     updateToggleUI();
-  //   } else {
-  //     // Already chosen before
-  //     // overlay.classList.add("hidden");
-  //     isSoundOn = savedPref === "true";
-  //     updateToggleUI();
-  //     unlock();
-  //   }
-  // } catch (error) {
-  //   console.error("Error handling sound preferences:", error);
-  // }
-  updateToggleUI();
+  if (overlay) {
+    try {
+      if (savedPref === null) {
+        // First visit → show overlay background, but keep content hidden.
+        // CSS will reveal .overlay-content only when we add 'show-content'.
+        overlay.classList.remove("hidden");
 
-  // // Yes button - enable sound
-  // yesBtn.addEventListener("click", () => {
-  //   sessionStorage.setItem("soundEnabled", "true");
-  //   isSoundOn = true;
-  //   unlock();
-  //   console.log("Is sound enabled? " + sessionStorage.getItem("soundEnabled"));
-  //   overlay.classList.add("hidden");
-  //   updateToggleUI();
-  // });
+        // Defer adding the class so the background renders first, then animate content in
+        requestAnimationFrame(() => {
+          setTimeout(() => overlay.classList.add("show-content"), 60);
+        });
 
-  // // No button - disable sound
-  // noBtn.addEventListener("click", () => {
-  //   sessionStorage.setItem("soundEnabled", "false");
-  //   isSoundOn = false;
-  //   unlock();
-  //   console.log("Is sound enabled? " + sessionStorage.getItem("soundEnabled"));
-  //   overlay.classList.add("hidden");
-  //   updateToggleUI();
-  // });
-
-  // === Toggle button (updates both session storage and UI) ===
-  soundToggle.addEventListener("click", () => {
-    console.log("Toggle button pressed");
-    isSoundOn = !isSoundOn;
-    sessionStorage.setItem("soundEnabled", isSoundOn.toString());
-    updateToggleUI();
-    console.log(isSoundOn ? "Sound unmuted" : "Sound muted");
-    unlock();
-
-    // Stop all active sounds when muting
-    if (!isSoundOn) {
-      activeSources.forEach((source) => {
-        try {
-          source.stop();
-          source.disconnect();
-        } catch (e) {
-          // Already stopped/disconnected
-        }
-      });
-      activeSources.clear();
+        updateToggleUI();
+      } else {
+        // Already chosen before → hide overlay completely
+        overlay.classList.add("hidden");
+        isSoundOn = savedPref === "true";
+        updateToggleUI();
+        // Only unlock if user previously allowed sound
+        if (isSoundOn) unlock();
+      }
+    } catch (error) {
+      console.error("Error handling sound preferences:", error);
     }
+
+    // // Yes button - enable sound
+    yesBtn.addEventListener("click", () => {
+      sessionStorage.setItem("soundEnabled", "true");
+      isSoundOn = true;
+      unlock();
+      console.log(
+        "Is sound enabled? " + sessionStorage.getItem("soundEnabled")
+      );
+
+      // Animate content out, then hide overlay fully
+      overlay.classList.remove("show-content");
+      setTimeout(() => overlay.classList.add("hidden"), 300);
+
+      updateToggleUI();
+    });
+
+    // // No button - disable sound
+    noBtn.addEventListener("click", () => {
+      sessionStorage.setItem("soundEnabled", "false");
+      isSoundOn = false;
+      // No need to unlock audio here
+      console.log(
+        "Is sound enabled? " + sessionStorage.getItem("soundEnabled")
+      );
+
+      // Animate content out, then hide overlay fully
+      overlay.classList.remove("show-content");
+      setTimeout(() => overlay.classList.add("hidden"), 300);
+    });
+  }
+
+  updateToggleUI();
+  document.addEventListener("click", () => {
+    unlock();
   });
+  
+  // === Toggle button (updates both session storage and UI) ===
+  if (soundToggle) {
+    soundToggle.addEventListener("click", () => {
+      console.log("Toggle button pressed");
+      isSoundOn = !isSoundOn;
+      sessionStorage.setItem("soundEnabled", isSoundOn.toString());
+      updateToggleUI();
+      console.log(isSoundOn ? "Sound unmuted" : "Sound muted");
+      unlock();
+
+      // Stop all active sounds when muting
+      if (!isSoundOn) {
+        activeSources.forEach((source) => {
+          try {
+            source.stop();
+            source.disconnect();
+          } catch (e) {
+            // Already stopped/disconnected
+          }
+        });
+        activeSources.clear();
+      }
+    });
+  }
 
   const tagSoundFiles = [
     "/assets/sounds/1.mp3",
@@ -195,13 +223,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Play two random project sounds simultaneously
   function playDualSound() {
     // Create a shuffled copy of project sound files
-    const shuffledSounds = tagSoundFiles.slice().sort(() => Math.random() - 0.5);
-    
+    const shuffledSounds = tagSoundFiles
+      .slice()
+      .sort(() => Math.random() - 0.5);
+
     // Play the first two sounds from the shuffled array
     const sound1 = shuffledSounds[0];
     const sound2 = shuffledSounds[1];
     const sound3 = shuffledSounds[2];
-    
+
     // Play both sounds simultaneously
     playBuffer(sound1);
     playBuffer(sound2);
@@ -227,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Hook up hover with throttling
   document.querySelectorAll(".tag").forEach((tag) => {
     const playTagSound = throttle(() => {
-      if (tag.classList.contains("active")) return;
+      // if (tag.classList.contains("active")) return;
       const sound = getNextTagSound();
       playBuffer(sound);
     }, 100); // Minimum 100ms between sounds per tag
@@ -257,9 +287,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize emoji hover sounds immediately and also when DOM is ready
   initEmojiHoverSounds();
-  
+
   // Also initialize when DOM is fully loaded (in case elements are added later)
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initEmojiHoverSounds);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initEmojiHoverSounds);
   }
 });
