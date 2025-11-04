@@ -15,11 +15,14 @@
   --color-text-nav: #{$color-black};
   --color-text-primary: #{$color-stone-950};
   --color-text-secondary: #{$color-stone-800};
-  --color-text-link: #{$color-stone-500};
+  --color-text-link: #{$color-stone-600};
   --color-muted: #{$color-stone-600};
   --color-muted-medium: #{$color-stone-400};
   --color-muted-soft: #{$color-stone-100};
   --color-border: #{$color-stone-300};
+  --color-button-bg-inactive: #{$color-stone-100};
+  --color-button-bg-active: #{$color-stone-200};
+  --color-button-bg-hover: #{$color-stone-300};
   --color-transparent: rgba(255, 255, 255, 0);
   --color-amber-soft: #{$color-amber-300};
   --color-amber-medium: #{$color-amber-500};
@@ -50,7 +53,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg-primary: #{$color-stone-950};
-    --color-bg-secondary: #{$color-stone-800};
+    --color-bg-secondary: #{$color-stone-900};
     --color-text-nav: #{$color-white};
     --color-text-primary: #{$color-stone-200};
     --color-text-secondary: #{$color-stone-300};
@@ -59,6 +62,9 @@
     --color-muted-medium: #{$color-stone-500};
     --color-muted-soft: #{$color-stone-600};
     --color-border: #{$color-stone-700};
+    --color-button-bg-inactive: #{$color-stone-800};
+    --color-button-bg-active: #{$color-stone-700};
+    --color-button-bg-hover: #{$color-stone-600};
     --color-transparent: rgba(0, 0, 0, 0);
     --color-amber-soft: #{$color-amber-400};
     --color-amber-medium: #{$color-amber-500};
@@ -256,7 +262,7 @@ content {
 a {
   text-decoration: underline $color-stone-500;
   text-decoration-line: underline;
-  text-decoration-color: var(--color-border);
+  text-decoration-color: var(--color-muted-medium);
   color: var(--color-text-link);
 
   // &.external:after {
@@ -397,7 +403,7 @@ blockquote {
     a {
       color: var(--color-text-secondary);
       &:hover {
-        color: var(--color-text-primary)
+        color: var(--color-text-primary);
       }
     }
   }
@@ -540,11 +546,12 @@ body:has(.overlay:not(.hidden)) {
 /* NEW: keep background present but hide the content by default.
    The content will animate in only when .show-content is added. */
 .overlay .overlay-content {
-  padding: 2rem;
+  padding: $spacing-lg-32;
   opacity: 0;
   transform: translateY(8px);
   visibility: hidden;
-  transition: opacity 260ms ease, transform 260ms ease, visibility 0ms linear 260ms;
+  transition: opacity 260ms ease, transform 260ms ease,
+    visibility 0ms linear 260ms;
   button {
     color: var(--color-text-primary);
     &:hover {
@@ -576,7 +583,7 @@ body:has(.overlay:not(.hidden)) {
   padding: $spacing-xl-64 $spacing-lg-32 $spacing-lg-32;
   // height: $spacing-xxl-128;
   width: 100%;
-  font-family: $font-family-mono;
+  font-family: $font-family-primary;
   align-items: flex-start;
   // font-weight: 450;
 
@@ -914,7 +921,7 @@ button {
 
   &.active {
     color: var(--color-text-primary);
-    background-color: var(--color-border);
+    background-color: var(--color-button-bg-active);
     // font-style: italic;
   }
 
@@ -931,7 +938,7 @@ button.tag {
   justify-content: center;
   margin: 0;
   color: var(--color-muted);
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-button-bg-inactive);
   font: inherit;
   cursor: pointer;
   // outline: none;
@@ -995,13 +1002,13 @@ button.tag {
   .grid-icon,
   .list-icon {
     &:active {
-      background-color: var(--color-border);
+      background-color: var(--color-button-bg-active);
     }
     transition: $transition-default;
     // background-color: transparent; // Inactive by default
     // Optional: add outline for accessibility
     .active {
-      background-color: var(--color-border);
+      background-color: var(--color-button-bg-active);
       border-color: var(--color-text-secondary);
     }
   }
@@ -1009,7 +1016,7 @@ button.tag {
   #grid-button,
   #list-button {
     &:hover {
-      background-color: var(--color-muted-soft);
+      background-color: var(--color-button-bg-hover);
     }
   }
 
@@ -1045,16 +1052,12 @@ button.tag {
     border-width: 1.5px;
     border-color: var(--color-text-secondary);
     fill: none;
-
-    &.active {
-      border-color: var(--color-red-hard);
-    }
   }
 }
 
 .grid-icon .active,
 .list-icon .active {
-  background-color: var(--color-border);
+  background-color: var(--color-button-bg-active);
 }
 
 .active .grid-icon,
@@ -1240,7 +1243,7 @@ button.tag {
 // Footer
 .footer {
   @include flex-between;
-  font-family: $font-family-mono;
+  font-family: $font-family-primary;
   align-items: flex-start;
   gap: $spacing-s-16;
   max-width: 1440px;
@@ -1262,6 +1265,7 @@ button.tag {
     display: flex;
     flex-direction: column;
     color: var(--color-muted);
+    font-family: $font-family-mono;
     // white-space: nowrap;
   }
 }
@@ -1400,7 +1404,7 @@ button.tag {
     --wrap-normal: 100%;
     --wrap-wide: 100vw;
   }
-  .overlay  {
+  .overlay {
     display: none;
   }
 

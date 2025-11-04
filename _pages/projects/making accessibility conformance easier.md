@@ -7,7 +7,7 @@ tags:
   - design
 description: The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility
 ---
-<!-- <p class="intro">The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility</p> -->
+
 <figure class="wide">
 	<img class="contain" src="assets/projects/Frame 7.png">
 	<figcaption>The overview page of the dashboard</figcaption>

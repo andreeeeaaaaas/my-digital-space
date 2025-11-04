@@ -18,7 +18,7 @@ You are currently in my digital space.
 
 It's inspired by similar spaces like [Andy Matuschak's working notes](https://notes.andymatuschak.org/About_these_notes), [Maggie Appleton's digital garden](https://maggieappleton.com/garden-history), and how I structure my thoughts in the tool I use everyday, [Obsidian](https://obsidian.md/). 
 
-It sees both my work and creative output as building blocks to learn and iterate off, rather than standalone projects.
+It sees both all of my outputs as building blocks to learn and iterate off, rather than standalone projects.
 
 <!-- While it simplifies some of the connections I've built between them and doesn't hold all the notes I jot down, it aims to get across how I link things together in order to come to the next 'thing'. It stands by the notion that nothing is ever finished. -->
 

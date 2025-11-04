@@ -6,8 +6,12 @@ tags:
   - design
   - music
   - visual
-description: A growing list of places I find myself starting new ideas or thinking on existing ones
+description: A list of places I find myself growing new ideas or thinking on existing ones
 ---
+<figure>
+    <img src="assets/inspiration-garden.webp" class="contain" style="height: 100%; width: 100%; aspect-ratio: 4/3;" alt="an 8 bit image of a seedling">
+</figure>
+
 ## People
 
 - [Suengmee Lee](https://www.seungmee-lee.com/)– an inspiring interaction designer
@@ -24,7 +28,3 @@ description: A growing list of places I find myself starting new ideas or thinki
  - [Norns.community](https://norns.community/)– creative code to create auditory delights
  - [llllllll (aka lines)](https://llllllll.co/)– discussions of creativity
  - [Music, Arts and Culture archive](https://archive.org/details/audio_music)– a digital repository
-
- <figure>
-    <img src="assets/inspiration-garden.webp" class="contain" style="height: 100%; width: 100%; aspect-ratio: 4/3;" alt="an 8 bit image of a seedling">
-</figure>

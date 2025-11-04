@@ -12,14 +12,14 @@ description: An integrated physical and digital product to support young student
   <div style="padding:56.25% 0 0 0; position:relative"><iframe src="https://player.vimeo.com/video/804961390?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%" title="Eli"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 </figure>
 
-Challenged by the design brief 'designing smarter and more accessible engagement,' we asked ourselves– how might we design digital tools that give underrepresented community members a meaningful voice in their own decision making?
+Challenged by the design brief 'designing smarter and more accessible engagement,' our team of three asked ourselves– how might we design digital tools that enable students to engage, while studying from home.
 <figure>
     <img src="assets/projects/eli.jpg" alt="eli-on-a-desk">
     <figcaption>Eli in situ</figcaption>
 </figure>
-Our engagement learning interface, aka Eli, is a physical device that promotes interactions within the online classroom by gamifying the experience. For our user– young students studying from home– eli lets them connect and interact a digital, non-disruptive way. 
+Our engagement learning interface, aka Eli, is a physical device that promotes interactions within the online classroom by gamifying the experience. It aims to capture the spontaneous connections and moments that can happen in a classroom when learning face to face. For our user– young students studying from home– eli lets them connect and interact a digital, non-disruptive way. 
 
-In combination with an online teacher portal with engagement metrics, Eli facilitates  support for students suffering from feelings of isolation and disconnectedness in remote learning environments.
+In combination with an online teacher portal with engagement metrics, Eli facilitates teachers in giving tailored support for students suffering from feelings of isolation and disconnectedness in remote learning environments.
 
 <figure>
     <img src="assets/projects/eli-mockup.jpg" alt="eli-mockup">
