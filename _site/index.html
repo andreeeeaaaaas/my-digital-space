@@ -54,7 +54,7 @@
 </div>
 <div class="nav-right">
   
-  <button id="sound-toggle" aria-label="Toggle sound" aria-pressed="false">
+  <button class="emoji-hover" data-emoji="🎶" id="sound-toggle" aria-label="Toggle sound" aria-pressed="false">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -207,23 +207,51 @@
     </div>
     <div class="view-controls">
       <span class="view-label">View</span>
-      <button type="button" class="tag view-control active" id="grid-button">
-        <div class="grid-icon"></div>
-        Grid
-      </button>
-      <button type="button" class="tag view-control" id="list-button">
+      <button type="button" class="tag view-control active" id="list-button">
         <div class="list-icon" style="">
           <div class="list-bar" style=""></div>
           <div class="list-bar" style=""></div>
         </div>
         List
       </button>
+      <button type="button" class="tag view-control" id="grid-button">
+        <div class="grid-icon"></div>
+        Grid
+      </button>
+      
     </div>
   </div>
 </div>
 
 <!-- Project Grid -->
-<div class="project-grid">
+<div class="project-grid list-view">
+  
+  <div class="project" data-tags="design">
+      <a href="/orbit" class="internal-link no-underline">
+         
+        
+        <div class="project-image">
+          <img style="margin-block-end: 0em" class="contain" src="assets/projects/orbit-ui.png">
+          <div class="project-tags" aria-label="Tags: design">
+            
+              <span class="tag-dot design" aria-hidden="true"></span>
+            
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
+          <h2 class="project-title">Orbit</h2>
+          <div class="project-tags-list" aria-label="Tags: design">
+            
+              <span class="tag-dot design" aria-hidden="true"></span>
+            
+          </div>
+        </div>
+        <p class="project-description">
+          A retro-futuristic design tool for Figma</p>
+        
+      </a>
+  </div>
   
   <div class="project" data-tags="visual">
       <a href="/papousgarden" class="internal-link no-underline">
@@ -332,7 +360,7 @@
           </div>
         </div>
         <p class="project-description">
-          The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility</p>
+          An internal tool to help Service NSW report on accessibility</p>
         
       </a>
   </div>
@@ -449,6 +477,33 @@
       </a>
   </div>
   
+  <div class="project" data-tags="visual">
+      <a href="/sunrisecambodia" class="internal-link no-underline">
+         
+        
+        <div class="project-image">
+          <img style="margin-block-end: 0em" src="assets/studio/sunrise-2.jpg">
+          <div class="project-tags" aria-label="Tags: visual">
+            
+              <span class="tag-dot visual" aria-hidden="true"></span>
+            
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
+          <h2 class="project-title">Sunrise Cambodia</h2>
+          <div class="project-tags-list" aria-label="Tags: visual">
+            
+              <span class="tag-dot visual" aria-hidden="true"></span>
+            
+          </div>
+        </div>
+        <p class="project-description">
+          Photos from 3 months spent volunteering in Cambodia</p>
+        
+      </a>
+  </div>
+  
   <div class="project" data-tags="music">
       <a href="/cloudmoments" class="internal-link no-underline">
          
@@ -557,7 +612,7 @@ If you would like to work on one together, please <a href="/contact" class="emoj
 </div>
 <div class="footer-year">
   <div class="label" id="visit-label">Thanks for visiting 👋</div>
-  <div class="detail">Last updated Nov 4, 2025</div>
+  <div class="detail">Last updated Apr 20, 2026</div>
 </div>
 <!-- ~ ~ ~ ~ ~ ~
 <br>

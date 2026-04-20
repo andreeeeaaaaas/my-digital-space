@@ -3,26 +3,7 @@ layout: default
 ---
 
 <content>
-  <div class="title">
-    <div class="project-tags" aria-label="Tags: {{ page.tags | join: ', ' }}">
-      {% for tag in page.tags %}
-      <div class="tag active" data-filter="{{ tag }}">
-        <span class="tag-square"></span>{{ tag | capitalize }}
-      </div>
-      {% endfor %}
-    </div>
-    <h1>{{ page.title }}</h1>
-  </div>
   <article>
-    <div class="header-information">
-      {% if page.description %}
-      <p class="intro">{{ page.description }}</p>
-      {% endif %}
-      <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">
-        {% if page.type != 'pages' %} Last updated on {{ page.last_modified_at |
-        date: "%B %-d, %Y" }} {% endif %}
-      </time>
-    </div>
     {{ content }}
     <hr />
     <div class="pt" id="notes-entry-container">

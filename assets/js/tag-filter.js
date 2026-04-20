@@ -1,63 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const tags = document.querySelectorAll(".tags .tag");
   const tagSquares = document.querySelectorAll(".mobile-controls .tag");
-  const tagSquare = document.querySelectorAll(".filter .tag");
   const projects = document.querySelectorAll(".project");
-
-  // Create X overlay for tag squares
-  function createXOverlay() {
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.classList.add("x-overlay");
-    svg.setAttribute("viewBox", "0 0 20 20");
-    svg.setAttribute("width", "20");
-    svg.setAttribute("height", "20");
-
-    const line1 = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "line"
-    );
-    line1.setAttribute("x1", "3");
-    line1.setAttribute("y1", "3");
-    line1.setAttribute("x2", "17");
-    line1.setAttribute("y2", "17");
-    line1.setAttribute("stroke", "#ff6b6b");
-    line1.setAttribute("stroke-width", "4");
-    line1.setAttribute("stroke-linecap", "round");
-
-    const line2 = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "line"
-    );
-    line2.setAttribute("x1", "17");
-    line2.setAttribute("y1", "3");
-    line2.setAttribute("x2", "3");
-    line2.setAttribute("y2", "17");
-    line2.setAttribute("stroke", "#ff6b6b");
-    line2.setAttribute("stroke-width", "4");
-    line2.setAttribute("stroke-linecap", "round");
-
-    svg.appendChild(line1);
-    svg.appendChild(line2);
-
-    return svg;
-  }
-
-  // Add X overlay to each tag square
-  tagSquare.forEach((square) => {
-    const xOverlay = createXOverlay();
-    square.appendChild(xOverlay);
-
-    // Add hover event listeners
-    square.addEventListener("mouseenter", () => {
-      xOverlay.style.display = "block";
-    });
-
-    square.addEventListener("mouseleave", () => {
-      const centerSquare = square.querySelector(".center-square");
-      if (centerSquare) centerSquare.style.display = "block";
-      xOverlay.style.display = "none";
-    });
-  });
 
   tags.forEach((tag) => {
     tag.addEventListener("click", function (e) {
@@ -151,30 +95,89 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Define additional texts for each filter
   const additionalTexts = {
-    design: "I help organisations bring value to processes, products, and people through design.",
-    music: " I make music using some eclectic electronic instruments.",
-    visual: " I make films and take pictures of life happening around me.",
-    writing: " Every now and then I write things down that interest me.",
+    design: "I help organisations bring value to processes, products, and people through design",
+    music: "I make music using some eclectic electronic instruments",
+    visual: "I make films and take pictures of life happening around me",
+    writing: "Every now and then I write things down that interest me",
   };
+
+  // Typewriter for #variable span
+  const variableSpan = document.getElementById("variable");
+  const typewriterTexts = Object.values(additionalTexts);
+  const speed = 50;
+  const deleteSpeed = 30;
+  const waitTime = 2000;
+
+  let twIndex = 0;
+  let twCharIndex = 0;
+  let twDeleting = false;
+  let twTimeout = null;
+
+  function typewriterTick() {
+    const current = typewriterTexts[twIndex];
+    const textNode = variableSpan.childNodes[0];
+
+    if (twDeleting) {
+      const current_text = textNode ? textNode.nodeValue : "";
+      if (current_text.length > 0) {
+        textNode.nodeValue = current_text.slice(0, -1);
+        twTimeout = setTimeout(typewriterTick, deleteSpeed);
+      } else {
+        twDeleting = false;
+        twIndex = (twIndex + 1) % typewriterTexts.length;
+        twCharIndex = 0;
+        twTimeout = setTimeout(typewriterTick, speed);
+      }
+    } else {
+      if (twCharIndex < current.length) {
+        const textNode = variableSpan.childNodes[0];
+        if (textNode) {
+          textNode.nodeValue = current.slice(0, twCharIndex + 1);
+        } else {
+          variableSpan.prepend(document.createTextNode(current.slice(0, twCharIndex + 1)));
+        }
+        twCharIndex++;
+        twTimeout = setTimeout(typewriterTick, speed);
+      } else {
+        twTimeout = setTimeout(() => {
+          twDeleting = true;
+          typewriterTick();
+        }, waitTime);
+      }
+    }
+  }
+
+  function startTypewriter() {
+    clearTimeout(twTimeout);
+    // Clear to text node only (preserve cursor span)
+    const textNode = variableSpan.childNodes[0];
+    if (textNode && textNode.nodeType === Node.TEXT_NODE) {
+      textNode.nodeValue = "";
+    } else {
+      variableSpan.prepend(document.createTextNode(""));
+    }
+    twCharIndex = 0;
+    twDeleting = false;
+    twTimeout = setTimeout(typewriterTick, speed);
+  }
+
+  // Ensure variableSpan has a text node and a cursor span
+  variableSpan.innerHTML = "";
+  variableSpan.prepend(document.createTextNode(""));
+  const cursor = document.createElement("span");
+  cursor.className = "typewriter-cursor";
+  cursor.textContent = "_";
+  variableSpan.appendChild(cursor);
+
+  startTypewriter();
 
   introSpans.forEach((span) => {
     span.addEventListener("click", function () {
-      const filter = span.className.trim().toLowerCase(); // e.g. 'designer'
+      const filter = span.className.trim().toLowerCase();
 
-      // Get the variable span
-      const variableSpan = document.getElementById("variable");
-
-      if (variableSpan && additionalTexts[filter]) {
-        const additionalText = additionalTexts[filter];
-
-        // Replace the text content
-        variableSpan.textContent = additionalText;
-      }
-
-      // Find the tag button with matching filter
       tags.forEach((tag) => {
         if (tag.dataset.filter && tag.dataset.filter.toLowerCase() === filter) {
-          tag.click(); // Simulate click on the tag button
+          tag.click();
         }
       });
     });

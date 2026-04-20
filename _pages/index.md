@@ -112,17 +112,18 @@ sound: true
     </div>
     <div class="view-controls">
       <span class="view-label">View</span>
-      <button type="button" class="tag view-control active" id="grid-button">
-        <div class="grid-icon"></div>
-        Grid
-      </button>
-      <button type="button" class="tag view-control" id="list-button">
+      <button type="button" class="tag view-control active" id="list-button">
         <div class="list-icon" style="">
           <div class="list-bar" style=""></div>
           <div class="list-bar" style=""></div>
         </div>
         List
       </button>
+      <button type="button" class="tag view-control" id="grid-button">
+        <div class="grid-icon"></div>
+        Grid
+      </button>
+      
     </div>
   </div>
 </div>
@@ -133,7 +134,7 @@ sound: true
 {% assign all_pages = projects | concat: studio | sort: "date" | reverse | concat: notes %}
 
 <!-- Project Grid -->
-<div class="project-grid">
+<div class="project-grid list-view">
   {% for page in all_pages %}
   <div class="project" data-tags="{{ page.tags | join: ', ' }}">
       <a href="{{ site.baseurl }}{{ page.url }}" class="internal-link no-underline">

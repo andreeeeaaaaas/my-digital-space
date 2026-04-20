@@ -138,20 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
     "/assets/sounds/5.mp3",
   ];
 
-  const projectSoundFiles = [
-    "/assets/sounds/hover 1.mp3",
-    "/assets/sounds/hover 2.mp3",
-    "/assets/sounds/hover 3.mp3",
-    "/assets/sounds/hover 4.mp3",
-    "/assets/sounds/hover 5.mp3",
-  ];
-
-  const allSoundFiles = [...tagSoundFiles, ...projectSoundFiles];
-
   // Preload + decode once
   const bufferCache = new Map();
   Promise.all(
-    allSoundFiles.map(async (src) => {
+    tagSoundFiles.map(async (src) => {
       try {
         const resp = await fetch(src, { cache: "force-cache" });
         const arrayBuf = await resp.arrayBuffer();
@@ -165,16 +155,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Shuffle queue for variety
   let tagQueue = [];
-  let projectQueue = [];
   function getNextTagSound() {
     if (tagQueue.length === 0)
       tagQueue = tagSoundFiles.slice().sort(() => Math.random() - 0.5);
     return tagQueue.pop();
-  }
-  function getNextProjectSound() {
-    if (projectQueue.length === 0)
-      projectQueue = projectSoundFiles.slice().sort(() => Math.random() - 0.5);
-    return projectQueue.pop();
   }
 
   // Play helper with proper resource management
@@ -267,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".project").forEach((project) => {
     const playProjectSound = throttle(() => {
-      const sound = getNextProjectSound();
+      const sound = getNextTagSound();
       playBuffer(sound);
     }, 100); // Minimum 100ms between sounds per project
 

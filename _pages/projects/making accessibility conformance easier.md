@@ -5,7 +5,7 @@ permalink: /accessibility-conformance
 date: 2024-10-10
 tags:
   - design
-description: The end-to-end design and build of an internal tool to help product teams at Service NSW report on accessibility
+description: An internal tool to help Service NSW report on accessibility
 ---
 
 <figure class="wide">

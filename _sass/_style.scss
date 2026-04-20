@@ -19,7 +19,7 @@
   --color-muted: #{$color-stone-600};
   --color-muted-medium: #{$color-stone-400};
   --color-muted-soft: #{$color-stone-100};
-  --color-border: #{$color-stone-300};
+  --color-border: #{$color-stone-100};
   --color-button-bg-inactive: #{$color-stone-100};
   --color-button-bg-active: #{$color-stone-200};
   --color-button-bg-hover: #{$color-stone-300};
@@ -60,8 +60,8 @@
     --color-text-link: #{$color-stone-300};
     --color-muted: #{$color-stone-400};
     --color-muted-medium: #{$color-stone-500};
-    --color-muted-soft: #{$color-stone-600};
-    --color-border: #{$color-stone-700};
+    --color-muted-soft: #{$color-stone-800};
+    --color-border: #{$color-stone-900};
     --color-button-bg-inactive: #{$color-stone-800};
     --color-button-bg-active: #{$color-stone-700};
     --color-button-bg-hover: #{$color-stone-600};
@@ -215,8 +215,9 @@ content {
   width: var(--wrap-normal);
   max-width: var(--wrap-wide);
   p {
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    // margin-block-start: 2rem;
+    // margin-block-end: 2rem;
+    margin-bottom: 1rem;
     margin-left: auto;
     margin-right: auto;
     max-width: var(--wrap-normal);
@@ -224,8 +225,8 @@ content {
   }
   ul,
   ol {
-    margin-block-start: 0.5em;
-    margin-block-end: 0.25em;
+    // margin-block-start: 0.5e;
+    // margin-block-end: 0em;
     max-width: var(--wrap-normal);
   }
   .wide {
@@ -236,13 +237,16 @@ content {
   img {
     margin-block-start: 1rem;
     margin-block-end: 1rem;
+    border-radius: $border-radius-md;
   }
   figure {
     img {
       margin-block-start: 0;
       margin-block-end: 0;
     }
+    gap: $spacing-xs-8;
   }
+
 }
 
 .muted {
@@ -294,12 +298,12 @@ strong {
 time {
   display: block;
   color: var(--color-muted-medium);
-  margin-top: 8px;
-  font-family: $font-family-mono;
-  text-align: center;
+  font-family: $font-family-text;
 }
 
 figure {
+  display: grid;
+  gap: $spacing-xs-8;
   margin: 2rem 0 2rem 0;
   overflow: hidden;
 }
@@ -358,22 +362,23 @@ figcaption {
 
 iframe {
   border-radius: $border-radius-sm;
+  padding: $spacing-lg-32 0;
 }
 
 .intro {
-  font-size: calc(var(--font-size-base) + 2px);
+  font-size: calc(var(--font-size-base) + 0px);
   line-height: 1.4;
-  margin: 0;
-  font-family: $font-family-mono;
+  margin: 0 0 0 0;
+  font-family: $font-family-text;
   color: var(--color-text-secondary);
-  text-align: center;
-  padding: 0 $spacing-lg-32;
+  text-align: left;
+  padding: 0 0;
 }
 
 blockquote,
 .callout,
 code {
-  padding: 1.5em;
+  padding: 1.5rem;
   margin: 0;
   font-size: 1rem;
   font-size: 0.8rem;
@@ -381,8 +386,8 @@ code {
   background: var(--color-bg-secondary);
   color: var(--color-text-secondary);
   border-radius: $border-radius-sm;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
+  margin-block-start: $spacing-lg-32;
+  margin-block-end: $spacing-lg-32;
 
   p {
     margin: 0;
@@ -419,7 +424,7 @@ hr {
 
 ol,
 ul {
-  margin-block-end: 0.5em;
+  margin-block-end: 1.5rem;
   padding-left: 1.5rem;
 }
 li {
@@ -443,11 +448,12 @@ h6 {
 h1 {
   font-family: $font-family-text;
   font-weight: 500;
-  font-size: calc($font-size-base + 5rem);
+  font-size: calc($font-size-base + 1rem);
   line-height: 1.2;
   margin-top: $spacing-xs-8;
+  letter-spacing: -0.5px;
   // margin-bottom: 0;
-  text-align: center;
+  text-align: left;
 }
 
 h2 {
@@ -455,7 +461,7 @@ h2 {
   font-size: calc($font-size-base + 4px);
   // letter-spacing: -0.015em;
   // margin-top: 1rem;
-  // margin-bottom: 0.5em;
+  // margin-bottom: 2rem;
   line-height: 1.3;
 }
 
@@ -464,7 +470,6 @@ h3 {
   font-size: 1rem;
   line-height: 1.3;
   // margin-top: 1em;
-  // margin-bottom: 0.5em;
 }
 
 h4 {
@@ -486,17 +491,17 @@ h5 {
 
 content {
   h2 {
-    margin-top: 2em;
-    margin-bottom: 0.5em;
+    margin-top: $spacing-lg-32;
+    margin-bottom: $spacing-s-16;
   }
 
   h1 + h2,
   h2 + h3 {
-    margin-top: 1em;
+    margin-top: 1rem;
   }
 
   h3 {
-    margin-top: 1.5em;
+    margin-top: 1.5rem;
   }
 }
 
@@ -552,7 +557,9 @@ div.highlight {
   opacity: 0;
   transform: translateY(8px);
   visibility: hidden;
-  transition: opacity 260ms ease, transform 260ms ease,
+  transition:
+    opacity 260ms ease,
+    transform 260ms ease,
     visibility 0ms linear 260ms;
   button {
     color: var(--color-text-primary);
@@ -663,6 +670,21 @@ div.highlight {
   }
 }
 
+.typewriter-cursor {
+  animation: blink 0.8s step-end infinite;
+  margin-left: 1px;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 .experiences {
   grid-column: 3 / span 2;
   display: flex;
@@ -729,8 +751,8 @@ button {
   align-items: center;
   flex: 1; // Allow tags to take available space
   margin-bottom: $spacing-xs-8;
-  padding-bottom: $spacing-xs-8;
-  border-bottom: 1px solid var(--color-border);
+  padding-bottom: $spacing-s-16;
+  border-bottom: 1px solid var(--color-muted-soft);
 
   #filter-toggle,
   .view {
@@ -1090,7 +1112,7 @@ button.tag {
 
   &-image {
     aspect-ratio: 1/1;
-    background-color: var(--color-border);
+    background-color: var(--color-bg-secondary);
     overflow: hidden;
     img {
       width: 100%;
@@ -1099,6 +1121,8 @@ button.tag {
       display: block;
       &.contain {
         object-fit: contain;
+        box-sizing: border-box;
+        // padding: $spacing-m-24; // top, left/right, bottom
         border: none;
       }
     }
@@ -1124,7 +1148,7 @@ button.tag {
     font-family: $font-family-primary;
     font-size: $font-size-base - 1px;
     line-height: 1.5;
-    color: var(--color-muted);
+    color: var(--color-text-secondary);
     font-weight: 400;
   }
 
@@ -1159,15 +1183,51 @@ button.tag {
   display: flex;
 }
 
+.title {
+  margin-bottom: $spacing-lg-32;
+}
+
 .title .project-tags {
   font-family: $font-family-mono;
   position: relative;
   display: flex;
-  justify-content: center;
-  margin-bottom: $spacing-s-16;
+  justify-content: left;
+  margin: $spacing-xs-8 0 0 0;
   gap: $spacing-xs-8;
   .tag {
     font-size: calc($font-size-base - 2px);
+    pointer-events: none;
+    .tag-square {
+      display: none;
+    }
+    // &:hover {
+    //   color: inherit;
+    //   background-color: transparent;
+    //   &[data-filter="design"] {
+    //     color: var(--color-blue-semi);
+    //     .tag-square {
+    //       background: var(--color-blue-semi);
+    //     }
+    //   }
+    //   &[data-filter="music"] {
+    //     color: var(--color-red-semi);
+    //     .tag-square {
+    //       background: var(--color-red-semi);
+    //     }
+    //   }
+    //   &[data-filter="visual"] {
+    //     color: var(--color-emerald-semi);
+    //     .tag-square {
+    //       background: var(--color-emerald-semi);
+    //     }
+    //   }
+    //   &[data-filter="writing"] {
+    //     color: var(--color-amber-semi);
+    //     .tag-square {
+    //       background: var(--color-amber-semi);
+    //     }
+    //   }
+    // }
   }
 }
 
@@ -1295,7 +1355,7 @@ button.tag {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding-bottom: $spacing-lg-32;
-    padding-top: $spacing-xs-8;
+    padding-top: $spacing-s-16;
 
     &.list-view {
       padding-top: 0;
@@ -1326,19 +1386,26 @@ button.tag {
   }
 
   h1 {
-    font-size: calc($font-size-base + 3rem);
+    font-size: calc($font-size-base + 1rem);
+  }
+
+  article, content {
+    img,
+    iframe {
+      border-radius: 0;
+    }
   }
 
   time {
     font-size: $font-size-base - 2px;
     // margin-bottom: $spacing-m-24;
-    text-align: center;
+    // text-align: center;
   }
 
   .intro {
     font-size: calc(var(--font-size-base));
     padding: 0;
-    text-align: center;
+    text-align: left;
   }
 
   .project.inactive {
@@ -1417,14 +1484,11 @@ button.tag {
   }
 
   h1 {
-    font-size: calc($font-size-base + 1.5rem);
+    font-size: calc($font-size-base + 0.6rem);
     // font-weight: 400;
     text-align: left;
   }
 
-  img {
-    border-radius: 0;
-  }
   table {
     border-collapse: collapse;
     margin: $spacing-lg-32 0;
@@ -1534,7 +1598,7 @@ button.tag {
     }
   }
   h1 {
-    font-size: 1.8rem;
+    font-size: calc($font-size-base + 0.4rem);
   }
   .intro {
     font-size: 0.9rem;
