@@ -1,0 +1,39 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - navigation "Main navigation" [ref=e3]:
+    - link "Andreas Thoma - Home" [ref=e5] [cursor=pointer]:
+      - /url: /
+      - text: Andreas Thoma
+    - generic [ref=e6]:
+      - button "Unmute sound" [ref=e7] [cursor=pointer]:
+        - img [ref=e8]
+      - link "View information about Andreas Thome" [ref=e12] [cursor=pointer]:
+        - /url: /info
+        - text: Info
+      - link "Contact Andreas" [ref=e13] [cursor=pointer]:
+        - /url: /contact
+        - text: Contact
+  - main [ref=e14]:
+    - article [ref=e16]:
+      - generic [ref=e17]:
+        - heading "Sayings I like" [level=1] [ref=e18]
+        - time [ref=e20]: "2026"
+      - generic [ref=e22]:
+        - generic [ref=e23]: "\"If you want to go fast, go alone. If you want to go far, go together\""
+        - paragraph [ref=e24]: African proverb.
+      - button "Shuffle saying" [ref=e26] [cursor=pointer]:
+        - img [ref=e27]
+      - separator [ref=e33]
+      - generic [ref=e35]:
+        - heading "Pages linked to this one" [level=3] [ref=e36]
+        - paragraph [ref=e38]: There are no notes linking to this note.
+      - separator [ref=e39]
+  - contentinfo [ref=e40]:
+    - generic [ref=e41]:
+      - generic [ref=e42]: Let's talk –
+      - link "me@andreasthoma.com" [ref=e44] [cursor=pointer]:
+        - /url: mailto:me@andreasthoma.com?subject=Hey%20Andreas!
+    - generic [ref=e45]:
+      - generic [ref=e46]: Thanks for visiting 👋
+      - generic [ref=e47]: Last updated Apr 21, 2026

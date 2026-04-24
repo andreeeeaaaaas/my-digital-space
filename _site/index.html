@@ -23,9 +23,9 @@
   <script src="/assets/js/emoji-hover-once.js" defer></script>
 
   
-  <script src="/assets/js/view-toggle.js"></script>
+  <script src="/assets/js/typewriter-cursor.js"></script>
   <script src="/assets/js/tag-filter.js"></script>
-   
+  
   <!-- <script src="/assets/js/hover-effect.js"></script> -->
 
   
@@ -50,7 +50,9 @@
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-left">
+  
     <a href="/" aria-label="Andreas Thoma - Home">Andreas Thoma</a>
+  
 </div>
 <div class="nav-right">
   
@@ -86,8 +88,8 @@
         stroke-linecap="round"
         stroke-linejoin="round"
       />
-    </svg></button
-  >
+    </svg>
+  </button>
   
   
   <a href="/info" aria-label="View information about Andreas Thome">Info</a>
@@ -132,99 +134,70 @@
       <span id="variable">I help organisations bring value to processes, products, and people through design.</span>
     </p>
   </div>
-  <!-- <div class="experiences">
-    <div class="experience-section">
-      <div class="section-label">NOW</div>
-      <div class="experience-item">
-        <div class="company">
-          <a class ="external"
-            href="https://www.service.nsw.gov.au/about-us/digital-capabilities"
-            >Service NSW</a
-          >
-        </div>
-        <div class="role">Product Design</div>
-      </div>
-    </div>
-    <div class="experience-section">
-      <div class="section-label">PREVIOUSLY</div>
-      <div class="experience-item">
-        <div class="company">
-          <a class ="external" href="https://www.icare.nsw.gov.au/about-us">icare</a>
-        </div>
-        <div class="role">Intelligent Automation</div>
-      </div>
-      <div class="experience-item">
-        <div class="company">
-          <a class ="external"
-            href="https://www.sydney.edu.au/courses/courses/uc/bachelor-of-design-interaction-design.html"
-            >University of Sydney</a
-          >
-        </div>
-        <div class="role">Design Tutor</div>
-      </div>
-    </div>
-  </div> -->
 </section>
 <!-- Toolbar -->
-<div>
-  <div class="toolbar mobile-controls">
-    <div class="" style="display:flex; gap: 6px">
-      <button type="button" class="tag inactive filter" id="filter-toggle">
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewbox="0 0 12 12" fill=""><path fill-rule="evenodd" clip-rule="evenodd" d="M6 5.71429L3.59961 5.71387V12H2.40039V5.71387L0 5.71429V0H6V5.71429ZM1.2002 4.57129H4.7998V1.14258H1.2002V4.57129Z" fill="#"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.28571L9.59961 6.28613V0H8.40039V6.28613L6 6.28571V12H12V6.28571ZM7.2002 7.42871H10.7998V10.8574H7.2002V7.42871Z" fill="#"></path></svg>
-        Filters
-      </button>
-      <button type="button" class="tag inactive" data-filter="design" title="Design" style="display:none">
-          <span class="tag-square"></span>
-        </button>
-        <!-- <button type="button" class="tag" data-filter="research">Research</button> -->
-        <button type="button" class="tag inactive" data-filter="music" title="Music" style="display:none;">
-          <span class="tag-square"></span>
-        </button>
-        <button type="button" class="tag inactive" data-filter="visual" title="Visual" style="display:none;"><span class="tag-square"></span></button>
-        <button type="button" class="tag inactive" data-filter="writing" title="Writing" style="display:none;">
-          <span class="tag-square"></span>
-        </button>
-    </div>
-    <button type="button" class="tag inactive view">
-      <div class="" style="display: flex; width: 14px; height: 12px; flex-direction: column; align-items: flex-start; gap: 10px; border-style: solid; border-width: 2px; border-color: #100F0F);"></div>
-      Grid
-    </button>
-  </div>
-  <div class="toolbar">
-    <div class="tags">
-      <span class="view-label">Filters</span>
-      <button type="button" class="tag inactive" data-filter="design">
-        <span class="tag-square"></span>Design
-      </button>
-      <!-- <button type="button" class="tag" data-filter="research">Research</button> -->
-      <button type="button" class="tag inactive" data-filter="music">
-        <span class="tag-square"></span>Music
-      </button>
-      <button type="button" class="tag inactive" data-filter="visual"><span class="tag-square"></span>Visual</button>
-      <button type="button" class="tag inactive" data-filter="writing">
-        <span class="tag-square"></span>Writing
-      </button>
-    </div>
-    <div class="view-controls">
-      <span class="view-label">View</span>
-      <button type="button" class="tag view-control active" id="list-button">
-        <div class="list-icon" style="">
-          <div class="list-bar" style=""></div>
-          <div class="list-bar" style=""></div>
-        </div>
-        List
-      </button>
-      <button type="button" class="tag view-control" id="grid-button">
-        <div class="grid-icon"></div>
-        Grid
-      </button>
-      
-    </div>
+<div class="toolbar">
+  <div class="tags">
+    <button type="button" class="tag active" data-filter="all">All</button>
+    <span class="tag-sep" aria-hidden="true">•</span>
+    <button type="button" class="tag inactive" data-filter="design">Design</button>
+    <span class="tag-sep" aria-hidden="true">•</span>
+    <button type="button" class="tag inactive" data-filter="music">Music</button>
+    <span class="tag-sep" aria-hidden="true">•</span>
+    <button type="button" class="tag inactive" data-filter="visual">Visual</button>
+    <span class="tag-sep" aria-hidden="true">•</span>
+    <button type="button" class="tag inactive" data-filter="writing">Writing</button>
   </div>
 </div>
 
 <!-- Project Grid -->
 <div class="project-grid list-view">
+  
+  <div class="project" data-tags="writing, design">
+      <a href="/some-advice-partly-for-myself" class="internal-link no-underline">
+         
+        
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">Some advice (partly for myself)</h2>
+              <div class="project-tags-list" aria-label="Tags: writing, design">
+                
+                  <span class="tag-dot writing" aria-hidden="true"></span>
+                
+                  <span class="tag-dot design" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">Reflections after a panel discussion</p>
+          </div>
+          <span class="project-year">2026</span>
+        </div>
+        
+      </a>
+  </div>
+  
+  <div class="project" data-tags="writing">
+      <a href="/sayings-i-like" class="internal-link no-underline">
+         
+        
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">Sayings I like</h2>
+              <div class="project-tags-list" aria-label="Tags: writing">
+                
+                  <span class="tag-dot writing" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">Some in English, some not</p>
+          </div>
+          <span class="project-year">2026</span>
+        </div>
+        
+      </a>
+  </div>
   
   <div class="project" data-tags="design">
       <a href="/orbit" class="internal-link no-underline">
@@ -239,16 +212,20 @@
           </div>
         </div>
         
-        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
-          <h2 class="project-title">Orbit</h2>
-          <div class="project-tags-list" aria-label="Tags: design">
-            
-              <span class="tag-dot design" aria-hidden="true"></span>
-            
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">Orbit</h2>
+              <div class="project-tags-list" aria-label="Tags: design">
+                
+                  <span class="tag-dot design" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">A retro-futuristic design tool for Figma</p>
           </div>
+          <span class="project-year">2026</span>
         </div>
-        <p class="project-description">
-          A retro-futuristic design tool for Figma</p>
         
       </a>
   </div>
@@ -266,16 +243,20 @@
           </div>
         </div>
         
-        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
-          <h2 class="project-title">Papous Garden</h2>
-          <div class="project-tags-list" aria-label="Tags: visual">
-            
-              <span class="tag-dot visual" aria-hidden="true"></span>
-            
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">Papous Garden</h2>
+              <div class="project-tags-list" aria-label="Tags: visual">
+                
+                  <span class="tag-dot visual" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">A short film of my grandfather in his garden</p>
           </div>
+          <span class="project-year">2025</span>
         </div>
-        <p class="project-description">
-          A short film of my grandfather in his garden</p>
         
       </a>
   </div>
@@ -295,18 +276,22 @@
           </div>
         </div>
         
-        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
-          <h2 class="project-title">My digital space</h2>
-          <div class="project-tags-list" aria-label="Tags: design, visual">
-            
-              <span class="tag-dot design" aria-hidden="true"></span>
-            
-              <span class="tag-dot visual" aria-hidden="true"></span>
-            
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">My digital space</h2>
+              <div class="project-tags-list" aria-label="Tags: design, visual">
+                
+                  <span class="tag-dot design" aria-hidden="true"></span>
+                
+                  <span class="tag-dot visual" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">A place to share things I create</p>
           </div>
+          <span class="project-year">2025</span>
         </div>
-        <p class="project-description">
-          A place to share things I create</p>
         
       </a>
   </div>
@@ -324,209 +309,51 @@
           </div>
         </div>
         
-        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
-          <h2 class="project-title">Patina</h2>
-          <div class="project-tags-list" aria-label="Tags: music">
-            
-              <span class="tag-dot music" aria-hidden="true"></span>
-            
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">Patina</h2>
+              <div class="project-tags-list" aria-label="Tags: music">
+                
+                  <span class="tag-dot music" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">Live mix and accompanying interview, aired on fbi radio</p>
           </div>
+          <span class="project-year">2025</span>
         </div>
-        <p class="project-description">
-          Live mix and accompanying interview, aired on fbi radio</p>
         
       </a>
   </div>
   
-  <div class="project" data-tags="design">
-      <a href="/accessibility-conformance" class="internal-link no-underline">
+  <div class="project" data-tags="writing">
+      <a href="/what-s-a-digital-space" class="internal-link no-underline">
          
         
         <div class="project-image">
-          <img style="margin-block-end: 0em" class="contain" src="assets/projects/Frame%207.png">
-          <div class="project-tags" aria-label="Tags: design">
-            
-              <span class="tag-dot design" aria-hidden="true"></span>
-            
-          </div>
-        </div>
-        
-        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
-          <h2 class="project-title">Making accessibility reporting effortless</h2>
-          <div class="project-tags-list" aria-label="Tags: design">
-            
-              <span class="tag-dot design" aria-hidden="true"></span>
-            
-          </div>
-        </div>
-        <p class="project-description">
-          An internal tool to help Service NSW report on accessibility</p>
-        
-      </a>
-  </div>
-  
-  <div class="project" data-tags="music">
-      <a href="/parao" class="internal-link no-underline">
-         
-        
-        <div class="project-image">
-          <img style="margin-block-end: 0em" src="assets/studio/0R6A6864.jpeg">
-          <div class="project-tags" aria-label="Tags: music">
-            
-              <span class="tag-dot music" aria-hidden="true"></span>
-            
-          </div>
-        </div>
-        
-        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
-          <h2 class="project-title">Parao</h2>
-          <div class="project-tags-list" aria-label="Tags: music">
-            
-              <span class="tag-dot music" aria-hidden="true"></span>
-            
-          </div>
-        </div>
-        <p class="project-description">
-          A one hour solo live performance for a night curated by Moral Laxa</p>
-        
-      </a>
-  </div>
-  
-  <div class="project" data-tags="design, writing">
-      <a href="/co-designing-consent" class="internal-link no-underline">
-         
-        
-        <div class="project-image">
-          <img style="margin-block-end: 0em" src="assets/co-designing-consent-popup.jpeg">
-          <div class="project-tags" aria-label="Tags: design, writing">
-            
-              <span class="tag-dot design" aria-hidden="true"></span>
+          <img style="aspect-ratio: 3/2" src="assets/digital-space.jpg">
+          <div class="project-tags" aria-label="Tags: writing">
             
               <span class="tag-dot writing" aria-hidden="true"></span>
             
           </div>
         </div>
         
-        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
-          <h2 class="project-title">Co-designing consent</h2>
-          <div class="project-tags-list" aria-label="Tags: design, writing">
-            
-              <span class="tag-dot design" aria-hidden="true"></span>
-            
-              <span class="tag-dot writing" aria-hidden="true"></span>
-            
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">What's a digital space?</h2>
+              <div class="project-tags-list" aria-label="Tags: writing">
+                
+                  <span class="tag-dot writing" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">How is a digital space different from a website?</p>
           </div>
+          <span class="project-year">2025</span>
         </div>
-        <p class="project-description">
-          An honours thesis on how to best co-design primary school consent education</p>
-        
-      </a>
-  </div>
-  
-  <div class="project" data-tags="design">
-      <a href="/eli" class="internal-link no-underline">
-         
-        
-        <div class="project-image">
-          <img style="margin-block-end: 0em" src="assets/projects/eli.jpg" alt="eli-on-a-desk">
-          <div class="project-tags" aria-label="Tags: design">
-            
-              <span class="tag-dot design" aria-hidden="true"></span>
-            
-          </div>
-        </div>
-        
-        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
-          <h2 class="project-title">Eli</h2>
-          <div class="project-tags-list" aria-label="Tags: design">
-            
-              <span class="tag-dot design" aria-hidden="true"></span>
-            
-          </div>
-        </div>
-        <p class="project-description">
-          An integrated physical and digital product to support young students learning online</p>
-        
-      </a>
-  </div>
-  
-  <div class="project" data-tags="music">
-      <a href="/dune" class="internal-link no-underline">
-         
-        
-        <div class="project-image">
-          <img style="margin-block-end: 0em" src="/assets/studio/ulladulla.webp">
-          <div class="project-tags" aria-label="Tags: music">
-            
-              <span class="tag-dot music" aria-hidden="true"></span>
-            
-          </div>
-        </div>
-        
-        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
-          <h2 class="project-title">Dune</h2>
-          <div class="project-tags-list" aria-label="Tags: music">
-            
-              <span class="tag-dot music" aria-hidden="true"></span>
-            
-          </div>
-        </div>
-        <p class="project-description">
-          A functional 4-track digital release on Sydney based label Nightime Drama</p>
-        
-      </a>
-  </div>
-  
-  <div class="project" data-tags="visual">
-      <a href="/sunrisecambodia" class="internal-link no-underline">
-         
-        
-        <div class="project-image">
-          <img style="margin-block-end: 0em" src="assets/studio/sunrise-2.jpg">
-          <div class="project-tags" aria-label="Tags: visual">
-            
-              <span class="tag-dot visual" aria-hidden="true"></span>
-            
-          </div>
-        </div>
-        
-        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
-          <h2 class="project-title">Sunrise Cambodia</h2>
-          <div class="project-tags-list" aria-label="Tags: visual">
-            
-              <span class="tag-dot visual" aria-hidden="true"></span>
-            
-          </div>
-        </div>
-        <p class="project-description">
-          Photos from 3 months spent volunteering in Cambodia</p>
-        
-      </a>
-  </div>
-  
-  <div class="project" data-tags="music">
-      <a href="/cloudmoments" class="internal-link no-underline">
-         
-        
-        <div class="project-image">
-          <img style="margin-block-end: 0em" src="/assets/studio/clouds.webp">
-          <div class="project-tags" aria-label="Tags: music">
-            
-              <span class="tag-dot music" aria-hidden="true"></span>
-            
-          </div>
-        </div>
-        
-        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
-          <h2 class="project-title">Cloud Moments</h2>
-          <div class="project-tags-list" aria-label="Tags: music">
-            
-              <span class="tag-dot music" aria-hidden="true"></span>
-            
-          </div>
-        </div>
-        <p class="project-description">
-          A collection of MicroKorg pieces, inspired by the clouds that rolled past my bedroom window</p>
         
       </a>
   </div>
@@ -550,49 +377,247 @@
           </div>
         </div>
         
-        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
-          <h2 class="project-title">Inspiration garden</h2>
-          <div class="project-tags-list" aria-label="Tags: writing, design, music, visual">
-            
-              <span class="tag-dot writing" aria-hidden="true"></span>
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">Inspiration garden</h2>
+              <div class="project-tags-list" aria-label="Tags: writing, design, music, visual">
+                
+                  <span class="tag-dot writing" aria-hidden="true"></span>
+                
+                  <span class="tag-dot design" aria-hidden="true"></span>
+                
+                  <span class="tag-dot music" aria-hidden="true"></span>
+                
+                  <span class="tag-dot visual" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">A list of places I find myself growing new ideas or thinking on existing ones</p>
+          </div>
+          <span class="project-year">2024</span>
+        </div>
+        
+      </a>
+  </div>
+  
+  <div class="project" data-tags="design">
+      <a href="/accessibility-conformance" class="internal-link no-underline">
+         
+        
+        <div class="project-image">
+          <img style="margin-block-end: 0em" class="contain" src="assets/projects/Frame%207.png">
+          <div class="project-tags" aria-label="Tags: design">
             
               <span class="tag-dot design" aria-hidden="true"></span>
             
+          </div>
+        </div>
+        
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">Making accessibility reporting effortless</h2>
+              <div class="project-tags-list" aria-label="Tags: design">
+                
+                  <span class="tag-dot design" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">An internal tool to help Service NSW report on accessibility</p>
+          </div>
+          <span class="project-year">2024</span>
+        </div>
+        
+      </a>
+  </div>
+  
+  <div class="project" data-tags="music">
+      <a href="/parao" class="internal-link no-underline">
+         
+        
+        <div class="project-image">
+          <img style="margin-block-end: 0em" src="assets/studio/0R6A6864.jpeg">
+          <div class="project-tags" aria-label="Tags: music">
+            
               <span class="tag-dot music" aria-hidden="true"></span>
+            
+          </div>
+        </div>
+        
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">Parao</h2>
+              <div class="project-tags-list" aria-label="Tags: music">
+                
+                  <span class="tag-dot music" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">A one hour solo live performance for a night curated by Moral Laxa</p>
+          </div>
+          <span class="project-year">2024</span>
+        </div>
+        
+      </a>
+  </div>
+  
+  <div class="project" data-tags="design, writing">
+      <a href="/co-designing-consent" class="internal-link no-underline">
+         
+        
+        <div class="project-image">
+          <img style="margin-block-end: 0em" src="assets/co-designing-consent-popup.jpeg">
+          <div class="project-tags" aria-label="Tags: design, writing">
+            
+              <span class="tag-dot design" aria-hidden="true"></span>
+            
+              <span class="tag-dot writing" aria-hidden="true"></span>
+            
+          </div>
+        </div>
+        
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">Co-designing consent</h2>
+              <div class="project-tags-list" aria-label="Tags: design, writing">
+                
+                  <span class="tag-dot design" aria-hidden="true"></span>
+                
+                  <span class="tag-dot writing" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">An honours thesis on how to best co-design primary school consent education</p>
+          </div>
+          <span class="project-year">2023</span>
+        </div>
+        
+      </a>
+  </div>
+  
+  <div class="project" data-tags="design">
+      <a href="/eli" class="internal-link no-underline">
+         
+        
+        <div class="project-image">
+          <img style="margin-block-end: 0em" src="assets/projects/eli.jpg" alt="eli-on-a-desk">
+          <div class="project-tags" aria-label="Tags: design">
+            
+              <span class="tag-dot design" aria-hidden="true"></span>
+            
+          </div>
+        </div>
+        
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">Eli</h2>
+              <div class="project-tags-list" aria-label="Tags: design">
+                
+                  <span class="tag-dot design" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">An integrated physical and digital product to support young students learning online</p>
+          </div>
+          <span class="project-year">2022</span>
+        </div>
+        
+      </a>
+  </div>
+  
+  <div class="project" data-tags="music">
+      <a href="/dune" class="internal-link no-underline">
+         
+        
+        <div class="project-image">
+          <img style="margin-block-end: 0em" src="/assets/studio/ulladulla.webp">
+          <div class="project-tags" aria-label="Tags: music">
+            
+              <span class="tag-dot music" aria-hidden="true"></span>
+            
+          </div>
+        </div>
+        
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">Dune</h2>
+              <div class="project-tags-list" aria-label="Tags: music">
+                
+                  <span class="tag-dot music" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">A functional 4-track digital release on Sydney based label Nightime Drama</p>
+          </div>
+          <span class="project-year">2021</span>
+        </div>
+        
+      </a>
+  </div>
+  
+  <div class="project" data-tags="visual">
+      <a href="/sunrisecambodia" class="internal-link no-underline">
+         
+        
+        <div class="project-image">
+          <img style="margin-block-end: 0em" src="assets/studio/sunrise-2.jpg">
+          <div class="project-tags" aria-label="Tags: visual">
             
               <span class="tag-dot visual" aria-hidden="true"></span>
             
           </div>
         </div>
-        <p class="project-description">
-          A list of places I find myself growing new ideas or thinking on existing ones</p>
+        
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">Sunrise Cambodia</h2>
+              <div class="project-tags-list" aria-label="Tags: visual">
+                
+                  <span class="tag-dot visual" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">Photos from 3 months spent volunteering in Cambodia</p>
+          </div>
+          <span class="project-year">2017</span>
+        </div>
         
       </a>
   </div>
   
-  <div class="project" data-tags="writing">
-      <a href="/what-s-a-digital-space" class="internal-link no-underline">
+  <div class="project" data-tags="music">
+      <a href="/cloudmoments" class="internal-link no-underline">
          
         
         <div class="project-image">
-          <img style="aspect-ratio: 3/2" src="assets/digital-space.jpg">
-          <div class="project-tags" aria-label="Tags: writing">
+          <img style="margin-block-end: 0em" src="/assets/studio/clouds.webp">
+          <div class="project-tags" aria-label="Tags: music">
             
-              <span class="tag-dot writing" aria-hidden="true"></span>
+              <span class="tag-dot music" aria-hidden="true"></span>
             
           </div>
         </div>
         
-        <div style="display: flex; align-items: center; gap: 12px; align-self: stretch;">
-          <h2 class="project-title">What's a digital space?</h2>
-          <div class="project-tags-list" aria-label="Tags: writing">
-            
-              <span class="tag-dot writing" aria-hidden="true"></span>
-            
+        <div class="project-title-row">
+          <div class="project-text">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h2 class="project-title">Cloud Moments</h2>
+              <div class="project-tags-list" aria-label="Tags: music">
+                
+                  <span class="tag-dot music" aria-hidden="true"></span>
+                
+              </div>
+            </div>
+            <p class="project-description">A collection of MicroKorg pieces, inspired by the clouds that rolled past my bedroom window</p>
           </div>
+          <span class="project-year">2016</span>
         </div>
-        <p class="project-description">
-          How is a digital space different from a website?</p>
         
       </a>
   </div>
@@ -612,7 +637,7 @@ If you would like to work on one together, please <a href="/contact" class="emoj
 </div>
 <div class="footer-year">
   <div class="label" id="visit-label">Thanks for visiting 👋</div>
-  <div class="detail">Last updated Apr 20, 2026</div>
+  <div class="detail">Last updated Apr 24, 2026</div>
 </div>
 <!-- ~ ~ ~ ~ ~ ~
 <br>

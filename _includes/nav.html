@@ -1,8 +1,16 @@
 <div class="nav-left">
+  {% if page.id == 'home' %}
     <a href="/" aria-label="Andreas Thoma - Home">Andreas Thoma</a>
+  {% else %}
+    <button class="circle-btn nav-back-btn" onclick="history.length > 1 ? history.back() : window.location.href = '/'" aria-label="Go back">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M3.52342 8.06639L7.99341 12.5364L6.81508 13.7147L0.333422 7.23306L6.81508 0.7514L7.99341 1.9297L3.52342 6.39972H13.6667V8.06639H3.52342Z" fill="currentColor"/>
+      </svg>
+    </button>
+  {% endif %}
 </div>
 <div class="nav-right">
-  
+  {% if page.id == 'home' %}
   <button class="emoji-hover" data-emoji="🎶" id="sound-toggle" aria-label="Toggle sound" aria-pressed="false">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -35,9 +43,9 @@
         stroke-linecap="round"
         stroke-linejoin="round"
       />
-    </svg></button
-  >
-  
+    </svg>
+  </button>
+  {% endif %}
   
   <a href="/info" aria-label="View information about Andreas Thome">Info</a>
   <span class="muted show-mobile-only" aria-hidden="true">/</span>

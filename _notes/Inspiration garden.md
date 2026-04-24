@@ -1,6 +1,6 @@
 ---
 title: Inspiration garden
-published: 2024-11-10
+date: 2024-11-10
 tags:
   - writing
   - design
@@ -11,6 +11,8 @@ description: A list of places I find myself growing new ideas or thinking on exi
 <figure>
     <img src="assets/inspiration-garden.webp" class="contain" style="height: 100%; width: 100%; aspect-ratio: 4/3;" alt="an 8 bit image of a seedling">
 </figure>
+
+One particularly fun source of inspiration is this list of [[Sayings I like|sayings I like]].
 
 ## People
 

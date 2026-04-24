@@ -1,6 +1,6 @@
 ---
 title: What's a digital space?
-published: 2025-01-10
+date: 2025-01-10
 tags:
   - writing
 description: How is a digital space different from a website?
