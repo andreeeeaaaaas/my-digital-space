@@ -54,6 +54,31 @@
     <a href="/" aria-label="Andreas Thoma - Home">Andreas Thoma</a>
   
 </div>
+
+<script>
+  function handleNavBack(event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    var hasSameOriginReferrer = false;
+
+    if (document.referrer) {
+      try {
+        hasSameOriginReferrer = new URL(document.referrer).origin === window.location.origin;
+      } catch (error) {
+        hasSameOriginReferrer = false;
+      }
+    }
+
+    if (hasSameOriginReferrer && window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+
+    window.location.assign("/");
+  }
+</script>
 <div class="nav-right">
   
   <button class="emoji-hover" data-emoji="🎶" id="sound-toggle" aria-label="Toggle sound" aria-pressed="false">

@@ -55,13 +55,38 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-left">
   
-    <button class="circle-btn nav-back-btn" onclick="history.length > 1 ? history.back() : window.location.href = '/'" aria-label="Go back">
+    <button class="circle-btn nav-back-btn" onclick="handleNavBack(event)" aria-label="Go back">
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
         <path d="M3.52342 8.06639L7.99341 12.5364L6.81508 13.7147L0.333422 7.23306L6.81508 0.7514L7.99341 1.9297L3.52342 6.39972H13.6667V8.06639H3.52342Z" fill="currentColor"/>
       </svg>
     </button>
   
 </div>
+
+<script>
+  function handleNavBack(event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    var hasSameOriginReferrer = false;
+
+    if (document.referrer) {
+      try {
+        hasSameOriginReferrer = new URL(document.referrer).origin === window.location.origin;
+      } catch (error) {
+        hasSameOriginReferrer = false;
+      }
+    }
+
+    if (hasSameOriginReferrer && window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+
+    window.location.assign("/");
+  }
+</script>
 <div class="nav-right">
   
   
