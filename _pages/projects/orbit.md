@@ -43,9 +43,9 @@ The preview section was super fun to ideate—keeping the space-aesthetic in min
 If you would like, you can [launch Orbit in Figma](https://www.figma.com/community/plugin/1616762647761910788/orbit).
 
 ## Examples
-
-<img src="assets/projects/orbit-examples3.png">
-<img src="assets/projects/orbit-examples4.png">
-<img src="assets/projects/orbit-examples5.png">
-<img src="assets/projects/orbit-examples6.png">
-<img src="assets/projects/orbit-examples2.png">
+<img class="bt bl br bb" src="assets/projects/orbit-examples7.webp">
+<img class="bt bl br bb" src="assets/projects/orbit-examples3.webp">
+<img class="bt bl br bb" src="assets/projects/orbit-examples4.webp">
+<img class="bt bl br bb" src="assets/projects/orbit-examples5.webp">
+<img class="bt bl br bb" src="assets/projects/orbit-examples6.webp">
+<img class="bt bl br bb" src="assets/projects/orbit-examples2.webp">

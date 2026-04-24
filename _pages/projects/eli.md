@@ -30,12 +30,8 @@ Eli was created during the COVID lockdown in 2021, our group primarily working o
 
 Part of the [Interactive Product Design Studio](https://www.sydney.edu.au/units/DECO3200) at the University of Sydney.
 
-<figure>
-    <img src="assets/projects/eli-logo.jpg" alt="eli-logo" style="border: solid lightgrey 1px">
-</figure>
-
 ## Awards
-Shortlisted for University of Sydney Architecture, Design and Planning Industry award
+🏆 University of Sydney Architecture, Design and Planning Industry award
 
 ## Acknowledgements
 ### Team
