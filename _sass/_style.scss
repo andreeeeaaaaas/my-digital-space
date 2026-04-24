@@ -1372,18 +1372,23 @@ button {
     border-radius: 0;
   }
   .tags {
-    gap: $spacing-s-16;
+    column-gap: $spacing-s-16;
   }
-  .tag-sep {
-    display: none;
+  .toolbar {
+    .tag-sep {
+      display: none;
+    }
   }
 
   .project-grid.list-view .project {
     padding: $spacing-s-16 0;
     min-height: 0; /* allows vertical shrinking if needed */
 
+    .project-title-row {
+      gap: $spacing-xs-8;
+    }
     .project-tags-list {
-      // display: none;
+      display: none;
       gap: 0px;
     }
     &:hover {
@@ -1426,7 +1431,8 @@ button {
       text-align: left;
     }
     .detail {
-      white-space: nowrap;
+      line-height: 1.2;
+      text-wrap: balance;
     }
     #visit-label {
       text-align: left;
@@ -1465,9 +1471,7 @@ button {
     .intro {
       font-size: 0.9rem;
     }
-    time {
-      font-size: 0.8rem;
-    }
+
     .experiences {
       gap: $spacing-m-24;
       .experience-item {
