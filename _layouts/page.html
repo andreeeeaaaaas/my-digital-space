@@ -6,20 +6,13 @@ layout: default
     <div class="title">
       <h1>{{ page.title }}</h1>
       <div class="header-information">
-        {% if page.description %}
-    
-        <!-- <p class="intro">{{ page.description }}</p> -->
-        <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">
-          {% if page.type != 'pages' %} {{ page.date | date: "%Y" }} {% endif %}
-        </time>
-        {% endif %}
-        <!-- <div class="project-tags" aria-label="Tags: {{ page.tags | join: ', ' }}">
+        <div class="project-tags" aria-label="Tags: {{ page.tags | join: ', ' }}">
           {% for tag in page.tags %}
-          <div class="tag active" data-filter="{{ tag }}">
-            <span class="tag-square"></span>{{ tag | capitalize }}
-          </div>
+            <span class="tag active" data-filter="{{ tag | downcase }}">{{ tag | capitalize }}</span>
+            {% unless forloop.last %}<span class="tag-sep" aria-hidden="true">•</span>{% endunless %}
           {% endfor %}
-        </div> -->
+        </div>
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y" }}</time>
       </div>
     </div>
     {{ content }} 
