@@ -46,10 +46,9 @@
     </svg>
   </button>
   {% endif %}
-  
-  <a href="/info" aria-label="View information about Andreas Thome">Info</a>
-  <span class="muted show-mobile-only" aria-hidden="true">/</span>
-  <a href="/contact" aria-label="Contact Andreas">Contact</a>
+  {% if page.id != 'info' %}
+    <a href="/info" aria-label="View information about Andreas Thome">Info</a>
+  {% endif %}
 </div>
 
 <!-- This is a placeholder, until refactored to be nice

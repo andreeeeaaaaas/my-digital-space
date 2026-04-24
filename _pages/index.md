@@ -86,4 +86,4 @@ sound: true
 <br>
 <br>
 I've got lots more ideas and projects I'm working on. <br><br>
-If you would like to work on one together, please <a href="/contact" class="emoji-hover" data-emoji="📞">reach out</a>.
+If you would like to work on one together, please <a href="/info#contact" class="emoji-hover" data-emoji="📞">reach out</a>.

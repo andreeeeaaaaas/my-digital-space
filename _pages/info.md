@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Info
+id: info
 permalink: /info
 ---
 <!-- My design work solves complex product and service challenges through deep-research, strategic thinking, and considered experimentation. Beginning with understanding each element in a context and system → resulting in work that feels intuitive and refined. -->
@@ -10,8 +11,9 @@ permalink: /info
 <!-- Whether it's a product or a service; a collection of music or a short film; I value commitment to thoughtful experimentation that guides towards a clear purpose.  -->
 
 <!-- **The result– I hope– is work that communicates with immediacy while inviting deeper engagement.** -->
-I'm Andreas 👋 – I make things for people to use, hear, and see.
-
+<figure class="">
+  <img src ="assets/me-coffee.jpg" alt="A black and white photo of me and a coffee">
+</figure>
 ## Experience
 Currently designing at [frog](https://www.frog.co/).
 
@@ -23,19 +25,20 @@ Prior to now, I have:
 - designed educational material for the not-for-profit education startup [Consent Labs](https://www.consentlabs.org.au/)
 - co-directed an out of hours school care (_great fun, terribly exhausting_)
 
-## Me
 My spare time is filled with things like:
 - being in the ocean
 - endeavouring to become *~~bilingual~~* tri-lingual (¡Hola! or Υιασου!)
 - playing with [[Ziggy]]
 - making strange music with [[An overly complex system|overly complicated systems]]
+<hr>
+## Contact
+### Email
 
-## More
-LinkedIn– <a href="https://www.linkedin.com/in/andreas-thoma-7636a4136/">Andreas Thoma</a><br>
-Bandcamp– <a href="https://andreeeeaaaaas.bandcamp.com/">andreeeeaaaaas</a><br>
-Soundcloud– <a href="https://soundcloud.com/andreeeeaaaaas">andreeeeaaaaas</a><br>
+<a class="external emoji-hover" href="mailto:me@andreasthoma.com">me@andreasthoma.com</a>
 
-<figure class="">
-  <img src ="assets/me-coffee.jpg" alt="A black and white photo of me and a coffee">
-  <figcaption>Coffee – powering me, and this website</figcaption>
-</figure>
+### Other
+
+LinkedIn– <a class="external" href="https://www.linkedin.com/in/andreas-thoma-7636a4136/">Andreas Thoma</a><br>
+Bandcamp– <a class="external" href="https://andreeeeaaaaas.bandcamp.com/">andreeeeaaaaas</a><br>
+Soundcloud– <a class="external" href="https://soundcloud.com/andreeeeaaaaas">andreeeeaaaaas</a>
+
