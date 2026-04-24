@@ -37,5 +37,5 @@ Soundcloud– <a href="https://soundcloud.com/andreeeeaaaaas">andreeeeaaaaas</a>
 
 <figure class="">
   <img src ="assets/me-coffee.jpg" alt="A black and white photo of me and a coffee">
-  <figcaption>Coffee– powering me, and this website</figcaption>
+  <figcaption>Coffee – powering me, and this website</figcaption>
 </figure>

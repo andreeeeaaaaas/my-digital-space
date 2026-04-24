@@ -77,7 +77,7 @@
     --color-blue-hard: #{$flexoki-blue-300};
     --color-blue-bg: #{$flexoki-blue-950};
     --color-emerald-soft: #{$flexoki-green-300};
-    --color-emerald-medium: #{$flexoki-green-400};
+    --color-emerald-medium: #{$flexoki-green-300};
     --color-emerald-semi: #{$flexoki-green-500};
     --color-emerald-hard: #{$flexoki-green-300};
     --color-emerald-bg: #{$flexoki-green-950};
@@ -221,7 +221,7 @@ content {
     margin-left: auto;
     margin-right: auto;
     max-width: var(--wrap-normal);
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary);
   }
   ul,
   ol {
@@ -366,6 +366,7 @@ img {
 figcaption {
   text-align: center;
   font-size: $font-size-base - 2px;
+  font-family: $font-family-mono;
   color: var(--color-muted);
   padding: 1em 0 0 0;
   a {
@@ -420,6 +421,13 @@ blockquote, .callout {
     font-size: 0.9rem;
     border-radius: $border-radius-md;
     border-left: none;
+    background: none;  
+    margin-left: -$spacing-s-16;
+    padding: $spacing-s-16;
+    &:hover {
+      background-color: var(--color-bg-secondary);
+    }
+
     a {
       // color: var(--color-text-secondary);
       font-weight: 450;
@@ -440,7 +448,6 @@ hr {
 
 ol,
 ul {
-  color: var(--color-text-secondary);
   margin-block-end: 1.5rem;
   padding-left: 1.5rem;
 }
@@ -899,6 +906,7 @@ button {
   min-width: 0; /* allows shrinking */
   min-height: 0; /* allows vertical shrinking if needed */
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: 4px;
 
@@ -946,7 +954,7 @@ button {
   &-year {
     font-family: $font-family-mono;
     font-size: calc(var(--font-size-base));
-    color: var(--color-muted-medium);
+    color: var(--color-muted);
     white-space: nowrap;
     flex-shrink: 0;
   }
@@ -1043,10 +1051,6 @@ button {
   display: flex;
   flex-direction: column;
   gap: 0;
-  .tag-dot {
-    width: 8px;
-    height: 8px;
-  }
 }
 .project-grid.list-view .project {
   display: flex;
@@ -1089,7 +1093,7 @@ button {
 
 // Sayings
 .sayings-container {
-  margin: $spacing-lg-32 0 $spacing-s-16;
+  margin: 0 0 $spacing-s-16;
 }
 
 .saying {
@@ -1172,7 +1176,7 @@ button {
   align-items: flex-start;
   gap: $spacing-s-16;
   max-width: 1440px;
-  padding: $spacing-xxl-128 $spacing-m-24 $spacing-lg-32;
+  padding: $spacing-xxl-128 $spacing-m-24 $spacing-xl-64;
   // margin-top: $spacing-xxl-128;
 
   .label {
@@ -1368,22 +1372,17 @@ button {
 
   .project-grid.list-view .project {
     padding: $spacing-s-16 0;
+    min-height: 0; /* allows vertical shrinking if needed */
 
     .project-tags-list {
-      display: none;
+      // display: none;
+      gap: 0px;
+    }
+    &:hover {
+      border-radius: 0px;
     }
 
-    &:hover {
-      background-color: var(--color-bg-secondary);
-      padding-left: $spacing-xs-8;
-      padding-right: $spacing-xs-8;
-      margin-left: -$spacing-xs-8;
-      margin-right: -$spacing-xs-8;
-      border-radius: $border-radius-md;
-      // border: none;
-      outline: none;
-    }
-    .project-description {
+    .project-description, .project-year {
       font-size: calc(var(--font-size-base) - 1px);
     }
   }

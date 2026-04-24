@@ -18,50 +18,50 @@ description: Some in English, some not
 </div>
 
 <div class="sayings-container">
-  <div class="saying" data-saying>
-    <div class="saying-quote">"Som plommen i egget"</div>
-    <p class="saying-explanation">Norwegian for 'Like the yolk in the egg'. To be in a very comfortable situation.</p>
-  </div>
-  <div class="saying" data-saying>
-    <div class="saying-quote">"No dar papaya"</div>
-    <p class="saying-explanation">Spanish for 'don't give papaya'. Don't give reason for misfortune.</p>
-  </div>
-  <div class="saying" data-saying>
-    <div class="saying-quote">"The biggest problem with communication is the illusion that it has occurred"<br><br>– George Bernard Shaw</div>
-    <p class="saying-explanation">George Bernard Shaw.</p>
-  </div>
-  <div class="saying" data-saying>
-    <div class="saying-quote">"You can use an eraser on the drafting table, or a sledgehammer on the construction site"</div>
-    <p class="saying-explanation">Frank Lloyd Wright.</p>
-  </div>
-  <div class="saying" data-saying>
-    <div class="saying-quote">"The future never arrives all at once"</div>
-    <p class="saying-explanation">Neil Gaiman.</p>
-  </div>
-  <div class="saying" data-saying>
-    <div class="saying-quote">L'appétit vient en mangeant</div>
-    <p class="saying-explanation">French for 'appetite comes with eating'. The doing inspires more doing.</p>
-  </div>
-  <div class="saying" data-saying>
-    <div class="saying-quote">"Specialisation is for insects"</div>
-    <p class="saying-explanation">Robert A. Heinlein.</p>
-  </div>
-  <div class="saying" data-saying>
-    <div class="saying-quote">"A long muscle is a strong muscle"</div>
-    <p class="saying-explanation">African proverb.</p>
-  </div>
-  <div class="saying" data-saying>
-    <div class="saying-quote">Fasouli, to fasouli, yemizi to sakouli</div>
-    <p class="saying-explanation">Greek for 'bean by bean, you fill the sack'.</p>
-  </div>
-  <div class="saying" data-saying>
-    <div class="saying-quote">"If you want to go fast, go alone. If you want to go far, go together"</div>
-    <p class="saying-explanation">African proverb.</p>
-  </div>
-  <div class="saying" data-saying>
-    <div class="saying-quote">"Sometimes it's better to travel than to arrive"</div>
-    <p class="saying-explanation">Robert M. Pirsig, Zen and the Art of Motorcycle Maintenance.</p>
-  </div>
+  <blockquote class="note" data-saying>
+    <p>"Som plommen i egget"</p>
+    <p>Norwegian for 'Like the yolk in the egg'.</p>
+  </blockquote>
+  <blockquote class="note" data-saying>
+    <p>"No dar papaya"</p>
+    <p>Spanish for 'don't give papaya'. Don't give reason for misfortune.</p>
+  </blockquote>
+  <blockquote class="note" data-saying>
+    <p>"The biggest problem with communication is the illusion that it has occurred"</p>
+    <p>George Bernard Shaw.</p>
+  </blockquote>
+  <blockquote class="note" data-saying>
+    <p>"You can use an eraser on the drafting table, or a sledgehammer on the construction site"</p>
+    <p>Frank Lloyd Wright.</p>
+  </blockquote>
+  <blockquote class="note" data-saying>
+    <p>"The future never arrives all at once"</p>
+    <p>Neil Gaiman.</p>
+  </blockquote>
+  <blockquote class="note" data-saying>
+    <p>"L'appétit vient en mangeant"</p>
+    <p>French for 'appetite comes with eating'.</p>
+  </blockquote>
+  <blockquote class="note" data-saying>
+    <p>"Specialisation is for insects"</p>
+    <p>Robert A. Heinlein.</p>
+  </blockquote>
+  <blockquote class="note" data-saying>
+    <p>"A long muscle is a strong muscle"</p>
+    <p>African proverb.</p>
+  </blockquote>
+  <blockquote class="note" data-saying>
+    <p>"Fasouli, to fasouli, yemizi to sakouli"</p>
+    <p>Greek for 'bean by bean, you fill the sack'.</p>
+  </blockquote>
+  <blockquote class="note" data-saying>
+    <p>"If you want to go fast, go alone. If you want to go far, go together"</p>
+    <p>African proverb.</p>
+  </blockquote>
+  <blockquote class="note" data-saying>
+    <p>"Sometimes it's better to travel than to arrive"</p>
+    <p>Robert M. Pirsig, Zen and the Art of Motorcycle Maintenance.</p>
+  </blockquote>
 </div>
 <br>
 <br>
@@ -70,18 +70,40 @@ description: Some in English, some not
 <script>
 (function () {
   const sayings = Array.from(document.querySelectorAll('[data-saying]'));
-  let current = Math.floor(Math.random() * sayings.length);
+  if (!sayings.length) return;
+
+  let current = -1;
+  let deck = [];
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  function refillDeck(excludeIndex) {
+    deck = sayings
+      .map((_, i) => i)
+      .filter((i) => i !== excludeIndex);
+    shuffle(deck);
+  }
+
+  function getNextIndex() {
+    if (sayings.length === 1) return 0;
+    if (deck.length === 0) refillDeck(current);
+    return deck.pop();
+  }
 
   function show(index) {
     sayings.forEach((s, i) => s.style.display = i === index ? '' : 'none');
   }
 
+  current = getNextIndex();
   show(current);
 
   document.getElementById('shuffle-saying').addEventListener('click', function () {
-    let next;
-    do { next = Math.floor(Math.random() * sayings.length); } while (next === current && sayings.length > 1);
-    current = next;
+    current = getNextIndex();
     show(current);
   });
 
