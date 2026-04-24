@@ -12,7 +12,6 @@ description: A list of places I find myself growing new ideas or thinking on exi
     <img src="assets/inspiration-garden.webp" class="contain" style="height: 100%; width: 100%; aspect-ratio: 4/3;" alt="an 8 bit image of a seedling">
 </figure>
 
-One particularly fun source of inspiration is this list of [[Sayings I like|sayings I like]].
 
 ## People
 
@@ -30,3 +29,5 @@ One particularly fun source of inspiration is this list of [[Sayings I like|sayi
  - [Norns.community](https://norns.community/)– creative code to create auditory delights
  - [llllllll (aka lines)](https://llllllll.co/)– discussions of creativity
  - [Music, Arts and Culture archive](https://archive.org/details/audio_music)– a digital repository
+
+ One particularly fun source of inspiration is this list of [[Sayings I like|sayings I like]].
