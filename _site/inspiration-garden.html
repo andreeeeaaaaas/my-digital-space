@@ -64,6 +64,32 @@
 </div>
 
 <script>
+  var NAV_SCROLL_RESET_KEY = "nav:reset-scroll-on-back";
+  var shouldResetScroll = sessionStorage.getItem(NAV_SCROLL_RESET_KEY) === "1";
+
+  function resetScrollToTop() {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }
+
+  if (shouldResetScroll) {
+    sessionStorage.removeItem(NAV_SCROLL_RESET_KEY);
+
+    // Browsers may restore scroll after scripts run (especially with bfcache),
+    // so force the reset on multiple lifecycle points.
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    resetScrollToTop();
+    requestAnimationFrame(resetScrollToTop);
+    setTimeout(resetScrollToTop, 0);
+
+    window.addEventListener("pageshow", resetScrollToTop, { once: true });
+    window.addEventListener("load", resetScrollToTop, { once: true });
+  }
+
   function handleNavBack(event) {
     if (event) {
       event.preventDefault();
@@ -80,6 +106,10 @@
     }
 
     if (hasSameOriginReferrer && window.history.length > 1) {
+      sessionStorage.setItem(NAV_SCROLL_RESET_KEY, "1");
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
       window.history.back();
       return;
     }
@@ -89,9 +119,11 @@
 </script>
 <div class="nav-right">
   
-  
-    <a href="/info" aria-label="View information about Andreas Thome">Info</a>
-  
+  <a href="/info" aria-label="View information about Andreas Thome">Info</a>
+
+  <!--  -->
+    <!-- <a href="/info" aria-label="View information about Andreas Thome">Info</a> -->
+  <!--  -->
 </div>
 
 <!-- This is a placeholder, until refactored to be nice
@@ -184,8 +216,8 @@
           <div class="callout note" style="margin-top: 0rem; margin-bottom: 0rem">
             <a
               class="internal-link" style="font: 1rem;"
-              href="/some-advice-partly-for-myself"
-              >Some advice (partly for myself)</a
+              href="/on-being-a-junior"
+              >On being a junior</a
             ><br />
             <div class="muted" style="margin-top: 0.25rem">
               Reflections after a panel discussion
@@ -216,7 +248,7 @@
 </div>
 <div class="footer-year">
   <div class="label" id="visit-label">Thanks for visiting 👋</div>
-  <div class="detail">Last updated Apr 24, 2026</div>
+  <div class="detail">Last updated Apr 27, 2026</div>
 </div>
 <!-- ~ ~ ~ ~ ~ ~
 <br>

@@ -11,6 +11,32 @@
 </div>
 
 <script>
+  var NAV_SCROLL_RESET_KEY = "nav:reset-scroll-on-back";
+  var shouldResetScroll = sessionStorage.getItem(NAV_SCROLL_RESET_KEY) === "1";
+
+  function resetScrollToTop() {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }
+
+  if (shouldResetScroll) {
+    sessionStorage.removeItem(NAV_SCROLL_RESET_KEY);
+
+    // Browsers may restore scroll after scripts run (especially with bfcache),
+    // so force the reset on multiple lifecycle points.
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    resetScrollToTop();
+    requestAnimationFrame(resetScrollToTop);
+    setTimeout(resetScrollToTop, 0);
+
+    window.addEventListener("pageshow", resetScrollToTop, { once: true });
+    window.addEventListener("load", resetScrollToTop, { once: true });
+  }
+
   function handleNavBack(event) {
     if (event) {
       event.preventDefault();
@@ -27,6 +53,10 @@
     }
 
     if (hasSameOriginReferrer && window.history.length > 1) {
+      sessionStorage.setItem(NAV_SCROLL_RESET_KEY, "1");
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
       window.history.back();
       return;
     }
@@ -70,10 +100,13 @@
       />
     </svg>
   </button>
+  
   {% endif %}
-  {% if page.id != 'info' %}
-    <a href="/info" aria-label="View information about Andreas Thome">Info</a>
-  {% endif %}
+  <a href="/info" aria-label="View information about Andreas Thome">Info</a>
+
+  <!-- {% if page.id != 'info' %} -->
+    <!-- <a href="/info" aria-label="View information about Andreas Thome">Info</a> -->
+  <!-- {% endif %} -->
 </div>
 
 <!-- This is a placeholder, until refactored to be nice

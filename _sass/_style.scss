@@ -16,7 +16,7 @@
   --color-text-primary: #{$color-stone-950};
   --color-text-secondary: #{$color-stone-800};
   --color-text-link: #{$color-teal-600};
-  --color-muted: #{$color-stone-600};
+  --color-muted: #{$color-stone-500};
   --color-muted-medium: #{$color-stone-400};
   --color-muted-soft: #{$color-stone-100};
   --color-border: #{$color-stone-100};
@@ -204,15 +204,17 @@ body {
   color: var(--color-text-primary);
   line-height: 1.6;
   width: 100%;
-  max-width: 1440px;
+  // max-width: var(--wrap-wide);
   min-height: 100vh;
   margin: auto;
 }
 
 article,
-content {
+content,
+.content {
   margin: auto;
-  width: var(--wrap-normal);
+  padding-top: $spacing-lg-32;
+  width: min(100%, var(--wrap-normal));
   max-width: var(--wrap-wide);
   p {
     // margin-block-start: 2rem;
@@ -247,6 +249,7 @@ content {
     gap: $spacing-xs-8;
   }
 }
+
 
 .muted {
   color: var(--color-muted);
@@ -374,8 +377,9 @@ figcaption {
 }
 
 iframe {
-  border-radius: $border-radius-sm;
-  padding: $spacing-lg-32 0;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  margin: $spacing-lg-32 0;
 }
 
 .intro {
@@ -468,12 +472,13 @@ h6 {
   margin-bottom: 0;
   padding-bottom: 0;
   color: var(--color-text-primary);
+  text-wrap: balance;
 }
 
 h1 {
   font-family: $font-family-text;
   font-weight: 500;
-  font-size: calc($font-size-base + 1rem);
+  font-size: calc($font-size-base + 1.4rem);
   line-height: 1.2;
   margin-top: $spacing-xs-8;
   letter-spacing: -0.5px;
@@ -966,9 +971,10 @@ button {
     font-family: $font-family-primary;
     font-size: $font-size-base;
     line-height: 1.5;
-    color: var(--color-text-secondary);
+    color: var(--color-muted);
     font-weight: 400;
     text-wrap: pretty;
+    // letter-spacing: -0.1px;
   }
 
   &.inactive {
@@ -1138,7 +1144,7 @@ button {
   height: 48px;
   border-radius: 999px;
   border: 1px solid var(--color-border) !important;
-  background: var(--color-bg-primary);
+  background: var(--color-bg-secondary);
   color: var(--color-text-secondary);
   cursor: pointer;
   transition:
@@ -1184,7 +1190,7 @@ button {
   .label {
     display: flex;
     flex-direction: column;
-    color: var(--color-muted);
+    color: var(--color-text-secondary);
     // white-space: nowrap;
   }
 
@@ -1195,7 +1201,7 @@ button {
   .detail {
     display: flex;
     flex-direction: column;
-    color: var(--color-muted);
+    color: var(--color-text-primary);
     font-family: $font-family-mono;
     // white-space: nowrap;
   }
@@ -1345,8 +1351,8 @@ button {
     font-size: var(--font-size-base);
     height: auto;
     padding-top: $spacing-lg-32;
-    padding-left: $spacing-s-16;
-    padding-right: $spacing-s-16;
+    padding-left: $spacing-m-24;
+    padding-right: $spacing-m-24;
     padding-bottom: $spacing-lg-32;
 
     &-right {
@@ -1358,7 +1364,7 @@ button {
   }
 
   .main {
-    padding: 0 $spacing-s-16 0 $spacing-s-16;
+    padding: 0 $spacing-m-24 0 $spacing-m-24;
     width: 100%;
   }
 
@@ -1424,8 +1430,8 @@ button {
 
   .footer {
     flex-direction: column;
-    padding-left: $spacing-s-16;
-    padding-right: $spacing-s-16;
+    padding-left: $spacing-m-24;
+    padding-right: $spacing-m-24;
     padding-bottom: $spacing-xl-64;
     .footer-year {
       text-align: left;
@@ -1441,8 +1447,8 @@ button {
 
   .title .project-tags {
     justify-content: left;
-    margin-top: $spacing-s-16;
-    margin-bottom: $spacing-s-16;
+    margin-top: 0;
+    // margin-bottom: $spacing-s-16;
   }
 
   .hide-mobile {
