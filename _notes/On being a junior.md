@@ -6,9 +6,9 @@ tags:
   - design
 description: Reflections after a panel discussion
 ---
-Last week, I was honoured to be invited by [SUEDE](https://www.suede.org.au/) onto a panel with fellow designers and researchers doing great things at Google, Dovetail, Commbank, and KPMG. 
+Last week, I was honoured to be invited by [SUEDE](https://www.suede.org.au/) to participate in a panel with fellow designers and researchers doing great things at Google, Dovetail, Commbank, and KPMG. 
 
-The aim of the panel was to share experiences and learnings we've had since entering industry with (understandably) anxious yet excited undergraduate and masters designstudents.
+The aim of the panel was to share the experiences and learnings we've had, with anxious yet excited undergraduate and masters design students gearing up to enter the industry.
 
 Some advice I shared:
 - If you've redesigned your website 5 times this year, it may be time to think PDF.

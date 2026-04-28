@@ -19,7 +19,7 @@ sound: true
 <!-- Header -->
 <section class="header">
   <div class="intro-text">
-    <p>I'm Andreas –
+    <p>I'm Andreas – a
       <span class="design" data-filter="design">designer</span>,
       <span class="music" data-filter="music">musician</span>, 
       <span class="visual" data-filter="visual">creative</span> (and sometimes <span class="writing" data-filter="writing">writer</span>)<br><br>

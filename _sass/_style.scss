@@ -219,7 +219,7 @@ content,
   p {
     // margin-block-start: 2rem;
     // margin-block-end: 2rem;
-    margin-bottom: 1.6rem;
+    margin-bottom: $spacing-m-24;
     margin-left: auto;
     margin-right: auto;
     max-width: var(--wrap-normal);
@@ -947,7 +947,7 @@ button {
     // align-items: center;
     justify-content: space-between;
     align-self: stretch;
-    gap: $spacing-lg-32;
+    gap: $spacing-xl-64;
   }
 
   &-title {
@@ -1086,7 +1086,7 @@ button {
     outline: none;
     transition:
       padding 0.02s ease-in,
-      margin 0.02s ease-out;
+      margin 0.02s ease-in;
     a {
       transform: scale(1);
     }
@@ -1391,7 +1391,7 @@ button {
     min-height: 0; /* allows vertical shrinking if needed */
 
     .project-title-row {
-      gap: $spacing-xs-8;
+      gap: $spacing-s-16;
     }
     .project-tags-list {
       display: none;
