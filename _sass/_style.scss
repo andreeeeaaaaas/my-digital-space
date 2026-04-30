@@ -6,6 +6,7 @@
   --font-size-base: #{$font-size-base};
   --wrap-normal: 42rem;
   --wrap-wide: 60rem;
+  --wrap-widest: 60rem;
 }
 
 :root {
@@ -204,7 +205,7 @@ body {
   color: var(--color-text-primary);
   line-height: 1.6;
   width: 100%;
-  // max-width: var(--wrap-wide);
+  max-width: var(--wrap-widest);
   min-height: 100vh;
   margin: auto;
 }
@@ -306,7 +307,7 @@ a {
 }
 
 strong {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 time {
@@ -1085,8 +1086,9 @@ button {
     // border: none;
     outline: none;
     transition:
-      padding 0.02s ease-in,
-      margin 0.02s ease-in;
+      padding 0.02s ease-in-out,
+      background-color 0.02s,
+      margin 0.02s ease-in-out;
     a {
       transform: scale(1);
     }
@@ -1238,7 +1240,7 @@ button {
   }
 
   .nav {
-    padding: $spacing-lg-32 $spacing-m-24;
+    // padding: $spacing-lg-32 $spacing-m-24;
     height: auto;
   }
 

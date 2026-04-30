@@ -61,10 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Typewriter for #variable span
   const variableSpan = document.getElementById("variable");
   const typewriterTexts = Object.values(additionalTexts);
-  const speed = 50;
+  const speed = 30;
   const deleteSpeed = 30;
   const waitTime = 3000;
-  const typoChance = 0.04;
+  const typoChance = 0.06;
 
   let twIndex = 0;
   let twCharIndex = 0;

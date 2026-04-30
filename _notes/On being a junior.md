@@ -4,11 +4,13 @@ published: 2026-04-21
 tags:
   - writing
   - design
-description: Reflections after a panel discussion
+description: And insulating your creative self
 ---
-Last week, I was honoured to be invited by [SUEDE](https://www.suede.org.au/) to participate in a panel with fellow designers and researchers doing great things at Google, Dovetail, Commbank, and KPMG. 
+Junior designers and creatives have it tough right now.
 
-The aim of the panel was to share the experiences and learnings we've had, with anxious yet excited undergraduate and masters design students gearing up to enter the industry.
+That much was already clear to me, but even more so after being invited by [SUEDE](https://www.suede.org.au/) onto a panel with fellow designers and researchers doing great things at Google, Dovetail, Commbank, and KPMG. 
+
+The aim of the panel was to share our experiences and learnings with anxious, yet excited undergraduate and masters design students that are gearing up to enter the industry.
 
 Some advice I shared:
 - If you've redesigned your website 5 times this year, it may be time to think PDF.
@@ -16,13 +18,12 @@ Some advice I shared:
 - Not everyone has been a junior with the amount of noise and unrealistic expectations that exist now. 
 - No one is up to speed with everything. 
 - Everyone is figuring it out as they go.
-- Be genuine, confident, communicative, and curious. 
+- Being genuine, confident, communicative, and curious helps – a lot.
 - Designers are there to have opinions. Make them strong; hold them loose.
 
-Lastly, **being a creative professional ≠ being creative.** 
+Lastly, and what felt most important to me: **your creative profession is not the sole measure of your creativity.** 
 
-Whilst they overlap, it's important now more than ever to keep the creative spark alive (such as tending an [[Inspiration garden|inspiration garden]]) while within an industry that announces 'design is dead' every other week.
+Whilst they obviously overlap, it's important now more than ever to keep some parts of your creative self separated from an industry that announces 'designers are dead',  every other week. Hearing that messaging constantly is objectively not good for morale or inspiration. 
 
-Always nice to speak in person, hopefully I stifled some anxieties, kindled the creative spark, and make a few people laugh at the same time.
+But if you can successfully insulate parts of the core part of your creative self, it can exist whether the industry validates it or not.
 
-Thanks to [Natasha](https://www.linkedin.com/in/natasha-png/) for organising, as well as my fellow panelists (and uni friends) [Maria](https://www.linkedin.com/in/maria-salman/), [Lachlan](https://www.linkedin.com/in/lachyj/), [Christina](https://www.linkedin.com/in/chatgis/) and [Nabil](https://www.linkedin.com/in/nabilhasanux/).
