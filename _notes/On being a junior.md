@@ -13,7 +13,7 @@ That much was already clear to me, but even more so after being invited by [SUE
 The aim of the panel was to share our experiences and learnings with anxious, yet excited undergraduate and masters design students that are gearing up to enter the industry.
 
 Some advice I shared:
-- If you've redesigned your website 5 times this year, it may be time to think PDF.
+- If you've redesigned your portfolio website 5 times this year, it may be time to think PDF.
 - Everyone has been a junior. 
 - Not everyone has been a junior with the amount of noise and unrealistic expectations that exist now. 
 - No one is up to speed with everything. 
