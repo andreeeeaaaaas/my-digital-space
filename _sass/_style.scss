@@ -1153,9 +1153,9 @@ button {
   font-family: $font-family-primary;
   align-items: flex-start;
   // flex-direction: column;
-  gap: $spacing-lg-32;
+  gap: $spacing-s-16;
   // max-width: 1440px;
-  padding: $spacing-xl-64 $spacing-m-24 $spacing-xl-64;
+  padding: $spacing-xl-64 $spacing-lg-32$spacing-xl-64;
   // margin-top: $spacing-xxl-128;
 
   .label {
