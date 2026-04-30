@@ -1343,15 +1343,24 @@ button {
     min-height: 0;
 
     > a {
-      padding: $spacing-s-16 0;
+      padding: $spacing-xs-8 0;
     }
 
     .project-title-row {
       gap: $spacing-s-16;
     }
     .project-tags-list {
+      // display: none;
+      gap: 2px;
+    }
+
+    .tag-dot {
+      width: 6px;
+      height: 6px;
+    }
+
+    .project-description {
       display: none;
-      gap: 0px;
     }
     &:hover {
       border-radius: 0px;

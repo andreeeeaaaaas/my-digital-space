@@ -1,7 +1,9 @@
+{% if page.id != 'info' %}
 <div class="contact-details">
   <div class="label">Email</div>
   <div class="detail"><a class="emoji-hover" data-emoji="💌" href="mailto:me@andreasthoma.com?subject=Hey%20Andreas!">me@andreasthoma.com</a></div>
 </div>
+{% endif %}
 <div class="footer-year">
   <div class="label" id="visit-label">Thanks for visiting 👋</div>
   <div class="detail">Last updated {{ site.time | date: "%b %-d, %Y" }}</div>
