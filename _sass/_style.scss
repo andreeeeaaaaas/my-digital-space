@@ -574,7 +574,8 @@ div.highlight {
   background: var(--color-bg-primary);
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: center;
+  text-align: center;
   z-index: 999;
   overflow: hidden;
   color: var(--color-text-primary);

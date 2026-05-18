@@ -29,5 +29,6 @@ description: A list of places I find myself growing new ideas or thinking on exi
  - [Norns.community](https://norns.community/)– creative code to create auditory delights
  - [llllllll (aka lines)](https://llllllll.co/)– discussions of creativity
  - [Music, Arts and Culture archive](https://archive.org/details/audio_music)– a digital repository
+ - [Interface Futures](https://www.interfacefutures.com/) – thinking about human computer interaction, tomorrow
 
  One particularly fun source of inspiration is this list of [[Sayings I like|sayings I like]].

@@ -9,7 +9,7 @@ sound: true
 <div id="sound-gate" class="overlay">
   <div class="overlay-content">
     <p style="margin-top:0">Would you like to enable sound?</p>
-    <div style="display: flex; flex-direction: row;gap: 8px; padding-top: 16px;">
+    <div style="display: flex; flex-direction: row;gap: 8px; padding-top: 16px; justify-content: center">
       <button  class="emoji-hover" data-emoji="🎉" id="sound-yes">Yes</button>
       <p>/</p>
       <button href="#" class="emoji-hover" data-emoji="💔" id="sound-no">No</button>
