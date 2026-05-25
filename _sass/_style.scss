@@ -377,6 +377,58 @@ figcaption {
   }
 }
 
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: $spacing-s-16;
+  padding: $spacing-m-24;
+
+  &.open {
+    display: flex;
+  }
+
+  #lightbox-img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    background: transparent;
+    border-radius: $border-radius-md;
+    cursor: zoom-out;
+  }
+
+  #lightbox-caption {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: $font-family-mono;
+    font-size: $font-size-base - 2px;
+    text-align: center;
+    margin: 0;
+  }
+
+  #lightbox-close {
+    position: fixed;
+    top: $spacing-m-24;
+    right: $spacing-m-24;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    font-family: $font-family-text;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
 iframe {
   border-radius: $border-radius-md;
   overflow: hidden;
