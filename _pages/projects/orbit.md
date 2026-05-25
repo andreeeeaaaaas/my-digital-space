@@ -33,7 +33,7 @@ It does exactly what it says on the tin: distributing copies of any object aroun
 
 The live preview was the most considered part of the UI: distribution and rotation are hard to visualise mentally, so showing the output in real time — framed in the space-age aesthetic — keeps experimentation fast and low-stakes.
 
-If you would like, you can [launch Orbit in Figma](https://www.figma.com/community/plugin/1616762647761910788/orbit).
+If you would like, you can [check out Orbit in Figma](https://www.figma.com/community/plugin/1616762647761910788/orbit).
 
 ## Examples
 <img class="bt bl br bb" src="assets/projects/orbit-examples7.webp">
