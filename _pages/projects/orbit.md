@@ -15,11 +15,11 @@ description: A retro-futuristic design tool for Figma
 
 Inspired by the space age graphics and interfaces of old, Orbit is a Figma plugin that solves a problem that Figma currently does not. 
 
-It works across all surface areas of the Figma suite– including FigJam, Figma Slides, and Figma Design.
+It works across Figma Design and Figma Slides.
 
 ## Problem
 
-Photoshop and other design tools have similar methods of duplication, often called 'repeat transforms'. However they are burrowed away behind menus and sub-menus. 
+Photoshop and other design tools have similar methods of duplication, often called 'repeat transforms'. However they are buried away behind menus and sub-menus. 
 
 There are multiple Figma plugins out there to create Venn diagrams, rotate text around an arc, and create circular text. However, they all missed what I felt was the core problem itself (something that Figma doesn't enable): programatically distributing objects non-linearly, around an arc.
 
@@ -27,18 +27,11 @@ I wanted to make something fast, free, and fun in a way that promotes experiment
 
 ## Solution
 
-I built this Figma plugin in less than an hour.
+I built this plugin in under an hour.
 
-It does exactly what it says on the tin, rotating objects around a central point. Users can adjust a number of levels, including:
+It does exactly what it says on the tin: distributing copies of any object around a configurable arc. Users can control the count, distance from centre, origin angle, sweep, and rotation mode — which alone produces wildly different results depending on the selection.
 
-- how many duplicated objects there are,
-- the distance from the central point,
-- the origin and sweep degrees
-- the rotation mode
-
-The rotation mode produces wildly different results depending on selection.
-
-The preview section was super fun to ideate—keeping the space-aesthetic in mind—as it gives the user a live preview of the output, as it can be sometimes hard to conceptualise rotation and distribution mentally.
+The live preview was the most considered part of the UI: distribution and rotation are hard to visualise mentally, so showing the output in real time — framed in the space-age aesthetic — keeps experimentation fast and low-stakes.
 
 If you would like, you can [launch Orbit in Figma](https://www.figma.com/community/plugin/1616762647761910788/orbit).
 
