@@ -377,6 +377,81 @@ figcaption {
   }
 }
 
+#lightbox {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.98);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: $spacing-s-16;
+  padding: $spacing-m-24;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition-property: opacity, visibility;
+  transition-duration: 0.05s;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+
+    #lightbox-img {
+      scale: 1;
+    }
+  }
+
+  #lightbox-img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    background: transparent;
+    border-radius: $border-radius-md;
+    outline: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: zoom-out;
+    scale: 1;
+    transition-property: scale;
+    transition-duration: 0.05s;
+    transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  #lightbox-caption {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: $font-family-mono;
+    font-size: $font-size-base - 2px;
+    text-align: center;
+    margin: 0;
+  }
+
+  #lightbox-close {
+    position: fixed;
+    top: $spacing-m-24;
+    right: $spacing-m-24;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    outline: none;
+    transition-property: scale, color;
+    transition-duration: 0.05s;
+    transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+
+    &:hover {
+      color: white;
+    }
+
+    &:active {
+      scale: 0.96;
+    }
+  }
+}
+
 iframe {
   border-radius: $border-radius-md;
   overflow: hidden;
