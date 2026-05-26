@@ -6,7 +6,7 @@
   --font-size-base: #{$font-size-base};
   --wrap-normal: 48rem;
   --wrap-wide: 60rem;
-  --wrap-widest: 48rem;
+  --wrap-widest: 44rem;
 }
 
 :root {
@@ -45,6 +45,7 @@
   --color-red-semi: #{$color-red-700};
   --color-red-hard: #{$color-red-600};
   --color-red-bg: #{$color-red-50};
+  --color-image-outline: rgba(0, 0, 0, 0.08);
 }
 ::selection {
   background: var(--color-border);
@@ -87,6 +88,7 @@
     --color-red-semi: #{$flexoki-red-500};
     --color-red-hard: #{$flexoki-red-300};
     --color-red-bg: #{$flexoki-red-950};
+    --color-image-outline: rgba(255, 255, 255, 0.08);
   }
   ::selection {
     background: var(--color-border);
@@ -197,6 +199,7 @@
 // Base styles
 html,
 body {
+  -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;
   font-family: $font-family-primary;
@@ -220,6 +223,7 @@ content,
   p {
     // margin-block-start: 2rem;
     // margin-block-end: 2rem;
+    text-wrap: pretty;
     margin-bottom: $spacing-m-24;
     margin-left: auto;
     margin-right: auto;
@@ -241,6 +245,7 @@ content,
     margin-block-start: 1rem;
     margin-block-end: 1rem;
     border-radius: $border-radius-md;
+    box-shadow: inset 0 0 0 1px var(--color-image-outline);
   }
   figure {
     img {
@@ -322,6 +327,9 @@ figure {
   gap: $spacing-xs-8;
   margin: 2rem 0 2rem 0;
   overflow: hidden;
+  iframe {
+    margin: 0;
+  }
 }
 
 table {
@@ -856,7 +864,9 @@ button {
   // border-radius: 12px;
   // padding: 16px;
   cursor: pointer;
-  transition: $transition-default;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -869,12 +879,14 @@ button {
 }
 
 #sound-toggle:active {
-  transform: scale(0.95);
+  scale: 0.96;
 }
 
 #sound-toggle svg {
   display: block;
-  transition: all 0.3s ease;
+  transition-property: opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }
 
 #sound-toggle.muted .sound-waves {
@@ -1194,7 +1206,8 @@ button {
   cursor: pointer;
   transition:
     background-color 0.15s ease,
-    color 0.15s ease;
+    color 0.15s ease,
+    scale 0.1s ease;
 
   &:hover {
     background-color: var(--color-bg-secondary);
@@ -1203,6 +1216,7 @@ button {
 
   &:active {
     background-color: var(--color-button-bg-active);
+    scale: 0.96;
   }
 
   svg {
