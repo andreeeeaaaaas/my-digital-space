@@ -30,13 +30,9 @@ My spare time is filled with things like:
 - endeavouring to become *~~bilingual~~* tri-lingual (¡Hola! or Υιασου!)
 - playing with [[Ziggy]]
 - making strange music with [[An overly complex system|overly complicated systems]]
-<hr>
-## Contact
-### Email
 
-<a class="external emoji-hover" href="mailto:me@andreasthoma.com">me@andreasthoma.com</a>
 
-### Other
+## More
 
 LinkedIn– <a class="external" href="https://www.linkedin.com/in/andreas-thoma-7636a4136/">Andreas Thoma</a><br>
 Bandcamp– <a class="external" href="https://andreeeeaaaaas.bandcamp.com/">andreeeeaaaaas</a><br>
