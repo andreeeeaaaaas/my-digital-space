@@ -1158,7 +1158,14 @@ button {
 
 // Sayings
 .sayings-container {
-  margin: 0 0 $spacing-s-16;
+  min-height:10rem;
+
+  [data-saying] {
+    display: none;
+  }
+  [data-saying].active {
+    display: block;
+  }
 }
 
 .saying {
@@ -1189,7 +1196,32 @@ button {
 }
 
 .sayings-controls {
-  margin-top: $spacing-m-24;
+  margin-top: $spacing-s-16;
+  display: flex;
+  justify-content: space-between;
+  gap: $spacing-m-24
+}
+
+.sayings-nav-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-text-secondary);
+  font-family: $font-family-primary;
+  font-size: calc(var(--font-size-base) - 2px);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:hover:not(:disabled) {
+    text-decoration: underline;
+    text-decoration-line: underline;
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
 }
 
 .circle-btn {

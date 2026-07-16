@@ -5,18 +5,6 @@ tags:
   - writing
 description: Some in English, some not
 ---
-<div class="sayings-controls">
-  <button class="circle-btn" id="shuffle-saying" aria-label="Shuffle saying">
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 5h2.5a4 4 0 0 1 3.2 1.6L9 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
-      <path d="M2 15h2.5a4 4 0 0 0 3.2-1.6l4.6-6.8A4 4 0 0 1 15.5 5H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
-      <path d="M16 3l2 2-2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="square"/>
-      <path d="M9 12l1.3 1.4A4 4 0 0 0 13.5 15H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      <path d="M16 13l2 2-2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="square"/>
-    </svg>
-  </button>
-</div>
-
 <div class="sayings-container">
   <blockquote class="note" data-saying>
     <p>"Som plommen i egget"</p>
@@ -63,7 +51,11 @@ description: Some in English, some not
     <p>Robert M. Pirsig, Zen and the Art of Motorcycle Maintenance.</p>
   </blockquote>
 </div>
-<br>
+
+<div class="sayings-controls">
+  <button class="sayings-nav-btn" id="prev-saying" aria-label="Previous saying">Previous</button>
+  <button class="sayings-nav-btn" id="next-saying" aria-label="Next saying">Next</button>
+</div>
 <br>
 <br>
 
@@ -72,40 +64,45 @@ description: Some in English, some not
   const sayings = Array.from(document.querySelectorAll('[data-saying]'));
   if (!sayings.length) return;
 
-  let current = -1;
-  let deck = [];
-
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i -= 1) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
+    return array;
   }
 
-  function refillDeck(excludeIndex) {
-    deck = sayings
-      .map((_, i) => i)
-      .filter((i) => i !== excludeIndex);
-    shuffle(deck);
+  const storageKey = 'sayings-last-index';
+  let lastIndex = -1;
+  try {
+    const stored = localStorage.getItem(storageKey);
+    if (stored !== null) lastIndex = parseInt(stored, 10);
+  } catch (e) {}
+
+  const order = shuffle(sayings.map((_, i) => i));
+  if (sayings.length > 1 && order[0] === lastIndex) {
+    [order[0], order[1]] = [order[1], order[0]];
+  }
+  let pos = 0;
+
+  try {
+    localStorage.setItem(storageKey, String(order[0]));
+  } catch (e) {}
+
+  function show() {
+    sayings.forEach((s, i) => s.classList.toggle('active', i === order[pos]));
   }
 
-  function getNextIndex() {
-    if (sayings.length === 1) return 0;
-    if (deck.length === 0) refillDeck(current);
-    return deck.pop();
-  }
+  show();
 
-  function show(index) {
-    sayings.forEach((s, i) => s.style.display = i === index ? '' : 'none');
-  }
-
-  current = getNextIndex();
-  show(current);
-
-  document.getElementById('shuffle-saying').addEventListener('click', function () {
-    current = getNextIndex();
-    show(current);
+  document.getElementById('prev-saying').addEventListener('click', function () {
+    pos = (pos - 1 + order.length) % order.length;
+    show();
   });
 
+  document.getElementById('next-saying').addEventListener('click', function () {
+    pos = (pos + 1) % order.length;
+    show();
+  });
 })();
 </script>
