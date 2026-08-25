@@ -1,0 +1,44 @@
+(() => {
+  const easeOut = "cubic-bezier(0.23, 1, 0.32, 1)";
+  let hasAnimated = false;
+
+  function animateProjects() {
+    if (hasAnimated) return;
+
+    const projects = document.querySelectorAll(".project-grid .project");
+    if (!projects.length) return;
+
+    hasAnimated = true;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    projects.forEach((project, index) => {
+      const keyframes = reduceMotion
+        ? [{ opacity: 0 }, { opacity: 1 }]
+        : [
+            { opacity: 0, transform: "translateY(8px)" },
+            { opacity: 1, transform: "translateY(0)" },
+          ];
+
+      project.animate(keyframes, {
+        duration: reduceMotion ? 180 : 520,
+        delay: reduceMotion ? 0 : 400 + Math.min(index, 8) * 90,
+        easing: easeOut,
+        fill: "backwards",
+      });
+    });
+  }
+
+  function initialiseEntrance() {
+    requestAnimationFrame(animateProjects);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initialiseEntrance, {
+      once: true,
+    });
+  } else {
+    initialiseEntrance();
+  }
+})();
