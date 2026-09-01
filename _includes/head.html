@@ -18,6 +18,10 @@
 
   {% if page.id == "home" %}
   <script>
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("typewriter-pending");
+    }
+
     try {
       if (sessionStorage.getItem("project-entrance:played") !== "true") {
         document.documentElement.classList.add("project-entrance-pending");
@@ -28,6 +32,10 @@
     } catch (error) {
       // Render projects normally when browser storage is unavailable.
     }
+
+    window.addEventListener("load", function () {
+      document.documentElement.classList.remove("typewriter-pending");
+    }, { once: true });
   </script>
   {% endif %}
 
@@ -36,8 +44,7 @@
   <script src="/assets/js/emoji-hover-once.js" defer></script>
 
   {% if page.id == "home" %}
-  <script src="/assets/js/typewriter-cursor.js"></script>
-  <script src="/assets/js/tag-filter.js"></script>
+  <script src="/assets/js/tag-filter.js" defer></script>
   <script src="/assets/js/project-entrance.js" defer></script>
   {% endif %}
   {% if page.layout == "project" %}

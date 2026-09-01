@@ -50,6 +50,18 @@ document.addEventListener("DOMContentLoaded", function () {
   // Clickable spans
   const introSpans = document.querySelectorAll(".intro-text span");
 
+  introSpans.forEach((span) => {
+    span.addEventListener("click", function () {
+      const filter = span.className.trim().toLowerCase();
+
+      tags.forEach((tag) => {
+        if (tag.dataset.filter && tag.dataset.filter.toLowerCase() === filter) {
+          tag.click();
+        }
+      });
+    });
+  });
+
   // Define additional texts for each filter
   const additionalTexts = {
     design: "I help organisations bring value to processes, products, and people through design",
@@ -60,6 +72,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Typewriter for #variable span
   const variableSpan = document.getElementById("variable");
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (!variableSpan || reduceMotion) {
+    document.documentElement.classList.remove("typewriter-pending");
+    return;
+  }
+
   const typewriterTexts = Object.values(additionalTexts);
   const speed = 50;
   const deleteSpeed = 30;
@@ -261,29 +282,18 @@ document.addEventListener("DOMContentLoaded", function () {
     twTimeout = setTimeout(typewriterTick, getHumanizedDelay("", false));
   }
 
-  // Ensure variableSpan has a text node and a cursor span
-  if (typeof initializeTypewriterCursor === "function") {
-    initializeTypewriterCursor(variableSpan, "_");
-  } else {
-    variableSpan.innerHTML = "";
-    variableSpan.prepend(document.createTextNode(""));
+  function initializeTypewriterCursor(cursorChar = "_") {
+    variableSpan.replaceChildren(document.createTextNode(""));
+
     const cursor = document.createElement("span");
     cursor.className = "typewriter-cursor";
-    cursor.textContent = "_";
+    cursor.textContent = cursorChar;
     variableSpan.appendChild(cursor);
   }
 
+  // Ensure variableSpan has a text node and a cursor span
+  initializeTypewriterCursor("_");
+  document.documentElement.classList.remove("typewriter-pending");
+
   setTimeout(startTypewriter, 3000);
-
-  introSpans.forEach((span) => {
-    span.addEventListener("click", function () {
-      const filter = span.className.trim().toLowerCase();
-
-      tags.forEach((tag) => {
-        if (tag.dataset.filter && tag.dataset.filter.toLowerCase() === filter) {
-          tag.click();
-        }
-      });
-    });
-  });
 });

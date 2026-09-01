@@ -42,17 +42,6 @@ sound: true
   {% for page in all_pages %}
   <div class="project" data-tags="{{ page.tags | join: ', ' }}">
       <a href="{{ site.baseurl }}{{ page.url }}" class="internal-link no-underline">
-        {% assign img_tag = page.content | split:'<img ' | slice: 1 | first %} 
-        {% if img_tag %}
-        <div class="project-image">
-          <img style="margin-block-end: 0em" {{ img_tag | split:'>' | first }}>
-          <div class="project-tags" aria-label="Tags: {{ page.tags | join: ', ' }}">
-            {% for tag in page.tags %}
-              <span class="tag-dot {{ tag | downcase }}" aria-hidden="true"></span>
-            {% endfor %}
-          </div>
-        </div>
-        {% endif %}
         <div class="project-title-row">
           <div class="project-text">
             <div class="project-title-with-tags">

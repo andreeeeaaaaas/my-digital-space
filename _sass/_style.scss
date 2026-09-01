@@ -856,6 +856,10 @@ div.highlight {
   margin-left: 1px;
 }
 
+html.typewriter-pending #variable {
+  visibility: hidden;
+}
+
 @keyframes blink {
   0%,
   100% {
@@ -863,6 +867,12 @@ div.highlight {
   }
   50% {
     opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-cursor {
+    animation: none;
   }
 }
 
