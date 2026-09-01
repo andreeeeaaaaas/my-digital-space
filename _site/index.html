@@ -3,7 +3,7 @@
   <head>
   <meta charset="UTF-8" />
 
-  <link rel="canonical" href="/" />
+  <link rel="canonical" href="http://localhost:4000/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -17,6 +17,21 @@
   <link rel="icon" type="image/png" href="assets/Favicon-headshot.png" />
 
   <link rel="stylesheet" href="/styles.css" />
+
+  
+  <script>
+    try {
+      if (sessionStorage.getItem("project-entrance:played") !== "true") {
+        document.documentElement.classList.add("project-entrance-pending");
+        setTimeout(function () {
+          document.documentElement.classList.remove("project-entrance-pending");
+        }, 3000);
+      }
+    } catch (error) {
+      // Render projects normally when browser storage is unavailable.
+    }
+  </script>
+  
 
   <!-- <script src="/assets/js/prefetch.js" defer></script> -->
   <script src="/assets/js/sound.js"></script>
@@ -43,9 +58,9 @@
    
   
 
-  <meta property="og:url" content="/" />
+  <meta property="og:url" content="http://localhost:4000/" />
 
-  <meta property="og:image" content="/assets/Card2.jpg" />
+  <meta property="og:image" content="http://localhost:4000/assets/Card2.jpg" />
 
   <title>
      Andreas Thoma 

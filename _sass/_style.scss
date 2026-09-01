@@ -1061,6 +1061,16 @@ button {
 
 // Project Grid
 
+html.project-entrance-pending .project-grid .project {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.project-entrance-pending .project-grid .project {
+    transform: translateY(8px);
+  }
+}
+
 .project {
   // Sarafi fix
   min-width: 0; /* allows shrinking */

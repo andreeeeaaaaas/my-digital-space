@@ -16,6 +16,21 @@
 
   <link rel="stylesheet" href="{{ site.baseurl }}/styles.css" />
 
+  {% if page.id == "home" %}
+  <script>
+    try {
+      if (sessionStorage.getItem("project-entrance:played") !== "true") {
+        document.documentElement.classList.add("project-entrance-pending");
+        setTimeout(function () {
+          document.documentElement.classList.remove("project-entrance-pending");
+        }, 3000);
+      }
+    } catch (error) {
+      // Render projects normally when browser storage is unavailable.
+    }
+  </script>
+  {% endif %}
+
   <!-- <script src="{{ '/assets/js/prefetch.js' | relative_url }}" defer></script> -->
   <script src="/assets/js/sound.js"></script>
   <script src="/assets/js/emoji-hover-once.js" defer></script>

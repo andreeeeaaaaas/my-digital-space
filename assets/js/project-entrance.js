@@ -4,6 +4,10 @@
   let hasAnimated = false;
   const entranceAnimations = [];
 
+  function clearPendingState() {
+    document.documentElement.classList.remove("project-entrance-pending");
+  }
+
   function hasPlayedThisSession() {
     try {
       return sessionStorage.getItem(storageKey) === "true";
@@ -21,10 +25,16 @@
   }
 
   function animateProjects() {
-    if (hasAnimated || hasPlayedThisSession()) return;
+    if (hasAnimated || hasPlayedThisSession()) {
+      clearPendingState();
+      return;
+    }
 
     const projects = document.querySelectorAll(".project-grid .project");
-    if (!projects.length) return;
+    if (!projects.length) {
+      clearPendingState();
+      return;
+    }
 
     hasAnimated = true;
     rememberEntrance();
@@ -49,12 +59,15 @@
         })
       );
     });
+
+    clearPendingState();
   }
 
   window.addEventListener("pageshow", (event) => {
     if (!event.persisted) return;
 
     entranceAnimations.forEach((animation) => animation.cancel());
+    clearPendingState();
   });
 
   function initialiseEntrance() {
