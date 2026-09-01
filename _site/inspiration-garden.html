@@ -3,7 +3,7 @@
   <head>
   <meta charset="UTF-8" />
 
-  <link rel="canonical" href="http://localhost:4000/inspiration-garden" />
+  <link rel="canonical" href="/inspiration-garden" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -24,6 +24,9 @@
 
   
   
+  
+  <script src="/assets/js/toc.js" defer></script>
+  
   <!-- <script src="/assets/js/hover-effect.js"></script> -->
 
   
@@ -39,14 +42,14 @@
   
   <meta
     property="article:published_time"
-    content="2024-11-10T00:00:00+02:00"
+    content="2024-11-10T00:00:00+11:00"
   />
-  <meta property="article:author" content="http://localhost:4000/" />
+  <meta property="article:author" content="/" />
   
 
-  <meta property="og:url" content="http://localhost:4000/inspiration-garden" />
+  <meta property="og:url" content="/inspiration-garden" />
 
-  <meta property="og:image" content="http://localhost:4000/assets/Card2.jpg" />
+  <meta property="og:image" content="/assets/Card2.jpg" />
 
   <title>
      Inspiration garden
@@ -58,11 +61,24 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-left">
   
-    <button class="circle-btn nav-back-btn" onclick="handleNavBack(event)" aria-label="Go back">
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-        <path d="M3.52342 8.06639L7.99341 12.5364L6.81508 13.7147L0.333422 7.23306L6.81508 0.7514L7.99341 1.9297L3.52342 6.39972H13.6667V8.06639H3.52342Z" fill="currentColor"/>
-      </svg>
-    </button>
+  <button
+    class="circle-btn nav-back-btn"
+    onclick="handleNavBack(event)"
+    aria-label="Go back"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+    >
+      <path
+        d="M3.52342 8.06639L7.99341 12.5364L6.81508 13.7147L0.333422 7.23306L6.81508 0.7514L7.99341 1.9297L3.52342 6.39972H13.6667V8.06639H3.52342Z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
   
 </div>
 
@@ -102,7 +118,8 @@
 
     if (document.referrer) {
       try {
-        hasSameOriginReferrer = new URL(document.referrer).origin === window.location.origin;
+        hasSameOriginReferrer =
+          new URL(document.referrer).origin === window.location.origin;
       } catch (error) {
         hasSameOriginReferrer = false;
       }
@@ -120,12 +137,26 @@
     window.location.assign("/");
   }
 </script>
+<!-- 
+<script>
+  if ("scrollRestoration" in window.history) {
+    window.history.scrollRestoration = "manual";
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    var nav = document.querySelector(".nav");
+    if (nav) window.scrollTo(0, nav.offsetHeight);
+  });
+</script>
+ -->
 <div class="nav-right">
+   
   
   <a href="/info" aria-label="View information about Andreas Thoma">Info</a>
-  <a href="/contact" aria-label="Contact information about Andreas Thoma">Contact</a>
+  
+
+  <!-- <a href="/contact" aria-label="Contact information about Andreas Thoma">Contact</a> -->
   <!--  -->
-    <!-- <a href="/info" aria-label="View information about Andreas Thome">Info</a> -->
+  <!-- <a href="/info" aria-label="View information about Andreas Thome">Info</a> -->
   <!--  -->
 </div>
 
@@ -147,27 +178,43 @@
     </div> -->
 <!-- </div> -->
 </nav>
+    
+    <aside class="toc" data-toc aria-label="On this page" hidden></aside>
+    
     <main id="main-content" class="main pb" role="main"><content>
   <article>
     <div class="title">
       <h1>Inspiration garden</h1>
       <div class="header-information">
-        <div class="project-tags" aria-label="Tags: writing, design, music, visual">
+        <time datetime="2024-11-10T00:00:00+11:00">November 2024</time>
+          <!-- <div
+          class="project-tags"
+          aria-label="Tags: writing, design, music, visual"
+        >
           
-            <span class="tag active" data-filter="writing">Writing</span>
-            <span class="tag-sep" aria-hidden="true">•</span>
-          
-            <span class="tag active" data-filter="design">Design</span>
-            <span class="tag-sep" aria-hidden="true">•</span>
-          
-            <span class="tag active" data-filter="music">Music</span>
-            <span class="tag-sep" aria-hidden="true">•</span>
-          
-            <span class="tag active" data-filter="visual">Visual</span>
-            
-          
-        </div>
-        <time datetime="2024-11-10T00:00:00+02:00">2024</time>
+          <span class="tag active" data-filter="writing"
+            >Writing</span
+          >
+          <span class="tag-sep" aria-hidden="true"
+            >•</span
+          > 
+          <span class="tag active" data-filter="design"
+            >Design</span
+          >
+          <span class="tag-sep" aria-hidden="true"
+            >•</span
+          > 
+          <span class="tag active" data-filter="music"
+            >Music</span
+          >
+          <span class="tag-sep" aria-hidden="true"
+            >•</span
+          > 
+          <span class="tag active" data-filter="visual"
+            >Visual</span
+          >
+           
+        </div> -->
       </div>
     </div>
     <html><body>
@@ -175,66 +222,73 @@
     <img src="assets/inspiration-garden.webp" class="contain" style="height: 100%; width: 100%; aspect-ratio: 4/3;" alt="an 8 bit image of a seedling">
 </figure>
 
+<p>A garden bed of places I find myself visiting to grow new ideas, or think on existing ones.</p>
+
 <h2 id="people">People</h2>
 
 <ul>
   <li>
-<a href="https://www.seungmee-lee.com/" target="_blank">Suengmee Lee</a>– an inspiring interaction designer</li>
+<a href="https://www.seungmee-lee.com/" target="_blank" class="external">Suengmee <span class="nowrap-icon">Lee<span class="ext-icon" aria-hidden="true">↗</span></span></a>– an inspiring interaction designer</li>
   <li>
-<a href="https://stephango.com/" target="_blank">Steph Ango</a>– design polygot, building thought making software</li>
+<a href="https://stephango.com/" target="_blank" class="external">Steph <span class="nowrap-icon">Ango<span class="ext-icon" aria-hidden="true">↗</span></span></a>– design polygot, building thought making software</li>
   <li>
-<a href="https://notes.andymatuschak.org/About_these_notes" target="_blank">Andy Matuschak</a>– an original thought-tool creator</li>
+<a href="https://notes.andymatuschak.org/About_these_notes" target="_blank" class="external">Andy <span class="nowrap-icon">Matuschak<span class="ext-icon" aria-hidden="true">↗</span></span></a>– an original thought-tool creator</li>
   <li>
-<a href="https://www.michaelhilgers.de/symbiotischesdesign" target="_blank">Michæl Hilgers</a>– an architect turned industrial designer</li>
+<a href="https://www.michaelhilgers.de/symbiotischesdesign" target="_blank" class="external">Michæl <span class="nowrap-icon">Hilgers<span class="ext-icon" aria-hidden="true">↗</span></span></a>– an architect turned industrial designer</li>
 </ul>
 
 <h2 id="sites">Sites</h2>
 
 <ul>
   <li>
-<a href="https://stoney.sb.org/eno/oblique.html" target="_blank">Oblique Strategies</a>– draw inspiration from a single sentence, created by Brian Eno and Peter Schmidt</li>
+<a href="https://stoney.sb.org/eno/oblique.html" target="_blank" class="external">Oblique <span class="nowrap-icon">Strategies<span class="ext-icon" aria-hidden="true">↗</span></span></a>– draw inspiration from a single sentence, created by Brian Eno and Peter Schmidt</li>
   <li>
-<a href="https://posts.cv/" target="_blank">Posts.cv</a>– a social network full of creative ideas</li>
+<a href="https://posts.cv/" target="_blank" class="external"><span class="nowrap-icon">Posts.cv<span class="ext-icon" aria-hidden="true">↗</span></span></a>– a social network full of creative ideas</li>
   <li>
-<a href="https://cargo.site/In-Use" target="_blank">Cargo</a>– some great portfolio inspiration</li>
+<a href="https://cargo.site/In-Use" target="_blank" class="external"><span class="nowrap-icon">Cargo<span class="ext-icon" aria-hidden="true">↗</span></span></a>– some great portfolio inspiration</li>
   <li>
-<a href="https://www.objectsandsounds.com/" target="_blank">Objects and Sounds</a>– music to hold and appreciate</li>
+<a href="https://www.objectsandsounds.com/" target="_blank" class="external">Objects and <span class="nowrap-icon">Sounds<span class="ext-icon" aria-hidden="true">↗</span></span></a>– music to hold and appreciate</li>
   <li>
-<a href="https://norns.community/" target="_blank">Norns.community</a>– creative code to create auditory delights</li>
+<a href="https://norns.community/" target="_blank" class="external"><span class="nowrap-icon">Norns.community<span class="ext-icon" aria-hidden="true">↗</span></span></a>– creative code to create auditory delights</li>
   <li>
-<a href="https://llllllll.co/" target="_blank">llllllll (aka lines)</a>– discussions of creativity</li>
+<a href="https://llllllll.co/" target="_blank" class="external">llllllll (aka <span class="nowrap-icon">lines)<span class="ext-icon" aria-hidden="true">↗</span></span></a>– discussions of creativity</li>
   <li>
-<a href="https://archive.org/details/audio_music" target="_blank">Music, Arts and Culture archive</a>– a digital repository</li>
+<a href="https://archive.org/details/audio_music" target="_blank" class="external">Music, Arts and Culture <span class="nowrap-icon">archive<span class="ext-icon" aria-hidden="true">↗</span></span></a>– a digital repository</li>
   <li>
-<a href="https://www.interfacefutures.com/" target="_blank">Interface Futures</a> – thinking about human computer interaction, tomorrow</li>
+<a href="https://www.interfacefutures.com/" target="_blank" class="external">Interface <span class="nowrap-icon">Futures<span class="ext-icon" aria-hidden="true">↗</span></span></a> – thinking about human computer interaction, tomorrow</li>
 </ul>
 
-<p>One particularly fun source of inspiration is this list of <a class="internal-link" href="/sayings-i-like">sayings I like</a>.</p>
+<p>One self-created source of inspiration is this list of <a class="internal-link" href="/sayings-i-like">sayings I like</a>.</p>
+
 </body></html>
-    <hr />
-    <div class="" id="notes-entry-container">
-      <div style="font-size: 0.9em">
-        <h3 style="margin-bottom: 1em">Linked pages</h3>
-        
-        <div style="display: grid; grid-template-columns: repeat(1fr);">
-          
-          <div class="callout note" style="margin-top: 0rem; margin-bottom: 0rem">
-            <a
-              class="internal-link" style="font: 1rem;"
-              href="/what-s-a-digital-space"
-              >What's a digital space?</a
-            ><br />
-            <div class="muted" style="margin-top: 0.25rem">
-              How is a digital space different from a website?
-            </div>
-          </div>
-          
-        </div>
-        
-      </div>
-    </div>
   </article>
 </content>
+<!-- <hr /> -->
+
+<div class="pt" id="notes-entry-container">
+  <h3 style="margin-bottom: 1em">Linked pages</h3>
+
+  <div class="project-grid list-view">
+    
+    <div class="project" data-tags="writing">
+      <a
+        href="/what-s-a-digital-space"
+        class="internal-link no-underline"
+      >
+        <div class="project-text">
+          <div>
+            <h2 class="project-title">What's a digital space?</h2>
+          </div>
+          <p class="project-description">
+            How is a digital space different from a website?
+          </p>
+        </div>
+      </a>
+    </div>
+    
+  </div>
+</div>
+
 </main>
     <footer class="footer" role="contentinfo">
 <div class="contact-details">
@@ -244,7 +298,7 @@
 
 <div class="footer-year">
   <div class="label" id="visit-label">Thanks for visiting 👋</div>
-  <div class="detail">Last updated Jul 16, 2026</div>
+  <div class="detail">Last updated Sep 1, 2026</div>
 </div>
 <!-- ~ ~ ~ ~ ~ ~
 <br>

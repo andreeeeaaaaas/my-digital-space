@@ -6,19 +6,19 @@ layout: default
     <div class="title">
       <h1>{{ page.title }}</h1>
       <div class="header-information">
-        <div class="project-tags" aria-label="Tags: {{ page.tags | join: ', ' }}">
+        <!-- <div class="project-tags" aria-label="Tags: {{ page.tags | join: ', ' }}">
           {% for tag in page.tags %}
             <span class="tag active" data-filter="{{ tag | downcase }}">{{ tag | capitalize }}</span>
             {% unless forloop.last %}<span class="tag-sep" aria-hidden="true">•</span>{% endunless %}
           {% endfor %}
-        </div>
+        </div> -->
         <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y" }}</time>
       </div>
     </div>
     {{ content }} 
-    {% if page.title != "Error 404" and page.title != "Info" %} 
+    <!-- {% if page.title != "Error 404" and page.title != "Info" %} 
     <p>To learn more, please <a href="/info#contact" class="internal link emoji-hover" data-emoji="📞">reach out</a>.</p>
-    {% endif %}
+    {% endif %} -->
     <hr />
   </article>
 </content>

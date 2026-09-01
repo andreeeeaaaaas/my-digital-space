@@ -1,14 +1,33 @@
 (() => {
   const easeOut = "cubic-bezier(0.23, 1, 0.32, 1)";
+  const storageKey = "project-entrance:played";
   let hasAnimated = false;
+  const entranceAnimations = [];
+
+  function hasPlayedThisSession() {
+    try {
+      return sessionStorage.getItem(storageKey) === "true";
+    } catch {
+      return false;
+    }
+  }
+
+  function rememberEntrance() {
+    try {
+      sessionStorage.setItem(storageKey, "true");
+    } catch {
+      // Keep the entrance working when browser storage is unavailable.
+    }
+  }
 
   function animateProjects() {
-    if (hasAnimated) return;
+    if (hasAnimated || hasPlayedThisSession()) return;
 
     const projects = document.querySelectorAll(".project-grid .project");
     if (!projects.length) return;
 
     hasAnimated = true;
+    rememberEntrance();
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -21,14 +40,22 @@
             { opacity: 1, transform: "translateY(0)" },
           ];
 
-      project.animate(keyframes, {
-        duration: reduceMotion ? 180 : 520,
-        delay: reduceMotion ? 0 : 400 + Math.min(index, 8) * 90,
-        easing: easeOut,
-        fill: "backwards",
-      });
+      entranceAnimations.push(
+        project.animate(keyframes, {
+          duration: reduceMotion ? 180 : 520,
+          delay: reduceMotion ? 0 : 400 + Math.min(index, 8) * 90,
+          easing: easeOut,
+          fill: "backwards",
+        })
+      );
     });
   }
+
+  window.addEventListener("pageshow", (event) => {
+    if (!event.persisted) return;
+
+    entranceAnimations.forEach((animation) => animation.cancel());
+  });
 
   function initialiseEntrance() {
     requestAnimationFrame(animateProjects);

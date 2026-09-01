@@ -13,6 +13,6 @@ The idea behind this space draws from the popular notion of a [digital garden](h
 
 A good example is [[Inspiration garden|my inspiration garden]].
 
-Notes can also link to other notes. At the bottom of each note there is a list of notes that link to the currently open note.
+Notes can also link to other notes. This is actively encouraged in a digital space, and promotes cross-pollination of ideas and concepts. Some notes will have a list of other notes that they're referenced in.
 
-If you would like to recreate something similar, you can achieve similar results using the free, open-source template from Maxime Vaillancourt <a href= "https://github.com/maximevaillancourt/digital-garden-jekyll-template">available on GitHub</a>.
+If you would like to recreate something similar, you can achieve similar results using this free, open-source template from Maxime Vaillancourt <a href= "https://github.com/maximevaillancourt/digital-garden-jekyll-template">available on GitHub</a>.

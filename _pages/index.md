@@ -55,17 +55,17 @@ sound: true
         {% endif %}
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">{{ page.title }}</h2>
-              <div class="project-tags-list" aria-label="Tags: {{ page.tags | join: ', ' }}">
-                {% for tag in page.tags %}
-                  <span class="tag-dot {{ tag | downcase }}" aria-hidden="true"></span>
-                {% endfor %}
-              </div>
             </div>
             <p class="project-description">{{ page.description | strip_html | default: "No summary available." }}</p>
           </div>
-          {% if page.date %}<span class="project-year">{{ page.date | date: "%Y" }}</span>{% endif %}
+          <div class="project-tags-list" aria-label="Tags: {{ page.tags | join: ', ' }}">
+            {% for tag in page.tags %}
+              <span class="tag-dot {{ tag | downcase }}" aria-hidden="true"></span>
+            {% endfor %}
+          </div>
+          {% if page.date %}<span class="project-year">{{ page.date | date: "%b %Y" }}</span>{% endif %}
         </div>
         
       </a>

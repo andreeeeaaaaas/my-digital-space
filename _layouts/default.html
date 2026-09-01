@@ -4,6 +4,9 @@
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <nav class="nav" role="navigation" aria-label="Main navigation">{% include nav.html %}</nav>
+    {% if page.layout == "note" or page.layout == "page" or page.layout == "project" %}
+    <aside class="toc" data-toc aria-label="On this page" hidden></aside>
+    {% endif %}
     <main id="main-content" class="main pb" role="main">{{ content }}</main>
     <footer class="footer" role="contentinfo">{% include footer.html %}</footer>
   </body>

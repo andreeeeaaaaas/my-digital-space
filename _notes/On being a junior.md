@@ -25,5 +25,5 @@ Lastly, and what felt most important to me: **your creative profession is not th
 
 Whilst they obviously overlap, it's important now more than ever to keep some parts of your creative self separated from an industry that announces 'designers are dead',  every other week. Hearing that messaging constantly is objectively not good for inspiration, or morale.
 
-But if you can successfully insulate the core part of your creative self, it can exist whether the industry validates it or not.
+Successfully insulating the core part of your creative self, means it exists whether the industry validates it or not.
 

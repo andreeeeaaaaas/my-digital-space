@@ -11,18 +11,14 @@ permalink: /info
 <!-- Whether it's a product or a service; a collection of music or a short film; I value commitment to thoughtful experimentation that guides towards a clear purpose.  -->
 
 <!-- **The result– I hope– is work that communicates with immediacy while inviting deeper engagement.** -->
-<figure class="">
-  <img src ="assets/me-coffee.jpg" alt="A black and white photo of me and a coffee">
-</figure>
-## Experience
-Currently designing at [frog](https://www.frog.co/).
+
+I'm currently designing at [frog](https://www.frog.co/), one of the worlds oldest design studios– working at the intersection of experience, brand, strategy, and growth.
 
 Prior to now, I have:
 
-- designed for 250,000 industry workers at the [Department of Customer Service](https://www.nsw.gov.au/departments-and-agencies/customer-service)
-- taught [Interactive Product Design](https://www.sydney.edu.au/units/DECO3200) at the University of Sydney
-- taught [Qualitative Research](https://www.sydney.edu.au/units/DECO2019) at the University of Sydney
-- designed educational material for the not-for-profit education startup [Consent Labs](https://www.consentlabs.org.au/)
+- designed for 250,000 community service workers at the [Department of Customer Service](https://www.nsw.gov.au/departments-and-agencies/customer-service)
+- taught [Interactive Product Design](https://www.sydney.edu.au/units/DECO3200) and [Qualitative Research](https://www.sydney.edu.au/units/DECO2019)  at the University of Sydney
+- designed educational material for the not-for-profit startup [Consent Labs](https://www.consentlabs.org.au/)
 - co-directed an out of hours school care (_great fun, terribly exhausting_)
 
 My spare time is filled with things like:
@@ -31,10 +27,17 @@ My spare time is filled with things like:
 - playing with [[Ziggy]]
 - making strange music with [[An overly complex system|overly complicated systems]]
 
+## Contact
 
-## More
+You can reach me via email (<a class="external emoji-hover" href="mailto:me@andreasthoma.com">me@andreasthoma.com</a>) or follow me
 
-LinkedIn– <a class="external" href="https://www.linkedin.com/in/andreas-thoma-7636a4136/">Andreas Thoma</a><br>
-Bandcamp– <a class="external" href="https://andreeeeaaaaas.bandcamp.com/">andreeeeaaaaas</a><br>
-Soundcloud– <a class="external" href="https://soundcloud.com/andreeeeaaaaas">andreeeeaaaaas</a>
+- LinkedIn: <a class="external" href="https://www.linkedin.com/in/andreas-thoma-7636a4136/">Andreas Thoma</a>
+- Bandcamp: <a class="external" href="https://andreeeeaaaaas.bandcamp.com/">andreeeeaaaaas</a>
+- Soundcloud: <a class="external" href="https://soundcloud.com/andreeeeaaaaas">andreeeeaaaaas</a>
+
+<figure class="">
+  <img src ="assets/me-coffee.jpg" alt="A black and white photo of me and a coffee">
+  <figcaption>Hi!</figcaption>
+</figure>
+
 

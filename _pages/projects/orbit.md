@@ -19,12 +19,14 @@ Photoshop and other design tools have similar methods of duplication, often call
 ## Solution
 
 
+
+
+I wanted to make something fast, free, and fun in a way that promotes experimentation. Beyond that, I challenged myself to get a working build in from scratch **in less than an hour.**
+
 <figure class="">
 	<img class="contain" src="assets/projects/orbit-ui.png">
 	<figcaption>The Orbit user interface</figcaption>
 </figure>
-
-I wanted to make something fast, free, and fun in a way that promotes experimentation. Beyond that, I challenged myself to get a working build in from scratch **in less than an hour.**
 
 It does exactly what it says on the tin: distributing copies of any object around a configurable arc. Users can control the count, distance from centre, origin angle, sweep, and rotation mode — which alone produces wildly different results depending on the selection.
 
@@ -38,9 +40,9 @@ The live preview was the most considered part of the UI: distribution and rotati
 If you would like, you can [check out Orbit in Figma](https://www.figma.com/community/plugin/1616762647761910788/orbit).
 
 ## Examples
-<img class="bt bl br bb" src="assets/projects/orbit-examples7.webp">
-<img class="bt bl br bb" src="assets/projects/orbit-examples3.webp">
-<img class="bt bl br bb" src="assets/projects/orbit-examples4.webp">
-<img class="bt bl br bb" src="assets/projects/orbit-examples5.webp">
-<img class="bt bl br bb" src="assets/projects/orbit-examples6.webp">
-<img class="bt bl br bb" src="assets/projects/orbit-examples2.webp">
+<img class="invert-dark" src="assets/projects/orbit-examples7.webp">
+<img class="invert-dark" src="assets/projects/orbit-examples3.webp">
+<img class="invert-dark" src="assets/projects/orbit-examples4.webp">
+<img class="invert-dark" src="assets/projects/orbit-examples5.webp">
+<img class="invert-dark" src="assets/projects/orbit-examples6.webp">
+<img class="invert-dark" src="assets/projects/orbit-examples2.webp">

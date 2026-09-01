@@ -12,6 +12,7 @@ description: A list of places I find myself growing new ideas or thinking on exi
     <img src="assets/inspiration-garden.webp" class="contain" style="height: 100%; width: 100%; aspect-ratio: 4/3;" alt="an 8 bit image of a seedling">
 </figure>
 
+A garden bed of places I find myself visiting to grow new ideas, or think on existing ones.
 
 ## People
 
@@ -31,4 +32,6 @@ description: A list of places I find myself growing new ideas or thinking on exi
  - [Music, Arts and Culture archive](https://archive.org/details/audio_music)– a digital repository
  - [Interface Futures](https://www.interfacefutures.com/) – thinking about human computer interaction, tomorrow
 
- One particularly fun source of inspiration is this list of [[Sayings I like|sayings I like]].
+ One self-created source of inspiration is this list of [[Sayings I like|sayings I like]].
+
+ 

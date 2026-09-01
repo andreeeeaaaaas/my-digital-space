@@ -1,12 +1,25 @@
 <div class="nav-left">
   {% if page.id == 'home' %}
-    <a href="/" aria-label="Andreas Thoma - Home">Andreas Thoma</a>
+  <a href="/" aria-label="Andreas Thoma - Home">Andreas Thoma</a>
   {% else %}
-    <button class="circle-btn nav-back-btn" onclick="handleNavBack(event)" aria-label="Go back">
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-        <path d="M3.52342 8.06639L7.99341 12.5364L6.81508 13.7147L0.333422 7.23306L6.81508 0.7514L7.99341 1.9297L3.52342 6.39972H13.6667V8.06639H3.52342Z" fill="currentColor"/>
-      </svg>
-    </button>
+  <button
+    class="circle-btn nav-back-btn"
+    onclick="handleNavBack(event)"
+    aria-label="Go back"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+    >
+      <path
+        d="M3.52342 8.06639L7.99341 12.5364L6.81508 13.7147L0.333422 7.23306L6.81508 0.7514L7.99341 1.9297L3.52342 6.39972H13.6667V8.06639H3.52342Z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
   {% endif %}
 </div>
 
@@ -46,7 +59,8 @@
 
     if (document.referrer) {
       try {
-        hasSameOriginReferrer = new URL(document.referrer).origin === window.location.origin;
+        hasSameOriginReferrer =
+          new URL(document.referrer).origin === window.location.origin;
       } catch (error) {
         hasSameOriginReferrer = false;
       }
@@ -64,9 +78,26 @@
     window.location.assign("/");
   }
 </script>
+<!-- {% unless page.id == 'home' %}
+<script>
+  if ("scrollRestoration" in window.history) {
+    window.history.scrollRestoration = "manual";
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    var nav = document.querySelector(".nav");
+    if (nav) window.scrollTo(0, nav.offsetHeight);
+  });
+</script>
+{% endunless %} -->
 <div class="nav-right">
   {% if page.id == 'home' %}
-  <button class="emoji-hover" data-emoji="🎶" id="sound-toggle" aria-label="Toggle sound" aria-pressed="false">
+  <button
+    class="emoji-hover"
+    data-emoji="🎶"
+    id="sound-toggle"
+    aria-label="Toggle sound"
+    aria-pressed="false"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -100,12 +131,15 @@
       />
     </svg>
   </button>
-  
-  {% endif %}
+
+  {% endif %} 
+  {% if page.id != 'info' %}
   <a href="/info" aria-label="View information about Andreas Thoma">Info</a>
-  <a href="/contact" aria-label="Contact information about Andreas Thoma">Contact</a>
+  {% endif %}
+
+  <!-- <a href="/contact" aria-label="Contact information about Andreas Thoma">Contact</a> -->
   <!-- {% if page.id != 'info' %} -->
-    <!-- <a href="/info" aria-label="View information about Andreas Thome">Info</a> -->
+  <!-- <a href="/info" aria-label="View information about Andreas Thome">Info</a> -->
   <!-- {% endif %} -->
 </div>
 

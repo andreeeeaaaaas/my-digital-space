@@ -3,7 +3,7 @@
   <head>
   <meta charset="UTF-8" />
 
-  <link rel="canonical" href="http://localhost:4000/" />
+  <link rel="canonical" href="/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -25,6 +25,8 @@
   
   <script src="/assets/js/typewriter-cursor.js"></script>
   <script src="/assets/js/tag-filter.js"></script>
+  <script src="/assets/js/project-entrance.js" defer></script>
+  
   
   
   <!-- <script src="/assets/js/hover-effect.js"></script> -->
@@ -41,9 +43,9 @@
    
   
 
-  <meta property="og:url" content="http://localhost:4000/" />
+  <meta property="og:url" content="/" />
 
-  <meta property="og:image" content="http://localhost:4000/assets/Card2.jpg" />
+  <meta property="og:image" content="/assets/Card2.jpg" />
 
   <title>
      Andreas Thoma 
@@ -54,7 +56,7 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-left">
   
-    <a href="/" aria-label="Andreas Thoma - Home">Andreas Thoma</a>
+  <a href="/" aria-label="Andreas Thoma - Home">Andreas Thoma</a>
   
 </div>
 
@@ -94,7 +96,8 @@
 
     if (document.referrer) {
       try {
-        hasSameOriginReferrer = new URL(document.referrer).origin === window.location.origin;
+        hasSameOriginReferrer =
+          new URL(document.referrer).origin === window.location.origin;
       } catch (error) {
         hasSameOriginReferrer = false;
       }
@@ -112,9 +115,16 @@
     window.location.assign("/");
   }
 </script>
+<!--  -->
 <div class="nav-right">
   
-  <button class="emoji-hover" data-emoji="🎶" id="sound-toggle" aria-label="Toggle sound" aria-pressed="false">
+  <button
+    class="emoji-hover"
+    data-emoji="🎶"
+    id="sound-toggle"
+    aria-label="Toggle sound"
+    aria-pressed="false"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -148,12 +158,15 @@
       />
     </svg>
   </button>
-  
+
+   
   
   <a href="/info" aria-label="View information about Andreas Thoma">Info</a>
-  <a href="/contact" aria-label="Contact information about Andreas Thoma">Contact</a>
+  
+
+  <!-- <a href="/contact" aria-label="Contact information about Andreas Thoma">Contact</a> -->
   <!--  -->
-    <!-- <a href="/info" aria-label="View information about Andreas Thome">Info</a> -->
+  <!-- <a href="/info" aria-label="View information about Andreas Thome">Info</a> -->
   <!--  -->
 </div>
 
@@ -173,18 +186,8 @@
     </div> -->
 <!-- </div> -->
 </nav>
-    <main id="main-content" class="main pb" role="main">    <html><body>
-<div id="sound-gate" class="overlay">
-  <div class="overlay-content">
-    <p style="margin-top:0">Would you like to enable sound?</p>
-    <div style="display: flex; flex-direction: row;gap: 8px; padding-top: 16px; justify-content: center">
-      <button class="emoji-hover" data-emoji="🎉" id="sound-yes">Yes</button>
-      <p>/</p>
-      <button href="#" class="emoji-hover" data-emoji="💔" id="sound-no">No</button>
-    </div>
-  </div>
-</div>
-<!-- Header -->
+    
+    <main id="main-content" class="main pb" role="main">    <!-- Header --><html><body>
 <section class="header">
   <div class="intro-text">
     <p>I'm Andreas – a
@@ -219,19 +222,19 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">On being a junior</h2>
-              <div class="project-tags-list" aria-label="Tags: writing, design">
-                
-                  <span class="tag-dot writing" aria-hidden="true"></span>
-                
-                  <span class="tag-dot design" aria-hidden="true"></span>
-                
-              </div>
             </div>
             <p class="project-description">And insulating your creative self</p>
           </div>
-          <span class="project-year">2026</span>
+          <div class="project-tags-list" aria-label="Tags: writing, design">
+            
+              <span class="tag-dot writing" aria-hidden="true"></span>
+            
+              <span class="tag-dot design" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">Sep 2026</span>
         </div>
         
       </a>
@@ -243,17 +246,17 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">Sayings I like</h2>
-              <div class="project-tags-list" aria-label="Tags: writing">
-                
-                  <span class="tag-dot writing" aria-hidden="true"></span>
-                
-              </div>
             </div>
             <p class="project-description">Some in English, some not</p>
           </div>
-          <span class="project-year">2026</span>
+          <div class="project-tags-list" aria-label="Tags: writing">
+            
+              <span class="tag-dot writing" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">Apr 2026</span>
         </div>
         
       </a>
@@ -274,17 +277,17 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">Orbit</h2>
-              <div class="project-tags-list" aria-label="Tags: design">
-                
-                  <span class="tag-dot design" aria-hidden="true"></span>
-                
-              </div>
             </div>
             <p class="project-description">A retro-futuristic design tool for Figma</p>
           </div>
-          <span class="project-year">2026</span>
+          <div class="project-tags-list" aria-label="Tags: design">
+            
+              <span class="tag-dot design" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">Apr 2026</span>
         </div>
         
       </a>
@@ -305,17 +308,17 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">Papous Garden</h2>
-              <div class="project-tags-list" aria-label="Tags: visual">
-                
-                  <span class="tag-dot visual" aria-hidden="true"></span>
-                
-              </div>
             </div>
             <p class="project-description">A short film of my grandfather in his garden</p>
           </div>
-          <span class="project-year">2025</span>
+          <div class="project-tags-list" aria-label="Tags: visual">
+            
+              <span class="tag-dot visual" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">Aug 2025</span>
         </div>
         
       </a>
@@ -338,19 +341,19 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">My digital space</h2>
-              <div class="project-tags-list" aria-label="Tags: design, visual">
-                
-                  <span class="tag-dot design" aria-hidden="true"></span>
-                
-                  <span class="tag-dot visual" aria-hidden="true"></span>
-                
-              </div>
             </div>
             <p class="project-description">A place to share things I create</p>
           </div>
-          <span class="project-year">2025</span>
+          <div class="project-tags-list" aria-label="Tags: design, visual">
+            
+              <span class="tag-dot design" aria-hidden="true"></span>
+            
+              <span class="tag-dot visual" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">Mar 2025</span>
         </div>
         
       </a>
@@ -362,17 +365,17 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">Patina</h2>
-              <div class="project-tags-list" aria-label="Tags: music">
-                
-                  <span class="tag-dot music" aria-hidden="true"></span>
-                
-              </div>
             </div>
             <p class="project-description">Live mix and accompanying interview, aired on fbi radio</p>
           </div>
-          <span class="project-year">2025</span>
+          <div class="project-tags-list" aria-label="Tags: music">
+            
+              <span class="tag-dot music" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">Feb 2025</span>
         </div>
         
       </a>
@@ -393,17 +396,17 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">What's a digital space?</h2>
-              <div class="project-tags-list" aria-label="Tags: writing">
-                
-                  <span class="tag-dot writing" aria-hidden="true"></span>
-                
-              </div>
             </div>
             <p class="project-description">How is a digital space different from a website?</p>
           </div>
-          <span class="project-year">2025</span>
+          <div class="project-tags-list" aria-label="Tags: writing">
+            
+              <span class="tag-dot writing" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">Jan 2025</span>
         </div>
         
       </a>
@@ -430,23 +433,23 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">Inspiration garden</h2>
-              <div class="project-tags-list" aria-label="Tags: writing, design, music, visual">
-                
-                  <span class="tag-dot writing" aria-hidden="true"></span>
-                
-                  <span class="tag-dot design" aria-hidden="true"></span>
-                
-                  <span class="tag-dot music" aria-hidden="true"></span>
-                
-                  <span class="tag-dot visual" aria-hidden="true"></span>
-                
-              </div>
             </div>
             <p class="project-description">A list of places I find myself growing new ideas or thinking on existing ones</p>
           </div>
-          <span class="project-year">2024</span>
+          <div class="project-tags-list" aria-label="Tags: writing, design, music, visual">
+            
+              <span class="tag-dot writing" aria-hidden="true"></span>
+            
+              <span class="tag-dot design" aria-hidden="true"></span>
+            
+              <span class="tag-dot music" aria-hidden="true"></span>
+            
+              <span class="tag-dot visual" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">Nov 2024</span>
         </div>
         
       </a>
@@ -467,17 +470,17 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <h2 class="project-title">Making accessibility reporting effortless</h2>
-              <div class="project-tags-list" aria-label="Tags: design">
-                
-                  <span class="tag-dot design" aria-hidden="true"></span>
-                
-              </div>
+            <div class="project-title-with-tags">
+              <h2 class="project-title">Making access visible</h2>
             </div>
             <p class="project-description">An internal tool to help Service NSW report on accessibility</p>
           </div>
-          <span class="project-year">2024</span>
+          <div class="project-tags-list" aria-label="Tags: design">
+            
+              <span class="tag-dot design" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">Oct 2024</span>
         </div>
         
       </a>
@@ -498,17 +501,17 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">Parao</h2>
-              <div class="project-tags-list" aria-label="Tags: music">
-                
-                  <span class="tag-dot music" aria-hidden="true"></span>
-                
-              </div>
             </div>
             <p class="project-description">A one hour solo live performance for a night curated by Moral Laxa</p>
           </div>
-          <span class="project-year">2024</span>
+          <div class="project-tags-list" aria-label="Tags: music">
+            
+              <span class="tag-dot music" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">May 2024</span>
         </div>
         
       </a>
@@ -531,19 +534,19 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">Co-designing consent</h2>
-              <div class="project-tags-list" aria-label="Tags: design, writing">
-                
-                  <span class="tag-dot design" aria-hidden="true"></span>
-                
-                  <span class="tag-dot writing" aria-hidden="true"></span>
-                
-              </div>
             </div>
             <p class="project-description">An honours thesis on how to best co-design primary school consent education</p>
           </div>
-          <span class="project-year">2023</span>
+          <div class="project-tags-list" aria-label="Tags: design, writing">
+            
+              <span class="tag-dot design" aria-hidden="true"></span>
+            
+              <span class="tag-dot writing" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">Jan 2023</span>
         </div>
         
       </a>
@@ -564,17 +567,17 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">Eli</h2>
-              <div class="project-tags-list" aria-label="Tags: design">
-                
-                  <span class="tag-dot design" aria-hidden="true"></span>
-                
-              </div>
             </div>
             <p class="project-description">An integrated physical and digital product to support young students learning online</p>
           </div>
-          <span class="project-year">2022</span>
+          <div class="project-tags-list" aria-label="Tags: design">
+            
+              <span class="tag-dot design" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">Jan 2022</span>
         </div>
         
       </a>
@@ -586,17 +589,17 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">Dune</h2>
-              <div class="project-tags-list" aria-label="Tags: music">
-                
-                  <span class="tag-dot music" aria-hidden="true"></span>
-                
-              </div>
             </div>
             <p class="project-description">A functional 4-track digital release on Sydney based label Nightime Drama</p>
           </div>
-          <span class="project-year">2021</span>
+          <div class="project-tags-list" aria-label="Tags: music">
+            
+              <span class="tag-dot music" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">Jan 2021</span>
         </div>
         
       </a>
@@ -617,17 +620,17 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">Sunrise Cambodia</h2>
-              <div class="project-tags-list" aria-label="Tags: visual">
-                
-                  <span class="tag-dot visual" aria-hidden="true"></span>
-                
-              </div>
             </div>
             <p class="project-description">Photos from 3 months spent volunteering in Cambodia</p>
           </div>
-          <span class="project-year">2017</span>
+          <div class="project-tags-list" aria-label="Tags: visual">
+            
+              <span class="tag-dot visual" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">Feb 2017</span>
         </div>
         
       </a>
@@ -639,17 +642,17 @@
         
         <div class="project-title-row">
           <div class="project-text">
-            <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="project-title-with-tags">
               <h2 class="project-title">Cloud Moments</h2>
-              <div class="project-tags-list" aria-label="Tags: music">
-                
-                  <span class="tag-dot music" aria-hidden="true"></span>
-                
-              </div>
             </div>
             <p class="project-description">A collection of MicroKorg pieces, inspired by the clouds that rolled past my bedroom window</p>
           </div>
-          <span class="project-year">2016</span>
+          <div class="project-tags-list" aria-label="Tags: music">
+            
+              <span class="tag-dot music" aria-hidden="true"></span>
+            
+          </div>
+          <span class="project-year">Jan 2016</span>
         </div>
         
       </a>
@@ -672,7 +675,7 @@ If you would like to hear about them, or work on one together, please <a href="/
 
 <div class="footer-year">
   <div class="label" id="visit-label">Thanks for visiting 👋</div>
-  <div class="detail">Last updated Jul 16, 2026</div>
+  <div class="detail">Last updated Sep 1, 2026</div>
 </div>
 <!-- ~ ~ ~ ~ ~ ~
 <br>

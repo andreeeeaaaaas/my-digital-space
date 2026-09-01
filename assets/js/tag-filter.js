@@ -273,7 +273,7 @@ document.addEventListener("DOMContentLoaded", function () {
     variableSpan.appendChild(cursor);
   }
 
-  startTypewriter();
+  setTimeout(startTypewriter, 3000);
 
   introSpans.forEach((span) => {
     span.addEventListener("click", function () {

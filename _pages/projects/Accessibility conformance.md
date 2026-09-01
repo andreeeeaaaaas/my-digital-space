@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Making accessibility reporting effortless
+title: Making access visible
 permalink: /accessibility-conformance
 date: 2024-10-10
 tags:
