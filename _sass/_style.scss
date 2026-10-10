@@ -378,6 +378,49 @@ img {
   }
 }
 
+// Carousel: built by assets/js/carousel.js from a div.carousel of figures
+.carousel-track {
+  position: relative;
+  aspect-ratio: 2.4 / 1;
+  border-radius: $border-radius-md;
+  background-color: var(--color-bg-secondary);
+  box-shadow: inset 0 0 0 1px var(--color-image-outline);
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    &[hidden] {
+      display: none;
+    }
+  }
+}
+
+.carousel-footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: $spacing-s-16;
+
+  figcaption {
+    padding: 0;
+    overflow: hidden;
+    span {
+      display: inline-block;
+    }
+  }
+}
+
+.carousel-btn {
+  @extend .nav-back-btn;
+}
+
 figcaption {
   text-align: center;
   font-size: $font-size-base - 2px;
@@ -468,6 +511,15 @@ iframe {
   border-radius: $border-radius-md;
   overflow: hidden;
   margin: $spacing-lg-32 0;
+}
+
+// Terminal, Terminal! demo, framed like the project images
+.tt-embed {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2.4 / 1;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
 }
 
 .intro {
@@ -1384,7 +1436,8 @@ html.project-entrance-pending .project-grid .project {
   article,
   content {
     img,
-    iframe {
+    iframe,
+    .carousel-track {
       border-radius: 0;
     }
   }

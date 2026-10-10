@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terminal, Terminal!</title>
+<meta name="description" content="Interactive demo of the Terminal, Terminal! departures board for local dev servers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  /* Charcoal theme, from BoardTheme.swift. */
+  :root {
+    --board: #111112;
+    --edge: rgba(255, 255, 255, .06);
+    --tile-top: #2f2e2d;
+    --tile-bottom: #2a2928;
+    --ink: #efe8d5;
+    --ink-dim: rgba(239, 232, 213, .6);
+    --ink-idle: rgba(239, 232, 213, .5);
+    --accent: #f5ba4a;
+    --label: rgba(217, 164, 65, .85);
+
+    /* Scale, set by fit(). Everything is sized in units of --u. */
+    --s: 1;
+    --u: calc(var(--s) * 1px);
+    /* Cell and row metrics, snapped to device pixels by fit() so every hinge renders alike. */
+    --cell-w: 10px;
+    --cell-h: 17.5px;
+    --cell-gap: 1px;
+    --half: 8.5px;
+    --hinge: .5px;
+    --gap: 10px;
+    --control: 18px;
+    --row-pad: 3px;
+
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+  }
+
+  html, body { margin: 0; height: 100%; background: transparent; }
+  body { overflow: hidden; }
+
+  /* Centres the board in whatever frame it's embedded in. */
+  .stage { height: 100%; display: flex; align-items: center; justify-content: center; }
+
+  .board {
+    position: relative;
+    width: max-content;
+    padding: calc(14 * var(--u)) calc(16 * var(--u)) calc(12 * var(--u));
+    background: var(--board);
+    border-radius: calc(12 * var(--u));
+    box-shadow: inset 0 0 0 1px var(--edge), 0 10px 30px rgba(0, 0, 0, .28), 0 2px 6px rgba(0, 0, 0, .18);
+    overflow: hidden;
+    font-family: var(--mono);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Title bar */
+  .title {
+    display: flex; align-items: center; gap: calc(8 * var(--u));
+    margin-bottom: calc(12 * var(--u));
+    color: var(--accent);
+  }
+  .title svg { width: calc(17 * var(--u)); height: calc(17 * var(--u)); fill: currentColor; flex: none; }
+  .title b {
+    margin: 0; font: 600 calc(12 * var(--u))/1 var(--mono); letter-spacing: calc(1.6 * var(--u)); white-space: nowrap;
+  }
+  .title .buttons { margin-left: auto; display: flex; gap: calc(2 * var(--u)); color: var(--label); }
+  .title .buttons span { width: var(--control); height: calc(18 * var(--u)); display: grid; place-items: center; }
+  .title .buttons svg { width: calc(13 * var(--u)); height: calc(13 * var(--u)); }
+
+  /* Columns */
+  .cols { display: flex; gap: var(--gap); align-items: center; }
+  .cols > .ctl { width: var(--control); flex: none; }
+  .w5 { width: calc(5 * var(--cell-w) + 4 * var(--cell-gap)); }
+  .w8 { width: calc(8 * var(--cell-w) + 7 * var(--cell-gap)); }
+  .w16 { width: calc(16 * var(--cell-w) + 15 * var(--cell-gap)); }
+
+  .header { padding-bottom: calc(6 * var(--u)); }
+  .header span {
+    font: 600 calc(9.5 * var(--u))/1 var(--mono); letter-spacing: calc(1.2 * var(--u)); color: var(--label); flex: none;
+  }
+  .header .right { text-align: right; }
+
+  /* Rows */
+  .rows { position: relative; }
+  .row { position: relative; padding: var(--row-pad) 0; box-sizing: border-box; }
+  .row.moving { overflow: hidden; }
+  .row::before {
+    content: ""; position: absolute; inset: 0 calc(-6 * var(--u)); border-radius: calc(4 * var(--u));
+    background: rgba(255, 255, 255, 0);
+    transition: background-color .15s ease-out;
+    pointer-events: none;
+  }
+  .row.live:hover::before, .row.live.hover::before, .row.live:focus-within::before {
+    background: rgba(255, 255, 255, .045);
+  }
+  .field { display: flex; gap: var(--cell-gap); flex: none; }
+
+  /* One split-flap cell: two static halves and two moving flaps. */
+  .cell { position: relative; width: var(--cell-w); height: var(--cell-h); flex: none; }
+  .half {
+    position: absolute; left: 0; width: 100%; height: var(--half); overflow: hidden;
+    backface-visibility: hidden;
+  }
+  .half.t { top: 0; background: var(--tile-top); border-radius: calc(1.5 * var(--u)) calc(1.5 * var(--u)) 0 0; transform-origin: 50% 100%; }
+  .half.b { top: calc(var(--half) + var(--hinge)); background: var(--tile-bottom); border-radius: 0 0 calc(1.5 * var(--u)) calc(1.5 * var(--u)); transform-origin: 50% 0; }
+  .half i {
+    position: absolute; left: 0; width: 100%; height: var(--cell-h);
+    font: 500 calc(12 * var(--u))/var(--cell-h) var(--mono); font-style: normal; text-align: center;
+  }
+  .half.t i { top: 0; }
+  .half.b i { top: calc(-1 * (var(--half) + var(--hinge))); }
+  .half s { position: absolute; inset: 0; background: #000; opacity: 0; text-decoration: none; }
+  .flap.t { z-index: 2; }
+  .flap.b { z-index: 1; transform: perspective(calc(36 * var(--u))) rotateX(90deg); }
+
+  /* Kill control */
+  .kill {
+    position: absolute; right: 0; top: 50%; translate: 0 -50%;
+    z-index: 5; width: var(--control); height: calc(18 * var(--u)); padding: 0; border: 0; background: none;
+    display: grid; place-items: center; cursor: pointer;
+    opacity: 0; pointer-events: none; transition: opacity .15s ease-out;
+  }
+  .kill span {
+    width: calc(14 * var(--u)); height: calc(14 * var(--u)); border-radius: 50%; background: var(--accent);
+    display: grid; place-items: center;
+    transition: transform .12s ease-out, filter .12s ease-out;
+  }
+  .kill svg { width: calc(6 * var(--u)); height: calc(6 * var(--u)); stroke: var(--board); stroke-width: 2.4; stroke-linecap: round; }
+  .row.killable:hover .kill, .row.killable.hover .kill, .row.killable:focus-within .kill, .kill:focus-visible {
+    opacity: 1; pointer-events: auto;
+  }
+  .kill:hover span { transform: scale(1.14); filter: brightness(1.08); }
+  .kill:active span { transform: scale(.88); }
+  .kill:focus-visible { outline: none; }
+  .kill:focus-visible span { box-shadow: 0 0 0 calc(2 * var(--u)) var(--board), 0 0 0 calc(3.5 * var(--u)) var(--accent); }
+
+  /* Force quit prompt: sits over TIME, the gutter and STATUS's last cell. */
+  .prompt {
+    position: absolute; right: 0; top: 50%; translate: 0 -50%;
+    width: calc(8 * var(--cell-w) + 7 * var(--cell-gap) + var(--gap) * 2 + var(--control) + var(--cell-w));
+    z-index: 5; display: flex; justify-content: flex-end; gap: calc(4 * var(--u)); padding: var(--u) 0;
+    opacity: 0; pointer-events: none; transition: opacity .2s ease-out;
+    font: 600 calc(10.5 * var(--u))/1 var(--sans);
+  }
+  .row.delayed .prompt { opacity: 1; pointer-events: auto; }
+  .row.delayed .field:nth-child(5) { opacity: 0; transition: opacity .2s ease-out; }
+  .prompt button {
+    border: 0; border-radius: 999px; padding: calc(3 * var(--u)) calc(7 * var(--u)); cursor: pointer;
+    font: inherit; line-height: calc(13 * var(--u));
+    transition: filter .12s ease-out, background-color .12s ease-out, opacity .08s, transform .12s ease-out;
+  }
+  .prompt .force { background: var(--accent); color: var(--board); }
+  .prompt .force:hover { filter: brightness(1.1); }
+  .prompt .cancel { background: rgba(255, 255, 255, .1); color: var(--ink); padding: calc(3 * var(--u)); width: calc(16 * var(--u)); display: grid; place-items: center; }
+  .prompt .cancel:hover { background: rgba(255, 255, 255, .18); }
+  .prompt .cancel svg { width: calc(6 * var(--u)); height: calc(6 * var(--u)); stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+  .prompt button:active { opacity: .7; transform: scale(.96); }
+  .prompt button:focus-visible { outline: calc(1.5 * var(--u)) solid var(--accent); outline-offset: calc(1.5 * var(--u)); }
+
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+    <section class="board" id="board" aria-label="Terminal, Terminal! demo: a departures board of local dev servers. Hover a row to stop it.">
+      <div class="title" aria-hidden="true">
+        <!-- Flight takeoff, Material Icons (Apache 2.0) -->
+        <svg viewBox="0 0 24 24"><path d="M2.5 19h19v2h-19v-2zm19.57-9.36c-.21-.8-1.04-1.28-1.84-1.06L14.92 10l-6.9-6.43-1.93.51 4.14 7.17-4.97 1.33-1.97-1.54-1.45.39 2.59 4.49L21 11.49c.81-.23 1.28-1.05 1.07-1.85z"/></svg>
+        <b>TERMINAL, TERMINAL!</b>
+        <div class="buttons">
+          <span><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.48.48 0 0 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/></svg></span>
+          <span><svg viewBox="0 0 24 24"><rect x="5" y="10.75" width="14" height="2.5" rx="1.25"/></svg></span>
+        </div>
+      </div>
+      <div class="cols header" aria-hidden="true">
+        <span class="w5">GATE</span><span class="w16">FLIGHT</span><span class="w5 right">PID</span><span class="w8">STATUS</span><span class="w8">TIME</span><span class="ctl"></span>
+      </div>
+      <div class="rows" id="rows"></div>
+    </section>
+</div>
+
+<script>
+(() => {
+  // Timings from BoardModel.swift and SplitFlapCharacter.swift.
+  const HALF_TURN = 55, RIPPLE = 30;
+  const BOARDING = 5000, DEPARTED_HOLD = 4000, CLEARING = 1400, TERMINATE_GRACE = 3000;
+  const SLOTS = 3;  // the app's minimum rows; a fixed height keeps the embed from jumping
+  const COLS = { gate: 5, flight: 16, pid: 5, status: 8, time: 8 };
+  const SCRAMBLE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  const GLYPHS = new Set(" " + SCRAMBLE + ":.-/");
+
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  let persp = 36;  // flap perspective, scaled by fit()
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const rand = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+
+  // ---- Cells ----
+
+  class Cell {
+    constructor() {
+      const el = this.el = document.createElement("span");
+      el.className = "cell";
+      el.innerHTML =
+        '<span class="half t"><i></i></span><span class="half b"><i></i></span>' +
+        '<span class="half t flap"><i></i><s></s></span><span class="half b flap"><i></i><s></s></span>';
+      const [sTop, sBot, fTop, fBot] = el.children;
+      Object.assign(this, { sTop, sBot, fTop, fBot });
+      this.current = " ";
+      this.gen = 0;
+      this.anims = [];
+    }
+    static show(half, glyph) { half.firstChild.textContent = glyph === " " ? "" : glyph; }
+    rest(glyph) {
+      this.anims.forEach(a => a.cancel());
+      this.anims = [];
+      this.current = glyph;
+      [this.sTop, this.sBot, this.fTop, this.fBot].forEach(h => Cell.show(h, glyph));
+    }
+    async flip(target, delay, scrambles) {
+      const gen = ++this.gen;
+      this.rest(this.current);
+      if (target === this.current) return;
+      if (reduceMotion.matches) return this.rest(target);
+      if (delay) { await sleep(delay); if (gen !== this.gen) return; }
+
+      const seq = [];
+      if (scrambles) for (let n = rand(2, 4); n--;) {
+        let g; do g = SCRAMBLE[rand(0, SCRAMBLE.length - 1)]; while (g === target);
+        seq.push(g);
+      }
+      seq.push(target);
+
+      for (const g of seq) {
+        Cell.show(this.sTop, g);
+        Cell.show(this.fBot, g);
+        const opts = { duration: HALF_TURN, fill: "forwards" };
+        const fall = [
+          this.fTop.animate([{ transform: `perspective(${persp}px) rotateX(0deg)` }, { transform: `perspective(${persp}px) rotateX(-90deg)` }], { ...opts, easing: "ease-in" }),
+          this.fTop.lastChild.animate([{ opacity: 0 }, { opacity: .6 }], { ...opts, easing: "ease-in" }),
+        ];
+        this.anims = fall;
+        await fall[0].finished.catch(() => {});
+        if (gen !== this.gen) return;
+        const land = [
+          this.fBot.animate([{ transform: `perspective(${persp}px) rotateX(90deg)` }, { transform: `perspective(${persp}px) rotateX(0deg)` }], { ...opts, easing: "ease-out" }),
+          this.fBot.lastChild.animate([{ opacity: .6 }, { opacity: 0 }], { ...opts, easing: "ease-out" }),
+        ];
+        this.anims = fall.concat(land);
+        await land[0].finished.catch(() => {});
+        if (gen !== this.gen) return;
+        this.rest(g);
+      }
+    }
+  }
+
+  class Field {
+    constructor(width, align = "left", scrambles = true) {
+      this.width = width; this.align = align; this.scrambles = scrambles;
+      this.el = document.createElement("span");
+      this.el.className = "field";
+      this.cells = Array.from({ length: width }, () => new Cell());
+      this.cells.forEach(c => this.el.appendChild(c.el));
+      this.targets = Array(width).fill(" ");
+    }
+    set(text, color) {
+      if (color !== this.color) this.el.style.color = this.color = color;
+      let chars = [...String(text).toUpperCase()].map(c => GLYPHS.has(c) ? c : c === "_" ? "-" : " ").slice(0, this.width);
+      const pad = Array(this.width - chars.length).fill(" ");
+      chars = this.align === "right" ? pad.concat(chars) : chars.concat(pad);
+      chars.forEach((c, i) => {
+        if (c === this.targets[i]) return;
+        this.targets[i] = c;
+        this.cells[i].flip(c, this.scrambles ? i * RIPPLE : 0, this.scrambles);
+      });
+    }
+  }
+
+  // ---- Rows ----
+
+  const rowsEl = document.getElementById("rows");
+  const X = '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 2l6 6M8 2l-6 6"/></svg>';
+
+  function makeRow() {
+    const el = document.createElement("div");
+    el.className = "row";
+    const cols = document.createElement("div");
+    cols.className = "cols";
+    cols.setAttribute("aria-hidden", "true");
+    const f = {
+      gate: new Field(COLS.gate), flight: new Field(COLS.flight), pid: new Field(COLS.pid, "right"),
+      status: new Field(COLS.status), time: new Field(COLS.time, "left", false),
+    };
+    Object.values(f).forEach(x => cols.appendChild(x.el));
+    const ctl = document.createElement("span"); ctl.className = "ctl"; cols.appendChild(ctl);
+    const label = document.createElement("span"); label.className = "sr";
+    el.append(label, cols);
+    return { el, f, label };
+  }
+
+  function blankRow() {
+    const r = makeRow();
+    Object.values(r.f).forEach(x => x.set("", "var(--ink)"));
+    return r;
+  }
+
+  // Live entries, then blank slots.
+  const entries = [];
+  let slots = [];  // DOM rows in order: { el, f, entry? }
+  for (let i = 0; i < SLOTS; i++) { const r = blankRow(); slots.push(r); rowsEl.appendChild(r.el); }
+
+  const uptime = s => {
+    s = Math.max(0, Math.min(Math.floor(s), 99 * 3600 + 3599));
+    const p = n => String(n).padStart(2, "0");
+    return `${p(Math.floor(s / 3600))}:${p(Math.floor(s / 60) % 60)}:${p(s % 60)}`;
+  };
+
+  function status(e) {
+    return { boarding: "BOARDING", active: e.idle ? "IDLE" : "RUNNING", closing: "CLOSING", delayed: "DELAYED", departed: "DEPARTED", clearing: "" }[e.phase];
+  }
+  function statusColor(e) {
+    switch (e.phase) {
+      case "boarding": case "closing": case "delayed": return "var(--accent)";
+      case "active": return e.idle ? "var(--ink-idle)" : "var(--ink)";
+      default: return "var(--ink-dim)";
+    }
+  }
+  const isLive = e => e.phase !== "departed" && e.phase !== "clearing";
+  const canTerminate = e => e.phase === "boarding" || e.phase === "active";
+
+  function render(e, now) {
+    const r = e.row, clearing = e.phase === "clearing", ink = isLive(e) ? "var(--ink)" : "var(--ink-dim)";
+    r.f.gate.set(clearing ? "" : e.port ?? "--", ink);
+    r.f.flight.set(clearing ? "" : `${e.label} ${e.dest}`, ink);
+    r.f.pid.set(clearing ? "" : e.pid, ink);
+    r.f.status.set(status(e), statusColor(e));
+    const up = (e.stoppedAt ?? now) - e.startedAt;
+    r.f.time.set(clearing ? "" : uptime(up / 1000), ink);
+    r.el.classList.toggle("live", isLive(e));
+    r.el.classList.toggle("killable", canTerminate(e));
+    r.el.classList.toggle("delayed", e.phase === "delayed");
+    if (!isLive(e)) r.el.classList.remove("hover");
+    r.kill.tabIndex = canTerminate(e) ? 0 : -1;
+    r.prompt.querySelectorAll("button").forEach(b => b.tabIndex = e.phase === "delayed" ? 0 : -1);
+    r.label.textContent = `${e.label} ${e.dest}, ${e.port ? "port " + e.port : "no port"}, process ${e.pid}, ${(status(e) || "cleared").toLowerCase()}`;
+  }
+
+  function attachControls(e) {
+    const r = e.row;
+    const kill = document.createElement("button");
+    kill.className = "kill";
+    kill.innerHTML = `<span>${X}</span>`;
+    kill.setAttribute("aria-label", `Stop ${e.label} ${e.dest}`);
+    kill.title = "Stop process (SIGTERM)";
+    kill.addEventListener("click", ev => { ev.stopPropagation(); terminate(e); });
+
+    const prompt = document.createElement("div");
+    prompt.className = "prompt";
+    prompt.innerHTML = `<button class="force" title="Force quit (SIGKILL)">Force quit</button><button class="cancel" aria-label="Cancel" title="Cancel">${X}</button>`;
+    prompt.querySelector(".force").addEventListener("click", ev => { ev.stopPropagation(); forceQuit(e); });
+    prompt.querySelector(".cancel").addEventListener("click", ev => { ev.stopPropagation(); cancelForceQuit(e); });
+    r.el.append(kill, prompt);
+    Object.assign(r, { kill, prompt });
+
+    // Touch has no hover: a tap toggles the row's controls.
+    r.el.addEventListener("pointerup", ev => {
+      if (ev.pointerType === "mouse" || ev.target.closest("button") || !isLive(e)) return;
+      const on = !r.el.classList.contains("hover");
+      slots.forEach(s => s.el.classList.remove("hover"));
+      r.el.classList.toggle("hover", on);
+    });
+  }
+
+  // ---- Model ----
+
+  function setPhase(e, phase) {
+    e.phase = phase;
+    e.phaseAt = performance.now();
+    if (!isLive(e) && e.stoppedAt == null) e.stoppedAt = Date.now();
+  }
+
+  function arrive(proc, { running = false } = {}) {
+    const index = entries.length;
+    if (index >= SLOTS) return null;
+    const slot = slots[index];
+    const e = { ...proc, row: slot, idle: false, startedAt: Date.now() - (running ? proc.uptime * 1000 : 0) };
+    setPhase(e, running ? "active" : "boarding");
+    slot.entry = e;
+    attachControls(e);
+    entries.push(e);
+    render(e, Date.now());
+    return e;
+  }
+
+  function depart(e) { if (isLive(e)) { setPhase(e, "departed"); render(e, Date.now()); } }
+
+  function terminate(e) {
+    if (!canTerminate(e)) return;
+    setPhase(e, "closing");
+    render(e, Date.now());
+    // A well-behaved process exits; a stubborn one is still there after the grace period.
+    if (!e.stubborn) setTimeout(() => e.phase === "closing" && depart(e), rand(900, 1600));
+  }
+  function forceQuit(e) {
+    if (e.phase !== "delayed") return;
+    setPhase(e, "closing");
+    render(e, Date.now());
+    setTimeout(() => depart(e), 450);
+  }
+  function cancelForceQuit(e) { if (e.phase === "delayed") { setPhase(e, "active"); render(e, Date.now()); } }
+
+  function remove(e) {
+    const i = entries.indexOf(e);
+    if (i < 0) return;
+    entries.splice(i, 1);
+    const old = e.row;
+    const fresh = blankRow();
+    slots.splice(slots.indexOf(old), 1);
+    slots.push(fresh);
+    const h = old.el.offsetHeight;
+    rowsEl.appendChild(fresh.el);
+    if (reduceMotion.matches) { old.el.remove(); return; }
+    const opts = { duration: 350, easing: "ease-in-out" };
+    old.el.classList.add("moving");
+    fresh.el.classList.add("moving");
+    old.el.animate([{ height: h + "px", opacity: 1 }, { height: "0px", opacity: 0, paddingTop: 0, paddingBottom: 0 }], opts)
+      .finished.then(() => old.el.remove());
+    fresh.el.animate([{ height: "0px", paddingTop: 0, paddingBottom: 0 }, { height: h + "px" }], opts)
+      .finished.then(() => fresh.el.classList.remove("moving"));
+  }
+
+  function tick() {
+    const t = performance.now(), now = Date.now();
+    for (const e of entries.slice()) {
+      const age = t - e.phaseAt;
+      if (e.phase === "boarding" && age >= BOARDING) setPhase(e, "active");
+      else if (e.phase === "closing" && e.stubborn && age >= TERMINATE_GRACE) setPhase(e, "delayed");
+      else if (e.phase === "departed" && age >= DEPARTED_HOLD) setPhase(e, "clearing");
+      else if (e.phase === "clearing" && age >= CLEARING) { remove(e); continue; }
+      render(e, now);
+    }
+    refill(t);
+  }
+
+  // ---- Population: two servers run; stopping one boards a replacement ----
+
+  const RUNNING = 2, REFILL_DELAY = 2000;
+  const OPENING = [
+    { label: "ASTRO", dest: "oceanheroes", port: 4321, pid: 7862, uptime: 325000 },
+    { label: "VITE", dest: "terminal-ui", port: 5173, pid: 40211, uptime: 1260 },
+  ];
+  const POOL = [
+    { label: "DJANGO", dest: "backoffice", port: 8000, stubborn: true },
+    { label: "NEXT", dest: "portfolio", port: 3000 },
+    { label: "TSC", dest: "api", port: null },
+    { label: "STORYBOOK", dest: "ui-kit", port: 6006 },
+    { label: "RAILS", dest: "shop", port: 3001, stubborn: true },
+    { label: "JEKYLL", dest: "blog", port: 4000 },
+    { label: "FLASK", dest: "ml-api", port: 5000 },
+    { label: "HUGO", dest: "docs", port: 1313 },
+    { label: "ASTRO", dest: "oceanheroes", port: 4321 },
+    { label: "VITE", dest: "terminal-ui", port: 5173 },
+  ];
+  let nextPid = 41007, poolIndex = 0, refillAt = null;
+
+  function nextProc() {
+    for (let n = 0; n < POOL.length; n++) {
+      const p = POOL[poolIndex];
+      poolIndex = (poolIndex + 1) % POOL.length;
+      if (!entries.some(e => isLive(e) && e.label === p.label && e.dest === p.dest)) {
+        nextPid += rand(40, 900);
+        return { ...p, pid: nextPid, stubborn: !!p.stubborn };
+      }
+    }
+  }
+
+  // Called each tick. Boards a replacement 2 s after the board drops below two live rows.
+  function refill(t) {
+    if (entries.filter(isLive).length >= RUNNING) return void (refillAt = null);
+    refillAt ??= t + REFILL_DELAY;
+    if (t < refillAt || entries.length >= SLOTS) return;
+    arrive(nextProc());
+    refillAt = null;
+  }
+
+  // ---- Runs only while on screen in a visible tab ----
+
+  const board = document.getElementById("board");
+  let active = false, visible = false, started = false, timer;
+  function updateActive() {
+    const on = visible && !document.hidden;
+    if (on === active) return;
+    active = on;
+    clearInterval(timer);
+    if (!on) return;
+    timer = setInterval(tick, 250);
+    if (!started) {
+      started = true;
+      setTimeout(() => OPENING.forEach(p => arrive(p, { running: true })), 700);
+    }
+  }
+  new IntersectionObserver(([en]) => { visible = en.isIntersecting; updateActive(); }).observe(board);
+  document.addEventListener("visibilitychange", updateActive);
+
+  // ---- Fit to the container ----
+
+  // Lays the board out at its final size rather than scaling it with a transform, and snaps
+  // cell and row metrics to whole device pixels, so every tile's hinge lands the same way.
+  const stage = document.getElementById("stage"), root = document.documentElement.style;
+  function apply(s) {
+    const dpr = window.devicePixelRatio || 1;
+    const dp = (n, min = 1) => Math.max(min, Math.round(n * s * dpr)) / dpr;
+    const hinge = dp(.5);
+    const half = Math.max(1, Math.round((17.5 * s * dpr - hinge * dpr) / 2)) / dpr;
+    const vars = {
+      "--s": s, "--cell-w": dp(10), "--cell-gap": dp(1), "--gap": dp(10), "--control": dp(18),
+      "--row-pad": dp(3, 0), "--hinge": hinge, "--half": half, "--cell-h": 2 * half + hinge,
+    };
+    for (const [k, v] of Object.entries(vars)) root.setProperty(k, k === "--s" ? v : v + "px");
+    persp = 36 * s;
+  }
+  // Share of the frame the board fills, like a screenshot framed with margin around it.
+  // Narrow (phone) frames give it more, or the tiles get too small to read.
+  const FILL_HEIGHT = .8;
+  function fit() {
+    const room = stage.clientWidth * (stage.clientWidth < 600 ? .92 : .86);
+    apply(1);
+    let s = Math.min(room / board.offsetWidth, stage.clientHeight * FILL_HEIGHT / board.offsetHeight, 3);
+    apply(s);
+    for (let i = 0; i < 4 && board.offsetWidth > room; i++) apply(s *= room / board.offsetWidth * .995);
+  }
+  let fitted = "";
+  const refit = () => {
+    const key = stage.clientWidth + "x" + stage.clientHeight + "@" + devicePixelRatio;
+    if (key !== fitted) { fitted = key; fit(); }
+  };
+  new ResizeObserver(refit).observe(stage);
+  addEventListener("resize", refit);  // also catches moving to a screen with another pixel density
+  (document.fonts?.ready ?? Promise.resolve()).then(fit);
+  refit();
+
+})();
+</script>
+</body>
+</html>
