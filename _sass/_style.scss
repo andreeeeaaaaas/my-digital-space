@@ -386,17 +386,6 @@ img {
   background-color: var(--color-bg-secondary);
   overflow: hidden;
 
-  // Outline drawn above the slides
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    border-radius: inherit;
-    box-shadow: inset 0 0 0 1px var(--color-image-outline);
-    pointer-events: none;
-  }
-
   img {
     position: absolute;
     inset: 0;
@@ -404,8 +393,8 @@ img {
     height: 100%;
     object-fit: contain;
     background-color: var(--color-bg-secondary);
-    box-shadow: none;
-    border-radius: 0;
+    box-shadow: inset 0 0 0 1px var(--color-image-outline);
+    border-radius: inherit;
     &[hidden] {
       display: none;
     }
@@ -551,6 +540,28 @@ iframe {
   aspect-ratio: 2.4 / 1;
   border: 1px solid var(--color-border);
   background: var(--color-bg-secondary);
+}
+
+// App icon centred on a framed backdrop
+.icon-frame {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--color-border);
+  border-radius: $border-radius-md;
+  background: var(--color-bg-secondary);
+
+  img {
+    width: 32%;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+    filter: drop-shadow(0 95px 38px rgba(0, 0, 0, 0.01))
+      drop-shadow(0 53px 32px rgba(0, 0, 0, 0.05))
+      drop-shadow(0 24px 24px rgba(0, 0, 0, 0.09))
+      drop-shadow(0 6px 13px rgba(0, 0, 0, 0.1));
+  }
 }
 
 .intro {

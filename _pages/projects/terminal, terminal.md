@@ -11,8 +11,8 @@ description: A terminal for your terminal
 
 <figure><iframe class="tt-embed" src="/assets/demos/terminal-terminal/index.html" title="Terminal, Terminal! interactive demo" loading="lazy"></iframe><figcaption>Have a play!</figcaption></figure>
 
-Introducing **Terminal, Terminal!**, a tiny, native swift terminal for your Terminal.<br>
-(Yes, I did have fun with that one).
+**Terminal, Terminal!** is a tiny, native swift terminal for your Terminal.<br>
+(Yes, I did have fun with this one).
 
 ## Problem
 While working on more projects, I have needed a better way to see the dev servers I have inadvertently forgotten about. These suck up battery and CPU, and leave me feeling like I'm working on a messy, cluttered desk.
@@ -66,3 +66,8 @@ To make it a little bit more [[Overly complicated systems|modular]], there are s
 ## Outcome
 The first time I ran it, it found four Astro servers I'd forgotten about.<br>
 One had been running for 90 hours.
+
+<figure>
+	<div class="icon-frame"><img src="assets/projects/terminal-terminal-icon.webp" alt="The Terminal, Terminal! app icon: a departing plane above a cursor" loading="lazy"></div>
+	<figcaption>The Terminal,Terminal! icon</figcaption>
+</figure>
