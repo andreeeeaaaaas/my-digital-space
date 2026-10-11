@@ -1196,8 +1196,11 @@ html.project-entrance-pending .project-grid .project {
 
 .project-tags-list {
   display: flex;
+  flex-shrink: 0;
+  width: calc(4 * 8px + 3 * 4px); // Fits all four tags so dots align in a left column
   height: 24px;
   align-items: center;
+  justify-content: flex-start;
   gap: 4px;
   // margin-top: $spacing-xs-8;
 }
@@ -1528,6 +1531,7 @@ html.project-entrance-pending .project-grid .project {
     }
     .project-tags-list {
       // display: none;
+      width: calc(4 * 8px + 3 * 2px);
       gap: 2px;
     }
 
