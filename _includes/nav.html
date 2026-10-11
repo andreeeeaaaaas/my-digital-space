@@ -134,49 +134,32 @@
 </script>
 {% endunless %} -->
 <div class="nav-right">
-  {% if page.id == 'home' %}
-  <button
-    class="emoji-hover"
-    data-emoji="🎶"
-    id="sound-toggle"
-    aria-label="Toggle sound"
-    aria-pressed="false"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
+  <div class="nav-controls">
+    {% if page.id == 'home' %}
+    <button
+      type="button"
+      class="emoji-hover"
+      data-emoji="🎶"
+      id="sound-toggle"
+      aria-label="Toggle sound"
     >
-      <!-- Speaker cone (always visible) -->
-      <path
-        class="speaker-cone"
-        d="M11 5L6 9H2V15H6L11 19V5Z"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <!-- Sound waves (hidden when muted) -->
-      <path
-        class="sound-waves"
-        d="M19.07 4.93018C20.9447 6.80545 21.9979 9.34853 21.9979 12.0002C21.9979 14.6518 20.9447 17.1949 19.07 19.0702M15.54 8.46018C16.4774 9.39781 17.004 10.6694 17.004 11.9952C17.004 13.321 16.4774 14.5925 15.54 15.5302"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <!-- Mute X (visible when muted) -->
-      <path
-        class="mute-x"
-        d="M23 9L17 15M17 9L23 15"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-  </button>
+      <span class="sound-icon sound-icon-on" aria-hidden="true"></span>
+      <span class="sound-icon sound-icon-off" aria-hidden="true"></span>
+    </button>
+    {% endif %}
+    <button type="button" class="theme-toggle" aria-label="Switch to dark mode">
+      <svg class="theme-icon theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.25" />
+        <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" />
+        </g>
+      </svg>
+      <svg class="theme-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M21 13.2A9 9 0 1 1 10.8 3a7 7 0 0 0 10.2 10.2Z" />
+      </svg>
+    </button>
+  </div>
 
-  {% endif %} 
   {% if page.id != 'info' %}
   <a href="/info" aria-label="View information about Andreas Thoma">Info</a>
   {% endif %}

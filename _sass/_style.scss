@@ -45,45 +45,59 @@
   --color-image-outline: rgba(0, 0, 0, 0.08);
 }
 
-// Dark mode colors
+// Dark mode colors: follow the system unless the theme toggle set data-theme
+@mixin dark-tokens {
+  color-scheme: dark;
+  --color-bg-primary: #{$flexoki-black};
+  --color-bg-secondary: #{$flexoki-950};
+  --color-text-nav: #{$color-white};
+  --color-text-primary: #{$flexoki-100};
+  --color-text-secondary: #{$flexoki-200};
+  --color-text-link: #{$color-teal-500};
+  --color-text-link-hover: #{$color-teal-400};
+  --color-muted: #{$flexoki-300};
+  --color-muted-medium: #{$flexoki-400};
+  --color-muted-soft: #{$flexoki-900};
+  --color-border: #{$flexoki-800};
+  --color-button-bg-inactive: #{$flexoki-800};
+  --color-button-bg-active: #{$flexoki-700};
+  --color-button-bg-hover: #{$flexoki-600};
+  --color-transparent: rgba(0, 0, 0, 0);
+  --color-amber-soft: #{$color-yellow-300};
+  --color-amber-medium: #{$color-yellow-400};
+  --color-amber-hard: #{$flexoki-yellow-300};
+  --color-amber-bg: #{$flexoki-yellow-950};
+  --color-blue-soft: #{$flexoki-blue-300};
+  --color-blue-medium: #{$flexoki-blue-400};
+  --color-blue-hard: #{$flexoki-blue-300};
+  --color-blue-bg: #{$flexoki-blue-950};
+  --color-emerald-soft: #{$flexoki-green-300};
+  --color-emerald-medium: #{$flexoki-green-300};
+  --color-emerald-hard: #{$flexoki-green-300};
+  --color-emerald-bg: #{$flexoki-green-950};
+  --color-red-soft: #{$flexoki-red-300};
+  --color-red-medium: #{$flexoki-red-400};
+  --color-red-hard: #{$flexoki-red-300};
+  --color-red-bg: #{$flexoki-red-950};
+  --color-image-outline: rgba(255, 255, 255, 0.08);
+}
+
+:root {
+  color-scheme: light;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg-primary: #{$flexoki-black};
-    --color-bg-secondary: #{$flexoki-950};
-    --color-text-nav: #{$color-white};
-    --color-text-primary: #{$flexoki-100};
-    --color-text-secondary: #{$flexoki-200};
-    --color-text-link: #{$color-teal-500};
-    --color-text-link-hover: #{$color-teal-400};
-    --color-muted: #{$flexoki-300};
-    --color-muted-medium: #{$flexoki-400};
-    --color-muted-soft: #{$flexoki-900};
-    --color-border: #{$flexoki-800};
-    --color-button-bg-inactive: #{$flexoki-800};
-    --color-button-bg-active: #{$flexoki-700};
-    --color-button-bg-hover: #{$flexoki-600};
-    --color-transparent: rgba(0, 0, 0, 0);
-    --color-amber-soft: #{$color-yellow-300};
-    --color-amber-medium: #{$color-yellow-400};
-    --color-amber-hard: #{$flexoki-yellow-300};
-    --color-amber-bg: #{$flexoki-yellow-950};
-    --color-blue-soft: #{$flexoki-blue-300};
-    --color-blue-medium: #{$flexoki-blue-400};
-    --color-blue-hard: #{$flexoki-blue-300};
-    --color-blue-bg: #{$flexoki-blue-950};
-    --color-emerald-soft: #{$flexoki-green-300};
-    --color-emerald-medium: #{$flexoki-green-300};
-    --color-emerald-hard: #{$flexoki-green-300};
-    --color-emerald-bg: #{$flexoki-green-950};
-    --color-red-soft: #{$flexoki-red-300};
-    --color-red-medium: #{$flexoki-red-400};
-    --color-red-hard: #{$flexoki-red-300};
-    --color-red-bg: #{$flexoki-red-950};
-    --color-image-outline: rgba(255, 255, 255, 0.08);
+  :root:not([data-theme="light"]) {
+    @include dark-tokens;
   }
-  ::selection {
-    background: var(--color-border);
-  }
+}
+
+:root[data-theme="dark"] {
+  @include dark-tokens;
+}
+
+::selection {
+  background: var(--color-border);
 }
 
 #bubbleCanvas {
@@ -373,9 +387,13 @@ img {
 }
 
 @media (prefers-color-scheme: dark) {
-  .invert-dark {
+  :root:not([data-theme="light"]) .invert-dark {
     filter: invert(1);
   }
+}
+
+:root[data-theme="dark"] .invert-dark {
+  filter: invert(1);
 }
 
 // Carousel: built by assets/js/carousel.js from a div.carousel of figures
@@ -855,10 +873,26 @@ div.highlight {
     }
   }
 
+  // Both sides match the 40px back button so the nav is the same height on every page
+  &-left,
+  &-right {
+    min-height: 40px;
+  }
+
   &-left {
     @include flex-center;
     gap: $spacing-s-16;
     font-weight: 450;
+  }
+
+  // Sound and theme buttons sit 16px apart, then 16px trailing space plus the 24px row gap
+  &-controls {
+    @include flex-center;
+    gap: $spacing-s-16;
+
+    &:not(:last-child) {
+      margin-right: $spacing-s-16;
+    }
   }
 
   &-right {
@@ -876,8 +910,8 @@ div.highlight {
 
 // Header Section
 .header {
-  margin: $spacing-xxl-128 0;
-  margin-bottom: calc($spacing-xxl-128 + $spacing-s-16);
+  // Top margin lines the intro up with the page titles on sub-pages
+  margin: $spacing-xl-64 0 $spacing-xxl-128;
 }
 
 .intro-text {
@@ -890,8 +924,8 @@ div.highlight {
 
   span {
     &.design,
-    &.writing,
     &.creative,
+    &.writing,
     &.music {
       cursor: pointer;
       &:hover {
@@ -1010,48 +1044,119 @@ button {
   }
 }
 
-#sound-toggle {
-  // background: white;
-  // border: 2px solid #e0e0e0;
-  // border-radius: 12px;
-  // padding: 16px;
-  cursor: pointer;
-  transition-property: transform;
-  transition-duration: 0.15s;
-  transition-timing-function: ease;
-  display: flex;
+// Icon buttons in the nav: sound toggle and theme toggle
+#sound-toggle,
+.theme-toggle {
+  display: grid;
   align-items: center;
   justify-content: center;
-  stroke: var(--color-text-primary);
-  margin-right: $spacing-s-16;
+  padding: 0;
+  color: var(--color-text-nav);
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    color 0.15s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    scale: 0.96;
+  }
 }
 
-#sound-toggle:hover {
-  transform: scale(1.05);
-}
-
-#sound-toggle:active {
-  scale: 0.96;
-}
-
-#sound-toggle svg {
+// Both nav toggles stack their two icons in one grid cell and
+// blur-crossfade between them when the state changes
+.sound-icon,
+.theme-icon {
+  grid-area: 1 / 1;
   display: block;
-  transition-property: opacity;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
+  // Strong ease-out: moves immediately, settles softly
+  transition:
+    opacity 0.18s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.18s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.18s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-#sound-toggle.muted .sound-waves {
+@mixin icon-hidden {
   opacity: 0;
+  filter: blur(4px);
+  transform: scale(0.8);
 }
 
-.mute-x {
-  opacity: 0;
-}
-
-#sound-toggle.muted .mute-x {
+@mixin icon-shown {
   opacity: 1;
-  stroke: var(--color-red-medium);
+  filter: none;
+  transform: none;
+}
+
+// Sound icons are the Figma SVGs used as masks so they take the text color
+.sound-icon {
+  height: 20px;
+  background-color: currentColor;
+  mask: var(--icon) no-repeat center / contain;
+
+  &-on {
+    --icon: url("/assets/icons/volume-on.svg");
+    width: 20px;
+  }
+
+  &-off {
+    --icon: url("/assets/icons/volume-off.svg");
+    width: 21px;
+    margin-left: -1px;
+    @include icon-hidden;
+  }
+}
+
+#sound-toggle.muted {
+  .sound-icon-on {
+    @include icon-hidden;
+  }
+  .sound-icon-off {
+    @include icon-shown;
+  }
+}
+
+// Theme toggle shows the current theme: sun in light, moon in dark
+.theme-icon-moon {
+  @include icon-hidden;
+}
+
+@mixin theme-icons-dark {
+  .theme-icon-sun {
+    @include icon-hidden;
+  }
+  .theme-icon-moon {
+    @include icon-shown;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include theme-icons-dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  @include theme-icons-dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sound-icon,
+  .theme-icon {
+    transition: opacity 0.15s ease-out;
+    filter: none !important;
+    transform: none !important;
+  }
+}
+
+// Flip page colors instantly rather than animating every transition at once;
+// the toggle icons keep their crossfade
+.theme-switching,
+.theme-switching *:not(.theme-icon) {
+  transition: none !important;
 }
 
 .tags {

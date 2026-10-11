@@ -1,6 +1,18 @@
 <head>
   <meta charset="UTF-8" />
 
+  <script>
+    // Apply a saved theme choice before first paint; otherwise follow the system.
+    try {
+      var savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light" || savedTheme === "dark") {
+        document.documentElement.dataset.theme = savedTheme;
+      }
+    } catch (error) {
+      // Storage blocked: fall back to the system theme.
+    }
+  </script>
+
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,6 +53,7 @@
   <!-- <script src="{{ '/assets/js/prefetch.js' | relative_url }}" defer></script> -->
   <script src="/assets/js/sound.js"></script>
   <script src="/assets/js/emoji-hover-once.js" defer></script>
+  <script src="/assets/js/theme-toggle.js" defer></script>
 
   {% if page.id == "home" %}
   <script src="/assets/js/tag-filter.js" defer></script>
