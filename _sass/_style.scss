@@ -563,9 +563,21 @@ iframe {
   padding: 0 0;
 }
 
+:not(pre) > code {
+  padding: 0.15em 0.4em;
+  font-family: $font-family-mono;
+  font-size: 0.85em;
+  background: var(--color-muted-soft);
+  color: var(--color-text-primary);
+  border-radius: $border-radius-sm;
+  overflow-wrap: break-word;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
 blockquote,
 .callout,
-code {
+pre > code {
   padding: $spacing-lg-32 $spacing-m-24;
   margin: 0;
   font-size: 1rem;
@@ -707,7 +719,42 @@ content {
 }
 
 div.highlight {
+  position: relative;
   background: var(--color-bg-secondary);
+
+  // Keep long lines clear of the copy button
+  pre {
+    padding-right: 36px;
+    // Indent wrapped lines so they don't read as new lines
+    text-indent: 2ch hanging each-line;
+  }
+}
+
+.code-copy {
+  position: absolute;
+  // Centre on the first line: 14px of block/pre spacing + half the 1.28rem line height, minus half the 28px button
+  top: calc(14px + 0.64rem - 14px);
+  right: $spacing-xs-8;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--color-muted);
+  background: transparent;
+  border: none;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  transition: color 150ms ease, background-color 150ms ease;
+
+  &:hover {
+    background: var(--color-button-bg-inactive);
+    color: var(--color-text-primary);
+  }
+
+  &.is-copied {
+    color: var(--color-text-primary);
+  }
 }
 
 .invalid-link {

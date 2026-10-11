@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require "cgi"
+require "erb"
 class BidirectionalLinksGenerator < Jekyll::Generator
   def generate(site)
     graph_nodes = []
@@ -10,6 +12,32 @@ class BidirectionalLinksGenerator < Jekyll::Generator
     all_docs = all_notes + all_pages
 
     link_extension = !!site.config["use_html_extension"] ? '.html' : ''
+
+    # Convert Obsidian-style image embeds to <img> tags before link processing
+    # ![[assets/photo.png]], ![[photo.png]], ![[photo.png|alt text]], ![[photo.png|300]]
+    image_files = site.static_files.select do |file|
+      file.extname =~ /\A\.(png|jpe?g|gif|webp|svg|avif)\z/i
+    end
+
+    all_docs.each do |current_note|
+      current_note.content = current_note.content.gsub(/!\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/) do |match|
+        target = Regexp.last_match(1).strip.delete_prefix('/')
+        option = Regexp.last_match(2)&.strip
+
+        image = image_files.find { |file| file.relative_path.delete_prefix('/') == target } ||
+                image_files.find { |file| file.name == File.basename(target) }
+        next match unless image
+
+        src = site.baseurl + image.relative_path.split('/').map { |part| ERB::Util.url_encode(part) }.join('/')
+        if option =~ /\A\d+\z/
+          "<figure><img class='contain' src='#{src}' alt='' width='#{option}'></figure>"
+        elsif option
+          "<figure><img class='contain' src='#{src}' alt=''><figcaption>#{CGI.escapeHTML(option)}</figcaption></figure>"
+        else
+          "<figure><img class='contain' src='#{src}' alt=''></figure>"
+        end
+      end
+    end
 
     # Convert all Wiki/Roam-style double-bracket link syntax to plain HTML
     # anchor tag elements (<a>) with "internal-link" CSS class
