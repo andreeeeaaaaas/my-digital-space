@@ -17,3 +17,5 @@ _includes/notes_graph.json
 #Claude
 .claude/
 .agents
+# macOS
+.DS_Store
