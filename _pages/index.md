@@ -62,8 +62,8 @@ description: Designer, musician, creative (and sometimes writer)
   </div>
   {% endfor %}
 </div>
-<hr>
+
 <br>
 <br>
 I've got lots more ideas and projects I'm working on. <br><br>
-If you would like to hear about them, or work on one together, please <a href="/contact" class="internal-link emoji-hover" data-emoji="📞">reach out</a>.
+If you would like to hear them, see them, or work on one together, please <a href="/contact" class="internal-link emoji-hover" data-emoji="📞">reach out</a>.
