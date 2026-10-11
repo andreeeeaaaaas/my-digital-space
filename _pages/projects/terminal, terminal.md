@@ -71,3 +71,4 @@ One had been running for 90 hours.
 	<div class="icon-frame"><img src="assets/projects/terminal-terminal-icon.webp" alt="The Terminal, Terminal! app icon: a departing plane above a cursor" loading="lazy"></div>
 	<figcaption>The Terminal,Terminal! icon</figcaption>
 </figure>
+Download it from [GitHub](https://github.com/andreeeeaaaaas/terminal-terminal/releases/tag/v0.2.1).
