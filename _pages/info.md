@@ -12,6 +12,11 @@ permalink: /info
 
 <!-- **The result– I hope– is work that communicates with immediacy while inviting deeper engagement.** -->
 
+<figure class="">
+  <img src="assets/me-desert.webp" alt="A black and white photo of me smiling in a cap and sunglasses, in front of a desert hillside with cacti">
+  <figcaption>Me, in the desert</figcaption>
+</figure>
+
 I'm currently designing at [frog](https://www.frog.co/), one of the worlds oldest design studios– working at the intersection of experience, brand, strategy, and growth.
 
 Prior to now, I have:
@@ -34,10 +39,5 @@ You can reach me via email (<a class="external emoji-hover" href="mailto:me@andr
 - LinkedIn: <a class="external" href="https://www.linkedin.com/in/andreas-thoma-7636a4136/">Andreas Thoma</a>
 - Bandcamp: <a class="external" href="https://andreeeeaaaaas.bandcamp.com/">andreeeeaaaaas</a>
 - Soundcloud: <a class="external" href="https://soundcloud.com/andreeeeaaaaas">andreeeeaaaaas</a>
-
-<figure class="">
-  <img src ="assets/me-coffee.jpg" alt="A black and white photo of me and a coffee">
-  <figcaption>Hi!</figcaption>
-</figure>
 
 
