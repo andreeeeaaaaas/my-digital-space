@@ -80,7 +80,6 @@
     function end(t) {
       slides.forEach(function (s) { s.img.hidden = s !== t.to; });
       label.innerHTML = t.text;
-      if (t.outLabel) t.outLabel.remove();
       t.anims.forEach(function (a) { a.cancel(); });
       if (active === t) active = null;
     }
@@ -93,19 +92,13 @@
       active = t;
       if (reduceMotion.matches) return end(t);
 
-      // The old caption slides out as the new one slides in, inside the caption's box.
-      t.outLabel = label.cloneNode(true);
-      t.outLabel.classList.add('carousel-label-out');
-      t.outLabel.setAttribute('aria-hidden', 'true');
-      label.after(t.outLabel);
+      // The caption swaps straight away; only the images slide.
       label.innerHTML = t.text;
       t.to.img.hidden = false;
 
       t.anims = [
         from.img.animate(leave(dir), TIMING),
         t.to.img.animate(arrive(dir), TIMING),
-        t.outLabel.animate(leave(dir), TIMING),
-        label.animate(arrive(dir), TIMING),
       ];
       Promise.all(t.anims.map(function (a) { return a.finished; })).then(
         function () { if (active === t) end(t); },

@@ -424,16 +424,7 @@ img {
   gap: $spacing-s-16;
 
   figcaption {
-    position: relative;
     padding: 0;
-    overflow: hidden;
-    span {
-      display: block;
-    }
-    .carousel-label-out {
-      position: absolute;
-      inset: 0;
-    }
   }
 }
 
