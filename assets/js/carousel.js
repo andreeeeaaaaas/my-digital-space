@@ -1,26 +1,25 @@
 // Turns a <div class="carousel"> of figures into one figure with previous and next
 // buttons beside its caption. Without JavaScript the figures stay stacked.
+// Options on the div: data-aspect="4 / 3" sets the frame's shape (default 2.4 / 1),
+// data-count="false" leaves the "(n/total)" off captions. Figures without a caption show only the count.
 (function () {
   const caret = function (d) {
     return '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="' + d + '" stroke="currentColor" stroke-width="1.67"/></svg>';
   };
   const prevIcon = caret('M9 2 4 7l5 5');
   const nextIcon = caret('m5 2 5 5-5 5');
-
-  // Like turning a page: next moves content left, previous moves it right.
-  // The outgoing slide leaves in that direction and the incoming one arrives from the other side.
-  const SHIFT = 12;
-  const OUT = { duration: 140, easing: 'cubic-bezier(0.4, 0, 1, 1)', fill: 'forwards' };
-  const IN = { duration: 240, easing: 'cubic-bezier(0, 0, 0.2, 1)' };
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  // dir is -1 to move left, 1 to move right.
-  function frames(dir, leaving) {
-    const shift = reduceMotion.matches ? 0 : SHIFT * dir;
-    const away = leaving ? shift : -shift;
-    const hidden = { opacity: 0, transform: 'translateX(' + away + 'px)' };
-    const shown = { opacity: 1, transform: 'translateX(0)' };
-    return leaving ? [shown, hidden] : [hidden, shown];
+  // Like turning a page: next moves content left (dir -1), previous moves it right (dir 1).
+  // Both slides travel the full width together and the frame hides the edges.
+  const TIMING = { duration: 420, easing: 'cubic-bezier(0.3, 0, 0.15, 1)', fill: 'forwards' };
+
+  function leave(dir) {
+    return [{ transform: 'translateX(0)' }, { transform: 'translateX(' + dir * 100 + '%)' }];
+  }
+
+  function arrive(dir) {
+    return [{ transform: 'translateX(' + -dir * 100 + '%)' }, { transform: 'translateX(0)' }];
   }
 
   document.querySelectorAll('div.carousel').forEach(function (root) {
@@ -38,6 +37,7 @@
 
     const track = document.createElement('div');
     track.className = 'carousel-track';
+    if (root.dataset.aspect) track.style.aspectRatio = root.dataset.aspect;
     slides.forEach(function (slide, i) {
       slide.img.hidden = i !== 0;
       slide.img.loading = 'eager';
@@ -49,8 +49,11 @@
     const caption = document.createElement('figcaption');
     caption.setAttribute('aria-live', 'polite');
     const label = document.createElement('span');
+    const counted = root.dataset.count !== 'false';
     function captionFor(i) {
-      return slides[i].caption + ' (' + (i + 1) + '/' + slides.length + ')';
+      if (!counted) return slides[i].caption;
+      const count = '(' + (i + 1) + '/' + slides.length + ')';
+      return slides[i].caption ? slides[i].caption + ' ' + count : count;
     }
     label.innerHTML = captionFor(0);
     caption.appendChild(label);
@@ -71,26 +74,43 @@
     root.replaceChildren(figure);
 
     let index = 0;
-    let running = [];
+    let active = null;
 
-    async function show(target, dir) {
-      running.forEach(function (a) { a.cancel(); });
+    // Puts the end state in place and drops the animations. Safe to call twice.
+    function end(t) {
+      slides.forEach(function (s) { s.img.hidden = s !== t.to; });
+      label.innerHTML = t.text;
+      if (t.outLabel) t.outLabel.remove();
+      t.anims.forEach(function (a) { a.cancel(); });
+      if (active === t) active = null;
+    }
+
+    function show(target, dir) {
+      if (active) end(active);
       const from = slides[index];
       index = (target + slides.length) % slides.length;
-      const to = slides[index];
+      const t = { to: slides[index], text: captionFor(index), anims: [] };
+      active = t;
+      if (reduceMotion.matches) return end(t);
 
-      running = [from.img.animate(frames(dir, true), OUT), label.animate(frames(dir, true), OUT)];
-      const out = running;
-      try {
-        await Promise.all(out.map(function (a) { return a.finished; }));
-      } catch (e) {
-        return; // a newer click took over
-      }
+      // The old caption slides out as the new one slides in, inside the caption's box.
+      t.outLabel = label.cloneNode(true);
+      t.outLabel.classList.add('carousel-label-out');
+      t.outLabel.setAttribute('aria-hidden', 'true');
+      label.after(t.outLabel);
+      label.innerHTML = t.text;
+      t.to.img.hidden = false;
 
-      slides.forEach(function (s) { s.img.hidden = s !== to; });
-      label.innerHTML = captionFor(index);
-      out.forEach(function (a) { a.cancel(); });
-      running = [to.img.animate(frames(dir, false), IN), label.animate(frames(dir, false), IN)];
+      t.anims = [
+        from.img.animate(leave(dir), TIMING),
+        t.to.img.animate(arrive(dir), TIMING),
+        t.outLabel.animate(leave(dir), TIMING),
+        label.animate(arrive(dir), TIMING),
+      ];
+      Promise.all(t.anims.map(function (a) { return a.finished; })).then(
+        function () { if (active === t) end(t); },
+        function () {} // a newer click took over
+      );
     }
 
     prev.addEventListener('click', function () { show(index - 1, 1); });

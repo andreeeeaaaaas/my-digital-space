@@ -40,9 +40,23 @@ The live preview was the most considered part of the UI: distribution and rotati
 If you would like, you can [check out Orbit in Figma](https://www.figma.com/community/plugin/1616762647761910788/orbit).
 
 ## Examples
-<img class="invert-dark" src="assets/projects/orbit-examples7.webp">
-<img class="invert-dark" src="assets/projects/orbit-examples3.webp">
-<img class="invert-dark" src="assets/projects/orbit-examples4.webp">
-<img class="invert-dark" src="assets/projects/orbit-examples5.webp">
-<img class="invert-dark" src="assets/projects/orbit-examples6.webp">
-<img class="invert-dark" src="assets/projects/orbit-examples2.webp">
+<div class="carousel" data-aspect="4 / 3" aria-label="Orbit examples">
+<figure>
+	<img class="invert-dark" src="assets/projects/orbit-examples7.webp" alt="Orbit example 1">
+</figure>
+<figure>
+	<img class="invert-dark" src="assets/projects/orbit-examples3.webp" alt="Orbit example 2">
+</figure>
+<figure>
+	<img class="invert-dark" src="assets/projects/orbit-examples4.webp" alt="Orbit example 3">
+</figure>
+<figure>
+	<img class="invert-dark" src="assets/projects/orbit-examples5.webp" alt="Orbit example 4">
+</figure>
+<figure>
+	<img class="invert-dark" src="assets/projects/orbit-examples6.webp" alt="Orbit example 5">
+</figure>
+<figure>
+	<img class="invert-dark" src="assets/projects/orbit-examples2.webp" alt="Orbit example 6">
+</figure>
+</div>

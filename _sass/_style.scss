@@ -384,8 +384,18 @@ img {
   aspect-ratio: 2.4 / 1;
   border-radius: $border-radius-md;
   background-color: var(--color-bg-secondary);
-  box-shadow: inset 0 0 0 1px var(--color-image-outline);
   overflow: hidden;
+
+  // Outline drawn above the slides
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px var(--color-image-outline);
+    pointer-events: none;
+  }
 
   img {
     position: absolute;
@@ -393,7 +403,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    background: none;
+    background-color: var(--color-bg-secondary);
     box-shadow: none;
     border-radius: 0;
     &[hidden] {
@@ -409,10 +419,15 @@ img {
   gap: $spacing-s-16;
 
   figcaption {
+    position: relative;
     padding: 0;
     overflow: hidden;
     span {
-      display: inline-block;
+      display: block;
+    }
+    .carousel-label-out {
+      position: absolute;
+      inset: 0;
     }
   }
 }
