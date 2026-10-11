@@ -37,6 +37,8 @@ description: Designer, musician, creative (and sometimes writer)
 {% assign studio = site.pages | where_exp: "page", "page.path contains 'studio/'" %}
 {% assign notes = site.notes | where_exp: "page", "page.path contains 'notes/'" %}
 {% assign all_pages = projects | concat: studio | concat: notes | sort: "date" | reverse %}
+<!-- Each tag has a fixed dot column, in toolbar order -->
+{% assign tag_slots = "design,music,creative,writing" | split: "," %}
 
 <!-- Project Grid -->
 <div class="project-grid list-view">
@@ -51,8 +53,9 @@ description: Designer, musician, creative (and sometimes writer)
             <p class="project-description" style="text-wrap: pretty">{{ page.description | strip_html | default: "No summary available." }}</p>
           </div>
           <div class="project-tags-list" aria-label="Tags: {{ page.tags | join: ', ' }}">
-            {% for tag in page.tags %}
-              <span class="tag-dot {{ tag | downcase }}" aria-hidden="true"></span>
+            {% assign page_tags = page.tags | join: ',' | downcase | split: ',' %}
+            {% for slot in tag_slots %}
+              <span class="tag-dot {{ slot }}{% unless page_tags contains slot %} empty{% endunless %}" aria-hidden="true"></span>
             {% endfor %}
           </div>
           {% if page.date %}<span class="project-year">{{ page.date | date: "%b %Y" }}</span>{% endif %}

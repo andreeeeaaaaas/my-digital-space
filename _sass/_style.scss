@@ -1375,10 +1375,9 @@ html.project-entrance-pending .project-grid .project {
 .tag-dot.writing {
   background: var(--color-amber-medium);
 }
-.tag-dot {
-  &.unknown {
-    background: $color-gray-300;
-  }
+// Placeholder for a tag the page doesn't have, so each tag keeps its column
+.tag-dot.empty {
+  background: var(--color-muted-soft);
 }
 
 .project-grid.list-view {
