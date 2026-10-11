@@ -4,6 +4,7 @@ title: Home
 id: home
 permalink: /
 sound: true
+description: Designer, musician, creative (and sometimes writer)
 ---
 
 <!-- Header -->
@@ -47,7 +48,7 @@ sound: true
             <div class="project-title-with-tags">
               <h2 class="project-title">{{ page.title }}</h2>
             </div>
-            <p class="project-description">{{ page.description | strip_html | default: "No summary available." }}</p>
+            <p class="project-description" style="text-wrap: pretty">{{ page.description | strip_html | default: "No summary available." }}</p>
           </div>
           <div class="project-tags-list" aria-label="Tags: {{ page.tags | join: ', ' }}">
             {% for tag in page.tags %}
