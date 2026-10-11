@@ -25,7 +25,24 @@
 
 <script>
   var NAV_SCROLL_RESET_KEY = "nav:reset-scroll-on-back";
-  var shouldResetScroll = sessionStorage.getItem(NAV_SCROLL_RESET_KEY) === "1";
+
+  // sessionStorage can throw when storage is blocked; never let that break the button.
+  function readFlag() {
+    try {
+      return sessionStorage.getItem(NAV_SCROLL_RESET_KEY) === "1";
+    } catch {
+      return false;
+    }
+  }
+
+  function writeFlag(on) {
+    try {
+      if (on) sessionStorage.setItem(NAV_SCROLL_RESET_KEY, "1");
+      else sessionStorage.removeItem(NAV_SCROLL_RESET_KEY);
+    } catch {
+      // Ignore: scroll reset is a nicety.
+    }
+  }
 
   function resetScrollToTop() {
     window.scrollTo(0, 0);
@@ -33,11 +50,11 @@
     document.body.scrollTop = 0;
   }
 
-  if (shouldResetScroll) {
-    sessionStorage.removeItem(NAV_SCROLL_RESET_KEY);
+  if (readFlag()) {
+    writeFlag(false);
 
-    // Browsers may restore scroll after scripts run (especially with bfcache),
-    // so force the reset on multiple lifecycle points.
+    // Browsers may restore scroll after scripts run, so force the reset on
+    // multiple lifecycle points.
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
@@ -46,9 +63,39 @@
     requestAnimationFrame(resetScrollToTop);
     setTimeout(resetScrollToTop, 0);
 
-    window.addEventListener("pageshow", resetScrollToTop, { once: true });
     window.addEventListener("load", resetScrollToTop, { once: true });
   }
+
+  // Pages restored from bfcache don't re-run scripts, so handle the flag here.
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted && readFlag()) {
+      writeFlag(false);
+      resetScrollToTop();
+    }
+  });
+
+  // In-page hash links (e.g. the skip link) add history entries on the same
+  // page. Track how many so the back button leaves the page, not the hash.
+  var navHashDepth = (window.history.state && window.history.state.navHashDepth) || 0;
+  if (!window.history.state || typeof window.history.state.navHashDepth !== "number") {
+    window.history.replaceState(
+      Object.assign({}, window.history.state, { navHashDepth: navHashDepth }),
+      ""
+    );
+  }
+
+  window.addEventListener("hashchange", function () {
+    var state = window.history.state;
+    if (state && typeof state.navHashDepth === "number") {
+      navHashDepth = state.navHashDepth;
+    } else {
+      navHashDepth += 1;
+      window.history.replaceState(
+        Object.assign({}, state, { navHashDepth: navHashDepth }),
+        ""
+      );
+    }
+  });
 
   function handleNavBack(event) {
     if (event) {
@@ -61,17 +108,14 @@
       try {
         hasSameOriginReferrer =
           new URL(document.referrer).origin === window.location.origin;
-      } catch (error) {
+      } catch {
         hasSameOriginReferrer = false;
       }
     }
 
-    if (hasSameOriginReferrer && window.history.length > 1) {
-      sessionStorage.setItem(NAV_SCROLL_RESET_KEY, "1");
-      if ("scrollRestoration" in window.history) {
-        window.history.scrollRestoration = "manual";
-      }
-      window.history.back();
+    if (hasSameOriginReferrer && window.history.length > navHashDepth + 1) {
+      writeFlag(true);
+      window.history.go(-(navHashDepth + 1));
       return;
     }
 

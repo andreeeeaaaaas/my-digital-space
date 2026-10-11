@@ -809,69 +809,6 @@ div.highlight {
   flex: 1;
 }
 
-// Table of contents (sticky sidebar populated by /assets/js/toc.js)
-.toc {
-  position: fixed;
-  display: none;
-  top: 16rem;
-  right: $spacing-m-24;
-  width: 11rem;
-  max-height: calc(100vh - 10rem);
-  overflow-y: auto;
-  font-family: $font-family-primary;
-  font-size: calc(var(--font-size-base) - 2px);
-  z-index: -10;
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    max-width: none;
-  }
-
-  li {
-    margin: 0;
-    line-height: 1.4;
-  }
-
-  a {
-    display: block;
-    padding: 6px 0;
-    color: var(--color-muted);
-    text-decoration: none;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    transition: color 0.15s ease;
-
-    &:hover {
-      color: var(--color-text-primary);
-      text-decoration: none;
-    }
-
-    &.active {
-      color: var(--color-text-primary);
-    }
-  }
-
-  .toc-h3 a {
-    padding-left: $spacing-s-16;
-    font-size: calc(var(--font-size-base) - 3px);
-    color: var(--color-muted-medium);
-
-    &:hover,
-    &.active {
-      color: var(--color-text-primary);
-    }
-  }
-}
-
-@media (max-width: 1300px) {
-  .toc {
-    display: none;
-  }
-}
-
 // Header Section
 .header {
   margin: $spacing-xxl-128 0;
