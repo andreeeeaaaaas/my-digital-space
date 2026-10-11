@@ -412,6 +412,22 @@ img {
   }
 }
 
+// On a wide carousel only the images go wide; the controls stay at page width
+.carousel.wide {
+  width: auto;
+  max-width: none;
+  margin-left: 0;
+
+  .carousel-figure {
+    overflow: visible;
+  }
+
+  .carousel-track {
+    width: Min(100vw, var(--wrap-wide));
+    margin-left: calc((Min(100vw, var(--wrap-wide)) - 100%) / -2);
+  }
+}
+
 .carousel-footer {
   display: grid;
   grid-template-columns: auto 1fr auto;
