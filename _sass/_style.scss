@@ -871,6 +871,11 @@ div.highlight {
     &:hover {
       text-decoration: underline;
     }
+
+    // Link to the current page stays in place and clickable, but reads as muted
+    &.nav-current {
+      color: var(--color-muted);
+    }
   }
 
   // Both sides match the 40px back button so the nav is the same height on every page

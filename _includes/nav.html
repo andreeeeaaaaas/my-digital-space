@@ -1,6 +1,6 @@
 <div class="nav-left">
   {% if page.id == 'home' %}
-  <a href="/" aria-label="Andreas Thoma - Home">Andreas Thoma</a>
+  <a href="/" aria-label="Andreas Thoma - Home" aria-current="page">Andreas Thoma</a>
   {% else %}
   <button
     class="circle-btn nav-back-btn"
@@ -160,9 +160,7 @@
     </button>
   </div>
 
-  {% if page.id != 'info' %}
-  <a href="/info" aria-label="View information about Andreas Thoma">Info</a>
-  {% endif %}
+  <a href="/info" aria-label="View information about Andreas Thoma"{% if page.id == 'info' %} class="nav-current" aria-current="page"{% endif %}>Info</a>
 
   <!-- <a href="/contact" aria-label="Contact information about Andreas Thoma">Contact</a> -->
   <!-- {% if page.id != 'info' %} -->
