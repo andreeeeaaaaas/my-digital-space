@@ -1,18 +1,17 @@
 <head>
   <meta charset="UTF-8" />
 
-  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta
-    name="description"
-    content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.title }}{% endif %}"
-  />
+  {% capture meta_description %}{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt }}{% else %}{{ site.title }}{% endif %}{% endcapture %}
+  {% assign meta_description = meta_description | strip_html | strip_newlines | strip | truncate: 160 %}
+  <meta name="description" content="{{ meta_description | escape }}" />
 
   <meta property="og:site_name" content="{{ site.title }}" />
 
-  <link rel="icon" type="image/png" href="assets/Favicon-headshot.png" />
+  <link rel="icon" type="image/png" href="assets/Favicon-headshot-flow.png" />
 
   <link rel="stylesheet" href="{{ site.baseurl }}/styles.css" />
 
@@ -58,35 +57,26 @@
   {% endif %}
   <!-- <script src="/assets/js/hover-effect.js"></script> -->
 
-  {% if page.excerpt %}
-  <meta
-    property="og:description"
-    content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}"
-  />
-  {% else %}
-  <meta
-    property="og:description"
-    content="{{ site.title | strip_html | strip_newlines | truncate: 160 }}"
-  />
-  {% endif %} 
-  {% if page.title %}
-  <meta property="og:title" content="{{ page.title }} — {{ site.title }}" />
-  <meta property="og:type" content="article" />
-  {% else %}
+  <meta property="og:description" content="{{ meta_description | escape }}" />
+  {% if page.id == "home" or page.title == nil %}
   <meta property="og:title" content="{{ site.title }}" />
   <meta property="og:type" content="website" />
-  {% endif %} 
+  {% else %}
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:type" content="article" />
+  {% endif %}
   {% if page.date %}
   <meta
     property="article:published_time"
     content="{{ page.date | date_to_xmlschema }}"
   />
-  <meta property="article:author" content="{{ site.url }}/" />
+  <meta property="article:author" content="{{ '/' | absolute_url }}" />
   {% endif %}
 
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:url" content="{{ page.url | absolute_url }}" />
 
-  <meta property="og:image" content="{{ site.url }}/assets/Card2.jpg" />
+  <meta property="og:image" content="{{ page.image | default: '/assets/Card-flow.jpg' | absolute_url }}" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <title>
     {% if page.id == "home" %} {{ site.title }} {% else %} {{ page.title }}

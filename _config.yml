@@ -1,4 +1,5 @@
 title:               Andreas Thoma
+url:                 https://andreasthoma.com
 include:             ['_pages']
 exclude:             ['_includes/notes_graph.json']
 # You may need to change the base URL depending on your deploy configuration.
