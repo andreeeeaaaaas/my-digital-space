@@ -1396,8 +1396,11 @@ html.project-entrance-pending .project-grid .project {
   // flex-direction: column;
   gap: $spacing-s-16;
   // max-width: 1440px;
-  padding: $spacing-xl-64 $spacing-lg-32$spacing-xl-64;
-  // margin-top: $spacing-xxl-128;
+  padding: $spacing-lg-32 + $spacing-s-16 $spacing-lg-32 $spacing-xl-64;
+  margin-top: $spacing-lg-32;
+  // Full-bleed divider: outset stretches past the body's max-width without adding scroll
+  border-top: 1px solid var(--color-border);
+  border-image: linear-gradient(var(--color-border), var(--color-border)) 1 / 1px 0 0 / 0 100vw;
 
   .label {
     display: flex;
@@ -1503,7 +1506,7 @@ html.project-entrance-pending .project-grid .project {
   }
 
   .footer {
-    padding: $spacing-xl-64 $spacing-m-24 $spacing-xl-64;
+    padding: $spacing-lg-32 + $spacing-s-16 $spacing-m-24 $spacing-xl-64;
   }
 }
 
