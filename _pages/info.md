@@ -14,7 +14,7 @@ permalink: /info
 
 <figure class="">
   <img src="assets/me-desert.webp" alt="A black and white photo of me smiling in a cap and sunglasses, in front of a desert hillside with cacti">
-  <figcaption>Me, in the desert</figcaption>
+  <figcaption>Yo, in the Mexican desert</figcaption>
 </figure>
 
 I'm currently designing at [frog](https://www.frog.co/), one of the worlds oldest design studios– working at the intersection of experience, brand, strategy, and growth.
