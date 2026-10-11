@@ -5,7 +5,7 @@ tags:
   - writing
   - design
   - music
-  - visual
+  - creative
 description: A list of places I find myself growing new ideas or thinking on existing ones
 ---
 <figure>

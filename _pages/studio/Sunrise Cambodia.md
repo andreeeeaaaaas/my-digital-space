@@ -4,7 +4,7 @@ title: Sunrise Cambodia
 permalink: /sunrisecambodia
 date: 2017-02-22
 tags:
-  - visual
+  - creative
 description: Photos from 3 months spent volunteering in Cambodia
 ---
 <figure class=""><img src="assets/studio/sunrise-2.webp"></figure>

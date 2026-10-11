@@ -13,7 +13,7 @@ description: Designer, musician, creative (and sometimes writer)
     <p>I'm Andreas – a
       <span class="design" data-filter="design">designer</span>,
       <span class="music" data-filter="music">musician</span>, 
-      <span class="visual" data-filter="visual">creative</span> (and sometimes <span class="writing" data-filter="writing">writer</span>)<br><br>
+      <span class="creative" data-filter="creative">creative</span> (and sometimes <span class="writing" data-filter="writing">writer</span>)<br><br>
       <span id="variable">I help organisations bring value to processes, products, and people through design.</span>
     </p>
   </div>
@@ -27,7 +27,7 @@ description: Designer, musician, creative (and sometimes writer)
     <span class="tag-sep" aria-hidden="true">•</span>
     <button type="button" class="tag inactive" data-filter="music">Music</button>
     <span class="tag-sep" aria-hidden="true">•</span>
-    <button type="button" class="tag inactive" data-filter="visual">Visual</button>
+    <button type="button" class="tag inactive" data-filter="creative">Creative</button>
     <span class="tag-sep" aria-hidden="true">•</span>
     <button type="button" class="tag inactive" data-filter="writing">Writing</button>
   </div>

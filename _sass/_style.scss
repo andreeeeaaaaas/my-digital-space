@@ -890,9 +890,8 @@ div.highlight {
 
   span {
     &.design,
-    &.visual,
     &.writing,
-    &.visual,
+    &.creative,
     &.music {
       cursor: pointer;
       &:hover {
@@ -907,7 +906,7 @@ div.highlight {
       color: var(--color-red-medium);
     }
 
-    &.visual {
+    &.creative {
       color: var(--color-emerald-medium);
     }
 
@@ -1109,7 +1108,7 @@ button {
     &[data-filter="music"] {
       color: var(--color-red-hard);
     }
-    &[data-filter="visual"] {
+    &[data-filter="creative"] {
       color: var(--color-emerald-hard);
     }
     &[data-filter="writing"] {
@@ -1128,7 +1127,7 @@ button {
       &[data-filter="music"] {
         color: var(--color-red-medium);
       }
-      &[data-filter="visual"] {
+      &[data-filter="creative"] {
         color: var(--color-emerald-medium);
       }
       &[data-filter="writing"] {
@@ -1264,7 +1263,7 @@ html.project-entrance-pending .project-grid .project {
 .tag-dot.music {
   background: var(--color-red-medium);
 }
-.tag-dot.visual {
+.tag-dot.creative {
   background: var(--color-emerald-medium);
 }
 .tag-dot.writing {

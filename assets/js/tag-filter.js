@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const additionalTexts = {
     design: "I help organisations bring value to processes, products, and people through design",
     music: "I make music using some eclectic electronic instruments",
-    visual: "I make films and take pictures of life happening around me",
+    creative: "I make films and take pictures of life happening around me",
     writing: "Every now and then I write things down that interest me",
   };
 

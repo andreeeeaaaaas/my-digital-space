@@ -5,7 +5,7 @@ permalink: /terminal-terminal
 date: 2026-10-10
 tags:
   - design
-  - visual
+  - creative
 description: A terminal for your terminal
 ---
 
