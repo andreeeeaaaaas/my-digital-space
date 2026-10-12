@@ -24,7 +24,9 @@ In the world of design, there is no bigger challenge than the many social proble
 Specifically, I looked at how co-design might lend itself to solving some of these.
 
 ## Context
-I had been previously working for [Consent Labs](https://www.consentlabs.org.au/) and saw the challenges schools had in implementing successful consent education. While studying, I also led the educational program of a primary school out of hours care. These two experiences combined in me a desire to see if by combining community engagement with educational best practice, design could foster better outcomes in the area of consent education.
+I had been previously working for [Consent Labs](https://www.consentlabs.org.au/) and saw the challenges schools had in implementing successful consent education. While studying, I also led the educational program of a primary school out of hours care. 
+
+These two experiences combined in me a desire to see if by combining community engagement with educational best practice, design could foster better outcomes in consent education.
 
 ## Process
 The qualitative-focussed research involved methods such as:

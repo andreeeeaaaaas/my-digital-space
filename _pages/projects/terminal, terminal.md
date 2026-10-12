@@ -9,7 +9,7 @@ tags:
 description: A terminal for your terminal
 ---
 
-<figure><iframe class="tt-embed" src="/assets/demos/terminal-terminal/index.html" title="Terminal, Terminal! interactive demo" loading="lazy"></iframe><figcaption>Have a play!</figcaption></figure>
+<figure class=""><iframe class="tt-embed" src="/assets/demos/terminal-terminal/index.html" title="Terminal, Terminal! interactive demo" loading="lazy"></iframe><figcaption>Have a play!</figcaption></figure>
 
 **Terminal, Terminal!** is a tiny, native swift terminal for your Terminal.
 (Yes, I did have fun with this one).

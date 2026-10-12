@@ -10,7 +10,7 @@ description: A place to share things I create
 ---
 <!-- <p class="intro">A space I made for the things I like to build, create, and share</p> -->
 
-<figure>
+<figure class="no-outline">
     <img src="assets/projects/my-digital-space.png" style="height: 100%; width: 100%; aspect-ratio: 4/3; object-fit:cover" alt="an illustration of a person in space">
 </figure>
 
