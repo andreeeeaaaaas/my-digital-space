@@ -22,7 +22,7 @@ Terminal, Terminal! is a mini [information display system](https://en.wikipedia.
 
 Opening Terminal, Terminal! happens through the top toolbar. You can open a server in your browser or quit ones you no longer need. Drag it to move it around or hide it, and set it to show automatically whenever a new server starts.
 
-To bring a bit of [[Overly complicated systems|my modular ethos]], there are seven styles to choose from as well as accent colours. You can also choose whether to show seconds or just `hh:mm`.
+Bringing a bit of [[Overly complicated systems|my modular ethos]], there are seven styles to choose from as well as accent colours. You can also choose whether to show seconds or just `hh:mm`.
 
 <div class="carousel" aria-label="Board styles">
 <figure class="">

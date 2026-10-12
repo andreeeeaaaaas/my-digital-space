@@ -691,7 +691,8 @@ h6 {
 h1 {
   font-family: $font-family-text;
   font-weight: 500;
-  font-size: calc($font-size-base + 0.5vw);
+  // One fluid size for every width: 22px on small screens, easing up to 28px
+  font-size: clamp(1.375rem, 1rem + 1vw, 1.75rem);
   line-height: 1.2;
   margin-top: $spacing-xs-8;
   letter-spacing: -0.25px;
@@ -1442,6 +1443,14 @@ html.project-entrance-pending .project-grid .project {
 .project-grid.list-view .project-content {
   flex: 1;
 }
+// Space between the project list and the text after it, so the Markdown needs no <br> spacers
+.project-grid + p {
+  margin-top: $spacing-lg-32 + $spacing-s-16;
+}
+// Paragraph spacing to match articles
+.project-grid ~ p {
+  margin-bottom: $spacing-s-16;
+}
 
 .circle-btn {
   display: flex;
@@ -1536,15 +1545,18 @@ html.project-entrance-pending .project-grid .project {
 
 @media (max-width: 900px) {
   :root {
-    --wrap-normal: 88vw;
+    // Fill the padded column so content lines up with the nav on both sides
+    --wrap-normal: 100%;
     --wrap-wide: 100vw;
   }
   .project-grid.list-view {
     padding-top: 0;
   }
 
+  // Side padding matches .main so the nav and page content stay aligned
   .nav {
-    // padding: $spacing-lg-32 $spacing-m-24;
+    padding-left: $spacing-m-24;
+    padding-right: $spacing-m-24;
     height: auto;
   }
 
@@ -1564,10 +1576,6 @@ html.project-entrance-pending .project-grid .project {
     // grid-template-columns: repeat(3, 1fr);
     height: auto;
     // margin: $spacing-xl-64 0;
-  }
-
-  h1 {
-    font-size: calc($font-size-base + 1rem);
   }
 
   article,
@@ -1631,12 +1639,6 @@ html.project-entrance-pending .project-grid .project {
     font-size: var(--font-size-base);
   }
 
-  h1 {
-    font-size: calc($font-size-base + 0.6rem);
-    // font-weight: 400;
-    text-align: left;
-  }
-
   table {
     border-collapse: collapse;
     margin: $spacing-lg-32 0;
@@ -1656,8 +1658,8 @@ html.project-entrance-pending .project-grid .project {
     font-size: var(--font-size-base);
     height: auto;
     padding-top: $spacing-lg-32;
-    padding-left: $spacing-m-24;
-    padding-right: $spacing-m-24;
+    padding-left: $spacing-s-16;
+    padding-right: $spacing-s-16;
     padding-bottom: $spacing-lg-32;
 
     &-right {
@@ -1776,9 +1778,6 @@ html.project-entrance-pending .project-grid .project {
     .nav-right {
       flex-shrink: 0;
       white-space: nowrap;
-    }
-    h1 {
-      font-size: calc($font-size-base + 0.4rem);
     }
     .intro {
       font-size: 0.9rem;
