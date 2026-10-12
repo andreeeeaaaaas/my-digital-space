@@ -1278,7 +1278,7 @@ html.project-entrance-pending .project-grid .project {
     // align-items: center;
     justify-content: space-between;
     align-self: stretch;
-    gap: $spacing-m-24;
+    gap: $spacing-lg-32;
   }
 
   &-title {
@@ -1663,7 +1663,7 @@ html.project-entrance-pending .project-grid .project {
   }
 
   .main {
-    padding: 0 $spacing-m-24 0 $spacing-m-24;
+    padding: 0 $spacing-s-16;
     width: 100%;
   }
 
@@ -1736,8 +1736,8 @@ html.project-entrance-pending .project-grid .project {
 
   .footer {
     flex-direction: column;
-    padding-left: $spacing-m-24;
-    padding-right: $spacing-m-24;
+    padding-left: $spacing-s-16;
+    padding-right: $spacing-s-16;
     padding-bottom: $spacing-xl-64;
     .footer-year {
       text-align: left;
@@ -1766,22 +1766,20 @@ html.project-entrance-pending .project-grid .project {
   }
 
   @media (max-width: 370px) {
-    .nav {
-      &-right {
-        gap: 0;
-        flex-direction: column;
-        align-items: flex-end;
-        text-align: right;
-        span {
-          display: none;
-        }
-      }
+    // Keep the theme toggle and Info on one row, even on the narrowest screens
+    .nav-right {
+      flex-shrink: 0;
+      white-space: nowrap;
     }
     h1 {
       font-size: calc($font-size-base + 0.4rem);
     }
     .intro {
       font-size: 0.9rem;
+    }
+    // Matches the list-view selector so it overrides its display: flex
+    .project-grid.list-view .project .project-tags-list {
+      display: none;
     }
 
     .experiences {
