@@ -412,6 +412,19 @@ img {
   border-radius: $border-radius-md;
   background-color: var(--color-bg-secondary);
   overflow: hidden;
+  // Sideways swipes go to carousel.js; vertical scrolling and pinch zoom stay with the browser
+  touch-action: pan-y pinch-zoom;
+
+  // The frame carries the outline, so it stays put while slides move under it
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    outline: 1px solid var(--color-image-outline);
+    outline-offset: -1px;
+    pointer-events: none;
+  }
 
   img {
     position: absolute;
@@ -420,8 +433,7 @@ img {
     height: 100%;
     object-fit: contain;
     background-color: var(--color-bg-secondary);
-    outline: 1px solid var(--color-image-outline);
-    outline-offset: -1px;
+    outline: none;
     border-radius: inherit;
     &[hidden] {
       display: none;
@@ -449,6 +461,7 @@ img {
 @media (max-width: 960px) {
   .wide img,
   .carousel.wide .carousel-track,
+  .carousel.wide .carousel-track::after,
   .carousel.wide .carousel-track img {
     outline: none;
     border-radius: 0;
@@ -468,6 +481,8 @@ img {
 
 .carousel-btn {
   @extend .nav-back-btn;
+  // Quick repeat taps step through slides instead of zooming the page
+  touch-action: manipulation;
 }
 
 figcaption {
@@ -1549,7 +1564,8 @@ html.project-entrance-pending .project-grid .project {
 // Opt-out flags for media. Images are outlined and rounded by default; add a flag to the
 // element itself, or to a figure or carousel to cover everything inside it
 img.no-outline,
-.no-outline img {
+.no-outline img,
+.no-outline .carousel-track::after {
   outline: none;
 }
 
