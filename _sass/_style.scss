@@ -42,7 +42,8 @@
   --color-red-medium: #{$color-red-500};
   --color-red-hard: #{$color-red-600};
   --color-red-bg: #{$color-red-50};
-  --color-image-outline: rgba(0, 0, 0, 0.08);
+  // Matches figure borders; opaque so it still shows where an image's own content reaches its edge
+  --color-image-outline: var(--color-border);
 }
 
 // Dark mode colors: follow the system unless the theme toggle set data-theme
@@ -79,7 +80,6 @@
   --color-red-medium: #{$flexoki-red-400};
   --color-red-hard: #{$flexoki-red-300};
   --color-red-bg: #{$flexoki-red-950};
-  --color-image-outline: rgba(255, 255, 255, 0.08);
 }
 
 :root {
@@ -250,7 +250,10 @@ content,
     margin-block-start: 1rem;
     margin-block-end: 1rem;
     border-radius: $border-radius-md;
-    box-shadow: inset 0 0 0 1px var(--color-image-outline);
+    // An outline paints above the image, so it stays visible where content
+    // runs to the edge (an inset box-shadow would sit underneath it)
+    outline: 1px solid var(--color-image-outline);
+    outline-offset: -1px;
   }
   figure {
     img {
@@ -411,7 +414,8 @@ img {
     height: 100%;
     object-fit: contain;
     background-color: var(--color-bg-secondary);
-    box-shadow: inset 0 0 0 1px var(--color-image-outline);
+    outline: 1px solid var(--color-image-outline);
+    outline-offset: -1px;
     border-radius: inherit;
     &[hidden] {
       display: none;
@@ -564,7 +568,7 @@ iframe {
     width: 32%;
     margin: 0;
     border-radius: 0;
-    box-shadow: none;
+    outline: none;
     background: none;
     filter: drop-shadow(0 95px 38px rgba(0, 0, 0, 0.01))
       drop-shadow(0 53px 32px rgba(0, 0, 0, 0.05))
