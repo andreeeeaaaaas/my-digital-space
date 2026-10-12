@@ -38,7 +38,14 @@
     --sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
   }
 
-  html, body { margin: 0; height: 100%; background: transparent; }
+  /* The embedding page's --color-bg-secondary, mirrored by syncBackdrop(). These are the
+     portfolio's values, for when the demo is opened on its own. */
+  :root { color-scheme: light; --backdrop: oklch(0.985 0.001 106.423); }
+  @media (prefers-color-scheme: dark) {
+    :root { color-scheme: dark; --backdrop: #1c1b1a; }
+  }
+  html, body { margin: 0; height: 100%; }
+  html { background: var(--backdrop); }
   body { overflow: hidden; }
 
   /* Centres the board in whatever frame it's embedded in. */
@@ -116,8 +123,21 @@
   .half.t i { top: 0; }
   .half.b i { top: calc(-1 * (var(--half) + var(--hinge))); }
   .half s { position: absolute; inset: 0; background: #000; opacity: 0; text-decoration: none; }
+  /* GATE reads OPEN: accent tiles, board-coloured glyphs. The colour turns with the flap. */
+  .half.t.inv { background: var(--accent); }
+  .half.b.inv { background: color-mix(in srgb, var(--accent) 90%, var(--board)); }
+  .half.inv i { color: var(--board); }
+  .half i svg { width: calc(9.6 * var(--u)); height: calc(9.6 * var(--u)); vertical-align: middle; position: relative; top: calc(-.5 * var(--u)); fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
   .flap.t { z-index: 2; }
   .flap.b { z-index: 1; transform: perspective(calc(36 * var(--u))) rotateX(90deg); }
+
+  /* Covers GATE on web servers: hovering flips it to OPEN. */
+  .gate-hit {
+    position: absolute; left: 0; top: 0; bottom: 0; z-index: 4;
+    width: calc(5 * var(--cell-w) + 4 * var(--cell-gap));
+    display: none;
+  }
+  .row.openable .gate-hit { display: block; }
 
   /* Kill control */
   .kill {
@@ -193,7 +213,10 @@
   const SLOTS = 3;  // the app's minimum rows; a fixed height keeps the embed from jumping
   const COLS = { gate: 5, flight: 16, pid: 5, status: 8, time: 8 };
   const SCRAMBLE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  const GLYPHS = new Set(" " + SCRAMBLE + ":.-/");
+  const ARROW = "\u2197";  // the open control's external-link arrow
+  const GLYPHS = new Set(" " + SCRAMBLE + ":.-/" + ARROW);
+  const OPEN = "OPEN" + ARROW;
+  const ARROW_SVG = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>';
 
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
   let persp = 36;  // flap perspective, scaled by fit()
@@ -212,21 +235,27 @@
       const [sTop, sBot, fTop, fBot] = el.children;
       Object.assign(this, { sTop, sBot, fTop, fBot });
       this.current = " ";
+      this.inv = false;
       this.gen = 0;
       this.anims = [];
     }
-    static show(half, glyph) { half.firstChild.textContent = glyph === " " ? "" : glyph; }
-    rest(glyph) {
+    static show(half, glyph, inv) {
+      if (glyph === ARROW) half.firstChild.innerHTML = ARROW_SVG;
+      else half.firstChild.textContent = glyph === " " ? "" : glyph;
+      half.classList.toggle("inv", inv);
+    }
+    rest(glyph, inv) {
       this.anims.forEach(a => a.cancel());
       this.anims = [];
       this.current = glyph;
-      [this.sTop, this.sBot, this.fTop, this.fBot].forEach(h => Cell.show(h, glyph));
+      this.inv = inv;
+      [this.sTop, this.sBot, this.fTop, this.fBot].forEach(h => Cell.show(h, glyph, inv));
     }
-    async flip(target, delay, scrambles) {
+    async flip(target, inv, delay, scrambles) {
       const gen = ++this.gen;
-      this.rest(this.current);
-      if (target === this.current) return;
-      if (reduceMotion.matches) return this.rest(target);
+      this.rest(this.current, this.inv);
+      if (target === this.current && inv === this.inv) return;
+      if (reduceMotion.matches) return this.rest(target, inv);
       if (delay) { await sleep(delay); if (gen !== this.gen) return; }
 
       const seq = [];
@@ -237,8 +266,8 @@
       seq.push(target);
 
       for (const g of seq) {
-        Cell.show(this.sTop, g);
-        Cell.show(this.fBot, g);
+        Cell.show(this.sTop, g, inv);
+        Cell.show(this.fBot, g, inv);
         const opts = { duration: HALF_TURN, fill: "forwards" };
         const fall = [
           this.fTop.animate([{ transform: `perspective(${persp}px) rotateX(0deg)` }, { transform: `perspective(${persp}px) rotateX(-90deg)` }], { ...opts, easing: "ease-in" }),
@@ -254,29 +283,32 @@
         this.anims = fall.concat(land);
         await land[0].finished.catch(() => {});
         if (gen !== this.gen) return;
-        this.rest(g);
+        this.rest(g, inv);
       }
     }
   }
 
   class Field {
+    // TIME neither scrambles nor ripples, so its seconds keep time.
     constructor(width, align = "left", scrambles = true) {
-      this.width = width; this.align = align; this.scrambles = scrambles;
+      this.width = width; this.align = align; this.scrambles = this.ripples = scrambles;
       this.el = document.createElement("span");
       this.el.className = "field";
       this.cells = Array.from({ length: width }, () => new Cell());
       this.cells.forEach(c => this.el.appendChild(c.el));
       this.targets = Array(width).fill(" ");
     }
-    set(text, color) {
+    // `scrambles` overrides the field's own for this change; `inv` draws accent tiles.
+    set(text, color, { inv = false, scrambles = this.scrambles } = {}) {
       if (color !== this.color) this.el.style.color = this.color = color;
       let chars = [...String(text).toUpperCase()].map(c => GLYPHS.has(c) ? c : c === "_" ? "-" : " ").slice(0, this.width);
       const pad = Array(this.width - chars.length).fill(" ");
       chars = this.align === "right" ? pad.concat(chars) : chars.concat(pad);
       chars.forEach((c, i) => {
-        if (c === this.targets[i]) return;
-        this.targets[i] = c;
-        this.cells[i].flip(c, this.scrambles ? i * RIPPLE : 0, this.scrambles);
+        const key = c + (inv ? "*" : "");
+        if (key === this.targets[i]) return;
+        this.targets[i] = key;
+        this.cells[i].flip(c, inv, this.ripples ? i * RIPPLE : 0, scrambles);
       });
     }
   }
@@ -332,10 +364,15 @@
   }
   const isLive = e => e.phase !== "departed" && e.phase !== "clearing";
   const canTerminate = e => e.phase === "boarding" || e.phase === "active";
+  // Recognised web servers with a port. Touch has no hover, so a tapped row shows OPEN too.
+  const canOpen = e => isLive(e) && e.web && e.port != null;
+  const isOpen = e => canOpen(e) && (e.gateHover || e.row.el.classList.contains("hover"));
 
   function render(e, now) {
     const r = e.row, clearing = e.phase === "clearing", ink = isLive(e) ? "var(--ink)" : "var(--ink-dim)";
-    r.f.gate.set(clearing ? "" : e.port ?? "--", ink);
+    const open = isOpen(e);
+    // After the first hover, GATE flips straight between port and OPEN: feedback shouldn't lag.
+    r.f.gate.set(clearing ? "" : open ? OPEN : e.port ?? "--", ink, { inv: open, scrambles: !e.gateQuiet });
     r.f.flight.set(clearing ? "" : `${e.label} ${e.dest}`, ink);
     r.f.pid.set(clearing ? "" : e.pid, ink);
     r.f.status.set(status(e), statusColor(e));
@@ -344,6 +381,7 @@
     r.el.classList.toggle("live", isLive(e));
     r.el.classList.toggle("killable", canTerminate(e));
     r.el.classList.toggle("delayed", e.phase === "delayed");
+    r.el.classList.toggle("openable", canOpen(e));
     if (!isLive(e)) r.el.classList.remove("hover");
     r.kill.tabIndex = canTerminate(e) ? 0 : -1;
     r.prompt.querySelectorAll("button").forEach(b => b.tabIndex = e.phase === "delayed" ? 0 : -1);
@@ -364,7 +402,18 @@
     prompt.innerHTML = `<button class="force" title="Force quit (SIGKILL)">Force quit</button><button class="cancel" aria-label="Cancel" title="Cancel">${X}</button>`;
     prompt.querySelector(".force").addEventListener("click", ev => { ev.stopPropagation(); forceQuit(e); });
     prompt.querySelector(".cancel").addEventListener("click", ev => { ev.stopPropagation(); cancelForceQuit(e); });
-    r.el.append(kill, prompt);
+    // The page can't open the visitor's localhost, so GATE only shows the hover state.
+    const gate = document.createElement("span");
+    gate.className = "gate-hit";
+    gate.setAttribute("aria-hidden", "true");
+    gate.addEventListener("pointerenter", ev => {
+      if (ev.pointerType !== "mouse") return;
+      e.gateHover = e.gateQuiet = true;
+      render(e, Date.now());
+    });
+    gate.addEventListener("pointerleave", () => { e.gateHover = false; render(e, Date.now()); });
+
+    r.el.append(gate, kill, prompt);
     Object.assign(r, { kill, prompt });
 
     // Touch has no hover: a tap toggles the row's controls.
@@ -373,6 +422,8 @@
       const on = !r.el.classList.contains("hover");
       slots.forEach(s => s.el.classList.remove("hover"));
       r.el.classList.toggle("hover", on);
+      e.gateQuiet = true;
+      entries.forEach(x => render(x, Date.now()));
     });
   }
 
@@ -451,20 +502,20 @@
 
   const RUNNING = 2, REFILL_DELAY = 2000;
   const OPENING = [
-    { label: "ASTRO", dest: "oceanheroes", port: 4321, pid: 7862, uptime: 325000 },
-    { label: "VITE", dest: "terminal-ui", port: 5173, pid: 40211, uptime: 1260 },
+    { label: "ASTRO", dest: "oceanheroes", port: 4321, web: true, pid: 7862, uptime: 325000 },
+    { label: "VITE", dest: "terminal-ui", port: 5173, web: true, pid: 40211, uptime: 1260 },
   ];
   const POOL = [
-    { label: "DJANGO", dest: "backoffice", port: 8000, stubborn: true },
-    { label: "NEXT", dest: "portfolio", port: 3000 },
+    { label: "DJANGO", dest: "backoffice", port: 8000, web: true, stubborn: true },
+    { label: "NEXT", dest: "portfolio", port: 3000, web: true },
     { label: "TSC", dest: "api", port: null },
-    { label: "STORYBOOK", dest: "ui-kit", port: 6006 },
-    { label: "RAILS", dest: "shop", port: 3001, stubborn: true },
-    { label: "JEKYLL", dest: "blog", port: 4000 },
-    { label: "FLASK", dest: "ml-api", port: 5000 },
-    { label: "HUGO", dest: "docs", port: 1313 },
-    { label: "ASTRO", dest: "oceanheroes", port: 4321 },
-    { label: "VITE", dest: "terminal-ui", port: 5173 },
+    { label: "STORYBOOK", dest: "ui-kit", port: 6006, web: true },
+    { label: "RAILS", dest: "shop", port: 3001, web: true, stubborn: true },
+    { label: "JEKYLL", dest: "blog", port: 4000, web: true },
+    { label: "FLASK", dest: "ml-api", port: 5000, web: true },
+    { label: "HUGO", dest: "docs", port: 1313, web: true },
+    { label: "ASTRO", dest: "oceanheroes", port: 4321, web: true },
+    { label: "VITE", dest: "terminal-ui", port: 5173, web: true },
   ];
   let nextPid = 41007, poolIndex = 0, refillAt = null;
 
@@ -507,6 +558,25 @@
   new IntersectionObserver(([en]) => { visible = en.isIntersecting; updateActive(); }).observe(board);
   document.addEventListener("visibilitychange", updateActive);
 
+  // ---- Backdrop: follows the embedding page's theme ----
+
+  // An iframe whose color-scheme differs from its page's gets an opaque light or dark canvas,
+  // so match the page's scheme and paint its --color-bg-secondary. Needs the same origin;
+  // otherwise the defaults above follow the system setting.
+  function syncBackdrop() {
+    let host;
+    try { host = parent !== window && parent.document.documentElement; } catch { return; }
+    if (!host) return;
+    const css = parent.getComputedStyle(host);
+    const backdrop = css.getPropertyValue("--color-bg-secondary").trim();
+    if (backdrop) root.setProperty("--backdrop", backdrop);
+    if (css.colorScheme) root.setProperty("color-scheme", css.colorScheme);
+  }
+  try {
+    new MutationObserver(syncBackdrop).observe(parent.document.documentElement, { attributes: true, attributeFilter: ["data-theme", "class", "style"] });
+  } catch {}
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncBackdrop);
+
   // ---- Fit to the container ----
 
   // Lays the board out at its final size rather than scaling it with a transform, and snaps
@@ -543,6 +613,7 @@
   addEventListener("resize", refit);  // also catches moving to a screen with another pixel density
   (document.fonts?.ready ?? Promise.resolve()).then(fit);
   refit();
+  syncBackdrop();
 
 })();
 </script>

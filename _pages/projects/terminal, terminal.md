@@ -20,11 +20,11 @@ While working on more projects, I have needed a better way to see the dev server
 ## Solution
 Any traveller knows how a departure board draws the eye like no other object in an airport. 
 
-Terminal, Terminal!'s departure board floats over your desktop and lists every dev server you have running. Each one is a flight: the port is the gate, the tool and project are the flight, with PID, status and uptime alongside.
+Terminal, Terminal! is a mini [information display system](https://en.wikipedia.org/wiki/Flight_information_display_system) that floats over your desktop and lists every dev server you have running. Each one is a flight: the port is the gate, the tool and project are the flight, with PID, status and uptime alongside.
 
-Servers board when they start, go idle when they stop working, and depart when they quit. Hover a row to stop any server, and if it just won't leave the runway, it will asks you before force quitting and departing (your CPU).
+Servers board when they start, go idle when they stop working, and depart when they quit. Hover a row to stop any server, and if it just won't leave the runway, it will ask you before force quitting and departing (your CPU).
 
-To make it a little bit more [[Overly complicated systems|modular]], there are seven board styles to choose from. You can also choose an accent colour and whether to show seconds.
+To make it a little bit more [[Overly complicated systems|modular]], there are seven board styles to choose from. You can also choose an accent colour and whether to show seconds or just `hh:mm`. There is also a toggle to show Terminal, Terminal whenever a new dev server opens automatically.
 
 <div class="carousel" aria-label="Board styles">
 <figure class="">

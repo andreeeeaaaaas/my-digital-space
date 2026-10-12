@@ -17,6 +17,8 @@ npx skills add andreeeeaaaaas/skills
 
 **Record contributions, decisions, and key context over time across personal and work projects.**
 
+![[assets/projects/skills-portfolio.webp]]
+
 Creating portfolio pieces after a project should be the easy part. The hard work is already done; the thinking has happened; the assets have been created.
 
 `/portfolio` perches on your shoulder as you work and updates three key files:
@@ -36,7 +38,7 @@ I mean, it's what I did for this writeup.
 
 **Read your agent's last answer somewhere nicer than the terminal.**
 
-![[Pasted image 20260927001734.png]]
+![[assets/projects/skills-tmpmd.webp]]
 
 It can be hard to read long verbose output in the terminal. This is true when using any agent that operates within a command line interface (CLI): Claude Code, Codex, Gemini, etc. 
 
