@@ -16,15 +16,13 @@ description: A terminal for your terminal
 
 ## Problem
 While working on more projects, I have needed a better way to see the dev servers I have inadvertently forgotten about. These suck up battery and CPU, and leave me feeling like I'm working on a messy, cluttered desk.
-
 ## Solution
-Any traveller knows how a departure board draws the eye like no other object in an airport. 
 
-Terminal, Terminal! is a mini [information display system](https://en.wikipedia.org/wiki/Flight_information_display_system) that floats over your desktop and lists every dev server you have running. Each one is a flight: the port is the gate, the tool and project are the flight, with PID, status and uptime alongside.
+Terminal, Terminal! is a mini [information display system](https://en.wikipedia.org/wiki/Flight_information_display_system) that floats over your desktop and lists every dev server you have running. You can stop servers straight from the board, rather than diving in and `ctrl - c`-ing your way through Terminal processes.
 
-Servers board when they start, go idle when they stop working, and depart when they quit. Hover a row to stop any server, and if it just won't leave the runway, it will ask you before force quitting and departing (your CPU).
+Opening Terminal, Terminal! happens through the top toolbar. You can open a server in your browser or quit ones you no longer need. Drag it to move it around or hide it, and set it to show automatically whenever a new server starts.
 
-To make it a little bit more [[Overly complicated systems|modular]], there are seven board styles to choose from. You can also choose an accent colour and whether to show seconds or just `hh:mm`. There is also a toggle to show Terminal, Terminal whenever a new dev server opens automatically.
+To bring a bit of [[Overly complicated systems|my modular ethos]], there are seven styles to choose from as well as accent colours. You can also choose whether to show seconds or just `hh:mm`.
 
 <div class="carousel" aria-label="Board styles">
 <figure class="">
@@ -71,4 +69,4 @@ One had been running for 90 hours.
 	<div class="icon-frame"><img src="assets/projects/terminal-terminal-icon.webp" alt="The Terminal, Terminal! app icon: a departing plane above a cursor" loading="lazy"></div>
 	<figcaption>The Terminal,Terminal! icon</figcaption>
 </figure>
-Download it from [GitHub](https://github.com/andreeeeaaaaas/terminal-terminal/releases/tag/v0.2.1).
+Download it from [GitHub](https://github.com/andreeeeaaaaas/terminal-terminal/releases).
