@@ -11,7 +11,7 @@ description: A terminal for your terminal
 
 <figure><iframe class="tt-embed" src="/assets/demos/terminal-terminal/index.html" title="Terminal, Terminal! interactive demo" loading="lazy"></iframe><figcaption>Have a play!</figcaption></figure>
 
-**Terminal, Terminal!** is a tiny, native swift terminal for your Terminal.<br>
+**Terminal, Terminal!** is a tiny, native swift terminal for your Terminal.
 (Yes, I did have fun with this one).
 
 ## Problem
@@ -62,7 +62,7 @@ To bring a bit of [[Overly complicated systems|my modular ethos]], there are sev
 </div>
 
 ## Outcome
-The first time I ran it, it found four Astro servers I'd forgotten about.<br>
+The first time I ran it, it found four Astro servers I'd forgotten about.
 One had been running for 90 hours.
 
 <figure>

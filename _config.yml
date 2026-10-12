@@ -42,3 +42,8 @@ defaults:
       path: "_notes/**/*.md"
     values:
       layout: "note"
+
+# Single line breaks become <br>, matching Obsidian's default
+kramdown:
+  input: GFM
+  hard_wrap: true

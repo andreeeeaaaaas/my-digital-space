@@ -32,12 +32,10 @@ My spare time is filled with things like:
 - playing with [[Ziggy]]
 - making strange music with [[An overly complex system|overly complicated systems]]
 
-## Contact
+<span class="fish" aria-hidden="true">𓆟𓆞𓆟</span>
 
-You can reach me via email (<a class="external emoji-hover" href="mailto:me@andreasthoma.com">me@andreasthoma.com</a>) or follow me
+Want to get in contact? [[contact|Yeah I do!]]
 
-- LinkedIn: <a class="external" href="https://www.linkedin.com/in/andreas-thoma-7636a4136/">Andreas Thoma</a>
-- Bandcamp: <a class="external" href="https://andreeeeaaaaas.bandcamp.com/">andreeeeaaaaas</a>
-- Soundcloud: <a class="external" href="https://soundcloud.com/andreeeeaaaaas">andreeeeaaaaas</a>
+
 
 

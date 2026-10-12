@@ -1,6 +1,8 @@
 @use "variables" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap");
+// Only the three fish hieroglyphs (~2 KB), which iOS and Android don't ship a font for
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Egyptian+Hieroglyphs&text=%F0%93%86%9D%F0%93%86%9E%F0%93%86%9F&display=swap");
 
 :root {
   --font-size-base: #{$font-size-base};
@@ -272,6 +274,10 @@ content,
 }
 .muted-soft {
   color: var(--color-muted-soft);
+}
+
+.fish {
+  font-family: "Noto Sans Egyptian Hieroglyphs", sans-serif;
 }
 
 .header-information {

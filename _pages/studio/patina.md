@@ -17,44 +17,44 @@ I tried to reflect these ideas in the context of love; the arguments, the joys, 
 
 Coincidentally, there is a call response throughout the mix that I thought quite beautiful. The soulful pangs of Connie Converse and our mystery woman in [Nate Scheible’s Fairfax](https://daily.bandcamp.com/features/nate-scheible-fairfax-interview) talk of a love lost, or not yet delivered. Finally, the meditative voice of Paul St. Hilaire cradles us home with his swooning lyrics in ‘Little Angel’:
 
-> You can make my soul so right,<br>
-> Oh believe me you got me this way.<br>
-> In your loving arms at last,<br>
+> You can make my soul so right,
+> Oh believe me you got me this way.
+> In your loving arms at last,
 > and your wish is mine. <br><br>
 > 	
-> If I say your love is really magic,<br>
-> And if I say your love is like medicine. <br>
-> If I say your love is my destiny,<br>
+> If I say your love is really magic,
+> And if I say your love is like medicine.
+> If I say your love is my destiny,
 > You’re my destiny.<br><br>
 > 
-> Little Angel love,<br>
-> Brighten up the day. <br>
-> Little Angel love,<br>
+> Little Angel love,
+> Brighten up the day.
+> Little Angel love,
 > Brighten up the way. 
 
 ## Tracklist
 
-**Connie Converse** – *How Sad, How Lovely* <br>
-**OCA** – *Stretching in Water*<br>
-**Merope** – *Vilnia*<br>
-**Erlend Øye** – *Altiplano*<br>
-**DJ Lostboi** – *Ordinary Heaven*<br>
-**Fabiano do Nascimento** – *Canto de Lemanja*<br>
-**Keyboard** – *being there*<br>
-**Anthurium** – *Amphibious*<br>
-**Voices of Kwhan** – *Almost Beautiful*<br>
-**Seabuckthorn** – *Crossing*<br>
-**Nate Scheible** – *Made to Feel Special*<br>
-**Inhmost** – *Healing Hand*<br>
-**Numa Gama** – *De Tardezinha*<br>
-**Halftribe** – *Interlude 2*<br>
-**Joseph Shabason** – *Treat It Like a Wine Bar*<br>
-**Slow Attack Ensemble** – *In Another Room*<br>
-**Nate Scheible** – *With Any Kind of Luck*<br>
-**Raays** – *Restwell*<br>
+**Connie Converse** – *How Sad, How Lovely*
+**OCA** – *Stretching in Water*
+**Merope** – *Vilnia*
+**Erlend Øye** – *Altiplano*
+**DJ Lostboi** – *Ordinary Heaven*
+**Fabiano do Nascimento** – *Canto de Lemanja*
+**Keyboard** – *being there*
+**Anthurium** – *Amphibious*
+**Voices of Kwhan** – *Almost Beautiful*
+**Seabuckthorn** – *Crossing*
+**Nate Scheible** – *Made to Feel Special*
+**Inhmost** – *Healing Hand*
+**Numa Gama** – *De Tardezinha*
+**Halftribe** – *Interlude 2*
+**Joseph Shabason** – *Treat It Like a Wine Bar*
+**Slow Attack Ensemble** – *In Another Room*
+**Nate Scheible** – *With Any Kind of Luck*
+**Raays** – *Restwell*
 **Intrusion (w/ Paul St. Hilaire)** – *Little Angel* 
 
 ## Thanks
 
-[Helenna (Lenna)](https://www.instagram.com/helennabppp/)<br>
+[Helenna (Lenna)](https://www.instagram.com/helennabppp/)
 [Mimi (Galiba)](https://www.instagram.com/galiba_mp/)
