@@ -7,7 +7,7 @@ tags:
   - creative
 description: Photos from 3 months spent volunteering in Cambodia
 ---
-<figure class=""><img src="assets/studio/sunrise-2.webp"></figure>
+<figure class="no-rounding no-outline"><img src="assets/studio/sunrise-2.webp"></figure>
 
 In 2017, straight out of school, I spent a few months volunteering as the photographer for [Sunrise Cambodia](https://www.sunrisecambodia.org.au/) – a not-for-profit charity that helps at-risk and disadvantaged children reach their full potential.
 

@@ -68,4 +68,4 @@ description: Designer, musician, creative (and sometimes writer)
 
 I've got lots more ideas and projects I'm working on.
 
-If you would like to hear them, see them, or work on one together, please <a href="/contact" class="internal-link emoji-hover" data-emoji="📧">reach out</a>.
+If you would like to hear them, see them, or work on one together, please <a href="/contact" class="internal-link">contact me</a>.
