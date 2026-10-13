@@ -404,39 +404,37 @@ img {
   filter: invert(1);
 }
 
-// Carousel: built by assets/js/carousel.js from a div.carousel of figures
+// Carousel: built by assets/js/carousel.js from a div.carousel of figures.
+// The track is a native sideways scroller, so swipes get the platform's own feel.
 .carousel-track {
-  position: relative;
+  display: flex;
   aspect-ratio: 2.4 / 1;
   border-radius: $border-radius-md;
   background-color: var(--color-bg-secondary);
-  overflow: hidden;
-  // Sideways swipes go to carousel.js; vertical scrolling and pinch zoom stay with the browser
-  touch-action: pan-y pinch-zoom;
-
-  // The frame carries the outline, so it stays put while slides move under it
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    outline: 1px solid var(--color-image-outline);
-    outline-offset: -1px;
-    pointer-events: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  // Swiping past the last image doesn't go back in browser history
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
+  // Outlines paint over content and don't scroll, so the frame stays put while images move under it
+  outline: 1px solid var(--color-image-outline);
+  outline-offset: -1px;
 
   img {
-    position: absolute;
-    inset: 0;
+    flex: 0 0 100%;
     width: 100%;
     height: 100%;
+    margin: 0;
     object-fit: contain;
-    background-color: var(--color-bg-secondary);
     outline: none;
-    border-radius: inherit;
-    &[hidden] {
-      display: none;
-    }
+    border-radius: 0;
+    scroll-snap-align: start;
+    // One image per flick, however hard
+    scroll-snap-stop: always;
   }
 }
 
@@ -459,9 +457,7 @@ img {
 // Below --wrap-wide (60rem) wide media runs edge to edge, where an outline and corners look cut off
 @media (max-width: 960px) {
   .wide img,
-  .carousel.wide .carousel-track,
-  .carousel.wide .carousel-track::after,
-  .carousel.wide .carousel-track img {
+  .carousel.wide .carousel-track {
     outline: none;
     border-radius: 0;
   }
@@ -1564,7 +1560,7 @@ html.project-entrance-pending .project-grid .project {
 // element itself, or to a figure or carousel to cover everything inside it
 img.no-outline,
 .no-outline img,
-.no-outline .carousel-track::after {
+.no-outline .carousel-track {
   outline: none;
 }
 
