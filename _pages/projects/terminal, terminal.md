@@ -11,16 +11,19 @@ description: A terminal for your terminal
 
 <figure class=""><iframe class="tt-embed" data-src="/assets/demos/terminal-terminal/index.html" title="Terminal, Terminal! interactive demo"></iframe><figcaption>Have a play!</figcaption></figure>
 
-**Terminal, Terminal!** is a tiny, native swift terminal for your Terminal.
-(Yes, I did have fun with this one).
+**Terminal, Terminal!** is a tiny, native macOS terminal for your Terminal (yes, I did have fun with this one).
+
+Download it from [GitHub](https://github.com/andreeeeaaaaas/terminal-terminal/releases).
 
 ## Problem
-While working on more projects, I have needed a better way to see the dev servers I have inadvertently forgotten about. These suck up battery and CPU, and leave me feeling like I'm working on a messy, cluttered desk.
+While working on more projects, I have needed a better way to see the dev servers I have inadvertently forgotten about. These suck up resources and leave me feeling like I'm working on a messy, cluttered desk.
 ## Solution
 
-Terminal, Terminal! is a mini [information display system](https://en.wikipedia.org/wiki/Flight_information_display_system) that floats over your desktop and lists every dev server you have running. You can stop servers straight from the board, rather than diving in and `ctrl - c`-ing your way through Terminal processes.
+Terminal, Terminal! pays homage to the [information display systems](https://en.wikipedia.org/wiki/Flight_information_display_system) that keep airports around the world running. They draw your eye in, they tell you what you need to know, and you keep going about your day. Either less stressed, or more stressed.
 
-Opening Terminal, Terminal! happens through the top toolbar. You can open a server in your browser or quit ones you no longer need. Drag it to move it around or hide it, and set it to show automatically whenever a new server starts.
+The app works in the same way (with less hopefully less stress involved).
+
+It floats over your desktop and lists every dev server you have running. You can open a server in your browser or quit ones you no longer need. Drag it to move it around or hide it, and set it to show automatically whenever a new server starts.
 
 Bringing a bit of [[Overly complicated systems|my modular ethos]], there are seven styles to choose from as well as accent colours. You can also choose whether to show seconds or just `hh:mm`.
 
@@ -69,4 +72,3 @@ One had been running for 90 hours.
 	<div class="icon-frame"><img src="assets/projects/terminal-terminal-icon.webp" alt="The Terminal, Terminal! app icon: a departing plane above a cursor" loading="lazy"></div>
 	<figcaption>The Terminal,Terminal! icon</figcaption>
 </figure>
-Download it from [GitHub](https://github.com/andreeeeaaaaas/terminal-terminal/releases).
