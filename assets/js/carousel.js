@@ -8,7 +8,6 @@
   };
   const prevIcon = caret('M9 2 4 7l5 5');
   const nextIcon = caret('m5 2 5 5-5 5');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   document.querySelectorAll('div.carousel').forEach(function (root) {
     const slides = Array.from(root.querySelectorAll('figure')).map(function (fig) {
@@ -72,13 +71,11 @@
       label.innerHTML = captionFor(i);
     }, { passive: true });
 
-    // Buttons and arrow keys wrap around from the last image to the first and back
+    // Buttons and arrow keys jump straight to the image, wrapping around from
+    // the last to the first and back. Only swipes scroll.
     function step(side) {
       const target = (index + side + slides.length) % slides.length;
-      track.scrollTo({
-        left: target * track.clientWidth,
-        behavior: reduceMotion.matches ? 'auto' : 'smooth',
-      });
+      track.scrollTo({ left: target * track.clientWidth, behavior: 'instant' });
     }
 
     prev.addEventListener('click', function () { step(-1); });
