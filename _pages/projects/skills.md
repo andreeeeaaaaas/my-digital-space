@@ -30,9 +30,9 @@ The first file is key context that the agent grabs about the project: challenge,
 
 Alongside these is a JSON file that stores the data.
 
-I've used `/portfolio` across a number of personal and work projects. Often all that's required to get a case study out these is a review of context.md and a quick edit.
+I've used `/portfolio` across a number of personal and work projects. Often all that's required to get a case study out there is a review of `context.md` and a quick edit.
 
-I mean, it's what I did for this writeup.
+It's what I did for this writeup.
 
 ## [/tmpmd](https://github.com/andreeeeaaaaas/skills/tree/main/skills/tmpmd)
 
