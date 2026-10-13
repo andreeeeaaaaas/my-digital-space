@@ -23,7 +23,14 @@ Terminal, Terminal! pays homage to the [information display systems](https://en.
 
 The app works in the same way (with hopefully less stress involved).
 
-It floats over your desktop and lists every dev server you have running. You can open a server in your browser or quit ones you no longer need. Drag it to move it around or hide it, and set it to show automatically whenever a new server starts.
+It floats over your desktop and lists every dev server you have running. 
+
+You can:
+- open a server straight to your browser by clicking the port
+- quit ones you no longer need
+- drag it to move it around your desktop
+- hide it
+- set it to show automatically whenever a new server starts
 
 Bringing a bit of [[Overly complicated systems|my modular ethos]], there are seven styles to choose from as well as accent colours. You can also choose whether to show seconds or just `hh:mm`.
 
