@@ -11,7 +11,7 @@ description: A terminal for your terminal
 
 <figure class=""><iframe class="tt-embed" data-src="/assets/demos/terminal-terminal/index.html" title="Terminal, Terminal! interactive demo"></iframe><figcaption>Have a play!</figcaption></figure>
 
-**Terminal, Terminal!** is a tiny, native macOS terminal for your Terminal (yes, I did have fun with this one).
+**Terminal, Terminal!** is a tiny, native macOS terminal for your Terminal.
 
 Download it from [GitHub](https://github.com/andreeeeaaaaas/terminal-terminal/releases).
 
@@ -19,9 +19,9 @@ Download it from [GitHub](https://github.com/andreeeeaaaaas/terminal-terminal/re
 While working on more projects, I have needed a better way to see the dev servers I have inadvertently forgotten about. These suck up resources and leave me feeling like I'm working on a messy, cluttered desk.
 ## Solution
 
-Terminal, Terminal! pays homage to the [information display systems](https://en.wikipedia.org/wiki/Flight_information_display_system) that keep airports around the world running. They draw your eye in, they tell you what you need to know, and you keep going about your day. Either less stressed, or more stressed.
+Terminal, Terminal! pays homage to the [information display systems](https://en.wikipedia.org/wiki/Flight_information_display_system) that keep airports around the world running. They draw your eye in, tell you what you need to know, and you keep going about your day. Either less or more stressed.
 
-The app works in the same way (with less hopefully less stress involved).
+The app works in the same way (with hopefully less stress involved).
 
 It floats over your desktop and lists every dev server you have running. You can open a server in your browser or quit ones you no longer need. Drag it to move it around or hide it, and set it to show automatically whenever a new server starts.
 
