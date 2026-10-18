@@ -1083,7 +1083,7 @@ button {
   align-items: center;
   justify-content: center;
   padding: 0;
-  color: var(--color-text-nav);
+  color: var(--color-muted);
   cursor: pointer;
   transition:
     transform 0.15s ease,
@@ -1091,6 +1091,7 @@ button {
 
   &:hover {
     transform: scale(1.05);
+    color: var(--color-text-primary);
   }
 
   &:active {
