@@ -1687,8 +1687,8 @@ iframe.no-rounding,
     font-size: var(--font-size-base);
     height: auto;
     padding-top: $spacing-lg-32;
-    padding-left: $spacing-s-16;
-    padding-right: $spacing-s-16;
+    padding-left: $spacing-m-24;
+    padding-right: $spacing-m-24;
     padding-bottom: $spacing-lg-32;
 
     &-right {
@@ -1700,7 +1700,7 @@ iframe.no-rounding,
   }
 
   .main {
-    padding: 0 $spacing-s-16;
+    padding: 0 $spacing-m-24;
     width: 100%;
   }
 
@@ -1773,8 +1773,8 @@ iframe.no-rounding,
 
   .footer {
     flex-direction: column;
-    padding-left: $spacing-s-16;
-    padding-right: $spacing-s-16;
+    padding-left: $spacing-m-24;
+    padding-right: $spacing-m-24;
     padding-bottom: $spacing-xl-64;
     .footer-year {
       text-align: left;
