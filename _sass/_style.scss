@@ -1473,6 +1473,66 @@ html.project-entrance-pending .project-grid .project {
   margin-bottom: $spacing-s-16;
 }
 
+// Linked pages: note backlinks as cards, two per row
+.linked-pages {
+  // With the last paragraph's margin this leaves 32px above
+  padding-top: $spacing-s-16;
+
+  h3 {
+    margin-bottom: $spacing-s-16;
+  }
+}
+
+.link-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: $spacing-s-16;
+}
+
+.link-card {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-s-16;
+  padding: $spacing-m-24;
+  border: 1px solid var(--color-border);
+  border-radius: $border-radius-md;
+  background-color: var(--color-bg-primary);
+  transition: background-color 0.15s ease;
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs-8;
+  }
+
+  &-title {
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+    text-wrap: balance;
+    transition: color 0.15s ease;
+  }
+
+  &-description {
+    color: var(--color-muted-medium);
+    text-wrap: pretty;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--color-bg-secondary);
+
+      .link-card-title {
+        color: var(--color-text-link);
+      }
+    }
+  }
+
+  &:active {
+    scale: 0.99;
+  }
+}
+
 .circle-btn {
   display: flex;
   align-items: center;
@@ -1707,6 +1767,10 @@ iframe.no-rounding,
   .project-image {
     aspect-ratio: 3/2;
     border-radius: 0;
+  }
+
+  .link-cards {
+    grid-template-columns: 1fr;
   }
   .tags {
     column-gap: $spacing-s-16;

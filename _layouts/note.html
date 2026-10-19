@@ -27,28 +27,30 @@ layout: default
 </content>
 <!-- <hr /> -->
 {% if page.backlinks.size > 0 %}
-<div class="pt" id="notes-entry-container">
-  <h3 style="margin-bottom: 1em">Linked pages</h3>
-
-  <div class="project-grid list-view">
+<section class="linked-pages" aria-labelledby="linked-pages-heading">
+  <h3 id="linked-pages-heading">Linked pages</h3>
+  <!-- Each tag has a fixed dot column, in toolbar order -->
+  {% assign tag_slots = "design,music,creative,writing" | split: "," %}
+  <div class="link-cards">
     {% for backlink in page.backlinks %}
-    <div class="project" data-tags="{{ backlink.tags | join: ', ' }}">
-      <a
-        href="{{ site.baseurl }}{{ backlink.url }}{%- if site.use_html_extension -%}.html{%- endif -%}"
-        class="internal-link no-underline"
-      >
-        <div class="project-text">
-          <div>
-            <h2 class="project-title">{{ backlink.title }}</h2>
-          </div>
-          <p class="project-description">
-            {{ backlink.description | strip_html | default: "No summary
-            available." }}
-          </p>
-        </div>
-      </a>
-    </div>
+    <a
+      href="{{ site.baseurl }}{{ backlink.url }}{%- if site.use_html_extension -%}.html{%- endif -%}"
+      class="link-card internal-link no-underline"
+    >
+      <span class="link-card-text">
+        <span class="link-card-title">{{ backlink.title }}</span>
+        <span class="link-card-description">{{ backlink.description | strip_html | default: "No summary available." }}</span>
+      </span>
+      {% if backlink.tags.size > 0 %}
+      <span class="project-tags-list" aria-label="Tags: {{ backlink.tags | join: ', ' }}">
+        {% assign backlink_tags = backlink.tags | join: ',' | downcase | split: ',' %}
+        {% for slot in tag_slots %}
+          <span class="tag-dot {{ slot }}{% unless backlink_tags contains slot %} empty{% endunless %}" aria-hidden="true"></span>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </a>
     {% endfor %}
   </div>
-</div>
+</section>
 {% endif %}
