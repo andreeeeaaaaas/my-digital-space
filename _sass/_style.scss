@@ -1498,11 +1498,6 @@ html.project-entrance-pending .project-grid .project {
   background-color: var(--color-bg-primary);
   transition: background-color 0.15s ease;
 
-  // A lone card spans both columns rather than leaving half the row empty
-  &:only-child {
-    grid-column: 1 / -1;
-  }
-
   &-title {
     color: var(--color-text-primary);
     text-wrap: balance;
@@ -1511,7 +1506,7 @@ html.project-entrance-pending .project-grid .project {
 
   &-description {
     font-size: $font-size-base - 2px;
-    line-height: 1.5rem;
+    line-height: 1.4;
     color: var(--color-muted-medium);
     text-wrap: pretty;
     // Two lines at most, so one long description can't stretch the row
