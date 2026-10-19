@@ -22,13 +22,13 @@ description: Designer, musician, creative (and sometimes writer)
 <div class="toolbar">
   <div class="tags">
     <button type="button" class="tag active" data-filter="all">All</button>
-    <span class="tag-sep" aria-hidden="true">•</span>
+    <span class="tag-sep" aria-hidden="true"></span>
     <button type="button" class="tag inactive" data-filter="design">Design</button>
-    <span class="tag-sep" aria-hidden="true">•</span>
+    <span class="tag-sep" aria-hidden="true"></span>
     <button type="button" class="tag inactive" data-filter="music">Music</button>
-    <span class="tag-sep" aria-hidden="true">•</span>
+    <span class="tag-sep" aria-hidden="true"></span>
     <button type="button" class="tag inactive" data-filter="creative">Creative</button>
-    <span class="tag-sep" aria-hidden="true">•</span>
+    <span class="tag-sep" aria-hidden="true"></span>
     <button type="button" class="tag inactive" data-filter="writing">Writing</button>
   </div>
 </div>

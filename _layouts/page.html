@@ -9,7 +9,7 @@ layout: default
         <!-- <div class="project-tags" aria-label="Tags: {{ page.tags | join: ', ' }}">
           {% for tag in page.tags %}
             <span class="tag active" data-filter="{{ tag | downcase }}">{{ tag | capitalize }}</span>
-            {% unless forloop.last %}<span class="tag-sep" aria-hidden="true">•</span>{% endunless %}
+            {% unless forloop.last %}<span class="tag-sep" aria-hidden="true"></span>{% endunless %}
           {% endfor %}
         </div> -->
         <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y" }}</time>

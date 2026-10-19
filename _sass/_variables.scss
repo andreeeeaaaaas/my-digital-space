@@ -1,9 +1,13 @@
 // Variables
-$font-family-primary: "Geist", -apple-system, BlinkMacSystemFont, Roboto,
+// Apple system fonts first (Safari, then Chrome on macOS), so Apple devices never fetch Geist or swap fonts
+// Geist covers everything else
+$font-family-primary: -apple-system, BlinkMacSystemFont, "Geist", Roboto,
   "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
   sans-serif;
-$font-family-text: "Geist", "SF Pro Text", sans-serif;
-$font-family-mono: "Geist Mono",ui-monospace, "SF Mono", Monaco, "Cascadia Code",
+$font-family-text: -apple-system, BlinkMacSystemFont, "Geist", sans-serif;
+// Safari uses SF Mono through ui-monospace. Chrome has no ui-monospace, so Macs get Menlo,
+// which already has Geist Mono's spacing
+$font-family-mono: ui-monospace, Menlo, "Geist Mono", "Cascadia Code",
   "Courier New", monospace;
 
 $color-primary: #100f0f;

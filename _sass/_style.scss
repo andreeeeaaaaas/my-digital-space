@@ -9,6 +9,15 @@
   --wrap-normal: 48rem;
   --wrap-wide: 60rem;
   --wrap-widest: 44rem;
+  --mono-tracking: 0;
+}
+
+// Safari renders mono in SF Mono, which is 3% wider per character than Geist Mono.
+// Tighten it to match. The -apple-system-body font keyword only exists in Safari
+@supports (font: -apple-system-body) {
+  :root {
+    --mono-tracking: -0.018em;
+  }
 }
 
 :root {
@@ -295,9 +304,9 @@ content,
 }
 
 a {
-  text-decoration: underline var(--color-border);
-  text-decoration-line: underline;
-  text-decoration-color: var(--color-text-primary);
+  text-decoration: underline var(--color-muted-medium);
+  text-underline-offset: 0.1rem;
+  color: var(--color-text-primary);
   color: var(--color-text-primary);
 
   &.external {
@@ -339,6 +348,7 @@ time {
   display: block;
   color: var(--color-muted-medium);
   font-family: $font-family-mono;
+  letter-spacing: var(--mono-tracking);
   line-height: 1rem;
 }
 
@@ -357,27 +367,19 @@ table {
   margin: $spacing-m-24 0 $spacing-lg-32;
   width: 100%;
   tr {
-    border-top: 1px solid var(--color-border);
-    width: 100%;
+    border-bottom: 1px solid var(--color-border);
   }
-  thead {
-    th {
-      font-weight: 475;
-    }
-    tr {
-      border-top: none;
-      border-bottom: 1px solid var(--color-muted-medium);
-    }
+  th {
+    font-weight: 550;
   }
   td,
   th {
-    padding: 6px $spacing-s-16 0 $spacing-xs-8;
+    padding: $spacing-xs-8 $spacing-s-16 $spacing-xs-8 0;
     align-content: start;
     text-align: left;
-    border-right: 1px solid var(--color-border);
     text-wrap: wrap;
     &:last-child {
-      border-right: none;
+      padding-right: 0;
     }
   }
 }
@@ -484,6 +486,7 @@ figcaption {
   text-align: center;
   font-size: $font-size-base - 2px;
   font-family: $font-family-mono;
+  letter-spacing: var(--mono-tracking);
   color: var(--color-muted);
   padding: 1em 0 0 0;
   a {
@@ -536,6 +539,7 @@ figcaption {
   #lightbox-caption {
     color: rgba(255, 255, 255, 0.6);
     font-family: $font-family-mono;
+    letter-spacing: var(--mono-tracking);
     font-size: $font-size-base - 2px;
     text-align: center;
     margin: 0;
@@ -616,6 +620,7 @@ iframe {
 :not(pre) > code {
   padding: 0.15em 0.4em;
   font-family: $font-family-mono;
+  letter-spacing: var(--mono-tracking);
   font-size: 0.85em;
   background: var(--color-muted-soft);
   color: var(--color-text-primary);
@@ -633,6 +638,7 @@ pre > code {
   font-size: 1rem;
   font-size: 0.8rem;
   font-family: $font-family-mono;
+  letter-spacing: var(--mono-tracking);
   background: var(--color-bg-secondary);
   color: var(--color-text-secondary);
   border-radius: $border-radius-sm;
@@ -796,7 +802,9 @@ div.highlight {
   border: none;
   border-radius: $border-radius-sm;
   cursor: pointer;
-  transition: color 150ms ease, background-color 150ms ease;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease;
 
   &:hover {
     background: var(--color-button-bg-inactive);
@@ -1025,6 +1033,7 @@ html.typewriter-pending #variable {
 
 .section-label {
   font-family: $font-family-mono;
+  letter-spacing: var(--mono-tracking);
   font-size: calc(var(--font-size-base) - 1px);
   // line-height: 24px;
   font-weight: 400;
@@ -1058,6 +1067,7 @@ html.typewriter-pending #variable {
   align-items: center;
   margin-bottom: $spacing-lg-32;
   font-family: $font-family-mono;
+  letter-spacing: var(--mono-tracking);
   font-size: var(--font-size-base);
   color: var(--color-muted);
   background-color: var(--color-bg-primary);
@@ -1212,16 +1222,20 @@ button {
   }
 }
 
+// Square dot drawn in CSS so it looks the same whatever mono font renders.
+// Matches Geist Mono's bullet at 0.8rem: about 3px wide in an 8px slot
 .tag-sep {
-  color: var(--color-muted-medium);
-  font-family: $font-family-mono;
-  font-size: 0.8rem;
-  line-height: 1;
+  flex-shrink: 0;
+  width: 3px;
+  height: 3px;
+  margin-inline: 2.5px;
+  background-color: var(--color-muted-medium);
   user-select: none;
 }
 
 .tag {
   font-family: $font-family-mono;
+  letter-spacing: var(--mono-tracking);
   font-size: var(--font-size-base);
   color: var(--color-muted);
   white-space: nowrap;
@@ -1320,6 +1334,7 @@ html.project-entrance-pending .project-grid .project {
 
   &-year {
     font-family: $font-family-mono;
+    letter-spacing: var(--mono-tracking);
     font-size: calc(var(--font-size-base));
     color: var(--color-muted-medium);
     white-space: nowrap;
@@ -1369,6 +1384,7 @@ html.project-entrance-pending .project-grid .project {
 
 .title .project-tags {
   font-family: $font-family-mono;
+  letter-spacing: var(--mono-tracking);
   position: relative;
   display: flex;
   align-items: center;
@@ -1383,7 +1399,9 @@ html.project-entrance-pending .project-grid .project {
 .project-tags-list {
   display: flex;
   flex-shrink: 0;
-  width: calc(4 * 8px + 3 * 4px); // Fits all four tags so dots align in a left column
+  width: calc(
+    4 * 8px + 3 * 4px
+  ); // Fits all four tags so dots align in a left column
   height: 24px;
   align-items: center;
   justify-content: flex-start;
@@ -1492,6 +1510,7 @@ html.project-entrance-pending .project-grid .project {
   display: flex;
   flex-direction: column;
   gap: $spacing-xs-8;
+  min-height: 136px;
   padding: $spacing-s-16;
   border: 1px solid var(--color-border);
   border-radius: $border-radius-md;
@@ -1605,7 +1624,8 @@ html.project-entrance-pending .project-grid .project {
   margin-top: $spacing-lg-32;
   // Full-bleed divider: outset stretches past the body's max-width without adding scroll
   border-top: 1px solid var(--color-border);
-  border-image: linear-gradient(var(--color-border), var(--color-border)) 1 / 1px 0 0 / 0 100vw;
+  border-image: linear-gradient(var(--color-border), var(--color-border)) 1 /
+    1px 0 0 / 0 100vw;
 
   .label {
     display: flex;
@@ -1619,6 +1639,7 @@ html.project-entrance-pending .project-grid .project {
     flex-direction: column;
     color: var(--color-muted-medium);
     font-family: $font-family-mono;
+    letter-spacing: var(--mono-tracking);
     // white-space: nowrap;
   }
 }
@@ -1746,8 +1767,7 @@ iframe.no-rounding,
     // font-size: calc(var(--font-size-base) - 2px);
     td,
     th {
-      padding: 4px $spacing-xs-8 0 6px;
-      border-right: 1px solid var(--color-border);
+      padding: $spacing-xs-8 $spacing-xs-8 $spacing-xs-8 0;
       text-wrap: wrap;
       // word-wrap: break-word;
     }
@@ -1787,6 +1807,10 @@ iframe.no-rounding,
   }
   .toolbar {
     .tag-sep {
+      display: none;
+    }
+    // Saves space so the tags fit on one line. Tapping an active tag again clears the filter
+    .tag[data-filter="all"] {
       display: none;
     }
   }
