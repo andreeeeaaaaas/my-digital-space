@@ -9,15 +9,6 @@
   --wrap-normal: 48rem;
   --wrap-wide: 60rem;
   --wrap-widest: 44rem;
-  --mono-tracking: 0;
-}
-
-// Safari renders mono in SF Mono, which is 3% wider per character than Geist Mono.
-// Tighten it to match. The -apple-system-body font keyword only exists in Safari
-@supports (font: -apple-system-body) {
-  :root {
-    --mono-tracking: -0.018em;
-  }
 }
 
 :root {
@@ -348,7 +339,6 @@ time {
   display: block;
   color: var(--color-muted-medium);
   font-family: $font-family-mono;
-  letter-spacing: var(--mono-tracking);
   line-height: 1rem;
 }
 
@@ -486,7 +476,6 @@ figcaption {
   text-align: center;
   font-size: $font-size-base - 2px;
   font-family: $font-family-mono;
-  letter-spacing: var(--mono-tracking);
   color: var(--color-muted);
   padding: 1em 0 0 0;
   a {
@@ -539,7 +528,6 @@ figcaption {
   #lightbox-caption {
     color: rgba(255, 255, 255, 0.6);
     font-family: $font-family-mono;
-    letter-spacing: var(--mono-tracking);
     font-size: $font-size-base - 2px;
     text-align: center;
     margin: 0;
@@ -620,7 +608,6 @@ iframe {
 :not(pre) > code {
   padding: 0.15em 0.4em;
   font-family: $font-family-mono;
-  letter-spacing: var(--mono-tracking);
   font-size: 0.85em;
   background: var(--color-muted-soft);
   color: var(--color-text-primary);
@@ -638,7 +625,6 @@ pre > code {
   font-size: 1rem;
   font-size: 0.8rem;
   font-family: $font-family-mono;
-  letter-spacing: var(--mono-tracking);
   background: var(--color-bg-secondary);
   color: var(--color-text-secondary);
   border-radius: $border-radius-sm;
@@ -1033,7 +1019,6 @@ html.typewriter-pending #variable {
 
 .section-label {
   font-family: $font-family-mono;
-  letter-spacing: var(--mono-tracking);
   font-size: calc(var(--font-size-base) - 1px);
   // line-height: 24px;
   font-weight: 400;
@@ -1067,7 +1052,6 @@ html.typewriter-pending #variable {
   align-items: center;
   margin-bottom: $spacing-lg-32;
   font-family: $font-family-mono;
-  letter-spacing: var(--mono-tracking);
   font-size: var(--font-size-base);
   color: var(--color-muted);
   background-color: var(--color-bg-primary);
@@ -1235,7 +1219,6 @@ button {
 
 .tag {
   font-family: $font-family-mono;
-  letter-spacing: var(--mono-tracking);
   font-size: var(--font-size-base);
   color: var(--color-muted);
   white-space: nowrap;
@@ -1334,7 +1317,6 @@ html.project-entrance-pending .project-grid .project {
 
   &-year {
     font-family: $font-family-mono;
-    letter-spacing: var(--mono-tracking);
     font-size: calc(var(--font-size-base));
     color: var(--color-muted-medium);
     white-space: nowrap;
@@ -1384,7 +1366,6 @@ html.project-entrance-pending .project-grid .project {
 
 .title .project-tags {
   font-family: $font-family-mono;
-  letter-spacing: var(--mono-tracking);
   position: relative;
   display: flex;
   align-items: center;
@@ -1515,12 +1496,18 @@ html.project-entrance-pending .project-grid .project {
   border: 1px solid var(--color-border);
   border-radius: $border-radius-md;
   background-color: var(--color-bg-primary);
-  transition: background-color 0.15s ease;
+  // Same near-instant hover as the index list
+  transition: background-color 0.02s;
 
+  // Underlined like other links on the site
   &-title {
     color: var(--color-text-primary);
+    text-decoration: underline var(--color-muted-medium);
+    text-underline-offset: 0.1rem;
     text-wrap: balance;
-    transition: color 0.15s ease;
+    transition:
+      color 0.02s,
+      text-decoration-color 0.02s;
   }
 
   &-description {
@@ -1544,6 +1531,7 @@ html.project-entrance-pending .project-grid .project {
 
     .link-card-title {
       color: var(--color-text-link);
+      text-decoration-color: var(--color-text-link);
     }
   }
 
@@ -1553,6 +1541,7 @@ html.project-entrance-pending .project-grid .project {
 
       .link-card-title {
         color: var(--color-text-link);
+        text-decoration-color: var(--color-text-link);
       }
     }
   }
@@ -1639,7 +1628,6 @@ html.project-entrance-pending .project-grid .project {
     flex-direction: column;
     color: var(--color-muted-medium);
     font-family: $font-family-mono;
-    letter-spacing: var(--mono-tracking);
     // white-space: nowrap;
   }
 }

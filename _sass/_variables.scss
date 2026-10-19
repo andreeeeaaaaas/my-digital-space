@@ -5,8 +5,7 @@ $font-family-primary: -apple-system, BlinkMacSystemFont, "Geist", Roboto,
   "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
   sans-serif;
 $font-family-text: -apple-system, BlinkMacSystemFont, "Geist", sans-serif;
-// Safari uses SF Mono through ui-monospace. Chrome has no ui-monospace, so Macs get Menlo,
-// which already has Geist Mono's spacing
+// Safari uses SF Mono through ui-monospace. Chrome has no ui-monospace, so Macs get Menlo
 $font-family-mono: ui-monospace, Menlo, "Geist Mono", "Cascadia Code",
   "Courier New", monospace;
 
