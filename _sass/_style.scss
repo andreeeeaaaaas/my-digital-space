@@ -921,10 +921,14 @@ div.highlight {
     font-weight: 450;
   }
 
-  // Sound and theme buttons use the same 24px spacing as the rest of the row
+  // Sound and theme buttons sit 8px apart, then 16px trailing space plus the 24px row gap
   &-controls {
     @include flex-center;
-    gap: $spacing-m-24;
+    gap: $spacing-xs-8;
+
+    &:not(:last-child) {
+      margin-right: $spacing-s-16;
+    }
   }
 
   &-right {
