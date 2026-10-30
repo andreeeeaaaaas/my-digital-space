@@ -564,6 +564,40 @@ iframe {
   margin: $spacing-lg-32 0;
 }
 
+// Square images in a row of three
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: $spacing-xs-8;
+  margin: $spacing-lg-32 0;
+  figure {
+    margin: 0;
+  }
+  img,
+  img.contain {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+}
+
+// Bandcamp draws its own 1px border inside the player; crop it and use ours
+.bandcamp-embed {
+  border: 1px solid var(--color-border);
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  margin: $spacing-lg-32 0;
+  iframe {
+    display: block;
+    border: 0;
+    border-radius: 0;
+    margin: -1px;
+    // Beat the inline size in Bandcamp's pasted embed code
+    width: calc(100% + 2px) !important;
+    height: calc(100% + 2px) !important;
+  }
+}
+
 // Terminal, Terminal! demo, framed like the project images
 .tt-embed {
   display: block;
