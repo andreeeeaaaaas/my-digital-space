@@ -7,14 +7,13 @@ tags:
   - creative
 description: 7-track CD celebrating someone special
 ---
-![[assets/studio/ballads-lullabies-1.webp]]
+![[assets/studio/ballads-lullabies-3.webp]]
 
 <div class="bandcamp-embed" style="height: 120px;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=4142525195/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://andreeeeaaaaas.bandcamp.com/album/ballads-lullabies">ballads &amp; lullabies by Andreas</a></iframe></div>
 
 I made these 7 songs to celebrate someone very special to me. They soundtrack moments and stages of life together, intertwining found sounds, audio snippets, and life recordings with song.
 
-[Buy on Bandcamp](https://andreeeeaaaaas.bandcamp.com/album/ballads-lullabies)
-Available on all major streaming services.
+[Buy on Bandcamp](https://andreeeeaaaaas.bandcamp.com/album/ballads-lullabies)or stream on all major listening services.
 
 
 <div class="image-grid">
