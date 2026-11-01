@@ -13,7 +13,7 @@ description: 7-track CD celebrating someone special
 
 I made these 7 songs to celebrate someone very special to me. They soundtrack moments and stages of life together, intertwining found sounds, audio snippets, and life recordings with song.
 
-[Buy on Bandcamp](https://andreeeeaaaaas.bandcamp.com/album/ballads-lullabies)or stream on all major listening services.
+[Buy on Bandcamp](https://andreeeeaaaaas.bandcamp.com/album/ballads-lullabies) or stream on all major listening services.
 
 
 <div class="image-grid">
