@@ -5,6 +5,7 @@ permalink: /balladsandlullabies
 date: 2026-10-30
 tags:
   - creative
+  - music
 description: 7-track CD celebrating someone special
 ---
 ![[assets/studio/ballads-lullabies-3.webp]]

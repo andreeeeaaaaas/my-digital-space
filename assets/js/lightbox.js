@@ -44,7 +44,8 @@
     window.scrollTo(0, savedScrollY);
   }
 
-  document.querySelectorAll('figure img').forEach(function (el) {
+  // Add class="no-zoom" to a figure to leave its image out
+  document.querySelectorAll('figure:not(.no-zoom) img').forEach(function (el) {
     el.style.cursor = 'zoom-in';
     el.addEventListener('click', function () {
       const fig = el.closest('figure');

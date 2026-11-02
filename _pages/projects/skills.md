@@ -17,7 +17,10 @@ npx skills add andreeeeaaaaas/skills
 
 **Record contributions, decisions, and key context over time across personal and work projects.**
 
-![[assets/projects/skills-portfolio.webp]]
+<figure class="no-zoom">
+	<img class="contain" src="/assets/projects/skills-portfolio.webp" alt="A Finder window showing a portfolio folder with context.md, decisions.md, timeline.md and state.json">
+	<figcaption>/portfolio outputs</figcaption>
+</figure>
 
 Creating portfolio pieces after a project should be the easy part. The hard work is already done; the thinking has happened; the assets have been created.
 
@@ -38,7 +41,10 @@ It's what I did for this writeup.
 
 **Read your agent's last answer somewhere nicer than the terminal.**
 
-![[assets/projects/skills-tmpmd.webp]]
+<figure class="no-zoom">
+	<img class="contain" src="/assets/projects/skills-tmpmd.webp" alt="An Obsidian tab showing a tmpmd note with the prompt and the agent's answer about how tmpmd works">
+	<figcaption>/tmpmd example output</figcaption>
+</figure>
 
 It can be hard to read long verbose output in the terminal. This is true when using any agent that operates within a command line interface (CLI): Claude Code, Codex, Gemini, etc. 
 
