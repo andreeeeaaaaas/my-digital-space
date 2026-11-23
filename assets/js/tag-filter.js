@@ -21,6 +21,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       project.classList.toggle("inactive", !shouldShow);
     });
+
+    // The canvas view dims tiles from the same filter
+    window.activeTagFilters = activeCategories;
+    document.dispatchEvent(
+      new CustomEvent("tagfilter:change", { detail: { active: activeCategories } })
+    );
   }
 
   if (allBtn) {

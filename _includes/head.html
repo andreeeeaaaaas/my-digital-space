@@ -29,6 +29,14 @@
 
   {% if page.id == "home" %}
   <script>
+    try {
+      if (localStorage.getItem("index-view") === "canvas") {
+        document.documentElement.classList.add("view-canvas");
+      }
+    } catch (error) {
+      // Storage blocked: show the list.
+    }
+
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       document.documentElement.classList.add("typewriter-pending");
     }
@@ -58,6 +66,7 @@
   {% if page.id == "home" %}
   <script src="/assets/js/tag-filter.js" defer></script>
   <script src="/assets/js/project-entrance.js" defer></script>
+  <script src="/assets/js/canvas-view.js" defer></script>
   {% endif %}
   {% if page.layout == "project" %}
   <script src="/assets/js/deferred-embeds.js" defer></script>

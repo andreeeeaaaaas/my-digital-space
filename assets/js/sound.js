@@ -258,6 +258,11 @@ document.addEventListener("DOMContentLoaded", () => {
     project.addEventListener("mouseenter", playProjectSound);
   });
 
+  // Canvas tiles are built after load, so they call this instead
+  window.playHoverSound = throttle(() => {
+    playBuffer(getNextTagSound());
+  }, 100);
+
   // Hook up emoji hover with dual sound playback
   function initEmojiHoverSounds() {
     document.querySelectorAll(".emoji-hover").forEach((element) => {

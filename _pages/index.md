@@ -31,6 +31,11 @@ description: Designer, musician, creative (and sometimes writer)
     <span class="tag-sep" aria-hidden="true"></span>
     <button type="button" class="tag inactive" data-filter="writing">Writing</button>
   </div>
+  <div class="view-toggle" role="group" aria-label="View">
+    <button type="button" class="tag active" data-view="list" aria-pressed="true">List</button>
+    <span class="tag-sep" aria-hidden="true"></span>
+    <button type="button" class="tag inactive" data-view="canvas" aria-pressed="false">Canvas</button>
+  </div>
 </div>
 
 {% assign projects = site.pages | where_exp: "page", "page.path contains 'projects/'" %}
@@ -66,6 +71,11 @@ description: Designer, musician, creative (and sometimes writer)
   {% endfor %}
 </div>
 
+<!-- Canvas view: built by canvas-view.js from /canvas.json -->
+<div class="canvas-view" id="canvas-view" tabindex="0" role="region" aria-label="Canvas of projects and notes. Drag, scroll or use the arrow keys to move around." hidden></div>
+
+<div class="index-outro" markdown="1">
 I've got lots more ideas and projects I'm working on.
 
 If you would like to hear them, see them, or work on one together, please <a href="/contact" class="internal-link">contact me</a>.
+</div>
