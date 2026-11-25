@@ -484,13 +484,25 @@ video {
   position: relative;
 }
 
+// Spans the bottom edge: play/pause on the left, the rest pushed to the right
 .video-controls {
   position: absolute;
   bottom: 12px;
+  left: 12px;
   right: 12px;
   display: flex;
   gap: $spacing-xs-8;
   transition: opacity 0.15s ease;
+  // The strip itself shouldn't catch clicks meant for the video
+  pointer-events: none;
+
+  .video-btn {
+    pointer-events: auto;
+  }
+
+  .video-btn:first-child {
+    margin-right: auto;
+  }
 }
 
 // Hidden until hovered, unless paused or focused by keyboard. Touch screens always show them.

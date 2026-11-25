@@ -1,5 +1,6 @@
-// Adds pause/play and restart buttons to the bottom right of every looping video in a figure,
-// plus a mute button on videos marked data-audio (they start muted so they can autoplay).
+// Adds a pause/play button to the bottom left of every looping video in a figure, and a restart
+// button to the bottom right, plus a mute button on videos marked data-audio (they start muted
+// so they can autoplay).
 // With reduced motion on, videos start paused. Without JavaScript they just autoplay.
 (function () {
   const icon = function (body) {
