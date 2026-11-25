@@ -2,6 +2,8 @@
 // button to the bottom right, plus a mute button on videos marked data-audio (they start muted
 // so they can autoplay).
 // With reduced motion on, videos start paused. Without JavaScript they just autoplay.
+// On touch screens the controls stay hidden until the video is tapped, then fade after a few
+// seconds of playback.
 (function () {
   const icon = function (body) {
     return '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">' + body + '</svg>';
@@ -12,6 +14,8 @@
   const soundIcon = icon('<path d="M1.5 5h2.5l3.5-3v10l-3.5-3H1.5z" fill="currentColor"/><path d="M9.75 4.75a3 3 0 0 1 0 4.5M11.25 2.75a5.75 5.75 0 0 1 0 8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>');
   const mutedIcon = icon('<path d="M1.5 5h2.5l3.5-3v10l-3.5-3H1.5z" fill="currentColor"/><path d="M9.5 5.25l3.5 3.5M13 5.25l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const noHover = window.matchMedia('(hover: none)');
+  const HIDE_DELAY = 3000;
 
   document.querySelectorAll('figure video[loop]').forEach(function (video) {
     const frame = document.createElement('div');
@@ -60,6 +64,31 @@
       video.pause();
     }
     sync();
+
+    // Touch: tapping the video shows or hides the controls. They stay up while paused,
+    // and any button press restarts the countdown.
+    let hideTimer;
+    function scheduleHide() {
+      clearTimeout(hideTimer);
+      if (video.paused) return;
+      hideTimer = setTimeout(function () {
+        frame.classList.remove('controls-shown');
+      }, HIDE_DELAY);
+    }
+    video.addEventListener('click', function () {
+      if (!noHover.matches) return;
+      if (frame.classList.toggle('controls-shown')) scheduleHide();
+      else clearTimeout(hideTimer);
+    });
+    controls.addEventListener('click', function () {
+      if (frame.classList.contains('controls-shown')) scheduleHide();
+    });
+    video.addEventListener('play', function () {
+      if (frame.classList.contains('controls-shown')) scheduleHide();
+    });
+    video.addEventListener('pause', function () {
+      clearTimeout(hideTimer);
+    });
 
     toggle.addEventListener('click', function () {
       if (video.paused) video.play();

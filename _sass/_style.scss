@@ -505,10 +505,22 @@ video {
   }
 }
 
-// Hidden until hovered, unless paused or focused by keyboard. Touch screens always show them.
+// Hidden until hovered, unless paused or focused by keyboard
 @media (hover: hover) {
   .video-frame:not(:hover, :has(:focus-visible), .is-paused) .video-controls {
     opacity: 0;
+  }
+}
+
+// Touch screens have no hover, so a tap on the video toggles them instead (see video-controls.js).
+// Hidden buttons stop catching taps, so a tap in a corner reveals them rather than pressing one blind.
+@media (hover: none) {
+  .video-frame:not(.controls-shown, :has(:focus-visible)) .video-controls {
+    opacity: 0;
+
+    .video-btn {
+      pointer-events: none;
+    }
   }
 }
 
