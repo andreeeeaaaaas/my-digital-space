@@ -249,7 +249,8 @@ content,
     width: Min(100vw, var(--wrap-wide));
     margin-left: calc((Min(100vw, var(--wrap-wide)) - 100%) / -2);
   }
-  img {
+  img,
+  video {
     margin-block-start: 1rem;
     margin-block-end: 1rem;
     border-radius: $border-radius-md;
@@ -259,7 +260,8 @@ content,
     outline-offset: -1px;
   }
   figure {
-    img {
+    img,
+    video {
       margin-block-start: 0;
       margin-block-end: 0;
     }
@@ -376,7 +378,8 @@ table {
   }
 }
 
-img {
+img,
+video {
   max-width: 100%;
   // Keeps the width/height attributes as a ratio, not a fixed size
   height: auto;
@@ -474,6 +477,46 @@ img {
   @extend .nav-back-btn;
   // Quick repeat taps step through slides instead of zooming the page
   touch-action: manipulation;
+}
+
+// Pause and restart buttons over a looping video (see video-controls.js)
+.video-frame {
+  position: relative;
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  gap: $spacing-xs-8;
+  transition: opacity 0.15s ease;
+}
+
+// Hidden until hovered, unless paused or focused by keyboard. Touch screens always show them.
+@media (hover: hover) {
+  .video-frame:not(:hover, :has(:focus-visible), .is-paused) .video-controls {
+    opacity: 0;
+  }
+}
+
+.video-btn {
+  @extend .nav-back-btn;
+  touch-action: manipulation;
+}
+
+// Nested so it outranks .circle-btn's transition further down, which would drop the opacity fade
+.video-controls .video-btn {
+  opacity: 0.7;
+  transition:
+    opacity 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+  }
 }
 
 figcaption {
