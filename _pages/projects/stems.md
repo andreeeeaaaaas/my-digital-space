@@ -3,7 +3,7 @@ layout: project
 title: Stems
 permalink: /stems
 date: 2026-11-25
-icon: /assets/projects/stems-icon.png
+image: /assets/Card-stems.jpg
 tags:
   - design
   - music
