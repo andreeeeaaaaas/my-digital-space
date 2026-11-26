@@ -3,6 +3,7 @@ layout: project
 title: Terminal, Terminal!
 permalink: /terminal-terminal
 date: 2026-10-10
+icon: /assets/projects/terminal-terminal-icon.png
 tags:
   - design
   - creative

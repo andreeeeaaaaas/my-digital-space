@@ -23,7 +23,8 @@
 
   <meta property="og:site_name" content="{{ site.title }}" />
 
-  <link rel="icon" type="image/png" href="assets/Favicon-headshot-flow.png" />
+  <link rel="icon" type="image/png" href="{{ page.icon | default: '/assets/Favicon-headshot-flow.png' | relative_url }}" />
+  {% if page.icon %}<link rel="apple-touch-icon" href="{{ page.icon | relative_url }}" />{% endif %}
 
   <link rel="stylesheet" href="{{ site.baseurl }}/styles.css" />
 
@@ -90,8 +91,13 @@
 
   <meta property="og:url" content="{{ page.url | absolute_url }}" />
 
+  {% if page.icon and page.image == nil %}
+  <meta property="og:image" content="{{ page.icon | absolute_url }}" />
+  <meta name="twitter:card" content="summary" />
+  {% else %}
   <meta property="og:image" content="{{ page.image | default: '/assets/Card-flow.jpg' | absolute_url }}" />
   <meta name="twitter:card" content="summary_large_image" />
+  {% endif %}
 
   <title>
     {% if page.id == "home" %} {{ site.title }} {% else %} {{ site.title }} /
