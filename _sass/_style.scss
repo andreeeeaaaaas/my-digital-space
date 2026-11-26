@@ -300,7 +300,7 @@ content,
 
 a {
   text-decoration: underline var(--color-muted-medium);
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 1.5px;
   text-underline-offset: calc(0.1rem + 1px);
   color: var(--color-text-primary);
   color: var(--color-text-primary);
@@ -1609,7 +1609,7 @@ html.project-entrance-pending .project-grid .project {
   &-title {
     color: var(--color-text-primary);
     text-decoration: underline var(--color-muted-medium);
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: 1.5px;
     text-underline-offset: calc(0.1rem + 1px);
     text-wrap: balance;
     transition:
