@@ -2031,3 +2031,13 @@ iframe.no-rounding,
     }
   }
 }
+
+// The live Stems loading animation (see stems-plant.js): square, drawn at device pixels
+canvas.stems-plant {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  background-color: var(--color-bg-secondary);
+  touch-action: manipulation;
+}
