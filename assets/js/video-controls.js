@@ -17,7 +17,15 @@
   const noHover = window.matchMedia('(hover: none)');
   const HIDE_DELAY = 3000;
 
-  document.querySelectorAll('figure video[loop]').forEach(function (video) {
+  // Figures marked no-controls get no buttons, but still hold still for reduced motion
+  if (reduceMotion.matches) {
+    document.querySelectorAll('figure.no-controls video[loop]').forEach(function (video) {
+      video.removeAttribute('autoplay');
+      video.pause();
+    });
+  }
+
+  document.querySelectorAll('figure:not(.no-controls) video[loop]').forEach(function (video) {
     const frame = document.createElement('div');
     frame.className = 'video-frame';
     video.replaceWith(frame);

@@ -480,6 +480,16 @@ video {
   touch-action: manipulation;
 }
 
+// Two or more images or videos in one row, with any caption spanning beneath
+figure.side-by-side {
+  grid-template-columns: repeat(var(--columns, 2), minmax(0, 1fr));
+  align-items: start;
+
+  figcaption {
+    grid-column: 1 / -1;
+  }
+}
+
 // Pause and restart buttons over a looping video (see video-controls.js)
 .video-frame {
   position: relative;
