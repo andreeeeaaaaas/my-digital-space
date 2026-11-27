@@ -93,8 +93,5 @@
   <meta property="og:image" content="{{ page.image | default: '/assets/Card-flow.jpg' | absolute_url }}" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <title>
-    {% if page.id == "home" %} {{ site.title }} {% else %} {{ site.title }} /
-    {{ page.title }} {% endif %}
-  </title>
+  <title>{% if page.id == "home" %}{{ site.title }}{% else %}{{ page.title }} / {{ site.title }}{% endif %}</title>
 </head>
