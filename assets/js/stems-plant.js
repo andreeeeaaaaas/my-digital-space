@@ -5,7 +5,7 @@
 // Greys are drawn as ink at level/15 opacity, so the app's 16-level ramp sits on any background:
 // white ink in dark mode (as in the app), black ink in light mode (the ramp inverted).
 // Follows the site's theme toggle and the system setting, pauses off-screen, and with reduced
-// motion shows one still, fully bloomed plant until the visitor presses play.
+// motion shows one still, fully bloomed plant.
 (function () {
   const SIZE = 96, GROUND = 88, FPS = 12;
   const GROW_SECONDS = 4.5, HOLD_SECONDS = 2.5, SPLIT = 0.96;
@@ -346,12 +346,6 @@
 
   // MARK: Page
 
-  const icon = (body) =>
-    '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">' + body + "</svg>";
-  const pauseIcon = icon('<path d="M3 1.5h2.5v11H3zM8.5 1.5H11v11H8.5z" fill="currentColor"/>');
-  const playIcon = icon('<path d="M3.5 1.5v11L12 7z" fill="currentColor"/>');
-  const restartIcon = icon('<path d="M1.75 7a5.25 5.25 0 1 0 1.54-3.71L1.75 4.67M1.75 1.75v2.92h2.92" stroke="currentColor" stroke-width="1.67"/>');
-
   const root = document.documentElement;
   const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -364,7 +358,8 @@
 
     let styleIndex = Math.random() < 0.5 ? 0 : 1;
     let plant, frame = 0, drawn = -1, splitFrame = null, elapsed = 0;
-    let playing = !reduceMotion.matches, inView = false, last = null, still = reduceMotion.matches;
+    const playing = !reduceMotion.matches, still = reduceMotion.matches;
+    let inView = false, last = null;
 
     function nextPlant() {
       styleIndex ^= 1;
@@ -430,44 +425,7 @@
     new MutationObserver(draw).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
     systemDark.addEventListener("change", draw);
 
-    // Controls, in the same style as the video buttons (see video-controls.js).
-    const frameEl = document.createElement("div");
-    frameEl.className = "video-frame";
-    canvas.replaceWith(frameEl);
-    frameEl.appendChild(canvas);
-    const button = (html, label) => {
-      const b = document.createElement("button");
-      b.type = "button"; b.className = "circle-btn video-btn"; b.innerHTML = html;
-      b.setAttribute("aria-label", label);
-      return b;
-    };
-    const toggle = button(pauseIcon, "Pause animation");
-    const again = button(restartIcon, "Grow a new plant");
-    const controls = document.createElement("div");
-    controls.className = "video-controls";
-    controls.append(toggle, again);
-    frameEl.appendChild(controls);
-
-    function sync() {
-      toggle.innerHTML = playing ? pauseIcon : playIcon;
-      toggle.setAttribute("aria-label", playing ? "Pause animation" : "Play animation");
-      frameEl.classList.toggle("is-paused", !playing);
-    }
-    toggle.addEventListener("click", () => {
-      playing = !playing;
-      if (playing && still) { still = false; nextPlant(); }
-      sync(); run();
-    });
-    again.addEventListener("click", () => {
-      still = false; nextPlant(); draw();
-      if (!playing) { playing = true; sync(); }
-      run();
-    });
-    // Touch screens have no hover, so a tap on the plant shows or hides the buttons.
-    canvas.addEventListener("click", () => frameEl.classList.toggle("controls-shown"));
-
     nextPlant();
-    sync();
     draw();
   });
 })();

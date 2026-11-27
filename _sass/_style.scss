@@ -250,7 +250,8 @@ content,
     margin-left: calc((Min(100vw, var(--wrap-wide)) - 100%) / -2);
   }
   img,
-  video {
+  video,
+  canvas {
     margin-block-start: 1rem;
     margin-block-end: 1rem;
     border-radius: $border-radius-md;
@@ -261,7 +262,8 @@ content,
   }
   figure {
     img,
-    video {
+    video,
+    canvas {
       margin-block-start: 0;
       margin-block-end: 0;
     }
@@ -2039,5 +2041,4 @@ canvas.stems-plant {
   height: auto;
   aspect-ratio: 1;
   background-color: var(--color-bg-secondary);
-  touch-action: manipulation;
 }
