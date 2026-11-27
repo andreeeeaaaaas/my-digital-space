@@ -7,7 +7,7 @@ image: /assets/Card-stems.jpg
 tags:
   - design
   - music
-description: A stem splitter app for musician, producers, and DJs.
+description: A stem splitter app for musicians, producers, and DJs.
 ---
 ## A native macOS stem splitter for musicians, producers, and DJs.
 
@@ -23,7 +23,7 @@ After a bit of research into what was possible, I made Stems – a small, fast, 
 Download the app from [GitHub](https://github.com/andreeeeaaaaas/stems-releases/releases).
 ## Design
 
-The app is inspired by TUIs and the low pixel count screens of older devices that do one thing, and do it well. It’s made for speed over complex tweaking, so lots of design effort went into the loading/wait experience; an oft forgetten element in a UI. 
+The app is inspired by [terminal user interfaces](https://en.wikipedia.org/wiki/Text-based_user_interface) and the low pixel count screens that were common in the earliest form of computing. Typically these older devices did one thing, and did it well. The Stems experience is similarly made for speed over complex tweaking, so lots of design effort went into the loading/wait experience; an oft forgotten element in an interface. 
 
 
 <figure class="side-by-side no-controls">
