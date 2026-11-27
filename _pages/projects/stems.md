@@ -9,27 +9,30 @@ tags:
   - music
 description: A stem splitter app for musicians, producers, and DJs.
 ---
+
+<figure>
+	<video class="contain" src="assets/projects/stems-split.mp4" poster="assets/projects/stems-split-poster.webp" width="1600" height="1040" autoplay muted loop playsinline preload="metadata" aria-label="Stems splitting a track: dropping in a song, then watching the stems grow"></video>
+</figure>
 ## A native macOS stem splitter for musicians, producers, and DJs.
 
 I always wondered how producers found high-quality samples from other songs, with clean acapellas, drums, or instrumentals. The answer is typically uploading a song to a web service, with accounts, paywalls and queues or creative EQing, which can take hours and hours to refine.
 
 After a bit of research into what was possible, I made Stems – a small, fast, dedicated Mac app with nothing else to install. Enjoy and let your 90s R&B remix dreams come true.
 
-<figure>
-	<video class="contain" src="assets/projects/stems-split.mp4" poster="assets/projects/stems-split-poster.webp" width="1600" height="1040" autoplay muted loop playsinline preload="metadata" aria-label="Stems splitting a track: dropping in a song, then watching the stems grow"></video>
-</figure>
+
 ## Download
 
 Download the app from [GitHub](https://github.com/andreeeeaaaaas/stems-releases/releases).
 ## Design
 
-The app is inspired by [terminal user interfaces](https://en.wikipedia.org/wiki/Text-based_user_interface) and the low pixel count screens that were common in the earliest form of computing. Typically these older devices did one thing, and did it well. The Stems experience is similarly made for speed over complex tweaking, so lots of design effort went into the loading/wait experience; an oft forgotten element in an interface. 
+The app is inspired by [terminal user interfaces](https://en.wikipedia.org/wiki/Text-based_user_interface) and the low pixel count screens that were common in the earliest form of computing. Typically these older devices did one thing, and did it well. 
+
+The Stems experience is similarly made for speed over complex tweaking, so lots of design effort went into the loading/wait experience; an oft forgotten element in an interface. 
 
 
-<figure class="side-by-side no-controls">
+<figure class="">
 	<video class="contain" src="assets/projects/stems-2.mp4" poster="assets/projects/stems-2-poster.webp" width="1080" height="1080" autoplay muted loop playsinline preload="metadata" aria-label="A pixel stem growing upward and branching, with a coloured flower blooming at the tip of each branch"></video>
-	<video class="contain" src="assets/projects/stems-3.mp4" poster="assets/projects/stems-3-poster.webp" width="1080" height="1080" autoplay muted loop playsinline preload="metadata" aria-label="A field of pixel stems, each one growing a different shape and set of flowers"></video>
-	<figcaption>Examples of the loading animation in Stems</figcaption>
+	<figcaption>The loading animation</figcaption>
 </figure>
 Every strand grows with a little bit of Perlin noise affecting height, sway and direction. This makes every stem extraction and grow pattern unique to that individual run.
 
