@@ -42,7 +42,7 @@ Every strand grows with a little bit of Perlin noise affecting height, sway and 
 3. Wait and watch the stems grow
 4. Preview the stems, and show in Finder
 
-### Stem count
+### Stems
 Sets how many stems will be extracted from the audio.
 - **2 stems**: vocal + instrumental
 - **4 stems**: vocal, bass, drums, other
