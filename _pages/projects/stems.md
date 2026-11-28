@@ -39,7 +39,7 @@ Every strand grows with a little bit of Perlin noise affecting height, sway and 
 
 ## Audio
 
-Stems is the first app I've made audio for. I wanted the app to have a calming little reminder of the thougth and care that went into it. It plays only on a fresh download, or an updated build.
+Stems is the first app I've made audio for. I wanted the app to have a calming little reminder of the thought and care that went into it. It plays only on a fresh download, or an updated build.
 
 Sounds were made using a mix of Kontakt instruments, [[Overly complicated systems|my modular synthesisers]], and VSTs.
 
