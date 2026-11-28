@@ -15,7 +15,7 @@ description: A stem splitter app for musicians, producers, and DJs.
 </figure>
 ## A native macOS stem splitter for musicians, producers, and DJs.
 
-I always wondered how producers found high-quality samples from other songs, with clean acapellas, drums, or instrumentals. The answer is typically uploading a song to a web service, with accounts, paywalls and queues or creative EQing, which can take hours and hours to refine.
+I always wondered how producers found high-quality samples from other songs, with clean acapellas, drums, or instrumentals. The answer is typically uploading a song to a web service, with accounts, paywalls and queues, or hours and hours of creative EQing.
 
 After a bit of research into what was possible, I made Stems – a small, fast, dedicated Mac app with nothing else to install. Enjoy and let your 90s R&B remix dreams come true.
 
