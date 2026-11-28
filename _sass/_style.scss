@@ -2034,11 +2034,11 @@ iframe.no-rounding,
   }
 }
 
-// The live Stems loading animation (see stems-plant.js): square, drawn at device pixels
+// The live Stems loading animation (see stems-plant.js): 4:3, drawn at device pixels
 canvas.stems-plant {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 3;
   background-color: var(--color-bg-secondary);
 }

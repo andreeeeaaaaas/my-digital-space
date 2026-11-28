@@ -31,7 +31,7 @@ The Stems experience is similarly made for speed over complex tweaking, so lots 
 
 
 <figure class="">
-	<canvas class="stems-plant" width="96" height="96" role="img" aria-label="A pixel plant growing upward and branching, with a coloured flower blooming at the tip of each branch. A new plant grows each time"></canvas>
+	<canvas class="stems-plant" width="128" height="96" role="img" aria-label="A pixel plant growing upward and branching, with a coloured flower blooming at the tip of each branch. A new plant grows each time"></canvas>
 	<noscript><img src="assets/projects/stems-2-poster.webp" alt="A pixel plant with a coloured flower at the tip of each branch" width="1080" height="1080"></noscript>
 	<figcaption>The loading animation</figcaption>
 </figure>

@@ -1,6 +1,9 @@
 // The Stems loading animation, live: a port of PlantEngine (PlantGrowth.swift in the Stems app).
 // Each cycle grows a new plant from a fresh seed, alternating the app's two styles (fork and bed),
-// blooms one flower per stem, holds, then starts over.
+// blooms one flower per stem, holds, then starts over. The wind bends each branch on an arc, and
+// brushing the pointer over the plant stirs it up, as in the app.
+//
+// The engine's grid is 96×96; the canvas shows it centred in a 128×96 (4:3) frame.
 //
 // Greys are drawn as ink at level/15 opacity, so the app's 16-level ramp sits on any background:
 // white ink in dark mode (as in the app), black ink in light mode (the ramp inverted).
@@ -8,7 +11,10 @@
 // motion shows one still, fully bloomed plant.
 (function () {
   const SIZE = 96, GROUND = 88, FPS = 12;
+  const COLS = 128, ROWS = 96, OFFSET = (COLS - SIZE) / 2;
   const GROW_SECONDS = 4.5, HOLD_SECONDS = 2.5, SPLIT = 0.96;
+  // The app's 150pt of pointer travel for a full gust, at 2pt per grid pixel; then it fades.
+  const FULL_GUST = 75, GUST_FADE = 0.9;
 
   // MARK: Maths, matching the Swift (UInt32 wrapping, rounding half away from zero)
 
@@ -58,14 +64,46 @@
     return a + (b - a) * u;
   }
 
-  // Bends everything above the soil, more the higher it is.
-  function wind(time, seed, amp, still) {
-    amp = still ? 0 : amp;
-    const w = (noise(time * 0.35, seed) * 2 - 1) * 1.3 + (noise(time * 1.4, (seed + 9) >>> 0) * 2 - 1) * 0.35;
-    return (y) => {
-      const h = Math.max(0, GROUND - y) / 56;
-      return round(amp * w * h * h);
+  const smooth = (u) => u * u * (3 - 2 * u);
+
+  // How hard the wind leans the plant at a moment, roughly -2.7...2.7: a drift that turns over every
+  // couple of seconds, a quicker flutter on top, and now and then a gust from the seed's side. Each
+  // branch bends by this times its own share (FORK_BEND, BED_BEND). A pointer gust bends it up to 1.8×
+  // as far (in strength) and adds a quicker rustle on top.
+  function wind(time, seed, strength, rustle) {
+    return (lag = 0) => {
+      if (strength <= 0) return 0;
+      const t = time - lag;
+      const drift = (noise(t * 0.6, seed) * 2 - 1) * 1.2;
+      const flutter = (noise(t * 1.8, (seed + 9) >>> 0) * 2 - 1) * 0.4;
+      const g = noise(t * 0.12, (seed + 17) >>> 0);
+      const gust = g > 0.6 ? smooth((g - 0.6) / 0.4) * 1.1 : 0;
+      const stir = (noise(t * 4, (seed + 23) >>> 0) * 2 - 1) * 0.6 * rustle;
+      return strength * (drift + flutter + stir + gust * (seed % 2 === 0 ? 1 : -1));
     };
+  }
+
+  // Radians a fork segment turns from base to tip at full wind, by depth (the trunk barely, the tips
+  // most), and the seconds each level of branching lags the one below, so it doesn't move as one block.
+  const FORK_BEND = [0.035, 0.06, 0.085, 0.1], FORK_LAG = 0.12;
+  // Radians a bed sprout turns from soil to flower, and how many seconds each lags its left neighbour.
+  const BED_BEND = 0.2, BED_LAG = 0.25;
+
+  // Re-walks a path from base, turning each step a little more until it has turned `turn` radians at
+  // the tip, on top of the heading it inherits. Branches curve rather than hinge, and swing on an arc
+  // rather than sliding sideways (no shear).
+  function bend(path, base, heading, turn) {
+    const out = [base];
+    let x = base.x, y = base.y;
+    const steps = Math.max(1, path.length - 1);
+    for (let j = 1; j < path.length; j++) {
+      const dx = path[j].x - path[j - 1].x, dy = path[j].y - path[j - 1].y;
+      const a = heading + (turn * j) / steps, c = Math.cos(a), sn = Math.sin(a);
+      x += dx * c - dy * sn;
+      y += dx * sn + dy * c;
+      out.push({ x, y });
+    }
+    return out;
   }
 
   // MARK: Lines
@@ -124,8 +162,9 @@
     };
   }
 
-  function drawPath(g, path, count, level, dx) {
-    const moved = path.slice(0, count).map((p) => ({ x: p.x + dx(p.y), y: p.y }));
+  // Draws the first `count` pixels of a bent path, joined up so it stays unbroken.
+  function drawPath(g, path, count, level) {
+    const moved = path.slice(0, count).map((p) => ({ x: round(p.x), y: round(p.y) }));
     const drawn = [];
     moved.forEach((p, i) => (i === 0 ? drawn.push(p) : line(moved[i - 1], p, drawn)));
     for (const p of drawn) g.put(p.x, p.y, level);
@@ -222,7 +261,7 @@
       const path = bezier(start, control, end), c0 = parent == null ? 0 : segs[parent].c1;
       segs.push({
         path, depth: parent == null ? 0 : segs[parent].depth + 1,
-        c0, c1: c0 + path.length * r.between(0.85, 1.15), isTip: single, stem: 0, leaves: [],
+        c0, c1: c0 + path.length * r.between(0.85, 1.15), isTip: single, stem: 0, leaves: [], parent,
       });
       if (single) return;
       const tip = path[path.length - 1], me = segs.length - 1;
@@ -306,32 +345,42 @@
     }
 
     // growth runs 0...1 up to the split; bloom is how many frames ago the buds opened, or null.
-    return function pixels(growth, frame, bloom, still, palette) {
+    // gust (0...1) strengthens the wind while the pointer brushes the plant.
+    return function pixels(growth, frame, bloom, still, palette, gust) {
       const g = grid(), t = frame / FPS, tips = [];
+      gust = clamp(gust || 0, 0, 1);
+      const lean = wind(t, seed, still ? 0 : 1 + 0.8 * gust, gust);
       if (style === "fork") {
-        const dx = wind(t, seed, 2.2, still);
+        // Each segment's bent tip and heading, so its children start there and inherit its lean.
+        const ends = [], headings = [];
         for (let x = 41; x <= 55; x++) g.put(x, GROUND + 1, (x + 1) % 4 === 0 ? 4 : 3);
         for (let x = 37; x <= 59; x += 2) g.put(x, GROUND + 2, 2);
-        for (const s of segments) {
+        segments.forEach((s, i) => {
+          const base = s.parent == null ? { x: s.path[0].x, y: s.path[0].y } : ends[s.parent];
+          const heading = s.parent == null ? 0 : headings[s.parent];
+          const turn = lean(s.depth * FORK_LAG) * FORK_BEND[Math.min(s.depth, FORK_BEND.length - 1)];
+          const bent = bend(s.path, base, heading, turn);
+          ends[i] = bent[bent.length - 1];
+          headings[i] = heading + turn;
           const f = clamp((growth - s.c0) / Math.max(0.0001, s.c1 - s.c0), 0, 1);
           const count = Math.ceil(s.path.length * f);
-          if (count < 1) continue;
-          const moved = drawPath(g, s.path, count, s.depth === 0 ? 9 : 8, dx);
+          if (count < 1) return;
+          const moved = drawPath(g, bent, count, s.depth === 0 ? 9 : 8);
           for (const l of s.leaves) if (count - l.k > 2) leaf(g, moved[l.k], l.side, count - l.k);
           const tip = moved[moved.length - 1];
           if (f < 1) g.put(tip.x, tip.y - 1, 10);
           else if (s.isTip) tips.push([s.stem, tip, names[s.stem % stems]]);
-        }
+        });
       } else {
         const first = sprouts[0], last = sprouts[sprouts.length - 1];
         for (let x = first.x - 10; x <= last.x + 10; x++) g.put(x, GROUND + 1, x % 3 === 0 ? 4 : 3);
         for (let x = first.x - 9; x < last.x + 10; x += 2) g.put(x, GROUND + 2, 2);
         sprouts.forEach((p, i) => {
-          const dx = wind(t + i * 0.4, seed, 1.8, still);
           const pg = clamp((growth - p.start) / 0.62, 0, 1);
           if (pg <= 0) return g.put(p.x, GROUND, 6);
           const count = Math.max(1, Math.ceil(p.path.length * pg));
-          const moved = drawPath(g, p.path, count, 8, dx);
+          const turn = lean(i * BED_LAG) * BED_BEND;
+          const moved = drawPath(g, bend(p.path, { x: p.path[0].x, y: p.path[0].y }, 0, turn), count, 8);
           for (const l of p.leaves) if (count - l.k > 2) leaf(g, moved[l.k], l.side, count - l.k);
           const tip = moved[moved.length - 1];
           if (pg >= 1) tips.push([i, tip, names[i]]);
@@ -360,6 +409,9 @@
     let plant, frame = 0, drawn = -1, splitFrame = null, elapsed = 0;
     const playing = !reduceMotion.matches, still = reduceMotion.matches;
     let inView = false, last = null;
+    // How hard the pointer last brushed the plant, and when (seconds of elapsed time).
+    let brush = { strength: 0, at: -Infinity }, lastPointer = null;
+    const gustAt = () => brush.strength * Math.exp(-Math.max(0, elapsed - brush.at) / GUST_FADE);
 
     function nextPlant() {
       styleIndex ^= 1;
@@ -373,10 +425,11 @@
       if (progress >= SPLIT && splitFrame == null) splitFrame = frame;
       const growth = Math.min(1, progress / SPLIT);
       const dark = isDark();
-      const g = plant(growth, frame, splitFrame == null ? null : frame - splitFrame, still, dark ? palettes.dark : palettes.light);
+      const g = plant(growth, frame, splitFrame == null ? null : frame - splitFrame, still, dark ? palettes.dark : palettes.light, gustAt());
 
       // One fill per grey and per flower colour; cell edges rounded to device pixels so they stay crisp.
-      const W = canvas.width, edge = (i) => Math.round((i * W) / SIZE);
+      const W = canvas.width, H = canvas.height;
+      const ex = (i) => Math.round(((i + OFFSET) * W) / COLS), ey = (i) => Math.round((i * H) / ROWS);
       const ink = dark ? "255,255,255" : "0,0,0";
       const batches = new Map();
       for (let i = 0; i < SIZE * SIZE; i++) {
@@ -387,12 +440,12 @@
         if (!batches.has(key)) batches.set(key, []);
         batches.get(key).push(i);
       }
-      ctx.clearRect(0, 0, W, W);
+      ctx.clearRect(0, 0, W, H);
       for (const [fill, cells] of batches) {
         ctx.fillStyle = fill;
         for (const i of cells) {
           const x = i % SIZE, y = (i / SIZE) | 0;
-          ctx.fillRect(edge(x), edge(y), edge(x + 1) - edge(x), edge(y + 1) - edge(y));
+          ctx.fillRect(ex(x), ey(y), ex(x + 1) - ex(x), ey(y + 1) - ey(y));
         }
       }
     }
@@ -410,8 +463,8 @@
 
     // Size the backing store to the element's device pixels.
     function resize(width) {
-      const px = Math.max(SIZE, Math.round(width));
-      if (canvas.width !== px) { canvas.width = canvas.height = px; draw(); }
+      const w = Math.max(COLS, Math.round(width)), h = Math.round((w * ROWS) / COLS);
+      if (canvas.width !== w) { canvas.width = w; canvas.height = h; draw(); }
     }
     new ResizeObserver(([entry]) => {
       const box = entry.devicePixelContentBoxSize && entry.devicePixelContentBoxSize[0];
@@ -424,6 +477,20 @@
     // Repaint on theme changes, even while paused.
     new MutationObserver(draw).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
     systemDark.addEventListener("change", draw);
+
+    // Brushing the pointer over the plant stirs the wind: a full gust per FULL_GUST grid pixels of
+    // travel, fading over about a second. Mouse and pen only; a finger scrolling past shouldn't count.
+    canvas.addEventListener("pointermove", (e) => {
+      if (e.pointerType === "touch") return;
+      const rect = canvas.getBoundingClientRect(), scale = COLS / rect.width;
+      const point = { x: e.clientX * scale, y: e.clientY * scale };
+      if (lastPointer) {
+        const moved = Math.hypot(point.x - lastPointer.x, point.y - lastPointer.y);
+        brush = { strength: Math.min(1, gustAt() + moved / FULL_GUST), at: elapsed };
+      }
+      lastPointer = point;
+    });
+    canvas.addEventListener("pointerleave", () => (lastPointer = null));
 
     nextPlant();
     draw();
