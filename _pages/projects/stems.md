@@ -31,7 +31,8 @@ The Stems experience is similarly made for speed over complex tweaking, so lots 
 
 
 <figure class="">
-	<video class="contain" src="assets/projects/stems-2.mp4" poster="assets/projects/stems-2-poster.webp" width="1080" height="1080" autoplay muted loop playsinline preload="metadata" aria-label="A pixel stem growing upward and branching, with a coloured flower blooming at the tip of each branch"></video>
+	<canvas class="stems-plant" width="128" height="96" role="img" aria-label="A pixel plant growing upward and branching, with a coloured flower blooming at the tip of each branch. A new plant grows each time"></canvas>
+	<noscript><img src="assets/projects/stems-2-poster.webp" alt="A pixel plant with a coloured flower at the tip of each branch" width="1080" height="1080"></noscript>
 	<figcaption>The loading animation</figcaption>
 </figure>
 Every strand grows with a little bit of Perlin noise affecting height, sway and direction. This makes every stem extraction and grow pattern unique to that individual run.
@@ -60,3 +61,5 @@ Chooses which model runs the process
 	<div class="icon-frame"><img src="assets/projects/stems-1.webp" alt="The Stems app icon" loading="lazy"></div>
 	<figcaption>The Stems icon</figcaption>
 </figure>
+
+<script src="/assets/js/stems-plant.js" defer></script>
