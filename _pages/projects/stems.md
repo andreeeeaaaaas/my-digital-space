@@ -29,13 +29,24 @@ The app is inspired by [terminal user interfaces](https://en.wikipedia.org/wiki/
 
 The Stems experience is similarly made for speed over complex tweaking, so lots of design effort went into the loading/wait experience; an oft forgotten element in an interface. 
 
-
 <figure class="">
 	<canvas class="stems-plant" width="128" height="96" role="img" aria-label="A pixel plant growing upward and branching, with a coloured flower blooming at the tip of each branch. A new plant grows each time"></canvas>
 	<noscript><img src="assets/projects/stems-2-poster.webp" alt="A pixel plant with a coloured flower at the tip of each branch" width="1080" height="1080"></noscript>
 	<figcaption>The loading animation</figcaption>
 </figure>
+
 Every strand grows with a little bit of Perlin noise affecting height, sway and direction. This makes every stem extraction and grow pattern unique to that individual run.
+
+## Audio
+
+Stems is the first app I've made audio for. I wanted the app to have a calming little reminder of the thougth and care that went into it. It plays only on a fresh download, or an updated build.
+
+Sounds were made using a mix of Kontakt instruments, [[Overly complicated systems|my modular synthesisers]], and VSTs.
+
+<figure>
+	<video class="contain" src="assets/projects/stems-4.mp4" poster="assets/projects/stems-4-poster.webp" width="1600" height="1040" autoplay muted loop playsinline preload="metadata" data-audio aria-label="Opening Stems from the Dock: the app zooms in on a splash screen with a pixel flower stem, then shows the drop zone for choosing a track"></video>
+	<figcaption>The Stems welcome audio</figcaption>
+</figure>
 
 ## Usage
 

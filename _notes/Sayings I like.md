@@ -38,3 +38,6 @@ Norwegian for 'Like the yolk in the egg'.
 
  **"Sometimes it's better to travel than to arrive"**
  Robert M. Pirsig, Zen and the Art of Motorcycle Maintenance.
+
+**"Yesterday is history, tomorrow is a mystery, and today is a gift—that's why it's called the present."**
+Master Oogway, Kung Fu Panda.
